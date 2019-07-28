@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Ty">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Ty">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>关于三维重建的文献综述 · Providence&#39;s blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin="">
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin="">
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA1313915351', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Providence&#39;s blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">关于三维重建的文献综述</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Providence's blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            关于三维重建的文献综述
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "3D model reconstruction">3D model reconstruction</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "文献综述">文献综述</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">5.5k</span>阅读时长: <span class="post-count reading-time">23 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/01/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv检索</a></p>
+<ol>
+<li>1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎</li>
+<li>1812.01742 单一视角的三维重建，使用对抗训练（非人</li>
+<li>1812.05583 基于学习的ICP（迭代最近点算法）重构场景（非人</li>
+<li>1812.07603 通过视频素材的面部模型学习</li>
+<li>1812.05806 自我监督的引导方法，单图片的三维人脸重建</li>
+<li>1812.02822 学习生成模型的隐藏区域（非人</li>
+<li>1901.00049 基于轮廓的衣着人物（全身</li>
+</ol>
+<p><strong>A类</strong></p>
+<ul>
+<li>通过直接体积cnn回归从单图重建大范围三维人脸（源码lua+py</li>
+<li>使用图到图转换的无限制面部重建（源码lua</li>
+</ul>
+<p><strong>老师推荐</strong></p>
+<ul>
+<li>使用affinity field的实时多人二维姿态估计</li>
+</ul>
+<h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><h2 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h2><p><strong>关于三维重建</strong><br>单个图像进行三维重建的数据驱动方法：一是明确使用三维结构，二是使用其他信息推断三维结构<br>2DImage–&gt;encoder–&gt;latent representation–&gt;decoder–&gt;3DObject<br>不同方法区别在于对三维世界采取的<strong>限制</strong>：多视图一致性学习三维表示、利用关键点和轮廓注释、利用2.5D草图（法线，深度和轮廓）改善预测  </p>
+<p>encoder-decoder的<a href="https://blog.csdn.net/chinabing/article/details/78763454" target="_blank" rel="noopener">含义</a></p>
+<p><strong>关于shape priors</strong><br>许多方法选择更好的捕捉多样的真实形状<br><strong>non-deep方法</strong>关注低维参数模型，使用CNN来学习2D渲染图像和3D形状的<strong>共同嵌入空间</strong><br>其他方法依赖<strong>生成模型</strong>去学习shape priors</p>
+<h2 id="博客链接"><a href="#博客链接" class="headerlink" title="博客链接"></a>博客链接</h2><p><a href="https://blog.csdn.net/yyyllla/article/details/84573393" target="_blank" rel="noopener">3D人脸重建学习笔记CSDN</a><br><a href="https://www.jianshu.com/p/f33b3d440f7d" target="_blank" rel="noopener">3D重建的学习笔记简书</a></p>
+<h2 id="Learning-Single-View-3D-Reconstruction-with-Adversarial-Training-1812-01742"><a href="#Learning-Single-View-3D-Reconstruction-with-Adversarial-Training-1812-01742" class="headerlink" title="Learning Single-View 3D Reconstruction with Adversarial Training 1812.01742"></a>Learning Single-View 3D Reconstruction with Adversarial Training 1812.01742</h2><p>传统方法用多个角度的多张照片实现三维建模<br>问题两个：一是需要大量的观察点；二是物体表面是<em>Lambertian</em>（非反射）albedos是非均匀的<br>另一种三维重建的方式是利用物体外观和形状的知识从单视图二维图像生成（假设shape priors足够丰富）<br>CAD库（computer-aided design）：<u>shapenet，pascal3d+，objectnet3d，pix3d</u>  </p>
+<p>这些方法都从渲染的图像中回归三维形状：将二位图像转化成潜在表示的<strong>编码器</strong> 以及 重建三维表示的<strong>解码器</strong><br>为了学习shape priors深度学习算法需要大量的三维对象注释，自然图像中获取三维注释很有挑战，因此使用合成图像（三维模型渲染出的图像）<br>CNN的<u>domain shift</u>问题，导致基于cnn的三维重建性能恶化  </p>
+<p>这篇文章的方法：提高重建模型性能，为了实现获取三维物体标签，他们shape priors训练出的网络有个<strong>重建损失值</strong>，给这个值引入了两个限制<br>一是受domain shift文献启示，强制让编码的二维特征不变，对应于他们所来自的domain。这样合成图像训练出的编码器在真实图像上表现更好<br>二是将编码的二维特征限制在现实物体的多种形状之中，通过对抗训练定义这两个损失值<br>总结：一个<strong>模型</strong>和<strong>损失函数</strong>，利用shape priors提高自然图像三维重建性能（两种方式使用对抗训练）<br>reconstruction adversarial network(RAN)<br><strong>只使用rgb图像信息</strong>，和易于获取的自然图像。独立于编码器和解码器，并且可以使用到其中<br>借鉴了domain confusion（作用是classification），为了让从合成图像里训练出来的模型在真实图像这边有更好的表现  </p>
+<p>具体方法：todo</p>
+<h2 id="通过直接体积cnn回归从单图重建大范围三维人脸"><a href="#通过直接体积cnn回归从单图重建大范围三维人脸" class="headerlink" title="通过直接体积cnn回归从单图重建大范围三维人脸"></a>通过直接体积cnn回归从单图重建大范围三维人脸</h2><p>目前三维人脸重建的方法多假定有多张面部图片可以使用，这使得重建面临方法上的挑战：在夸张的表情、不均匀光照上建立稠密对应关系<br>这些方法需要复杂低效的管道构建模型，拟合模型。本文建议通过在由2D图像和3D面部模型或扫描组成的适当数据集上训练卷积神经网络<br>（CNN）来解决这些限制</p>
+<h2 id="Extreme-3D-Face-Reconstruction-Seeing-Through-Occlusions-极端3D面部重建：遮挡透视（讲）"><a href="#Extreme-3D-Face-Reconstruction-Seeing-Through-Occlusions-极端3D面部重建：遮挡透视（讲）" class="headerlink" title="Extreme 3D Face Reconstruction: Seeing Through Occlusions 极端3D面部重建：遮挡透视（讲）"></a>Extreme 3D Face Reconstruction: Seeing Through Occlusions 极端3D面部重建：遮挡透视（讲）</h2><p>bumpingmapping概念的推动下，该文提出了一种分层方法。将全局形状与其中细节进行解耦。估计粗糙的3d面部形状为基础，然后将此基础与凹凸贴图表示的细节分开。<br>与本文相关的工作：<br>    reconstruction by example 这类方法用三维脸部形状去调整根据输入图片估计出的模型，降低了观看条件却损失了真实度与准确性<br>    face shape from facial landmarks 这类方法稳定但是模型都差不多，没有细节，而且不清楚遮挡landmark的情况下表现会如何<br>    SfS <em>Shape-From-shading</em> 根据光反射生成细节丰富的模型，但是受环境影响严重，需要满足其对环境的特殊要求。任何遮挡物都会生成到模型中<br>    statistical representations 最著名的方法是3DMM，这篇文改进了这个方法直接根据图片强度信息用cnn回归3DMM的参数和面部细节<br>    deep face shape estimation 深度网络一是直接用深度图重建，二是estimate 3D shapes with anemphasis on unconstrained photo 观察条件高度不变但是细节模糊  </p>
+<p><strong>准备工作</strong><br>矛盾：整体形状的高度正则化vs细节的弱正则化。解决方法：bump map representations which separate global shape from local details<br>    理解的正则化：使模型更有普适性，低正则化是让模型有更多细节、更有特点，反之是让模型更接近普适的规则（每个模型都有一只鼻子一张嘴两只眼睛）<br>给一张图片建立以下几个部分：基础形状——S，面部表情——E，6维度的自由视点——V。接下来是bump map捕捉中级特征（皱纹等非参数的），最后完成因遮挡丢失的细节。<br><strong>添加细节</strong><br>基础形状使用3DMM，3DMM用了resnet的101层网络架构。表情部分由3DDFA提供，更新的有expnet。确定视点用了deep，facepostnet。<br>中等程度细节：image to bump map，修复遮挡细节，基于软对称的模型完善。<br><a href="http://vis-www.cs.umass.edu/lfw/" target="_blank" rel="noopener">LFW验证</a></p>
+<p>PPT用：<br>目的：现有单图三维重建局限性很高，必须在正前方、距离近、无阻挡的视点，该文设计了一种用于在极端条件下提供细节丰富的面部三维重建模型的系统。极端条件包括，头部旋转以及遮挡<br>方法：简单讲步骤，关键的创新点，值得学习的点后边会细说。<br>总的来说：先创建面部整体的基础形状，与局部细节分开，在基础形状之上建立中等程度的面部特征。这样做可以保证极端条件下整体面部形状的稳定性。其他较新的方法往往用局部细节构建整体形状。<br> 构建基础形状s，构建面部表情e，构建视点v：<em>凹凸图可以分离整体形状和局部细节</em><br>这仨东西分别是干什么用的：<em>基础形状使用3DMM，3DMM用了resnet的101层网络架构。表情部分由3DDFA提供，更新的有expnet。确定视点用了deep，facepostnet。</em><br>image to bump map转换<br>凹凸图训练集：用深度编码-解码框架生成凹凸图<br>学习建立凹凸图：定义了自己的网络损失函数，可以在不牺牲高频细节的情况下抑制噪声<br>还原遮挡细节<br>给予范例的空洞填充方法<br>搜索参考集<br>混合细节<br>更复杂的修补<br>基于软对称的模型补全  </p>
+<p>贡献：解决<strong>对foundation的高度正则化</strong> VS <strong>对detail的低正则化</strong> 两者的矛盾  </p>
+<p>注：<br>    bump map使用灰度值来提供高度信息，normal map使用xyz轴所对应的rgb信息<br>    <a href="https://github.com/vdumoulin/conv_arithmetic" target="_blank" rel="noopener">卷积与反卷积</a></p>
+<p>跑demo流程：<br>    NVIDIA-docker启动container，如果跑代码没有driver重新run一个，用readme里的run命令。<br>    之后会出现860m只支持cuda5.0的报错，需要<a href="https://github.com/pytorch/pytorch#from-source" target="_blank" rel="noopener">从源码编译pytorch</a>。首先docker里装anaconda<br>        wget <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2018.12-Linux-x86_64.sh" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2018.12-Linux-x86_64.sh</a><br>        应该不用在docker里装cuda和cudnn，直接安装pytorch的依赖然后安装pytorch应该就可以<br>        在1080上不会出现上边的报错，完全按照README走就行。</p>
+<p><a href="extreme_3d_face.pptx">PPT</a></p>
+<iframe src="https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/extreme_3d_face.pptx" width="800" height="600" frameborder="1"></iframe>
+
+<h2 id="Learning-to-Estimate-3D-Human-Pose-and-Shape-from-a-Single-Color-Image-讲-DOI-10-1109-CVPR-2018-00055"><a href="#Learning-to-Estimate-3D-Human-Pose-and-Shape-from-a-Single-Color-Image-讲-DOI-10-1109-CVPR-2018-00055" class="headerlink" title="Learning to Estimate 3D Human Pose and Shape from a Single Color Image(讲) DOI:10.1109/CVPR.2018.00055"></a>Learning to Estimate 3D Human Pose and Shape from a Single Color Image(讲) DOI:10.1109/CVPR.2018.00055</h2><p>SCAPE:  shape  completion  and  animationof people<br>SMPL: A skinned multi-person linear model<br>SMPL是一种参数化人体模型，与非参数化模型的区别在于，参数化的可以用函数映射的方式表达出来，或者说是可以解析的？非参数化则认为是通过实验记录到的模型，不存在解析表达式。  </p>
+<p>Stacked Hourglass Networks<br><a href="https://blog.csdn.net/wangzi371312/article/details/81174452" target="_blank" rel="noopener">资料一</a><br><a href="https://blog.csdn.net/shenxiaolu1984/article/details/51428392" target="_blank" rel="noopener">资料二</a></p>
+<p><a href="https://blog.csdn.net/dengheCSDN/article/details/77848246" target="_blank" rel="noopener">feature map</a><br>channel:<br>卷积核个数、特征图个数、通道个数关系</p>
+<p><a href="Learning to Estimate 3D Human Pose and Shape from a Single Color Image.pptx">PPT</a></p>
+<iframe src="https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/Learning to Estimate 3D Human Pose and Shape from a Single Color Image.pptx" width="800" height="600" frameborder="1"></iframe>
+
+<h2 id="O-CNN-Octree-based-Convolutional-Neural-Networks-for-3D-Shape-Analysis"><a href="#O-CNN-Octree-based-Convolutional-Neural-Networks-for-3D-Shape-Analysis" class="headerlink" title="O-CNN: Octree-based Convolutional Neural Networks for 3D Shape Analysis"></a>O-CNN: Octree-based Convolutional Neural Networks for 3D Shape Analysis</h2><p>还有adaptive o-cnn<br>The main technical challenge of the O-CNN is to parallelize the O-CNN computations defined on the sparse octants so that they can be efficiently executed on the GPU<br>We train this O-CNN model with 3D shape datasets and refine the O-CNN models with different back-ends for three shape analysis tasks, including object classification, shape retrieval, and shape segmentation.</p>
+<h2 id="Pixel2Mesh（讲）"><a href="#Pixel2Mesh（讲）" class="headerlink" title="Pixel2Mesh（讲）"></a>Pixel2Mesh（讲）</h2><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>编译tensorflow math_functions.hpp找不到。需要软链接这个玩意<br>ln -s /usr/local/cuda/include/crt/math_functions.hpp /usr/local/cuda/include/math_functions.hpp  </p>
+<p>关于eigen和cuda<a href="https://blog.csdn.net/O1_1O/article/details/80066236" target="_blank" rel="noopener">资料</a><br>makefile怎么写。<br>hdf5 HDF（Hierarchical Data Format）是一种设计用于存储和组织大量数据的文件格式</p>
+<p><strong>CUDACC_VER</strong> is no longer supported.的报错看来要更新<a href="https://blog.csdn.net/luojie140/article/details/80159227" target="_blank" rel="noopener">eigen3</a>才能解决<br>github上新版eigen考到anaconda的eigen和support里就可以成功编译cuda了</p>
+<p>图卷积神经网络<a href="http://tkipf.github.io/graph-convolutional-networks/" target="_blank" rel="noopener">资料</a><br>图卷积神经网络<a href="https://cloud.tencent.com/developer/news/330322" target="_blank" rel="noopener">材料</a><br><strong>所有的卷积都是在探讨如何对局部数据按照某一个操作聚合，不同的操作方式就对应于不同的卷积。</strong>学习卷积核的过程其实是学习局部聚合参数的过程</p>
+<p><a href="pixel2mesh.pptx">PPT</a></p>
+<iframe src="https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/pixel2mesh.pptx" width="800" height="600" frameborder="1"></iframe>
+
+<h2 id="SMPL-A-Skinned-Multi-Person-Linear-Model-多篇基础，15年"><a href="#SMPL-A-Skinned-Multi-Person-Linear-Model-多篇基础，15年" class="headerlink" title="SMPL: A Skinned Multi-Person Linear Model(多篇基础，15年)"></a>SMPL: A Skinned Multi-Person Linear Model(多篇基础，15年)</h2><h2 id="Video-Based-Reconstruction-of-3D-People-Models-讲，没用网络-DOI-10-1109-CVPR-2018-00875-video2mesh"><a href="#Video-Based-Reconstruction-of-3D-People-Models-讲，没用网络-DOI-10-1109-CVPR-2018-00875-video2mesh" class="headerlink" title="Video Based Reconstruction of 3D People Models(讲，没用网络) DOI:10.1109/CVPR.2018.00875 (video2mesh)"></a>Video Based Reconstruction of 3D People Models(讲，没用网络) DOI:10.1109/CVPR.2018.00875 (video2mesh)</h2><p>第五页第一张图解决了人体非刚性的问题<br>但是问题在于人必须转身后摆出相同的姿势 不允许姿势变化<br>第二张图 可以随意动 不同时刻的深度图非张性的注册并融合到一个template上<br>存在 phantom surface的问题 运动的快会四肢胳膊 两个头<br>第三个 加了一个static的人体模型作为约束 运动速度可以更快  </p>
+<p>第一个使用rgb相机 并且支持用户运动的重建方法<br>主要思想 和visual hull相似 不同角度拍摄剪影进行重建<br>visual hull的基本原理 几个角度拍摄 分割出前景得到silhouette<br>然后从相机坐标到silhouette的每一个点可以做一条射线 形成的曲面成为silhouette cone<br>用这些cone作为约束就可以重建出三维模型 可以类比为雕刻的过程<br>去掉cone之外的部分 最终剩下的部分就是人体的形状  </p>
+<p>标准的vh的问题是只能用于静态的物体 这篇的主要是讲怎么把vh用到动态的物体<br>第八页 每帧姿势都不一样 要做的就是去除由于运动对cone造成的变化 称为unpose的过程<br>用unpose的cone做三维重建  </p>
+<p>使用的人体的三维表达：smpl 参数化模型 T是template的mean shape，Bs是体型变化造成的模型变化<br>Bp是pose的变化带来的变化<br>问题在于没有办法model衣服头发面部特征 基础上加了D offset用于表达smpl表达不了的信息  </p>
+<p>四个步骤<br>1 前景分割 获取silhouette cone， tracking获取人体模型的姿态<br>2 利用pose信息做unpose操作 转到Tpose姿态下<br>3 人体重建 包含衣服 头发 人脸的人体模型<br>4 多视角图像生成人体贴图  </p>
+<p>1 基于cnn的方法 2d drawn detection 图像分割的方法 前景分割生成silhouette<br>优化第12页的能量函数 进行pose tracking //简单来说就是求最优的pose和shape的参数 和模型匹配到检测到的<br>2d drawn detection和silhouette上//<br>2 第一步得到的cone进行unpose 每一条射线进行unpose转到canonical pose下<br>//两个数学表达式 射线的转换//<br>任何一点vi 和 任何一条射线ri<br>3 利用unpose后的cone做三维重建 称为consensus shape，相比较SMPL/视频表现出的是可以对衣服进行重建<br>过程可以通过优化一个能量公式实现<br>Edata：模型上的点到unpose ray的距离<br>三个正则项：lap保证局部光滑，body保证重建出的与smpl差距不大，symm保证左右对称<br>4 有了几何信息后 生成appearance信息 生成texture map 第一步有每一帧的pose，精确的将模型覆盖到图像上<br>通过//重投影获得贴图//  </p>
+<p>用sfs（之前的文章有提到）可以提供更多细节，本文方法可以提高的地方<br>对<strong>能量函数</strong>的理解：构建能量函数就是我们用方程的最小值来描述我们想要达到的实际效果。<a href="https://blog.csdn.net/a6333230/article/details/80070586" target="_blank" rel="noopener">资料</a></p>
+<p>第一步最费时间 一帧一分钟 model和silhouette的匹配费时间<br>穿裙子解决不了 改变不了smplmodel的拓扑结构 拉不过去<br>基于cnn的分割已经接近于完美了 用的别人的方法 不是重点<br>给纹理图上色：consensus shape 结合第一步的pose 精确匹配到每一帧的图像上 back projection  </p>
+
+
+	<div class="row">
+    <embed src="videobasedreconstructionof3dpeoplemodelsGAMES201850徐维鹏.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p><a href="videobasedreconstructionof3dpeoplemodelsGAMES201850徐维鹏.pdf">ppt</a></p>
+<h2 id="Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera（2019-4video2mesh延伸论文，同一实验室）"><a href="#Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera（2019-4video2mesh延伸论文，同一实验室）" class="headerlink" title="Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）"></a>Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）</h2><p>安装dirt遇到的问题：<a href="https://github.com/pmh47/dirt/issues/23" target="_blank" rel="noopener">https://github.com/pmh47/dirt/issues/23</a><br>已经尝试过cuda10.1/10.0/9.2 cudnn都是对应版本，tensorflow单独测试成功<br>更改gcc/g++版本：<a href="https://blog.csdn.net/u012925946/article/details/84584830" target="_blank" rel="noopener">https://blog.csdn.net/u012925946/article/details/84584830</a></p>
+<p>最终安装dirt解决方法是：<br>ubuntu 18.04，cuda 8.0，cudnn 6.0，tf 1.4.0，driver 396.54<br>注意conda install 的 cudatoolkit和cudnn不能取代本机安装的cuda和cudnn，也就是说本机要安cuda，cudnn，conda装tf时要装cudatoolkit，cudnn  </p>
+<p>先装tensorflow再装-gpu 才能启用gpu 前者版本不能比后者高，libcudnn.so.x报错需要在conda里安装tf，tf-gpu。注意版本匹配</p>
+<p>跑Octopus的实验时需要<br>scipy&gt;=1.0.0<br>numpy&gt;=1.16<br>Keras&gt;=2.2.0<br>tensorflow_gpu&gt;=1.11.0<br>dirt<br>否则会报：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">(video2mesh) ty@ty-GE60-2PF:~/repos/octopus$ bash run_batch_demo.sh </span><br><span class="line">Using TensorFlow backend.</span><br><span class="line">2019-05-29 15:18:24.784883: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA</span><br><span class="line">2019-05-29 15:18:24.835566: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node <span class="built_in">read</span> from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero</span><br><span class="line">2019-05-29 15:18:24.835835: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: </span><br><span class="line">name: GeForce GTX 860M major: 5 minor: 0 memoryClockRate(GHz): 1.0195</span><br><span class="line">pciBusID: 0000:01:00.0</span><br><span class="line">totalMemory: 1.96GiB freeMemory: 1.08GiB</span><br><span class="line">2019-05-29 15:18:24.835855: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -&gt; (device: 0, name: GeForce GTX 860M, pci bus id: 0000:01:00.0, compute capability: 5.0)</span><br><span class="line">Processing sample...</span><br><span class="line">&gt; Optimizing <span class="keyword">for</span> pose...</span><br><span class="line">  0%|          | 0/10 [00:00&lt;?, ?it/s]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"infer_batch.py"</span>, line 87, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    main(args.weights, args.num, args.batch_file, args.opt_steps_pose, args.opt_steps_shape)</span><br><span class="line">  File <span class="string">"infer_batch.py"</span>, line 46, <span class="keyword">in</span> main</span><br><span class="line">    model.opt_pose(segmentations, joints_2d, opt_steps=opt_pose_steps)</span><br><span class="line">  File <span class="string">"/home/ty/repos/octopus/model/octopus.py"</span>, line 290, <span class="keyword">in</span> opt_pose</span><br><span class="line">    callbacks=[LambdaCallback(on_batch_end=lambda e, l: pbar.update(1))]</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/engine/training.py"</span>, line 1010, <span class="keyword">in</span> fit</span><br><span class="line">    self._make_train_function()</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/engine/training.py"</span>, line 509, <span class="keyword">in</span> _make_train_function</span><br><span class="line">    loss=self.total_loss)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/legacy/interfaces.py"</span>, line 91, <span class="keyword">in</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> func(*args, **kwargs)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/optimizers.py"</span>, line 475, <span class="keyword">in</span> get_updates</span><br><span class="line">    grads = self.get_gradients(loss, params)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/optimizers.py"</span>, line 89, <span class="keyword">in</span> get_gradients</span><br><span class="line">    grads = K.gradients(loss, params)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py"</span>, line 2757, <span class="keyword">in</span> gradients</span><br><span class="line">    <span class="built_in">return</span> tf.gradients(loss, variables, colocate_gradients_with_ops=True)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/tensorflow/python/ops/gradients_impl.py"</span>, line 555, <span class="keyword">in</span> gradients</span><br><span class="line">    (op.name, op.type))</span><br><span class="line">LookupError: No gradient defined <span class="keyword">for</span> operation <span class="string">'smpl_body25face_layer_1_7/smpl_main/Svd'</span> (op <span class="built_in">type</span>: Svd)</span><br></pre></td></tr></table></figure></p>
+<p>显卡驱动还崩了 用ubuntu自带的怎么切驱动nvidia-smi都会报一行错<br>NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed<br>and running.<br>然后切不懂了卡在390 有这个问题<a href="https://askubuntu.com/questions/1035409/installing-nvidia-drivers-on-18-04" target="_blank" rel="noopener">https://askubuntu.com/questions/1035409/installing-nvidia-drivers-on-18-04</a></p>
+<h2 id="Neural-Body-Fitting-Unifying-Deep-Learning-and-Model-Based-Human-Pose-and-Shape-Estimation（3DV-2018）"><a href="#Neural-Body-Fitting-Unifying-Deep-Learning-and-Model-Based-Human-Pose-and-Shape-Estimation（3DV-2018）" class="headerlink" title="Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation（3DV 2018）"></a>Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation（3DV 2018）</h2><h3 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h3><p>已经有很多成功的工作，生成人体关键点，棒状表示模型（火柴人）（说的就是openpose）<br>这里作者提出的是基于smpl的更具挑战性的任务：estimating the parameters of a detailed statistical human body model from a single image  </p>
+<p>Traditional model-based approaches typically optimize an objective function that measures how well the model fits the image observations<br>传统的需要一个差不多初始化模型，然后把初值优化到最终结果（不需要3d训练数据——带3d动作标注的图片）<br>CNN就是forward prediction models，就不需要initialization，但是需要3d姿态标注，不像2d标注好获得  </p>
+<p>他们近期的工作通过把重建出的模型投影回2d空间更新损失函数，就可以使用2d标注了<br>本文的<strong>目的</strong>：To analyze the importance of such components<br>components: image–(CNN,3d notation trained)–&gt;smpl model(hybird params)–&gt;image–(reproject)–&gt;2d notation for CNN training<br>要形成闭环（loop）<br>NBF = 一个包含统计身体模型的CNN<br>两种监督模式：full 3d sup和weak 2d sup，bottom-up top-down的方法，使得NBF既不需要初始化模型也不需要3d标注的训练数据<br>因为光照、衣服、杂乱的背景都不想要，专注于pose和shape，所以用处理后的image代替原始rgb image<br>结论：</p>
+<ol>
+<li>12-body-part的分割就包含了足够的shape和pose信息</li>
+<li>这种处理后图像的方法比起用原图，效果有竞争力，更简单，训练数据利用率更高</li>
+<li>分割质量可以强有力预测fit质量</li>
+</ol>
+<p>总结：</p>
+<ol>
+<li>unites deep learning-based with traditional model-based methods</li>
+<li>an in-depth analysis of the necessary components to achieve good performance in hybrid architectures and provide insights for its real-world applicability</li>
+</ol>
+<h3 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h3><p>Most model-based approaches fit a model to image evidence through complex non-linear optimization, requiring careful initialization to avoid poor local minima.<br>用2d关键点是为了降低fitting复杂度<br>lifting to 3D from 2D information alone is an ambiguous problem  </p>
+<p>前人的工作有用rgb image的/image+2d keypoint的/2d keypoint+silhouette的<br>NBF不需要初始化模型，用semantic segmentation做图片代理输入，原因有三：</p>
+<ol>
+<li>去除与3dpose无关的图像信息</li>
+<li>比keypoint和silhouette语义信息多</li>
+<li>允许分析精细程度（粒度）和placement对3d预测的重要程度</li>
+</ol>
+<p>三个数据集UP-3D，HumanEva-I，Human3.6M<br>
+
+	<div class="row">
+    <embed src="19.6.25_weekly_report.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+<br>三个数据集<a href="http://files.is.tuebingen.mpg.de/classner/up/" target="_blank" rel="noopener">UP-3D</a>,<br><a href="http://humaneva.is.tue.mpg.de/datasets_human_1" target="_blank" rel="noopener">HumanEva-I</a>,<br><a href="http://vision.imar.ro/human3.6m/description.php" target="_blank" rel="noopener">Human3.6M</a>  </p>
+<p>up-3d有大量smpl形式的3d标注</p>
+<p>其他数据集：</p>
+<p><strong>HumanEva-I使用方法</strong>：<br>To be able to use HumanEva-I dataset you must do the following:<br>  Sing up and agree with the license or Login if you already have an account.<br>  Download the entire HumanEva-I dataset as either zip or tar archive depending on your system.<br>  Download critical HumanEva-I update and update the OFS files.<br>  Download the latest source code.<br>  (optional) Download background statistics<br>  (optional) Download the surface model for subject S4.   </p>
+<p>装matlab, XVID codec, DXAVI toolbox, Camera Calibration Toolbox for Matlab<br>给matlab指定了mingw作为c++编译器  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Undefined <span class="keyword">function</span> or variable <span class="string">'dxAviOpenMex'</span>.</span><br><span class="line"></span><br><span class="line">Error <span class="keyword">in</span> dxAviOpen (line 3)</span><br><span class="line">	[hdl, t] = dxAviOpenMex(fname);</span><br><span class="line"></span><br><span class="line">Error <span class="keyword">in</span> testDxAvi (line 4)</span><br><span class="line">[avi_hdl, avi_inf] = dxAviOpen([pathname, filename]);</span><br></pre></td></tr></table></figure>
+<p>运行mex_cmd出现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F:\datasets\HumanEva-I\Release_Code_v1_1_beta\TOOLBOX_dxAvi\dxAviHelper.h:9:21: fatal error: atlbase.h: No such file or directory</span><br><span class="line"> <span class="comment">#include &lt;atlbase.h&gt;</span></span><br></pre></td></tr></table></figure>
+<p>应该是没有这个库的原因，有说是visual studio的库，打算装个vs2019 ATL库试试<br>matlab不支持2019 mex -setup -v可以看到指搜索到vs2017<br>所以装了vs2015，atlbase就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Building with <span class="string">'Microsoft Visual C++ 2015'</span>.</span><br><span class="line">Error using mex</span><br><span class="line">dxAviOpenMex.cpp</span><br><span class="line">BaseClasses\ctlutil.h(278): error C4430: missing <span class="built_in">type</span> specifier - int assumed. Note: C++ does not support default-int</span><br><span class="line">g:\grads\3dreconstruction\humaneva-i\release_code_v1_1_beta\toolbox_dxavi\dxAviHelper.h(15): fatal error C1083: Cannot open</span><br><span class="line">include file: <span class="string">'qedit.h'</span>: No such file or directory</span><br></pre></td></tr></table></figure></p>
+<p>原因在这里<a href="https://github.com/facebookresearch/VideoPose3D/blob/master/DATASETS.md" target="_blank" rel="noopener">link</a></p>
+<p>github上找了win64编译好的.m脚本，解决。 </p>
+<p><strong>todo</strong> 怎么做validation</p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="复原实验"><a href="#复原实验" class="headerlink" title="复原实验"></a>复原实验</h2><ol>
+<li>Extreme 3D Face Reconstruction: Seeing Through Occlusions <a href="https://github.com/anhttran/extreme_3d_faces" target="_blank" rel="noopener">Github</a><ol>
+<li>环境：linux docker镜像</li>
+<li>依赖：<ul>
+<li>our Bump-CNN</li>
+<li>our PyTorch CNN model</li>
+<li>the Basel Face Model</li>
+<li>3DDFA Expression Model</li>
+<li>3DMM_model</li>
+<li>dlib face prediction model</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Learning to Reconstruct People in Clothing from a Single RGB Camera <a href="https://github.com/thmoa/octopus" target="_blank" rel="noopener">Github</a><ol>
+<li>环境：linux tf</li>
+<li>依赖：<ul>
+<li><a href="https://github.com/pmh47/dirt" target="_blank" rel="noopener">DIRT</a></li>
+<li><a href="http://smplify.is.tue.mpg.de/" target="_blank" rel="noopener">SMPL model</a></li>
+<li><em><a href="https://drive.google.com/open?id=1_CwZo4i48t1TxIlIuUX3JDo6K7QdYI5r" target="_blank" rel="noopener">pre-trained model weights</a></em></li>
+</ul>
+</li>
+<li>备注：图片预处理需要<ul>
+<li>PGN semantic segmentation：Linux/tensorflow <a href="https://github.com/Engineering-Course/CIHP_PGN" target="_blank" rel="noopener">Code</a></li>
+<li>OpenPose body_25 and face keypoint detection：Win <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose" target="_blank" rel="noopener">.exe</a></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation <a href="https://github.com/mohomran/neural_body_fitting" target="_blank" rel="noopener">Github</a><ol>
+<li>环境：win/linux tensorflow-gpu==1.6.0</li>
+<li>依赖：<ul>
+<li><a href="http://smpl.is.tue.mpg.de/downloads" target="_blank" rel="noopener">SMPL model(跟上边的还有区别)</a></li>
+<li><a href="http://transfer.d2.mpi-inf.mpg.de/mohomran/nbf/refinenet_up.tgz" target="_blank" rel="noopener">segmentation model</a></li>
+<li><a href="http://transfer.d2.mpi-inf.mpg.de/mohomran/nbf/demo_up.tgz" target="_blank" rel="noopener">fitting model</a></li>
+</ul>
+</li>
+<li>备注：没training code</li>
+</ol>
+</li>
+</ol>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><ol>
+<li>HumanEva-I<ol>
+<li>环境：win/linux matlab</li>
+<li>依赖：几个toolbox其中dxavi用的github上编译好的.m</li>
+</ol>
+</li>
+<li>UP-3D<ol>
+<li>环境：</li>
+<li>依赖：</li>
+</ol>
+</li>
+<li>Human3.6M<ol>
+<li>注册不通过（20190716）</li>
+</ol>
+</li>
+</ol>
+<h2 id="repos"><a href="#repos" class="headerlink" title="repos"></a>repos</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">repo name</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">VideoPose3D</td>
+<td style="text-align:left">3D human pose estimation in video with temporal convolutions and semi-supervised training</td>
+</tr>
+<tr>
+<td style="text-align:left">smplify-x</td>
+<td style="text-align:left">Expressive Body Capture: 3D Hands, Face, and Body from a Single Image</td>
+</tr>
+<tr>
+<td style="text-align:left">neural_body_fitting</td>
+<td style="text-align:left">Neural Body Fitting code repository</td>
+</tr>
+<tr>
+<td style="text-align:left">octopus</td>
+<td style="text-align:left">Learning to Reconstruct People in Clothing from a Single RGB Camera</td>
+</tr>
+<tr>
+<td style="text-align:left">videoavatars</td>
+<td style="text-align:left">Video based reconstruction of 3D people models</td>
+</tr>
+<tr>
+<td style="text-align:left">extreme_3d_faces</td>
+<td style="text-align:left">Extreme 3D Face Reconstruction: Seeing Through Occlusions</td>
+</tr>
+<tr>
+<td style="text-align:left">3Dpose_ssl</td>
+<td style="text-align:left">3D Human Pose Machines with Self-supervised Learning</td>
+</tr>
+<tr>
+<td style="text-align:left">pose-hg-train</td>
+<td style="text-align:left">Training and experimentation code used for “Stacked Hourglass Networks for Human Pose Estimation”</td>
+</tr>
+<tr>
+<td style="text-align:left">PRNet</td>
+<td style="text-align:left">Joint 3D Face Reconstruction and Dense Alignment with Position Map Regression Network (ECCV 2018)</td>
+</tr>
+<tr>
+<td style="text-align:left">vrn</td>
+<td style="text-align:left">Large Pose 3D Face Reconstruction from a Single Image via Direct Volumetric CNN Regression</td>
+</tr>
+<tr>
+<td style="text-align:left">openpose</td>
+<td style="text-align:left">OpenPose: Real-time multi-person keypoint detection library for body, face, hands, and foot estimation</td>
+</tr>
+</tbody>
+</table>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ul>
+<li>单图多人（人群）三维重建<br>可能需要解决的问题：<br>遮挡<br>分割<br>大小/相对位置<br>…   </li>
+<li><p>跟游戏开发能关联的地方：<br>用引擎看效果<br>实用性  </p>
+</li>
+<li><p>从视频序列中选出作用显著的帧，设计量化评价方法  </p>
+</li>
+<li><p>从不同表达，面点云体素区别入手  </p>
+</li>
+<li><p>增加脸部细节呢？？结合3dmm  </p>
+</li>
+</ul>
+<h1 id="信息总结"><a href="#信息总结" class="headerlink" title="信息总结"></a>信息总结</h1><p>fusion<br>mulity domin<br>多元融合</p>
+<p>显著性<br>摘要<br>帧对重建质量的贡献</p>
+<p>王少帆 北工大计算机学院<br>dblp</p>
+<h1 id="todo-list"><a href="#todo-list" class="headerlink" title="todo list"></a>todo list</h1><p>数据清洗 三个数据集UP-3D，HumanEva-I，Human3.6M<br>清洗的目的？目标？要做成什么样？</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="">Ty</a>
+            <p>原文链接：<a href="/2019/01/04/关于三维重建的文献综述/">/2019/01/04/关于三维重建的文献综述/</a>
+            <p>发表日期：<a href="/2019/01/04/关于三维重建的文献综述/">January 4th 2019, 7:58:17 am</a>
+            <p>更新日期：<a href="/2019/01/04/关于三维重建的文献综述/">July 28th 2019, 10:25:36 am</a>
+            <p>版权声明：转载请注明原作者</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/01/21/Kaggle笔记/" title= "python数据分析、可视化相关笔记">
+                    <div class="nextTitle">python数据分析、可视化相关笔记</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/12/21/CS294-112_Fa18/" title= "CS294-112 Fa18">
+                    <div class="prevTitle">CS294-112 Fa18</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80MTg2MS8xODQwNw==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:hi838792022@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/taye310" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://weibo.com/p/1005052419344517" class="iconfont-archer weibo" target="_blank" title=weibo></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://steamcommunity.com/id/providencezhang/" class="iconfont-archer steam" target="_blank" title=steam></a>
+            
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#综述"><span class="toc-number">2.</span> <span class="toc-text">综述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用"><span class="toc-number">2.1.</span> <span class="toc-text">通用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客链接"><span class="toc-number">2.2.</span> <span class="toc-text">博客链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-Single-View-3D-Reconstruction-with-Adversarial-Training-1812-01742"><span class="toc-number">2.3.</span> <span class="toc-text">Learning Single-View 3D Reconstruction with Adversarial Training 1812.01742</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过直接体积cnn回归从单图重建大范围三维人脸"><span class="toc-number">2.4.</span> <span class="toc-text">通过直接体积cnn回归从单图重建大范围三维人脸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extreme-3D-Face-Reconstruction-Seeing-Through-Occlusions-极端3D面部重建：遮挡透视（讲）"><span class="toc-number">2.5.</span> <span class="toc-text">Extreme 3D Face Reconstruction: Seeing Through Occlusions 极端3D面部重建：遮挡透视（讲）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-to-Estimate-3D-Human-Pose-and-Shape-from-a-Single-Color-Image-讲-DOI-10-1109-CVPR-2018-00055"><span class="toc-number">2.6.</span> <span class="toc-text">Learning to Estimate 3D Human Pose and Shape from a Single Color Image(讲) DOI:10.1109/CVPR.2018.00055</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O-CNN-Octree-based-Convolutional-Neural-Networks-for-3D-Shape-Analysis"><span class="toc-number">2.7.</span> <span class="toc-text">O-CNN: Octree-based Convolutional Neural Networks for 3D Shape Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pixel2Mesh（讲）"><span class="toc-number">2.8.</span> <span class="toc-text">Pixel2Mesh（讲）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-number">2.8.1.</span> <span class="toc-text">code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMPL-A-Skinned-Multi-Person-Linear-Model-多篇基础，15年"><span class="toc-number">2.9.</span> <span class="toc-text">SMPL: A Skinned Multi-Person Linear Model(多篇基础，15年)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Video-Based-Reconstruction-of-3D-People-Models-讲，没用网络-DOI-10-1109-CVPR-2018-00875-video2mesh"><span class="toc-number">2.10.</span> <span class="toc-text">Video Based Reconstruction of 3D People Models(讲，没用网络) DOI:10.1109/CVPR.2018.00875 (video2mesh)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera（2019-4video2mesh延伸论文，同一实验室）"><span class="toc-number">2.11.</span> <span class="toc-text">Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Neural-Body-Fitting-Unifying-Deep-Learning-and-Model-Based-Human-Pose-and-Shape-Estimation（3DV-2018）"><span class="toc-number">2.12.</span> <span class="toc-text">Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation（3DV 2018）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#intro"><span class="toc-number">2.12.1.</span> <span class="toc-text">intro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#related-work"><span class="toc-number">2.12.2.</span> <span class="toc-text">related work</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验"><span class="toc-number">3.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复原实验"><span class="toc-number">3.1.</span> <span class="toc-text">复原实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-number">3.2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#repos"><span class="toc-number">3.3.</span> <span class="toc-text">repos</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">4.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息总结"><span class="toc-number">5.</span> <span class="toc-text">信息总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todo-list"><span class="toc-number">6.</span> <span class="toc-text">todo list</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 22
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2019/07/08/CYOU工作笔记/" >CYOU学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2019/05/09/互联网体系结构总结/" >互联网体系结构总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2019/04/02/torchtensorflowAPI/" >pytorch&tensorflow_API笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2019/03/25/深度学习概念总结/" >深度学习概念总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2019/02/18/lang-notebook/" >C++&C#/Unity notebook</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Kaggle笔记/" >python数据分析、可视化相关笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/关于三维重建的文献综述/" >关于三维重建的文献综述</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/CS294-112_Fa18/" >CS294-112 Fa18</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2018/12/20/git-sourcetree-腾讯云项目管理教程/" >git+sourcetree+腾讯云项目管理教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span><a class="archive-post-title" href= "/2018/12/18/deeplearning-ai/" >deeplearning.ai</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2018/11/19/pytorch入门教程/" >pytorch入门教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/04</span><a class="archive-post-title" href= "/2018/11/04/网络与信息安全总结/" >网络与信息安全总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/24</span><a class="archive-post-title" href= "/2018/10/24/XiaoMiMix2s/" >XiaoMiMix2s</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/LostMyIPhone/" >IPhoneX的叉</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/06</span><a class="archive-post-title" href= "/2018/05/06/核聚变/" >核聚变</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2018/04/18/中国什么时候能有3A游戏/" >中国什么时候能有3A游戏</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2018/04/12/完整游戏开发流程/" >完整游戏开发流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2018/04/11/PUBG-Unity/" >PUBG-Unity</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2017/01/04/drawCall/" >手机游戏破解————美术资源提取</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2017/01/03/EgretGame/" >RPG Game</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2017/01/02/AStarPathfinding/" >A* Pathfinding</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2017/01/01/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="UI"><span class="iconfont-archer">&#xe606;</span>UI</span>
+    
+        <span class="sidebar-tag-name" data-tags="热更新"><span class="iconfont-archer">&#xe606;</span>热更新</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
+    
+        <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="小米"><span class="iconfont-archer">&#xe606;</span>小米</span>
+    
+        <span class="sidebar-tag-name" data-tags="Mix2s"><span class="iconfont-archer">&#xe606;</span>Mix2s</span>
+    
+        <span class="sidebar-tag-name" data-tags="google play"><span class="iconfont-archer">&#xe606;</span>google play</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
+    
+        <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
+    
+        <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="tensorflow"><span class="iconfont-archer">&#xe606;</span>tensorflow</span>
+    
+        <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
+    
+        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
+    
+        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+    
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
+    
+        <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
+    
+        <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
+    
+        <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
+    
+        <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
+    
+        <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
+    
+        <span class="sidebar-category-name" data-categories="项目"><span class="iconfont-archer">&#xe60a;</span>项目</span>
+    
+        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Ty"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
