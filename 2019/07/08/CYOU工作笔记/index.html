@@ -281,15 +281,11 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "游戏开发">游戏开发</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "UI">UI</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "热更新">热更新</a>
-    
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">3.3k</span>阅读时长: <span class="post-count reading-time">12 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -418,7 +414,110 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1>
+        <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><h2 id="一-Unity"><a href="#一-Unity" class="headerlink" title="一. Unity"></a>一. Unity</h2><h3 id="cache-server"><a href="#cache-server" class="headerlink" title="cache server"></a>cache server</h3><p>If you switch Unity from iOS to Standalone mode for example, the imported texture will get a different hash. When switching the platform Unity calculates the new hash of all textures and tries to download them from the cache server. If they are available they will be used, otherwise it will import the texture and upload the imported result to the cache server.<br>先算hash值，跟cache server上的比较，不一样就import，一样就download。节省时间</p>
+<h3 id="streamingAssets-流式加载资源"><a href="#streamingAssets-流式加载资源" class="headerlink" title="streamingAssets 流式加载资源"></a>streamingAssets 流式加载资源</h3><p>todo</p>
+<h3 id="多个场景叠加，大场景处理"><a href="#多个场景叠加，大场景处理" class="headerlink" title="多个场景叠加，大场景处理"></a>多个场景叠加，大场景处理</h3><p>todo</p>
+<h3 id="profiler"><a href="#profiler" class="headerlink" title="profiler"></a>profiler</h3><p>todo</p>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>ScriptableObject的优点：</p>
+<ul>
+<li>把数据真正存储在了资源文件中，可以像其他资源那样管理它，例如退出运行也一样会保持修改</li>
+<li>可以在项目之间很好的复用，不用再制作Prefab那样导入导出</li>
+</ul>
+<p>看了下感觉有很多东西都可以用它。之前的做法一般都是[Serializable]一个class，然后在面板里配数据，做成prefab，但这种方法没有上面的优点。感觉今后如果有类似通过Serializable + Class + Prefab实现存储数据的想法的时候，都应该先考虑下能不能用ScriptableObject做成一个真正的资源文件。</p>
+<h3 id="Unity的各种意外"><a href="#Unity的各种意外" class="headerlink" title="Unity的各种意外"></a>Unity的各种意外</h3><p>杀毒软件的锅，卸载就好  </p>
+<p>场景贴图丢失（紫色），原因是svn导致的meta文件不一致，revert掉meta文件，让unity自动从cache server更新一遍就好</p>
+<h2 id="二-语法-规范"><a href="#二-语法-规范" class="headerlink" title="二. 语法/规范"></a>二. 语法/规范</h2><h3 id="lua"><a href="#lua" class="headerlink" title="lua"></a>lua</h3><p>使用闭包，可以避免动态编译。<br><strong>闭包/闭包组成</strong>：外部函数+外部函数创建的upvalue+内部函数（闭包函数）<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">local</span> i=<span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>//尾调用</span><br><span class="line">        i+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">c1=test()</span><br><span class="line">c2=test()//c1,c2是建立在同一个函数，同一个局部变量的不同实例上面的两个不同的闭包</span><br><span class="line">        //闭包中的upvalue各自独立，调用一次test（）就会产生一个新的闭包</span><br><span class="line"><span class="built_in">print</span>(c1()) <span class="comment">--&gt;1</span></span><br><span class="line"><span class="built_in">print</span>(c1()) <span class="comment">--&gt;2//重复调用时每一个调用都会记住上一次调用后的值，就是说i=1了已经</span></span><br><span class="line"><span class="built_in">print</span>(c2())    <span class="comment">--&gt;1//闭包不同所以upvalue不同    </span></span><br><span class="line"><span class="built_in">print</span>(c2()) <span class="comment">--&gt;2</span></span><br></pre></td></tr></table></figure></p>
+<p>访问外层局部变量（也就是外一层函数的局部变量）并没有访问局部变量快，但是仍然比访问全局变量快。<br>除非需要真正动态地执行代码，比如代码是由用户输入的，其他情况则很少需要编译动态的代码。  </p>
+<p>‘#’不是获取table长度,是获得一个table中最大的数字键值    </p>
+<p>lua中的面向对象:    </p>
+<p>metatable:Lua 查找一个表元素时的规则，其实就是如下3个步骤:</p>
+<ol>
+<li>在表中查找，如果找到，返回该元素，找不到则继续</li>
+<li>判断该表是否有元表，如果没有元表，返回 nil，有元表则继续。</li>
+<li>判断元表有没有 <strong>index 方法，如果 </strong>index 方法为 nil，则返回 nil；如果 <strong>index 方法是一个表，则重复 1、2、3；如果 </strong>index 方法是一个函数，则返回该函数的返回值。</li>
+</ol>
+<p><strong>newindex:当你给表的一个缺少的索引赋值，解释器就会查找</strong>newindex 元方法：如果存在则调用这个函数而不进行赋值操作。   </p>
+<p>判断table是否为空的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;&#125;</span><br><span class="line"><span class="keyword">if</span> next(a) ~=nil <span class="keyword">then</span> dosomething end</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">**:和.的区别** <span class="string">":"</span>可以理解为作用域</span><br><span class="line"></span><br><span class="line">数组第0项是nil 从1开始</span><br><span class="line"></span><br><span class="line"><span class="comment">### C++</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123; &#125; <span class="keyword">while</span>(<span class="literal">false</span>)的作用：</span><br><span class="line">* 是经典的安全资源释放方法？</span><br><span class="line">* <span class="built_in">return</span> early 的一种写法, 多个 <span class="built_in">return</span> 会使代码变得混乱, 通过 <span class="keyword">do</span> <span class="keyword">while</span> 进行流程控制可以 做到一个入口 一个出口. 而且可以避免 <span class="keyword">if</span> <span class="keyword">else</span> 嵌套 阻止箭头形代码的形成</span><br><span class="line"></span><br><span class="line">/<span class="comment">#pragma</span></span><br><span class="line">* /<span class="comment">#pragma 用于指示编译器完成一些特定的动作；</span></span><br><span class="line">* 它所定义的很多指示字是编译器特有的；</span><br><span class="line">* /<span class="comment">#pragma message 用于 自定义编译消息、#pragma once 用于保证头文件只被编译一次、**#pragma pack 用于指示内存对齐方式**。  </span></span><br><span class="line"></span><br><span class="line">宏定义<span class="comment">#define 一个应用场景是跨平台，根据不同平台给统一的接口分配不同的方法  </span></span><br><span class="line"></span><br><span class="line">int类型的与或运算 是二进制形式下的运算</span><br><span class="line"></span><br><span class="line"><span class="comment">### C#</span></span><br><span class="line"></span><br><span class="line">位运算符：&amp; | ^ ~ &gt;&gt; &lt;&lt;  </span><br><span class="line">应用：</span><br><span class="line">``` C<span class="comment">#</span></span><br><span class="line">int average(int x, int y) //返回X,Y的平均值 </span><br><span class="line">&#123; </span><br><span class="line"><span class="built_in">return</span> (x&amp;y)+((x^y)&gt;&gt;1); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>map hashmap pair</p>
+<p>uint和int区别在于正负，int64和int32区别在于范围</p>
+<h2 id="三-PZ"><a href="#三-PZ" class="headerlink" title="三. PZ"></a>三. PZ</h2><h3 id="客户端资源管理"><a href="#客户端资源管理" class="headerlink" title="客户端资源管理"></a>客户端资源管理</h3><p>assetbundle，axpfilesystem</p>
+<h3 id="导航系统"><a href="#导航系统" class="headerlink" title="导航系统"></a>导航系统</h3><ol>
+<li>PA客户端（也就是我们的客户端）用了UNITY的一个叫A* pathfinding project的一个2013年插件</li>
+<li>天龙服务器（我们的服务器），基于点阵的一个A* 2D导航算法</li>
+<li>Unity本身自带的Navigation，Unity把做Recast的那个人收编，基于Recast进行深度修改的一个导航系统</li>
+<li>Recast，一个开源的导航系统</li>
+</ol>
+<h3 id="CYDynamicSky"><a href="#CYDynamicSky" class="headerlink" title="CYDynamicSky"></a>CYDynamicSky</h3><p>todo</p>
+<h2 id="四-功能"><a href="#四-功能" class="headerlink" title="四. 功能"></a>四. 功能</h2><p>panel prefab必须放panel文件夹下<br>逻辑脚本必须放同名文件夹下，文件夹、脚本命名都得和预制体一样<br>第一次点击头像不会clone出practicepanel，显示有**正在加载500，第二次可以，关闭之后就没有其他ui了  </p>
+<p>保释面板注册什么事件？<br>事件是在luaevent里新加的 OpenPirateBailPanel<br>luaevent里字符串的前缀大写字母含义？<br>注意 “.”和”:” 的区别<br>UIModule下 modulename是创建panel _G.Pirate_BailPanel = BaseUI:new(“Pirate_BailPanel”) 的脚本的名字 不是pirate module   </p>
+<p>问题：onevent的p_param怎么确定第几个是什么含义的，在哪儿约定的  </p>
+<p>[Lua]ProtectedCall Error:UI/Pirate_BailPanel/Pirate_BailPanel:37: attempt to index a nil value<br>attempt to index local ‘script’ (a nil value)<br><strong>原因/解决方法</strong>：open之后panel不是同步打开的，也就是说open之后的逻辑执行时还没有panel，所以getUIModule是nil<br>调用start时，panel加载完了，所以把getUIModule放start里了</p>
+<p>看bagmodule 了解如何获取icon：self:SetTextureRes(uiModule.List_Texture:get_Item(0), BagModule:GetItemIconById(costItemID))</p>
+<p>打开tip用哪个TipsModule.EnumTipsOpenType<br>EventSender.SendEvent(LuaEvent.ShowPublicTip, lang(23010));  </p>
+<p>时间：需要xx小时xx分xx秒的，还有浮点数的，两种（抛给外边做了）<br>public tip怎么显示两种以上的材料（策划决定，改成点击图标显示tip了）  </p>
+<p>self:InitItemPanel(ctrl, go) 需要gameobject符合UIModule的命名规范 之后就可以随意改了</p>
+<p>需要物品太多/或者没有 怎么处理？  </p>
+<p><strong>修改</strong>：<br>接口就一个time，内部转换时间，算所需物品数量，回调都不用了<br>弹出框读表得改，icontexture、qualitysprite、背包内物品剩余数量 有新街口  </p>
+<h2 id="五-BUG"><a href="#五-BUG" class="headerlink" title="五. BUG"></a>五. BUG</h2><p>21196    【主干】【bug】【主线任务】潜入亚得里亚海id:1000107任务文字覆盖<br>baseTaskAndTeamUI(Clone)  1000107 已解决<br>21235    【主干】【bug】【主线任务】潜入亚得里亚海id：1000107  任务副本的大小和特效表现的不匹配    游戏bug<br>美术素材原因,已经让策划去向美术提需求(篮圈大小)<br>20881    【主干】【BUG】【船只航海士系统】航行事件升级，提示的是给玩家增加经验    游戏bug    打开, assigned<br>客户端C#和lua搜不到strid 110129,在服务器代码上<br>17521    【主干】【BUG】【航行事件】航行事件图标消失问题    游戏bug    打开<br>sailingevent 预制 功能取消不用看了</p>
+<h2 id="六-热更"><a href="#六-热更" class="headerlink" title="六. 热更"></a>六. 热更</h2><p>SLua、Tolua、XLua和ILRuntime<br>babelua生成lua脚本</p>
+<h2 id="七-服务器"><a href="#七-服务器" class="headerlink" title="七. 服务器"></a>七. 服务器</h2><p><a href="https://cloud.tencent.com/developer/article/1349061" target="_blank" rel="noopener">游戏服务器开发所需知识点总结</a><br><a href="https://cloud.tencent.com/developer/article/1342680" target="_blank" rel="noopener">TCP socket心跳包实例程序</a>  </p>
+<p>消息协议,共享内存和数据库<br>一般来说除去所有的显示相关的部分，比如技能特效，施法动作，伤害冒字，UI等等，剩下的做到服务器就可以了  </p>
+<p>select 实现多路IO复用  </p>
+<p>消息驱动 再看看</p>
+<h2 id="八-压测（Locust）"><a href="#八-压测（Locust）" class="headerlink" title="八. 压测（Locust）"></a>八. 压测（Locust）</h2><p>run_master–&gt;run_slave–&gt;GameLocust()–&gt;action–&gt;消息包<br>I_sailing_battle.py–&gt;ACFSailingForRobot.py–&gt;PACKETS–&gt;Defines<br>actions中的<strong>init</strong>.py中需要添加ACGNavigatorOperation  </p>
+<p>init_context 什么时候需要？航海士测试中不需要  </p>
+<h3 id="航海士流程："><a href="#航海士流程：" class="headerlink" title="航海士流程："></a>航海士流程：</h3><ul>
+<li>玩家角色升到50级</li>
+<li>造艘船</li>
+<li>拥有所有航海士</li>
+<li>高中低经验书</li>
+<li>一键任命/两种航海士升级方式/使用一个航海士经验道具/主舰航海士一键升级/万能碎片兑换/航海士碎片合成/航海士升星</li>
+</ul>
+<p>积分商店流程：  </p>
+<ul>
+<li>GM30000银币（交子）–&gt;买一个木材</li>
+<li>请求商店列表（ParentId，SubId）</li>
+</ul>
+<p>python 255用byte接收是-1？ chr(255)  </p>
+<p>不要在handle里（接受GC消息）直接跟action做交互，self会乱，无限递归？  </p>
+<p>Functions.py里为什么是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> packet.__class__.__name__ == packetname:</span><br></pre></td></tr></table></figure></p>
+<p>packet.<strong>class</strong>.<strong>name</strong>是str而不</p>
+<p>covenantpropert 契约人信息<br>TroveSkillMain 发现物技能  </p>
+<p>trovemain里有寻路坐标场景id</p>
+<h3 id="发现物流程："><a href="#发现物流程：" class="headerlink" title="发现物流程："></a>发现物流程：</h3><ul>
+<li>激活（解锁）    满足前置条件</li>
+<li>线索           PACKET_CG_CLUE_COMPLETE    1</li>
+<li>技能等级        没法主动升</li>
+<li>签约           </li>
+<li>发现发现物？    PACKET_CG_TROVE_FIND</li>
+<li>待完成契约      </li>
+<li>发现物上报      PACKET_CG_TROVE_REPORT</li>
+</ul>
+<p>CGAskTroveData      –      PACKET_CG_TROVE_DATA      =   2453     请求发现物数据<br>CGTroveComplete     –      PACKET_CG_TROVE_COMPLETE  =   2482     请求发现物数据（包含撕毁契约）<br>CGClueComplete      –      PACKET_CG_CLUE_COMPLETE   =   2488     请求线索完成<br>CGTroveFind         –      PACKET_CG_TROVE_FIND      =   2512     请求发现物发现条件是否满足<br>CGAdvPointModify    –      PACKET_CG_ADVPOINT_MODIFY =   2527     请求发现物冒险点数更改<br>CGTroveReport       –      PACKET_CG_TROVE_REPORT    =   2700     请求发现物上报</p>
+<p>GCAskTroveData      – PACKET_GC_TROVE_DATA = 2454         返回请求发现物数据<br>GCAdvPointModify    – PACKET_GC_ADVPOINT_MODIFY = 2528    返回请求发现物冒险点数更改<br>GCAdvSkillLevelUp   – PACKET_GC_ADVSKILL_LEVELUP = 2485   返回请求冒险技能升级<br>GCClueComplete      – PACKET_GC_CLUE_COMPLETE = 2489      返回请求线索完成<br>GCTroveComplete     – PACKET_GC_TROVE_COMPLETE = 2483     返回请求发现物数据<br>GCTroveFind         – PACKET_GC_TROVE_FIND = 2513         返回请求发现物发现条件是否满足<br>GCTroveLevelUp      – PACKET_GC_TROVE_LEVELUP = 2487      返回请求冒险等级提升<br>GCTroveReport       – PACKET_GC_TROVE_REPORT = 2701       同步发现物上报</p>
+<p>问题 发现物状态m_TroveState在那个表<br>已解锁和可发现什么区别<br>主动升级技能 签约</p>
+<p>socket errno10053 别用waitforpacket_with_heartbeat 用waitforpacket<br>同一场景下（场景号相同）只输xz坐标是瞬移</p>
+<p>发现物上报需要npcid troveid还有trovestate符合要求<br>Error! packet.filldatafromstream error<br><strong>原因是python的list不能直接用索引赋值，只能用append加值，或者理解为给第i项初始化</strong></p>
+<p>GM指令在游戏里能用 压测脚本用不了<br>sharememory说trovedata保存失败<br>UI\Trove\DiscoveryListUI.lua 194行有nil 估计时表错了 但是没更新突然出这错<br>莫名其妙换了新号就好了 清库也没法测旧号了<br>执行到后半段必定10053掉线，不知道为什么<br><strong>因为前一个action消息包发错参数了</strong><br>goto 传不到港口了</p>
+<h3 id="无尽航程流程"><a href="#无尽航程流程" class="headerlink" title="无尽航程流程"></a>无尽航程流程</h3><p>action：<br>ACGAskHeroTrialsChallenge   请求进入挑战<br>AGCReHeroTrialsInfo         玩家挑战信息<br>ACGAskGetFirstAward         首通奖励<br>AGCFirstAwardListInfo       可领首通奖励列表<br>ACGAskHeroTrialsSeckill     扫荡</p>
+<p>前期准备：<br>  升级99<br>  造船两艘 指定副舰<br>  切职业 提升攻击力<br>  补给、船员、疲劳度<br>流程：<br>  状态机：战斗状态和准备进入下一关状态间的转换条件<br>    发请求进入挑战包 进入战斗状态<br>    计时</p>
+<p>waitforpacket/withheartbeat//socket.error: [Errno 10053]<br>这能都改成waitforpacket吗？？？<br>不用改成waitforpacket，问题出在<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.person[<span class="string">'nNextLevelId_current'</span>] = self.person[<span class="string">'nNextLevelId'</span>] <span class="comment"># 写反成</span></span><br><span class="line">self.person[<span class="string">'nNextLevelId'</span>] = self.person[<span class="string">'nNextLevelId_current'</span>] <span class="comment"># 了</span></span><br></pre></td></tr></table></figure></p>
+<p>AGCFirstAwardListInfo 总是false<br>登陆时就会发一次</p>
+<h3 id="世界boss流程"><a href="#世界boss流程" class="headerlink" title="世界boss流程"></a>世界boss流程</h3><p>系统时间需要在指定时间 开始时间是12:40跟21:40，5分钟后刷新BOSS，35分钟后活动结束<br>测试可以改系统时间触发活动  </p>
+<p>造船 带附舰<br>35/45/55级<br>选择职业<br>根据等级传到指定场景坐标<br>打</p>
+<p>pip install pypiwin32（不改系统时间了改表）<br>改公共表只需重启服务器，服务器复制的是客户端转表前的表</p>
+<p>世界boss的倒计时要看服务器时间，什么时候同步时间？<br>handle 在functions里加handlelist  </p>
+<h3 id="好友流程"><a href="#好友流程" class="headerlink" title="好友流程"></a>好友流程</h3><p>一个client 五个otherperson<br>登陆–&gt;搜索–&gt;加好友–&gt;查在线状态–&gt;关注/取消关注–&gt;拉黑/取消拉黑<br>–&gt;创建三个分组（最多三个）–&gt;加人–&gt;删分组–&gt;删好友</p>
+<p>sendpacket出错是前一个发的包多传了参数</p>
+<p>ACGChat_Friend直接用起来有点问题</p>
+<h3 id="商会流程"><a href="#商会流程" class="headerlink" title="商会流程"></a>商会流程</h3><p>GC包怎么传参数进去？PACKET_GC_GUILD要一个self[‘m_PacketType’]<br>0822 做禅让和通过的消息包</p>
+<h2 id="九-TA相关"><a href="#九-TA相关" class="headerlink" title="九. TA相关"></a>九. TA相关</h2><p>houdini制作HDA/开发HDA<br>反射探针（Reflection Probe） 合批 batch  </p>
+<h2 id="十-BITool"><a href="#十-BITool" class="headerlink" title="十. BITool"></a>十. BITool</h2><p>数据库相关<br>excel–&gt;sql/json–&gt;建表/拷贝json到pattern文件夹–&gt;C#代码添加json–&gt;log文件放入path–&gt;.net工具导入表<br>要给什么赋默认值 多半是json出错 数据没进去 所以需要默认值<br>fleettask有个数组越界 像是日志项数和json不匹配：json54项算上时间，日志里只有53<br>语法错误要看具体sql语句，fleettask这个最后是,) 就是excel里多了（红色的是没进服务器的） 服务器（实际的log日志里没有） 解决方法是先删掉excel的行<br>登陆点的log有错 开一去查了 先跳过这个<br>excel里有cylog里没有的是测试没跑这功能，汇总给开一<br>替换旧的json/sql都得替换  </p>
+<p>不能为null的是因为策划表里能不能为空那项不对，手动改sql not null那项<br>C#脚本bug：log不能正好是十行  </p>
+<p>ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061)  百度有解决方法</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>合批优化，GPUInstance优化<br>性能分析工具？帧数据<br>合批？  </p>
+<h2 id="billing"><a href="#billing" class="headerlink" title="billing"></a>billing</h2><h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>框架层 线程模型 网络通信模型 跳转 线程安全</p>
+
     </article>
     <!-- license  -->
     
@@ -426,13 +525,18 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/07/08/CYOU工作笔记/">/2019/07/08/CYOU工作笔记/</a>
             <p>发表日期：<a href="/2019/07/08/CYOU工作笔记/">July 8th 2019, 10:26:11 pm</a>
-            <p>更新日期：<a href="/2019/07/08/CYOU工作笔记/">July 28th 2019, 9:41:24 am</a>
+            <p>更新日期：<a href="/2019/07/08/CYOU工作笔记/">September 17th 2019, 9:57:18 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/09/16/校招学习笔记/" title= "校招学习笔记">
+                    <div class="nextTitle">校招学习笔记</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -574,7 +678,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#todo"><span class="toc-number">1.</span> <span class="toc-text">todo</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Note"><span class="toc-number">1.</span> <span class="toc-text">Note</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-Unity"><span class="toc-number">1.1.</span> <span class="toc-text">一. Unity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cache-server"><span class="toc-number">1.1.1.</span> <span class="toc-text">cache server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#streamingAssets-流式加载资源"><span class="toc-number">1.1.2.</span> <span class="toc-text">streamingAssets 流式加载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多个场景叠加，大场景处理"><span class="toc-number">1.1.3.</span> <span class="toc-text">多个场景叠加，大场景处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#profiler"><span class="toc-number">1.1.4.</span> <span class="toc-text">profiler</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API"><span class="toc-number">1.1.5.</span> <span class="toc-text">API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unity的各种意外"><span class="toc-number">1.1.6.</span> <span class="toc-text">Unity的各种意外</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-语法-规范"><span class="toc-number">1.2.</span> <span class="toc-text">二. 语法/规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lua"><span class="toc-number">1.2.1.</span> <span class="toc-text">lua</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-PZ"><span class="toc-number">1.3.</span> <span class="toc-text">三. PZ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端资源管理"><span class="toc-number">1.3.1.</span> <span class="toc-text">客户端资源管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导航系统"><span class="toc-number">1.3.2.</span> <span class="toc-text">导航系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CYDynamicSky"><span class="toc-number">1.3.3.</span> <span class="toc-text">CYDynamicSky</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-功能"><span class="toc-number">1.4.</span> <span class="toc-text">四. 功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-BUG"><span class="toc-number">1.5.</span> <span class="toc-text">五. BUG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-热更"><span class="toc-number">1.6.</span> <span class="toc-text">六. 热更</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-服务器"><span class="toc-number">1.7.</span> <span class="toc-text">七. 服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八-压测（Locust）"><span class="toc-number">1.8.</span> <span class="toc-text">八. 压测（Locust）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#航海士流程："><span class="toc-number">1.8.1.</span> <span class="toc-text">航海士流程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发现物流程："><span class="toc-number">1.8.2.</span> <span class="toc-text">发现物流程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无尽航程流程"><span class="toc-number">1.8.3.</span> <span class="toc-text">无尽航程流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#世界boss流程"><span class="toc-number">1.8.4.</span> <span class="toc-text">世界boss流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#好友流程"><span class="toc-number">1.8.5.</span> <span class="toc-text">好友流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#商会流程"><span class="toc-number">1.8.6.</span> <span class="toc-text">商会流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九-TA相关"><span class="toc-number">1.9.</span> <span class="toc-text">九. TA相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十-BITool"><span class="toc-number">1.10.</span> <span class="toc-text">十. BITool</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化"><span class="toc-number">1.11.</span> <span class="toc-text">优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#billing"><span class="toc-number">1.12.</span> <span class="toc-text">billing</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TODO"><span class="toc-number">2.</span> <span class="toc-text">TODO</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -869,6 +973,11 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/16</span><a class="archive-post-title" href= "/2019/09/16/校招学习笔记/" >校招学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2019/07/08/CYOU工作笔记/" >CYOU学习笔记</a>
         </li>
     
@@ -879,17 +988,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2019/04/02/torchtensorflowAPI/" >pytorch&tensorflow_API笔记</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2019/03/25/深度学习概念总结/" >深度学习概念总结</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2019/02/18/lang-notebook/" >C++&C#/Unity notebook</a>
+            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2019/02/18/lang-notebook/" >C++ & C#/Unity notebook</a>
         </li>
     
     
@@ -1002,19 +1106,29 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+        <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+        <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
-        <span class="sidebar-tag-name" data-tags="UI"><span class="iconfont-archer">&#xe606;</span>UI</span>
-    
-        <span class="sidebar-tag-name" data-tags="热更新"><span class="iconfont-archer">&#xe606;</span>热更新</span>
+        <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
         <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
     
         <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="小米"><span class="iconfont-archer">&#xe606;</span>小米</span>
     
@@ -1028,11 +1142,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
-        <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
-        <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
-        <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
@@ -1046,51 +1160,7 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
-        <span class="sidebar-tag-name" data-tags="tensorflow"><span class="iconfont-archer">&#xe606;</span>tensorflow</span>
-    
-        <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
-    
-        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
-    
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
-    
-        <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
-    
-        <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
-    
         <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
-    
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
-    
-        <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
-    
-        <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
-    
-        <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
     
@@ -1101,6 +1171,34 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
         <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
+        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+    
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+    
+        <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
+    
+        <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
+    
+        <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
+    
+        <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
+    
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1137,13 +1235,13 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
-    
         <span class="sidebar-category-name" data-categories="项目"><span class="iconfont-archer">&#xe60a;</span>项目</span>
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
