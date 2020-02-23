@@ -277,15 +277,15 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "云服务">云服务</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "腾讯云">腾讯云</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "云服务">云服务</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">275</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">308</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -419,6 +419,7 @@ height:50vh;
 <h3 id="2020-2-10"><a href="#2020-2-10" class="headerlink" title="2020.2.10"></a>2020.2.10</h3><p>服务器win版本，客户端webgl，IIS部署成功</p>
 <h3 id="2020-2-12"><a href="#2020-2-12" class="headerlink" title="2020.2.12"></a>2020.2.12</h3><p>业务：增加聊天记录；实现：不论是用streamasset还是加mysql数据库，服务器和客户端内容都需要分开<br>server记聊天记录 client是不用记的<br>command不能有返回值，传入参数类型也有限制，正确的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">but yeah you cant do that, I use ClientRpc&apos;s so for example if i have a float that&apos;s called &quot;exampleValue&quot; and want to update it on the client you could something like this:</span><br><span class="line"></span><br><span class="line">[Command]</span><br><span class="line">public void CmdRecuestNewValues()&#123;</span><br><span class="line">RpcGiveNewValues(exampleValue);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[ClientRpc]</span><br><span class="line">public void RpcGiveNewValues(float value)&#123;</span><br><span class="line">exampleValue = value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">then if you call the CmdRecuestNewValues(); command you will update you values.</span><br></pre></td></tr></table></figure></p>
 <h3 id="2020-2-14"><a href="#2020-2-14" class="headerlink" title="2020.2.14"></a>2020.2.14</h3><p>unity URP vs HDRP</p>
+<h3 id="2020-2-19"><a href="#2020-2-19" class="headerlink" title="2020.2.19"></a>2020.2.19</h3><p>刷leetcode，首页整好看点！！！找个模板，后端用wordpress集成什么意思？？<br>域名备案终于下来咯</p>
 <p><strong>计划：</strong><br>要不要直接换skynet - 需要Ubuntu环境</p>
 <h2 id="IIS-Index"><a href="#IIS-Index" class="headerlink" title="IIS_Index"></a>IIS_Index</h2><p>首页，vuejs/vant组件。怎么整怎么丑，还没想好加什么业务。</p>
 <h2 id="Blog"><a href="#Blog" class="headerlink" title="Blog"></a>Blog</h2><p>blog.providencezhang.cn解析到了taye310.github.io<br>hexo + github pages只能提供静态页面，unity webgl需要网页服务器能解析.unityweb文件，在IIS上需要在mapping上单独设置，这个可能是导致不能在github pages上部署unity webgl项目的原因。</p>
@@ -430,7 +431,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2020/02/12/CloudServer/">/2020/02/12/CloudServer/</a>
             <p>发表日期：<a href="/2020/02/12/CloudServer/">February 12th 2020, 8:00:24 pm</a>
-            <p>更新日期：<a href="/2020/02/12/CloudServer/">February 15th 2020, 1:16:59 am</a>
+            <p>更新日期：<a href="/2020/02/12/CloudServer/">February 20th 2020, 2:41:05 am</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -578,7 +579,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#云上项目"><span class="toc-number">1.</span> <span class="toc-text">云上项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UnityWeb"><span class="toc-number">1.1.</span> <span class="toc-text">UnityWeb</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-2-10"><span class="toc-number">1.1.1.</span> <span class="toc-text">2020.2.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-2-12"><span class="toc-number">1.1.2.</span> <span class="toc-text">2020.2.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-2-14"><span class="toc-number">1.1.3.</span> <span class="toc-text">2020.2.14</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IIS-Index"><span class="toc-number">1.2.</span> <span class="toc-text">IIS_Index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blog"><span class="toc-number">1.3.</span> <span class="toc-text">Blog</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#云上项目"><span class="toc-number">1.</span> <span class="toc-text">云上项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UnityWeb"><span class="toc-number">1.1.</span> <span class="toc-text">UnityWeb</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-2-10"><span class="toc-number">1.1.1.</span> <span class="toc-text">2020.2.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-2-12"><span class="toc-number">1.1.2.</span> <span class="toc-text">2020.2.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-2-14"><span class="toc-number">1.1.3.</span> <span class="toc-text">2020.2.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-2-19"><span class="toc-number">1.1.4.</span> <span class="toc-text">2020.2.19</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IIS-Index"><span class="toc-number">1.2.</span> <span class="toc-text">IIS_Index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blog"><span class="toc-number">1.3.</span> <span class="toc-text">Blog</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -591,8 +592,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -1021,9 +1020,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -1039,11 +1038,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
         <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
     
         <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
     
         <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1052,10 +1059,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
-    
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
@@ -1071,11 +1074,7 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
-        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
@@ -1085,9 +1084,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
@@ -1101,9 +1100,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1140,13 +1139,13 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
-        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
-    
         <span class="sidebar-category-name" data-categories="项目"><span class="iconfont-archer">&#xe60a;</span>项目</span>
     
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
