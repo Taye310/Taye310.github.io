@@ -357,15 +357,54 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/04/DOTSandECS/" >
+            
+                <span>DOTSandECS</span>
+        </a>
+        <div class="abstract-content">
+            About ECSOLD:    GameObjects &amp; MonoBehaviours    Object-oriented    create一个叫Player的GameObject，用若干MonoBehaviour作为Player的组件，实现功能（例如renderer,physics,movement）。
+NEW:    Entities &amp; Components &amp; Systems    data-oriented  
+
+group together components
+contain data (只是数据结构，不包含逻辑)
+contain behav...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Unity">Unity</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ECS">ECS</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "DOTS">DOTS</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/02/12/CloudServer/" >
             
                 <span>云服务器相关</span>
         </a>
         <div class="abstract-content">
             云上项目UnityWebMirror聊天室
+Mysql更改user的host地址：1update user set host = '%' where user = 'root';
 日志：
 2020.2.10服务器win版本，客户端webgl，IIS部署成功
-2020.2.12业务：增加聊天记录；实现：不论是用streamasset还是加mysql数据库，服务器和客户端内容都需要分开server记聊天记录 client是不用记的command不能有返回值，传入参数类型也有限制，正确的方法：12345678910111213but yeah you cant do that, I use ClientRpc&apos;s so for example if i have a float that&apos;s called ...
+2020.2.12业务：增加聊天记录；实现：不论是用streamasset还是加mysql数据库，服务器和客户端内容都需要分开server记聊天记录 client是不用记的command不能有返回值，传入参数类型也有限制，正确的方法：12345678910111213but yeah you cant do that, I use C...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -399,18 +438,7 @@
             笔试C++C++ &amp; C#/Unity notebook
 知识点github
 十大排序
-堆排序，构建最大/最小堆时：
-
-父结点索引：(i-1)/2（这里计算机中的除以2，省略掉小数）
-左孩子索引：2*i+1
-右孩子索引：2*i+2
-
-稳定性：稳定性是一个特别重要的评估标准。稳定的算法在排序的过程中不会改变元素彼此的位置的相对次序,反之不稳定的排序算法经常会改变这个次序,这是我们不愿意看到的。
-查找算法
-动态规划详解
-时间复杂度计算：参考资料  
-对数阶怎么来的：循环的时候i不是+常数来的，是i=i*2这样乘来的就是对数阶复杂度了1for(i&lt;100) i=i*2;
-$i^2...
+冒泡：两层循环，两两比较123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657template&lt;typename T&gt; //整数或浮点数皆可使用,若要使用类(class)或结构体(struct)时必须重载大于(&gt;)运算符void bubble_sort(T arr[], int len) &#123;        int...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -677,47 +705,6 @@ why now?  reinforcement learning can be naturally integrated with artificial neu
         <a class="post-tag" href="javascript:void(0);" data-tags = "berkeley course">berkeley course</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Sergey Levine">Sergey Levine</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/20/git-sourcetree-腾讯云项目管理教程/" >
-            
-                <span>git+sourcetree+腾讯云项目管理教程</span>
-        </a>
-        <div class="abstract-content">
-            
-注册腾讯云开发者平台 就是以前的coding.net 中文界面对国内开发者很友好，个人感觉可以代替github，新功能很有趣 进入项目-&gt;设置-&gt;成员管理可以添加项目成员，相当于github的organization 项目、仓库设置中可以转移项目所有权，免费将项目仓库设为私有，github私有仓库有月租  
-下载、安装git 注意配置环境变量  
-git GUI 推荐sourcetree，注册登录账号可能需要翻墙 2，3网上教程都很多这里就不写了  
-git lfs(large file storage) 当项目中有大小超过2m的文件时，建议使用lfs lfs使用教程(un...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "腾讯云">腾讯云</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "sourcetree">sourcetree</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "版本控制">版本控制</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "项目管理">项目管理</a>
     
 </div>
             
@@ -1088,9 +1075,22 @@ git lfs(large file storage) 当项目中有大小超过2m的文件时，建议�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 22
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -1103,6 +1103,11 @@ git lfs(large file storage) 当项目中有大小超过2m的文件时，建议�
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2020/03/04/DOTSandECS/" >DOTSandECS</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1223,7 +1228,7 @@ git lfs(large file storage) 当项目中有大小超过2m的文件时，建议�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2017/01/04/drawCall/" >手机游戏美术资源提取</a>
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2017/01/04/AdrenoProfiler/" >手机游戏美术资源提取</a>
         </li>
     
     
@@ -1248,15 +1253,21 @@ git lfs(large file storage) 当项目中有大小超过2m的文件时，建议�
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
+    
+        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
+    
+        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -1272,21 +1283,9 @@ git lfs(large file storage) 当项目中有大小超过2m的文件时，建议�
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
-        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
-    
-        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
-    
-        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
-    
-        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
         <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
     
@@ -1294,9 +1293,9 @@ git lfs(large file storage) 当项目中有大小超过2m的文件时，建议�
     
         <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1306,7 +1305,11 @@ git lfs(large file storage) 当项目中有大小超过2m的文件时，建议�
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
-        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
@@ -1317,6 +1320,12 @@ git lfs(large file storage) 当项目中有大小超过2m的文件时，建议�
         <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
     
         <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
