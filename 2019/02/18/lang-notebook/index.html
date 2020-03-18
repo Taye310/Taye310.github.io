@@ -418,13 +418,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>unordered_map不能使用pair作为键值，需要提供pair的hash函数，map可以  </p>
-<p>hash_map与unordered_map: 前者使用一个下标范围比较大的数组来存储元素，形成很多的桶，利用hash函数对key进行映射到不同区域进行保存；<br>后者记录元素的hash值，根据hash值判断元素是否相同。<br>速度上2最优其次hash_map最次map  </p>
-<p>&amp;  （位   “与”）  and<br>^  （位   “异或”）<br>|  （位   “或”）   or<br>~  （位   “取反”）  </p>
-<p>位移运算符(&lt;&lt;/&gt;&gt;)：乘以/除以$2^n$</p>
-<p>整型最大最小值：INT_MIN,INT_MAX</p>
-<p>map&lt;&gt;如果不赋初值，不是NULL是0</p>
-<p><a href="http://www.cnblogs.com/Nonono-nw/p/3462183.html" target="_blank" rel="noopener">vector</a>：向量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;vector&gt;;</span></span><br></pre></td></tr></table></figure></p>
+        <h1 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h1><p>在C中，使用typedef定义struct在创建结构体是就不需要<figure class="highlight plain"><figcaption><span>Student stu; ```了，直接使用typedef定义的别名例如S，``` S stu; ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">unordered_map不能使用pair作为键值，需要提供pair的hash函数，map可以  </span><br><span class="line"></span><br><span class="line">hash_map与unordered_map: 前者使用一个下标范围比较大的数组来存储元素，形成很多的桶，利用hash函数对key进行映射到不同区域进行保存；</span><br><span class="line">后者记录元素的hash值，根据hash值判断元素是否相同。  </span><br><span class="line">速度上2最优其次hash_map最次map  </span><br><span class="line"></span><br><span class="line">&amp;  （位   “与”）  and  </span><br><span class="line">^  （位   “异或”）  </span><br><span class="line">|  （位   “或”）   or  </span><br><span class="line">~  （位   “取反”）  </span><br><span class="line"></span><br><span class="line">位移运算符(&lt;&lt;/&gt;&gt;)：乘以/除以$2^n$</span><br><span class="line"></span><br><span class="line">整型最大最小值：INT_MIN,INT_MAX</span><br><span class="line"></span><br><span class="line">map&lt;&gt;如果不赋初值，不是NULL是0</span><br><span class="line"></span><br><span class="line">[vector](http://www.cnblogs.com/Nonono-nw/p/3462183.html)：向量</span><br><span class="line">``` bash</span><br><span class="line">#include &lt;vector&gt;;</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://www.cnblogs.com/maluning/p/8570717.html" target="_blank" rel="noopener">iterator</a>：迭代器  </p>
 <p><a href="https://www.cnblogs.com/cxq0017/p/6555533.html" target="_blank" rel="noopener">STL中的基本容器</a><br>顺序容器：vector，list，deque等<br>关联容器：map，set等</p>
 <p>upper_bound, lower_bound:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// lower_bound/upper_bound example</span><br><span class="line"><span class="comment">#include &lt;iostream&gt;     // std::cout</span></span><br><span class="line"><span class="comment">#include &lt;algorithm&gt;    // std::lower_bound, std::upper_bound, std::sort</span></span><br><span class="line"><span class="comment">#include &lt;vector&gt;       // std::vector</span></span><br><span class="line"></span><br><span class="line">int <span class="function"><span class="title">main</span></span> () &#123;</span><br><span class="line">  int myints[] = &#123;10,20,30,30,20,10,10,20&#125;;</span><br><span class="line">  std::vector&lt;int&gt; v(myints,myints+8);           // 10 20 30 30 20 10 10 20</span><br><span class="line"></span><br><span class="line">  std::sort (v.begin(), v.end());                // 10 10 10 20 20 20 30 30</span><br><span class="line"></span><br><span class="line">  std::vector&lt;int&gt;::iterator low,up;</span><br><span class="line">  low=std::lower_bound (v.begin(), v.end(), 20); //          ^</span><br><span class="line">  up= std::upper_bound (v.begin(), v.end(), 20); //                   ^</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; <span class="string">"lower_bound at position "</span> &lt;&lt; (low- v.begin()) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">  std::cout &lt;&lt; <span class="string">"upper_bound at position "</span> &lt;&lt; (up - v.begin()) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -450,7 +444,8 @@ height:50vh;
 <p>内联函数（inline属于ret-type）：啥时候用，ret-type还包括哪些？  </p>
 <p><strong>boost库</strong>：准标准库</p>
 <p><code>string::find(&quot;a&quot;)</code> 如果没有找到”a”，会返回一个固定的大数，且等于<code>string::npos</code> 的值</p>
-<h1 id="C-1"><a href="#C-1" class="headerlink" title="C"></a>C</h1><p>Action与Func是特殊的delegate，用event修饰的delegate更加安全。<br>EventHandler就是一个已经声明出来的delegate  </p>
+<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>struct是值类型，内存分配在栈上；  </p>
+<p>Action与Func是特殊的delegate，用event修饰的delegate更加安全。<br>EventHandler就是一个已经声明出来的delegate  </p>
 <p><strong>where and new()</strong><br>在C#中，泛型的使用非常广泛，为了泛型调用安全，经常需要对所使用的类型进行约束。<br>在对泛型的约束中，最常使用的关键字有where 和 new。<br>其中where关键字是约束所使用的泛型，该泛型必须是where后面的类，或者继承自该类。<br>new()说明所使用的泛型，必须具有无参构造函数，这是为了能够正确的初始化对象  </p>
 <p>静态多态性：函数重载、运算符重载<br>动态多态性：抽象类和虚函数（抽象类和接口的区别：抽象类比接口更详细点，可以继承多个接口，但只能一个类）</p>
 <p><strong>正则表达式得看看todo</strong></p>
@@ -466,7 +461,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/02/18/lang-notebook/">/2019/02/18/lang-notebook/</a>
             <p>发表日期：<a href="/2019/02/18/lang-notebook/">February 18th 2019, 9:06:46 am</a>
-            <p>更新日期：<a href="/2019/02/18/lang-notebook/">March 14th 2020, 9:43:30 pm</a>
+            <p>更新日期：<a href="/2019/02/18/lang-notebook/">March 18th 2020, 1:36:28 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -619,7 +614,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">1.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-1"><span class="toc-number">2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unity"><span class="toc-number">3.</span> <span class="toc-text">Unity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todo"><span class="toc-number">4.</span> <span class="toc-text">todo</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-C"><span class="toc-number">1.</span> <span class="toc-text">C/C++</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unity"><span class="toc-number">3.</span> <span class="toc-text">Unity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todo"><span class="toc-number">4.</span> <span class="toc-text">todo</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -632,6 +627,10 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
@@ -1066,25 +1065,25 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
-    
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
-    
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
         <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
     
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
         <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
     
         <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
@@ -1093,12 +1092,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
-    
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
@@ -1118,19 +1111,25 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
     
-        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
-    
-        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
-    
         <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
         <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
+    
+        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
@@ -1142,9 +1141,7 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -1152,7 +1149,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
