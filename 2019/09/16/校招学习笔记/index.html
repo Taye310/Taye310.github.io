@@ -472,7 +472,9 @@ height:50vh;
 </li>
 <li><p>接雨水2</p>
 </li>
-<li><p>实现前缀树</p>
+<li><p>实现前缀树  </p>
+</li>
+<li><p>课程表<br>有向无权图是否存在环，用拓扑排序判断，还可以使用DFS</p>
 </li>
 </ol>
 <p>面试题41. 数据流中的中位数<br>二分查找插入用到了模板函数lower_bound/upper_bound(store.begin(), store.end(), num)<br>时间复杂度 $O(logN) + O(N)$ 约等于$O(N)$<br>优先队列priority_queue 时间复杂度$O(logN)$<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对于基础类型 默认是大顶堆</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>&gt; a; </span><br><span class="line">    <span class="comment">//等同于 priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; a;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">//      这里一定要有空格，不然成了右移运算符↓↓</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt; &gt; c;  <span class="comment">//这样就是小顶堆</span></span><br></pre></td></tr></table></figure></p>
@@ -946,7 +948,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">March 15th 2020, 3:45:47 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">March 23rd 2020, 12:56:53 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1112,6 +1114,14 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1550,25 +1560,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
-        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
-    
-        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
-    
         <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
         <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
         <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
     
         <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
-    
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
-    
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
@@ -1578,15 +1582,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
+    
+        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
+    
+        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
         <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
     
         <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1618,15 +1628,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
-    
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
-    
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -1634,9 +1646,7 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1677,9 +1687,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
-    
         <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
