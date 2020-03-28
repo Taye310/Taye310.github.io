@@ -283,7 +283,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">5.8k</span>阅读时长: <span class="post-count reading-time">22 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">6.2k</span>阅读时长: <span class="post-count reading-time">24 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -414,7 +414,8 @@ height:50vh;
     <article class="article-entry">
         <h1 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h1><h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p><a href="https://github.com/huihut/interview#%EF%B8%8F-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener">资料</a><br>TCP创建连接：三次握手<br>释放连接：四次挥手</p>
 <h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><p><a href="https://taye310.github.io/2019/02/18/lang-notebook/" target="_blank" rel="noopener">C++ &amp; C#/Unity notebook</a></p>
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><p><a href="https://github.com/huihut/interview" target="_blank" rel="noopener">github</a></p>
+<h2 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h2><p><a href="https://github.com/huihut/interview" target="_blank" rel="noopener">github</a>  </p>
+<p>并查集：<a href="https://zhuanlan.zhihu.com/p/93647900" target="_blank" rel="noopener">link1</a>  </p>
 <p><strong>十大排序</strong></p>
 <p>冒泡：两层循环，两两比较<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//整数或浮点数皆可使用,若要使用类(class)或结构体(struct)时必须重载大于(&gt;)运算符</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble_sort</span><span class="params">(T arr[], <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i, j;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)</span><br><span class="line">                <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++)</span><br><span class="line">                        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">                                swap(arr[j], arr[j + <span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>选择：未排序序列里找最小（大）的放到最前边<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//整數或浮點數皆可使用，若要使用物件（class）時必須設定大於（&gt;）的運算子功能</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selection_sort</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;T&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> min = i;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; arr.size(); j++)</span><br><span class="line">                        <span class="keyword">if</span> (arr[j] &lt; arr[min])</span><br><span class="line">                                min = j;</span><br><span class="line">                <span class="built_in">std</span>::swap(arr[i], arr[min]);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -464,21 +465,15 @@ height:50vh;
 <blockquote>
 <p><strong>杂项：</strong><br>KMP算法：一种不舍弃之前匹配信息的字符串匹配算法，时间复杂度O(m+n) 其中<em>next[j]就是第j个元素前j-1个元素首尾重合部分个数加一</em><br>输出受限的双端队列,即删除限制在一端进行,而插入仍允许在两端进行.  </p>
 </blockquote>
-<h2 id="leetcode刷题"><a href="#leetcode刷题" class="headerlink" title="leetcode刷题"></a>leetcode刷题</h2><ol start="109">
-<li><p>有序链表转换二叉搜索树<br>快慢指针加递归 每次递归，都是把链表分成两段；前面的那个链表末尾必须要加上nullptr，才算是分成了两个链表。</p>
-</li>
-<li><p>合并区间<br>push_back 和 emplace_back的区别，e更好 因为少一个构造函数</p>
-</li>
-<li><p>两个字符串的最小ascii删除和<br>DP LCS 最长公共子序列（Longest Common Sequence）<br>最优子结构/重叠子问题（用dp就是查表得到的不用重新计算）</p>
-</li>
-<li><p>接雨水2</p>
-</li>
-<li><p>实现前缀树  </p>
-</li>
-<li><p>课程表<br>有向无权图是否存在环，用拓扑排序判断，还可以使用DFS</p>
-</li>
-</ol>
+<h2 id="其他知识点"><a href="#其他知识点" class="headerlink" title="其他知识点"></a>其他知识点</h2><p>正则表达式：</p>
+<h2 id="leetcode刷题"><a href="#leetcode刷题" class="headerlink" title="leetcode刷题"></a>leetcode刷题</h2><p>109 有序链表转换二叉搜索树<br>    快慢指针加递归 每次递归，都是把链表分成两段；前面的那个链表末尾必须要加上nullptr，才算是分成了两个链表。</p>
+<p>56  合并区间<br>    push_back 和 emplace_back的区别，e更好 因为少一个构造函数</p>
+<p>712 两个字符串的最小ascii删除和<br>    DP LCS 最长公共子序列（Longest Common Sequence）<br>    最优子结构/重叠子问题（用dp就是查表得到的不用重新计算）</p>
+<p>407 接雨水2</p>
+<p>208 实现前缀树  </p>
+<p>207 课程表<br>有向无权图是否存在环，用拓扑排序判断，还可以使用DFS</p>
 <p>面试题41. 数据流中的中位数<br>二分查找插入用到了模板函数lower_bound/upper_bound(store.begin(), store.end(), num)<br>时间复杂度 $O(logN) + O(N)$ 约等于$O(N)$<br>优先队列priority_queue 时间复杂度$O(logN)$<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对于基础类型 默认是大顶堆</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>&gt; a; </span><br><span class="line">    <span class="comment">//等同于 priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; a;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">//      这里一定要有空格，不然成了右移运算符↓↓</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt; &gt; c;  <span class="comment">//这样就是小顶堆</span></span><br></pre></td></tr></table></figure></p>
+<p>820 <a href="https://leetcode-cn.com/problems/short-encoding-of-words/" target="_blank" rel="noopener">单词的压缩编码</a>：字典树</p>
 <p><strong>剑指offer系列：</strong><br>size_t: 与int固定四个字节不同有所不同,size_t的取值range是目标平台下最大可能的数组尺寸,一些平台下size_t的范围小于int的正数范围,又或者大于unsigned int. 使用Int既有可能浪费，又有可能范围不够大。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">string replaceSpace(string s) &#123;</span><br><span class="line">    size_t pos;</span><br><span class="line">    while(true)&#123;</span><br><span class="line">        pos = s.find(&quot; &quot;);</span><br><span class="line">        if(pos&lt;string::npos)&#123;</span><br><span class="line">            s.replace(pos,1,&quot;%20&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>面试题16. 数值的整数次方： 可以用位运算，$3^5 = 3^{101_{2}} = 3^{2^2+2^0} = 9^2*3^1$  </p>
 <p>vector的insert方法使用迭代器参数可以用来合并vector  </p>
@@ -487,6 +482,9 @@ height:50vh;
 <h2 id="牛客刷题"><a href="#牛客刷题" class="headerlink" title="牛客刷题"></a>牛客刷题</h2><p>union的大小取决于它所有的成员中，占用空间最大的一个成员的大小，并且需要内存对齐  </p>
 <p>c++的类体中，方法以外的区域不允许有初始化，简单类型是可以的，但是有构造函数的复杂对象则不行了，比如string对象！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error,expected identifier before numeric constant</span><br></pre></td></tr></table></figure></p>
 <h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><p>项目经历的star原则 p6  </p>
+<h2 id="C-C-知识点总结"><a href="#C-C-知识点总结" class="headerlink" title="C/C++知识点总结"></a>C/C++知识点总结</h2><p>new和malloc的区别：<br>new/delete（C++运算符）会自动调用构造函数和析构函数，底层是malloc/free（标准库函数，编译器无权控制其调用构造/析构函数），比其更智能<br>失败后前者抛异常，后者返回NULL，成功返回的都是指针  </p>
+<p>进程线程的区别：已有  </p>
+<p>vector/set实现机制：<br>vector动态增加大小时，并不是在原空间之后持续新空间（因为根本无法保证原空间之后尚有可供配置的空间），而是以原大小的两倍另外配置一块较大的空间，然后将内容拷贝过来，然后才开始在原内容之后构造新元素，并释放原空间，因此，一旦引起空间重新配置，指向原vector的所有迭代器都失效了，这是程序员易犯的一个错误，务必小心<br>set 底层红黑树（平衡二叉树）支持高效插删</p>
 <h1 id="面经复盘"><a href="#面经复盘" class="headerlink" title="面经复盘"></a>面经复盘</h1><h2 id="字节跳动–游戏研发"><a href="#字节跳动–游戏研发" class="headerlink" title="字节跳动–游戏研发"></a>字节跳动–游戏研发</h2><div style="width:300px"><br>    <img src="/2019/09/16/校招学习笔记/jrtt1.jpg"><br></div>
 
 <ol>
@@ -603,7 +601,8 @@ height:50vh;
 <p>手写二分查找  </p>
 <p>斐波那契数列递归与非递归写法 怎么优化  </p>
 <p>有什么要问的  </p>
-<h2 id="字节跳动——牛客"><a href="#字节跳动——牛客" class="headerlink" title="字节跳动——牛客"></a>字节跳动——牛客</h2><h1 id="企业列表"><a href="#企业列表" class="headerlink" title="企业列表"></a>企业列表</h1><p><a href="https://www.nowcoder.com/discuss/364482" target="_blank" rel="noopener">资源链接</a></p>
+<h2 id="游戏研发面经——牛客"><a href="#游戏研发面经——牛客" class="headerlink" title="游戏研发面经——牛客"></a>游戏研发面经——牛客</h2><p><a href="https://www.nowcoder.com/discuss/386400" target="_blank" rel="noopener">字节1</a><br><a href="https://www.nowcoder.com/discuss/388667" target="_blank" rel="noopener">字节2</a><br><a href="https://www.nowcoder.com/discuss/366357" target="_blank" rel="noopener">字节3</a><br><a href="https://www.nowcoder.com/discuss/259699" target="_blank" rel="noopener">网易1</a></p>
+<h1 id="企业列表"><a href="#企业列表" class="headerlink" title="企业列表"></a>企业列表</h1><p><a href="https://www.nowcoder.com/discuss/364482" target="_blank" rel="noopener">资源链接</a></p>
 <table>
 <thead>
 <tr>
@@ -748,7 +747,8 @@ height:50vh;
 <tr>
 <td>电力</td>
 <td>国家电网</td>
-<td></td>
+<td><a href="https://zhaopin.sgcc.com.cn/unitInfo.html?obj_id=00994041&amp;particulars=true" target="_blank" rel="noopener">link</a></td>
+<td>提前批会很早 第一批在11月份 牛客为什么有人十月底就拿到offer了。。</td>
 </tr>
 <tr>
 <td></td>
@@ -867,7 +867,32 @@ height:50vh;
 </tr>
 <tr>
 <td>一线</td>
-<td>BAT TMD</td>
+<td>百度</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>阿里</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>腾讯</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>字节</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>快手</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>…</td>
 <td></td>
 </tr>
 <tr>
@@ -878,6 +903,16 @@ height:50vh;
 <tr>
 <td></td>
 <td>携程</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>京东</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>微博</td>
 <td></td>
 </tr>
 <tr>
@@ -938,6 +973,13 @@ height:50vh;
 <tr>
 <td></td>
 <td>格力电器</td>
+<td></td>
+</tr>
+<tr>
+<td>事业单位</td>
+<td>国家统计局</td>
+<td><a href="http://www.stats.gov.cn/zjtj/gjtjj/jgsz/" target="_blank" rel="noopener">http://www.stats.gov.cn/zjtj/gjtjj/jgsz/</a></td>
+<td>考生在规定的报名时间内(自公告发布之日至4月10日)</td>
 </tr>
 </tbody>
 </table>
@@ -949,7 +991,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">March 26th 2020, 8:44:42 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">March 28th 2020, 5:19:12 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1102,7 +1144,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.2.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点"><span class="toc-number">1.3.</span> <span class="toc-text">知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.4.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛客刷题"><span class="toc-number">1.5.</span> <span class="toc-text">牛客刷题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">3.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动–游戏研发"><span class="toc-number">3.1.</span> <span class="toc-text">字节跳动–游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易雷火–牛客网"><span class="toc-number">3.2.</span> <span class="toc-text">网易雷火–牛客网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动——牛客"><span class="toc-number">3.3.</span> <span class="toc-text">字节跳动——牛客</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">4.</span> <span class="toc-text">企业列表</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.2.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.3.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.4.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.5.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛客刷题"><span class="toc-number">1.6.</span> <span class="toc-text">牛客刷题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-C-知识点总结"><span class="toc-number">2.1.</span> <span class="toc-text">C/C++知识点总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">3.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动–游戏研发"><span class="toc-number">3.1.</span> <span class="toc-text">字节跳动–游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易雷火–牛客网"><span class="toc-number">3.2.</span> <span class="toc-text">网易雷火–牛客网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏研发面经——牛客"><span class="toc-number">3.3.</span> <span class="toc-text">游戏研发面经——牛客</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">4.</span> <span class="toc-text">企业列表</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1115,6 +1157,10 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
@@ -1563,12 +1609,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
-        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
-    
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
-    
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
@@ -1577,15 +1617,27 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1594,12 +1646,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
-    
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
@@ -1623,17 +1669,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
-        <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
-    
-        <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
-    
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
         <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -1641,7 +1681,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+        <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
+    
+        <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1682,9 +1728,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
-    
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
