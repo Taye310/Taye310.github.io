@@ -283,7 +283,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">6.9k</span>阅读时长: <span class="post-count reading-time">26 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">7k</span>阅读时长: <span class="post-count reading-time">26 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -473,7 +473,9 @@ height:50vh;
 <p>208 实现前缀树  </p>
 <p>207 课程表<br>有向无权图是否存在环，用拓扑排序判断，还可以使用DFS</p>
 <p>面试题41. 数据流中的中位数<br>二分查找插入用到了模板函数lower_bound/upper_bound(store.begin(), store.end(), num)<br>时间复杂度 $O(logN) + O(N)$ 约等于$O(N)$<br><a href="https://leetcode-cn.com/problems/maximum-number-of-events-that-can-be-attended/solution/xiang-jie-you-xian-dui-lie-tan-xin-suan-fa-by-z1m/" target="_blank" rel="noopener">优先队列priority_queue</a> 时间复杂度$O(logN)$ 本质上是个堆，一棵完全二叉树<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对于基础类型 默认是大顶堆</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>&gt; a; </span><br><span class="line">    <span class="comment">//等同于 priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; a;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">//      这里一定要有空格，不然成了右移运算符↓↓</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt; &gt; c;  <span class="comment">//这样就是小顶堆</span></span><br></pre></td></tr></table></figure></p>
-<p>820 <a href="https://leetcode-cn.com/problems/short-encoding-of-words/" target="_blank" rel="noopener">单词的压缩编码</a>：字典树</p>
+<p>820 <a href="https://leetcode-cn.com/problems/short-encoding-of-words/" target="_blank" rel="noopener">单词的压缩编码</a>：字典树  </p>
+<p><a href="https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/solution/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-by-lee/" target="_blank" rel="noopener">面试题62</a>. 圆圈中最后剩下的数字：约瑟夫环<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> x = f(n - <span class="number">1</span>, m);</span><br><span class="line">    <span class="keyword">return</span> (m + x) % n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastRemaining</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> f(n, m);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastRemaining</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i != n + <span class="number">1</span>; ++i)</span><br><span class="line">            f = (m + f) % i;</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p><strong>剑指offer系列：</strong><br>size_t: 与int固定四个字节不同有所不同,size_t的取值range是目标平台下最大可能的数组尺寸,一些平台下size_t的范围小于int的正数范围,又或者大于unsigned int. 使用Int既有可能浪费，又有可能范围不够大。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">string replaceSpace(string s) &#123;</span><br><span class="line">    size_t pos;</span><br><span class="line">    while(true)&#123;</span><br><span class="line">        pos = s.find(&quot; &quot;);</span><br><span class="line">        if(pos&lt;string::npos)&#123;</span><br><span class="line">            s.replace(pos,1,&quot;%20&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>面试题16. 数值的整数次方： 可以用位运算，$3^5 = 3^{101_{2}} = 3^{2^2+2^0} = 9^2*3^1$  </p>
 <p>vector的insert方法使用迭代器参数可以用来合并vector  </p>
@@ -1027,7 +1029,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">March 29th 2020, 6:57:29 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">March 30th 2020, 1:47:36 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1193,10 +1195,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -1637,17 +1635,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
-        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
-        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
-    
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
-    
-        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
-    
-        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
@@ -1657,15 +1647,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
     
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
     
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1675,9 +1671,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
     
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
@@ -1695,15 +1693,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
-        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
-    
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
@@ -1717,9 +1717,7 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
-    
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1754,15 +1752,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
-    
         <span class="sidebar-category-name" data-categories="项目"><span class="iconfont-archer">&#xe60a;</span>项目</span>
+    
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
-    
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
