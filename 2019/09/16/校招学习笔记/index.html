@@ -283,7 +283,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">7.6k</span>阅读时长: <span class="post-count reading-time">29 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">8.2k</span>阅读时长: <span class="post-count reading-time">31 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -497,36 +497,6 @@ height:50vh;
 <p>结构体和类的区别：</p>
 <p>结构体为什么要字节对齐：</p>
 <p>LCA算法：</p>
-<ol>
-<li><p>介绍const？const修饰成员函数时放在哪？</p>
-</li>
-<li><p>vector内存？如何避免vector扩容？</p>
-</li>
-<li><p>函数可以返回引用吗？为什么？</p>
-</li>
-<li><p>如何进行字符串拷贝？（一脸懵逼说了个strcpy）strcpy使用的时候有什么要注意的？</p>
-</li>
-<li><p>进程和线程？</p>
-</li>
-<li><p>多线程同步？如何避免两个线程争一个资源？（其实不太懂啥意思，我说了信号量机制，之后又问还有呢？）</p>
-</li>
-<li><p>TCP UDP？</p>
-</li>
-<li><p>TCP四次挥手？（我说了个四次握手 感觉面试官楞了一下）</p>
-</li>
-<li><p>Unity如何改变一个物体的位置 旋转？</p>
-</li>
-<li><p>Unity本地坐标和世界坐标？</p>
-</li>
-<li><p>Unity调整旋转需要传什么参数？参数在数学上叫做什么？（我潜意识说的欧拉角 看他点了点头）还能怎么修改？</p>
-</li>
-<li><p>了解图形学？（说只知道一点渲染管线就没问）</p>
-</li>
-<li><p>如何使用协程？协程和线程区别？</p>
-</li>
-<li><p>C#拆装箱</p>
-</li>
-</ol>
 <h1 id="面经复盘"><a href="#面经复盘" class="headerlink" title="面经复盘"></a>面经复盘</h1><h2 id="字节跳动–游戏研发"><a href="#字节跳动–游戏研发" class="headerlink" title="字节跳动–游戏研发"></a>字节跳动–游戏研发</h2><div style="width:300px"><br>    <img src="/2019/09/16/校招学习笔记/jrtt1.jpg"><br></div>
 
 <ol>
@@ -569,9 +539,18 @@ height:50vh;
 
 <blockquote>
 <blockquote>
-<p>信号量  </p>
+<p>信号量<br>信号量(Semaphore)，有时被称为信号灯，是在多线程环境下使用的一种设施, 它负责协调各个线程, 以保证它们能够正确、合理的使用公共资源。  </p>
 </blockquote>
 </blockquote>
+<p>互斥量和信号量的区别：  </p>
+<ol>
+<li><p>互斥量用于线程的互斥，信号量用于线程的同步。<br>这是互斥量和信号量的根本区别，也就是互斥和同步之间的区别。<br>互斥：是指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性。但互斥无法限制访问者对资源的访问顺序，即访问是无序的。<br>同步：是指在互斥的基础上（大多数情况），通过其它机制实现访问者对资源的有序访问。在大多数情况下，同步已经实现了互斥，特别是所有写入资源的情况必定是互斥的。少数情况是指可以允许多个访问者同时访问资源  </p>
+</li>
+<li><p>互斥量值只能为0/1，信号量值可以为非负整数。<br>也就是说，一个互斥量只能用于一个资源的互斥访问，它不能实现多个资源的多线程互斥问题。信号量可以实现多个同类资源的多线程互斥和同步。当信号量为单值信号量是，也可以完成一个资源的互斥访问。  </p>
+</li>
+<li><p>互斥量的加锁和解锁必须由同一线程分别对应使用，信号量可以由一个线程释放，另一个线程得到。  </p>
+</li>
+</ol>
 <blockquote>
 <blockquote>
 <p>死锁  </p>
@@ -648,7 +627,17 @@ height:50vh;
 <p>介绍const，const修饰成员函数放哪儿？<br>修饰变量，说明该变量不可以被改变；<br>修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）；<br>修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改；<br>修饰成员函数（放在最后），说明该成员函数内不能修改成员变量（修饰的实际上是this，this是成员函数的调用对象）。<br>const int<em> p是p这个指针指向的值是个常量；<br>int</em> const p是p这个指针是个常量，但是*p何以变；  </p>
 <p>vector内存？<a href="http://c.biancheng.net/view/7397.html" target="_blank" rel="noopener">如何避免vector扩容</a>？<br>vector对象在栈上，内容在堆上； reserve(n)强制容量为n  </p>
 <p>函数可以返回引用吗？<br>可以，函数返回值时会产生一个临时变量作为函数返回值的副本，返回引用直接返回内存  </p>
-<p>如何进行字符串拷贝？<br>strcpy</p>
+<p>如何进行字符串拷贝？<br>strcpy <code>char   *strcpy(char   *dest,char   *src);</code><br>功能：把src所指由NULL结束的字符串复制到dest所指的数组中。<br>说明：src和dest所指内存区域不可以重叠且dest必须有足够的空间来容纳src的字符串。  </p>
+<p>进程和线程？<br>进程包含线程，一个线程挂了整个进程挂，进程与进程之间不影响，进程是资源分配的最小单位，线程是资源调度的最小单位  </p>
+<p>多线程同步？如何避免两个线程争一个资源？<br>互斥锁和信号量  </p>
+<p><a href="https://www.cnblogs.com/fundebug/p/differences-of-tcp-and-udp.html" target="_blank" rel="noopener">TCP UDP</a>？<br>传输层协议，tcp可靠，有链接，upd延迟低，无连接  </p>
+<p>TCP四次挥手？（我说了个四次握手 感觉面试官楞了一下）<br>断开连接，四次挥手，全双工 两次FIN（关闭连接）两次ACK（响应）  </p>
+<p>Unity如何改变一个物体的位置 旋转？  </p>
+<p>Unity本地坐标和世界坐标？  </p>
+<p>Unity调整旋转需要传什么参数？参数在数学上叫做什么？（我潜意识说的欧拉角 看他点了点头）还能怎么修改？<br><a href="https://blog.csdn.net/candycat1992/article/details/41254799" target="_blank" rel="noopener">四元数</a>：可以跟欧拉角互相转换，四维空间向量  </p>
+<p>了解图形学？（说只知道一点渲染管线就没问）  </p>
+<p>如何使用协程？协程和线程区别？<br>协程 IEnumerator startcoroutine<br>区别在于所有协程在一个线程内完成，是比线程更轻量的异步方法，在程序层面，而线程和进程在操作系统层面  </p>
+<p>C#拆装箱<br>装拆箱其实就是值类型和引用类型两者之间的类型转换操作，引用类型（object）都是在栈上放个地址，地址指向堆上的内存<br>装箱：值类型到引用类型（int-&gt;object）隐式转换<br>拆箱：反之，显式  </p>
 <p><a href="https://www.nowcoder.com/discuss/366357" target="_blank" rel="noopener">字节3</a>  </p>
 <p><a href="https://www.nowcoder.com/discuss/259699" target="_blank" rel="noopener">网易1</a>  </p>
 <p><a href="https://www.nowcoder.com/discuss/405621" target="_blank" rel="noopener">天美，字节创新业务，雷火</a></p>
@@ -1047,7 +1036,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">April 28th 2020, 10:57:19 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">April 30th 2020, 7:21:35 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
