@@ -289,7 +289,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">2.7k</span>阅读时长: <span class="post-count reading-time">10 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">3.2k</span>阅读时长: <span class="post-count reading-time">12 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -418,17 +418,17 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h1><p>重载set的 oprater &lt; 就可以使set内部按特殊要求有序 LFUCache</p>
-<p>全局对象的构造函数会<a href="https://www.cnblogs.com/zpcoding/p/10805639.html" target="_blank" rel="noopener">在 main 函数之前先运行</a></p>
-<p><a href="https://www.cnblogs.com/wh5313/archive/2012/06/12/2546112.html" target="_blank" rel="noopener">extern与static</a>：没有链接属性的标识符（none）总是被当做单独的个体，也就是说该标识符的多个声明被当做独立不同的实体。属于internal链接属性的标识符在同一个源文件内的所有声明中都指同一个实体，但位于不同源文件的多个声明则分属不同的实体。属于external链接属性的标识符不论声明多少次、位于几个源文件都表示同一个实体。  </p>
-<p><a href="https://www.cnblogs.com/damaohai/p/11497143.html" target="_blank" rel="noopener">定义与声明</a>：区别在于是否分配空间（extern）  </p>
-<p>do…while(0)的作用：宏定义函数的时候解决“；”所带来的问题。宏跟函数的区别在于宏是把参数替换到指定位置（++a的例子），imgui中也有提到  </p>
-<p>C++类的内部可以定义引用数据成员，必须通过成员函数初始化列表初始化  </p>
-<p>const修饰的属性只能在构造函数里初始化，然后就不能用变量名改值了，但是可以直接控制变量所在的地址直接修改值  </p>
-<p>#pragma once：避免include重复引用一个文件  </p>
-<p>空类的sizeof为1：那是被编译器插进去的一个char ，使得这个知class的不同实体（object）在内存中配道置独一无二的回地址。</p>
-<p>类型安全很大程度上可以等价于内存安全，类型安全的代码不会试图访问自己没被授权的内存区域  </p>
-<figure class="highlight plain"><figcaption><span>p; ``` 实际意思是删除了p所指的目标（变量或对象），释放了它所占的堆空间，而不是删除p本身（指针p本身并没有撤销，它自己仍然存在，该指针所占内存空间并未释放，指针p的真正释放是随着函数调用的结束而消失），释放堆空间后，p成了"空指针"。如果我们在delete p后没有进行指针p的制空（p</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">包含纯虚函数的基类可定义指向派生类对象的基类指针和派生类对象的引用，不能直接定义自身对象  </span><br><span class="line"></span><br><span class="line">[print输出格式控制](https://blog.csdn.net/qq_37059136/article/details/80841675)</span><br><span class="line"></span><br><span class="line">vecotr的at和[]: v是个空集合的情况下，[]访问是行为未定义的，at访问则会抛出std::out_of_range异常。c++标准不要求vector&lt;T&gt;::operator[]进行下标越界检查，原因是为了效率，总是强制下标越界检查会增加程序的性能开销。设计vector是用来代替内置数组的，所以效率问题也应该考虑。  </span><br><span class="line"></span><br><span class="line">unique_ptr是智能指针的一种  </span><br><span class="line"></span><br><span class="line">comptr和unique_ptr的区别：  </span><br><span class="line"></span><br><span class="line">``` C++</span><br><span class="line">auto_ptr&lt;string&gt; aps(new string(&quot;abd&quot;));</span><br><span class="line">	auto_ptr&lt;string&gt; aps2;</span><br><span class="line">	aps2 = aps;</span><br><span class="line">	cout &lt;&lt; *aps &lt;&lt; endl;//报错 此时aps已经失去对string内存的所有权，如果是两个普通指针，则没有问题</span><br><span class="line">	cout &lt;&lt; *aps2 &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+        <h1 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h1><p><a href="http://c.biancheng.net/view/2280.html" target="_blank" rel="noopener">虚继承</a>：解决菱形继承问题  </p>
+<p>在C++中，内存分成5个区，他们分别是堆、栈、自由存储区、全局/静态存储区和常量存储区  </p>
+<ol>
+<li>栈，就是那些由编译器在需要的时候分配，在不需要的时候自动清楚的变量的存储区。里面的变量通常是局部变量、函数参数等。</li>
+<li>堆，就是那些由new分配的内存块，他们的释放编译器不去管，由我们的应用程序去控制，一般一个new就要对应一个delete.如果程序员没有释放掉，那么在程序结束后，操作系统会自动回收。</li>
+<li>自由存储区，就是那些由malloc等分配的内存块，他和堆是十分相似的，不过它是用free来结束自己的生命的。</li>
+<li>全局/静态存储区，全局变量和静态变量被分配到同一块内存中，在以前的C语言中，全局变量又分为初始化的和未初始化的，在C++里面没有这个区分了，他们共同占用同一块内存区。</li>
+<li>常量存储区，这是一块比较特殊的存储区，他们里面存放的是常量，不允许修改(当然，你要通过非正当手段也可以修改)</li>
+</ol>
+<p><a href="https://bbs.csdn.net/topics/390720572" target="_blank" rel="noopener">头文件声明static变量，多个文件include该头文件</a>，会导致每个文件都有一个专属的static变量  </p>
+<p>const的物理常量性和逻辑常量性：物理常量性就是const对象不能改变，但是可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">constexpr：constexpr所修饰的变量一定是编译期可求值的，runtime的时候不能赋值，不然会报错，所修饰的函数在其所有参数都是constexpr时，一定会返回constexpr。  </span><br><span class="line"></span><br><span class="line">泛型技术：说白了就是试图使用不变的代码来实现可变的算法。比如：模板技术，RTTI技术，虚函数技术，要么是试图做到在编译时决议，要么试图做到运行时决议。  </span><br><span class="line"></span><br><span class="line">重载set的 oprater &lt; 就可以使set内部按特殊要求有序 LFUCache</span><br><span class="line"></span><br><span class="line">全局对象的构造函数会[在 main 函数之前先运行](https://www.cnblogs.com/zpcoding/p/10805639.html)</span><br><span class="line"></span><br><span class="line">[extern与static](https://www.cnblogs.com/wh5313/archive/2012/06/12/2546112.html)：没有链接属性的标识符（none）总是被当做单独的个体，也就是说该标识符的多个声明被当做独立不同的实体。属于internal链接属性的标识符在同一个源文件内的所有声明中都指同一个实体，但位于不同源文件的多个声明则分属不同的实体。属于external链接属性的标识符不论声明多少次、位于几个源文件都表示同一个实体。  </span><br><span class="line"></span><br><span class="line">[定义与声明](https://www.cnblogs.com/damaohai/p/11497143.html)：区别在于是否分配空间（extern）  </span><br><span class="line"></span><br><span class="line">do...while(0)的作用：宏定义函数的时候解决“；”所带来的问题。宏跟函数的区别在于宏是把参数替换到指定位置（++a的例子），imgui中也有提到  </span><br><span class="line"></span><br><span class="line">C++类的内部可以定义引用数据成员，必须通过成员函数初始化列表初始化  </span><br><span class="line"></span><br><span class="line">const修饰的属性只能在构造函数里初始化，然后就不能用变量名改值了，但是可以直接控制变量所在的地址直接修改值  </span><br><span class="line"></span><br><span class="line">#pragma once：避免include重复引用一个文件  </span><br><span class="line"></span><br><span class="line">空类的sizeof为1：那是被编译器插进去的一个char ，使得这个知class的不同实体（object）在内存中配道置独一无二的回地址。</span><br><span class="line"></span><br><span class="line">类型安全很大程度上可以等价于内存安全，类型安全的代码不会试图访问自己没被授权的内存区域  </span><br><span class="line"></span><br><span class="line">``` delete p; ``` 实际意思是删除了p所指的目标（变量或对象），释放了它所占的堆空间，而不是删除p本身（指针p本身并没有撤销，它自己仍然存在，该指针所占内存空间并未释放，指针p的真正释放是随着函数调用的结束而消失），释放堆空间后，p成了&quot;空指针&quot;。如果我们在delete p后没有进行指针p的制空（p=NULL)的话，其实指针p这时会成为野指针，为了使用的安全，我们一般在delete p之后还会加上p=NULL这一语句  </span><br><span class="line"></span><br><span class="line">包含纯虚函数的基类可定义指向派生类对象的基类指针和派生类对象的引用，不能直接定义自身对象  </span><br><span class="line"></span><br><span class="line">[print输出格式控制](https://blog.csdn.net/qq_37059136/article/details/80841675)</span><br><span class="line"></span><br><span class="line">vecotr的at和[]: v是个空集合的情况下，[]访问是行为未定义的，at访问则会抛出std::out_of_range异常。c++标准不要求vector&lt;T&gt;::operator[]进行下标越界检查，原因是为了效率，总是强制下标越界检查会增加程序的性能开销。设计vector是用来代替内置数组的，所以效率问题也应该考虑。  </span><br><span class="line"></span><br><span class="line">unique_ptr是智能指针的一种  </span><br><span class="line"></span><br><span class="line">comptr和unique_ptr的区别：  </span><br><span class="line"></span><br><span class="line">``` C++</span><br><span class="line">auto_ptr&lt;string&gt; aps(new string(&quot;abd&quot;));</span><br><span class="line">	auto_ptr&lt;string&gt; aps2;</span><br><span class="line">	aps2 = aps;</span><br><span class="line">	cout &lt;&lt; *aps &lt;&lt; endl;//报错 此时aps已经失去对string内存的所有权，如果是两个普通指针，则没有问题</span><br><span class="line">	cout &lt;&lt; *aps2 &lt;&lt; endl;</span><br></pre></td></tr></table></figure></p>
 <p>implicit conversion/explicit conversion:</p>
 <p>#pragma comment ( lib,”wpcap.lib” )<br>表示链接wpcap.lib这个库。和在工程设置里写上链入wpcap.lib的效果一样（两种方式等价，或说一个隐式一个显式调用），不过这种方法写的 程序别人在使用你的代码的时候就不用再设置工程settings了。告诉连接器连接的时候要找ws2_32.lib，这样你就不用在linker的lib设置里指定这个lib了。  </p>
 <p>C++的钻石继承：dreaded diamond：  </p>
@@ -483,7 +483,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/02/18/lang-notebook/">/2019/02/18/lang-notebook/</a>
             <p>发表日期：<a href="/2019/02/18/lang-notebook/">February 18th 2019, 9:06:46 am</a>
-            <p>更新日期：<a href="/2019/02/18/lang-notebook/">May 8th 2020, 6:13:32 pm</a>
+            <p>更新日期：<a href="/2019/02/18/lang-notebook/">May 26th 2020, 3:42:05 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -649,8 +649,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -1129,27 +1127,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -1163,6 +1153,14 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
     
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
         <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
     
         <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
@@ -1172,6 +1170,10 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1187,13 +1189,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
-    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
+        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
+    
+        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
@@ -1201,31 +1211,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="COM"><span class="iconfont-archer">&#xe606;</span>COM</span>
     
-        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
-    
-        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
-    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
         <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
     
         <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
-    
-        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
-    
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -1233,9 +1231,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1276,9 +1274,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
-    
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

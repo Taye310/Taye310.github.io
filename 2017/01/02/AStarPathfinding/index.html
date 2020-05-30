@@ -283,7 +283,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">5</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">50</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -413,6 +413,8 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p><a href="https://www.youtube.com/watch?v=-L-WgKMFuhE&amp;list=PLFt_AvWsXl0cq5Umv3pMC9SPnKjfp9eGW" target="_blank" rel="noopener">A* Pathfinding tutorial in unity</a></p>
+<p>G cost: distance from starting node<br>H cost(heuristic): distance from end node<br>F cost: G cost + H cost  </p>
+<p>算最小F cost周围的node的cost，如果已经有值并且新cost小于旧cost，进行覆盖，迭代  </p>
 
     </article>
     <!-- license  -->
@@ -421,7 +423,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2017/01/02/AStarPathfinding/">/2017/01/02/AStarPathfinding/</a>
             <p>发表日期：<a href="/2017/01/02/AStarPathfinding/">January 2nd 2017, 12:00:00 am</a>
-            <p>更新日期：<a href="/2017/01/02/AStarPathfinding/">May 4th 2019, 7:31:57 pm</a>
+            <p>更新日期：<a href="/2017/01/02/AStarPathfinding/">May 25th 2020, 7:59:26 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -587,8 +589,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -1067,27 +1067,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -1101,6 +1093,14 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
     
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
         <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
     
         <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
@@ -1110,6 +1110,10 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1125,13 +1129,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
-    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
+        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
+    
+        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
@@ -1139,31 +1151,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="COM"><span class="iconfont-archer">&#xe606;</span>COM</span>
     
-        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
-    
-        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
-    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
         <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
     
         <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
-    
-        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
-    
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -1171,9 +1171,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1214,9 +1214,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
-    
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

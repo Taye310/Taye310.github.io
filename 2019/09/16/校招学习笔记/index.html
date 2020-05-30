@@ -283,7 +283,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">11.1k</span>阅读时长: <span class="post-count reading-time">41 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">15.6k</span>阅读时长: <span class="post-count reading-time">56 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -491,7 +491,41 @@ height:50vh;
 <h2 id="牛客刷题"><a href="#牛客刷题" class="headerlink" title="牛客刷题"></a>牛客刷题</h2><p>union的大小取决于它所有的成员中，占用空间最大的一个成员的大小，并且需要内存对齐  </p>
 <p>c++的类体中，方法以外的区域不允许有初始化，简单类型是可以的，但是有构造函数的复杂对象则不行了，比如string对象！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error,expected identifier before numeric constant</span><br></pre></td></tr></table></figure></p>
 <h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><p>项目经历的star原则 p6  </p>
-<h2 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h2><p>new和malloc的区别：<br>new/delete（C++运算符）会自动调用构造函数和析构函数，底层是malloc/free（标准库函数，编译器无权控制其调用构造/析构函数），比其更智能<br>失败后前者抛异常，后者返回NULL，成功返回的都是指针  </p>
+<h2 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h2><p>哈希解决冲突：开放定址法，再哈希法，链地址法</p>
+<p>哈希索引和b+树索引：</p>
+<ul>
+<li>如果是等值查询，那么哈希索引明显有绝对优势，因为只需要经过一次算法即可找到相应的键值；当然了，这个前提是，键值都是唯一的。如果键值不是唯一的，就需要先找到该键所在位置，然后再根据链表往后扫描，直到找到相应的数据；</li>
+<li>从示意图中也能看到，如果是范围查询检索，这时候哈希索引就毫无用武之地了，因为原先是有序的键值，经过哈希算法后，有可能变成不连续的了，就没办法再利用索引完成范围查询检索；<br>同理，哈希索引也没办法利用索引完成排序，以及like ‘xxx%’ 这样的部分模糊查询（这种部分模糊查询，其实本质上也是范围查询）；</li>
+<li>哈希索引也不支持多列联合索引的最左匹配规则；</li>
+<li>B+树索引的关键字检索效率比较平均，不像B树那样波动幅度大，在有大量重复键值情况下，哈希索引的效率也是极低的，因为存在所谓的哈希碰撞问题。</li>
+</ul>
+<p>C#的虚函数的override和new：前者是重写（覆盖），后者只是隐藏了父类中的虚函数，如果用父类指针指向子类对象，调用new的函数，调用的还是父类的。总结通俗的讲：new：父类看不到子类的new的新方法，子类看不到父类被new的方法， 而override: 父类和子类看到的都是子类override后的方法。</p>
+<p>线程池的概念：避免频繁创建销毁线程，等待队列、线程管理</p>
+<p>Unity的生命周期：awake，update，fixedupdate，lateupdate</p>
+<p>为什么IP在网络层，TCP、UDP在传输层，它们是怎么工作的？<br>ip在网络层，负责路由；tcp/udp在传输层负责一有链接或者无连接的方式传送消息</p>
+<p>DrawCall的含义就是CPU调用图像编程接口，以命令GPU进行渲染的操作。</p>
+<p>lua元表：设置了元表的table，如果元表的index是个table，外层表索引的数据为nil就上元表的这个index里找</p>
+<p>fixedupdate\update\lateupdate：fixed物理相关的都放在里边，因为他是固定时间间隔（也是每帧update一次）；update是每帧一次，但是时间间隔不一定，看渲染效率；late在update之后。  </p>
+<p>模板和宏的区别：</p>
+<ol>
+<li>宏是在预处理阶段处理，模板是在编译阶段处理</li>
+<li>宏不会进行类型检查，只会单纯的进行文本替换，模板会进行类型检查。比如下面代码模板就会出错，而宏不会</li>
+<li>宏直接就可以产生代码，而编译器遇到模板定义时，并不产生代码，只有当模板实例化后时才会产生代码。</li>
+</ol>
+<p>协程底层实现：函数返回一个迭代器类型，函数中可以多次yield return就像数组下标一样</p>
+<p>如何做虚拟地址映射：虚拟地址是4g，user3，kernel1，结构是页表</p>
+<p>进程如何分配地址：堆栈、静态、常量、自由</p>
+<p><a href="https://blog.csdn.net/isunbin/article/details/99568217" target="_blank" rel="noopener">C++如何保证类不被继承</a>：借助友元来实现，因为友元是不可以被继承的。如果一个类的构造函数要借助它的友元类，那么继承了这个类的类就无法构造自己的对象。从而杜绝了被继承</p>
+<p>计算机中的流水线：每条指令分成多步，各指令间轮转顺序执行，实现并行效果（实际还是一条条执行的）；效率瓶颈，就让每一步更细分</p>
+<p><a href="https://blog.csdn.net/shaocize/article/details/89702151" target="_blank" rel="noopener">帧同步与状态同步</a>：状态tcp，帧udp；同步每个单位的状态，单位数量增加数据量增加，帧同步同步操作，操作通过运算可以达到一致的状态（游戏逻辑执行在本地，所以不好防外挂，防的方法可以算状态hash对比，或者记录战斗数据分析），单位再多同步数据量也不会增加</p>
+<p>udp如何避免丢包：<br>原因：</p>
+<ol>
+<li>接收端处理时间过长导致丢包</li>
+<li>发送的包巨大丢包</li>
+<li>发送的包较大，超过接受者缓存导致丢包</li>
+<li>发送的包频率太快</li>
+</ol>
+<p>new和malloc的区别：<br>new/delete（C++运算符）会自动调用构造函数和析构函数，底层是malloc/free（标准库函数，编译器无权控制其调用构造/析构函数），比其更智能<br>失败后前者抛异常，后者返回NULL，成功返回的都是指针  </p>
 <p>进程线程的区别：已有  </p>
 <p>vector/set实现机制：<br>vector用数组,set用的时红黑树。Vector内存分配使用的是STL的allocator分配器，采用二层分配机制，申请内存大于128K时使用malloc，小于128K时使用内存池，接着讲了一下内存池的机制，维护16个空闲链表之类的<br>vector动态增加大小时，并不是在原空间之后持续新空间（因为根本无法保证原空间之后尚有可供配置的空间），而是以原大小的两倍另外配置一块较大的空间，然后将内容拷贝过来，然后才开始在原内容之后构造新元素，并释放原空间，因此，一旦引起空间重新配置，指向原vector的所有迭代器都失效了，这是程序员易犯的一个错误，务必小心<br>set 底层红黑树（平衡二叉树）目的是为了高效检索</p>
 <p>数据库索引作用，怎么实现的：<br>高效获取数据，BTree索引、哈希索引、全文索引等<br><a href="https://zhuanlan.zhihu.com/p/27700617" target="_blank" rel="noopener">BST、BTree、B+Tree</a>  </p>
@@ -617,8 +651,30 @@ height:50vh;
 <blockquote>
 <blockquote>
 <p>渲染管线  </p>
+<ol>
+<li>Input Assembler Stage<br>这个阶段的主要目的是根据用户提供的顶点及索引信息，构建多边形，主要有点、线段、三角形。给定顶点和索引，构建多边形的方法取决于所使用的基本图元的拓扑类型（Primitive Topology）。</li>
+</ol>
 </blockquote>
 </blockquote>
+<ol start="2">
+<li><p>Vertex Shader Stage<br>这是一个完全可编程的阶段，即完全由程序员自己来实现。该阶段的核心为模型顶点的各种空间变化；<br>用户指定的所有顶点都是基于模型空间的，在Vertex Shader阶段，每个顶点要依次经历所有这些空间，最终转换为屏幕上对应的二维坐标，不同空间之间的切换称为“空间变换”，实现空间变换的基本工作即矩阵。</p>
+</li>
+<li><p>Hull Shader Stage、Tessellation Stage、Domain Shader Stage<br>这三个阶段其实共属于Tessellation Stage，即曲面细分阶段，可选阶段。这个是D3D11中刚加入的一个高级特性，主要用于如LOD（Level of Detail）技术中。</p>
+</li>
+<li><p>Geometry Shader Stage<br>这个也是D3D11中加入的新特性，为可选阶段。在这个阶段中，输入为一个完整的多边形，点、线段或三角形。这个阶段直接对输入的多边形进行操作，可以把其消灭，不再往下一个阶段传输；也可以衍生出新的多边形出来。总之，该阶段操作的对象是完整的多边形，相比于顶点着色阶段，其操作的对象是单个的顶点。</p>
+</li>
+<li><p>Rasterizer Stage<br>这个阶段属于不可编程阶段，即完全由硬件实现，主要包括：</p>
+<ol>
+<li>视口变换</li>
+<li>隐藏面消除（Backface Culling）</li>
+<li>顶点属性的插值计算<br>说白了就是，三维空间的物体，放到二维屏幕上</li>
+</ol>
+</li>
+<li><p>Pixel Shader Stage（fragment shader片元着色器）<br>这个阶段也是完全可编程的一个阶段，也是跟顶点着色器阶段一样十分重要的阶段。因为在D3D11中，顶点着色器和像素着色器是程序员实现的两个最基本的阶段。<br>像素着色器，从名字上也很容易看出，是在像素级别上进行的计算。对于三维空间中投影到屏幕上的每一个多边形，针对其在屏幕上所覆盖的每一个像素，逐个进行像素着色计算。这一阶段接受的数据是经过插值计算后的顶点属性。输出的是颜色值，以提供给下一阶段处理。<br>像素着色器给程序员提供了相当多的灵活性和自由度，通过各种不同的算法来计算片段颜色以实现各种特效。</p>
+</li>
+<li><p>Output Merger Stage<br>这个阶段即输出片段的混合阶段。该阶段不可编程，但是高度可调节。程序员可以灵活地调整管线的状态来实现不同的特效。比如针对深度缓冲区、模板缓冲区，混合等可以有各种不同的状态。利用它们来实现各种特效后面也有特别详细的介绍。</p>
+</li>
+</ol>
 <p><strong>二面：</strong><br>实习经历相关  </p>
 <p>游戏框架、设计模式  </p>
 <p>值类型与引用类型 引用类型创建慢的原因，具体到内存  </p>
@@ -649,7 +705,7 @@ height:50vh;
 <p><a href="https://www.nowcoder.com/discuss/390823" target="_blank" rel="noopener">字节游戏测试</a><br>自我介绍<br>tcp与udp的区别<br>tcp是面向连接的，提供可靠的服务，保证数据完整性、没有重复、按顺序到达，udp无连接延迟低</p>
 <p><a href="https://blog.csdn.net/xiaoming100001/article/details/81109617" target="_blank" rel="noopener">http与https的区别，https的劣势</a><br>前者明文传输，后者可进行加密传输、身份认证<br>后者降低了用户的访问速度，加重服务端压力；ca证书年费花销  </p>
 <p>进程与线程的区别<br>资源分配最小单位和资源调度最小单位，线程挂整个进程挂，进程挂对其他的没影响；线程间通讯代价小  </p>
-<p>多态，gc  </p>
+<p>多态，gc<br>C++在语言层面是没有gc的，但是可以通过智能指针实现；C#有</p>
 <p>set与hashset的区别  </p>
 <p>map与hashmap的区别  </p>
 <p>快排的原理  </p>
@@ -658,10 +714,36 @@ height:50vh;
 <p>Linux的shell编程  </p>
 <p>hashmap的查找，删除，添加的时间复杂度  </p>
 <p>算法题：一个数组中有正数有负数（没有0），请将它排成正负相间的数组（多余的全部放后面），时间复杂度不超过O（n）;</p>
+<p><a href="https://www.nowcoder.com/discuss/241040" target="_blank" rel="noopener">网易游戏后端</a><br>8.20 一面 1h</p>
+<p>1.介绍实习和项目</p>
+<p>2.static变量的作用？你能想到的所有的都讲出来</p>
+<p>3.a文件里面定义一个static b文件include a  c文件也include a 编译链接有什么问题？<br>会导致每个文件都有一个专属的static变量  </p>
+<p>4.a文件定义了一个static函数，b文件想用这个函数 该怎么做？你能想到几种方法？<br>套在一个普通函数里  </p>
+<p>5.C++面向对象三大特性？虚表你怎样理解？<br>封装继承多态，包含虚函数的类对象最开始会有个虚表指针，目的是父类指针指向子类对象的时候找到正确的方法进行调用</p>
+<p>6.<a href="https://www.cnblogs.com/zzdbullet/p/10563075.html" target="_blank" rel="noopener">如何用C实现C++这三大特性？</a><br>struct做数据结构，函数的话传一个struct类型指针进去做this<br>继承就在struct里放父类一个对象<br>多态需要自己写个struct作为虚表，放到父类的struct中</p>
+<p>7.tcp三握四挥</p>
+<p>8.linux进程管理，介绍一下过程</p>
+<p>二面是两个人一起面的，难度的话感觉还好 等三面了~</p>
+<p>8.30 二面 50min</p>
+<p>1.介绍实习和项目</p>
+<p>2.linux内存管理，虚拟内存机制</p>
+<p>3.lock-free的理解？cas为什么能够原子性？</p>
+<p>4.如果很多个线程 都在并发cas 但是一直不成功，怎么办？（这个我没明白他的意思</p>
+<p>5.内存屏障怎么理解？</p>
+<p>6.互斥锁和自旋锁的区别？</p>
+<p>7.互斥锁的底层原理？它不是busy-loop如何通知线程</p>
+<p>8.自旋锁什么时候用？和cas有什么区别？</p>
+<p>9.cas实现自旋锁</p>
+<p>10.timewait状态</p>
+<p>11.tcp的拥塞控制？非常详细的介绍四个算法，包括门限值怎样修改，什么时候触发快重传等这些</p>
+<p>12.智力题 在数轴上有n个点，从中找一个点，使得该点到其他所有点的距离之和最短？并证明</p>
+<p>13.查看一块共享内存被哪些进程持有，用什么命令？查看一个进程持有了哪些共享内存呢？</p>
 <h3 id="C-后端"><a href="#C-后端" class="headerlink" title="C++后端"></a>C++后端</h3><p><a href="https://www.nowcoder.com/discuss/399967" target="_blank" rel="noopener">腾讯字节后台开发</a>  </p>
 <p><a href="https://www.nowcoder.com/discuss/415859" target="_blank" rel="noopener">字节后端</a>  </p>
 <p>项目为什么选用flask这个框架，对这个框架了解多少，有哪些并发模型。<br>生产者消费者模型怎么实现的。<br>中间有个阻塞队列作为“仓库”<br>共享内存的原理和实现。<br><a href="https://blog.csdn.net/wuhuagu_wuhuaguo/article/details/78591330" target="_blank" rel="noopener">进程间如何同步。</a><br>临界区，互斥量，信号量，事件</p>
-<p>负载均衡的算法你了解哪些？项目中的负载均衡是怎么实现的。<br>一次性哈希有了解过吗？<br>主键索引是什么，B+树有什么好处，主键索引和普通索引有什么区别。<br>查询慢怎么优化。<br>父子进程间共享哪些资源。<br>多线程之间共享哪些资源。<br>TCP有哪些机制保证可靠传输。<br>接收方，窗口缓存满了会怎么样，怎么知道又有空间了，通知发送的包再丢了怎么办。<br>思路题：20000个高考生，分布0-750的成绩，内存足够大，怎么排序最快。<br>代码题：aabbcsdaddabsds一个字符串，删除所有的ab。注意：aabb-&gt;ab-&gt;null。<br>二面<br>项目介绍。<br>FFmpeg介绍一下。<br>项目的进展现在怎么样？遇到了哪些问题，系统稳定性怎么优化。<br>负载均衡怎么做的？怎么判断服务忙不忙。<br>代码题：单链表判断是否有环？若有环如何判断环的入口。<br>死锁的概念，避免死锁的具体方法。<br>缓存机制有了解吗？缓存的替换策略有哪些，说一下。<br>思考题：如何判断恶意刷接口的情况？记录了10T的请求记录，找出前100个高频访问用户。<br>一致性哈希和普通哈希有什么区别？<br>三面<br>项目介绍<br>你们数据交互主要是内存是吧，怎么设计的？<br>怎么监控内存有没有泄漏，服务挂了数据会丢吗？<br>服务之间的负载均衡是怎么做的？有哪些负载均衡算法？<br>CPU调度算法有哪些。<br>系统调用了解吗？有哪些类型。<br>http状态码有哪些。<br>http和https的区别是什么。<br>代码题一：判断一棵二叉树是不是以根节点为镜像的。<br>代码题二：实现一个队列的类，有取最大值的接口，且时间复杂度为O（1）。<br>家在哪儿？看你实验室做了很多算法的东西，你自己的就业方向是怎么打算的？<br>实习可以来北京吗？什么时候可以开始，能实习多久。  </p>
+<p>负载均衡的算法你了解哪些？项目中的负载均衡是怎么实现的。<br>一致性哈希有了解过吗？<br>主键索引是什么，B+树有什么好处，主键索引和普通索引有什么区别。<br>查询慢怎么优化。<br>父子进程间共享哪些资源。<br>多线程之间共享哪些资源。<br>TCP有哪些机制保证可靠传输。<br>接收方，窗口缓存满了会怎么样，怎么知道又有空间了，通知发送的包再丢了怎么办。<br>思路题：20000个高考生，分布0-750的成绩，内存足够大，怎么排序最快。<br>代码题：aabbcsdaddabsds一个字符串，删除所有的ab。注意：aabb-&gt;ab-&gt;null。<br>二面<br>项目介绍。<br>FFmpeg介绍一下。<br>项目的进展现在怎么样？遇到了哪些问题，系统稳定性怎么优化。<br>负载均衡怎么做的？怎么判断服务忙不忙。<br>代码题：单链表判断是否有环？若有环如何判断环的入口。<br>死锁的概念，避免死锁的具体方法。<br>缓存机制有了解吗？缓存的替换策略有哪些，说一下。<br>思考题：如何判断恶意刷接口的情况？记录了10T的请求记录，找出前100个高频访问用户。  </p>
+<p><a href="https://www.jianshu.com/p/735a3d4789fc" target="_blank" rel="noopener">一致性哈希</a>和普通哈希有什么区别？<br>一致性哈希主要就是解决当机器减少或增加的时候，大面积的数据重新哈希的问题<br>都是多个数据库服务器的情况下，普通hash增加机器时要重新哈希  </p>
+<p>三面<br>项目介绍<br>你们数据交互主要是内存是吧，怎么设计的？<br>怎么监控内存有没有泄漏，服务挂了数据会丢吗？<br>服务之间的负载均衡是怎么做的？有哪些负载均衡算法？<br>CPU调度算法有哪些。<br>系统调用了解吗？有哪些类型。<br>http状态码有哪些。<br>http和https的区别是什么。<br>代码题一：判断一棵二叉树是不是以根节点为镜像的。<br>代码题二：实现一个队列的类，有取最大值的接口，且时间复杂度为O（1）。<br>家在哪儿？看你实验室做了很多算法的东西，你自己的就业方向是怎么打算的？<br>实习可以来北京吗？什么时候可以开始，能实习多久。  </p>
 <p><a href="https://www.nowcoder.com/discuss/415504" target="_blank" rel="noopener">字节后端</a>  </p>
 <p>自我介绍+聊实习项目</p>
 <p>手撕代码：排课表，有依赖，拓扑排序</p>
@@ -695,26 +777,111 @@ height:50vh;
 <p>页面置换算法、LRU的底层实现（哈希表和双向链表）<br>内存管理的算法。</p>
 <p>TCP三次握手过程<br>长连接的保活机制、心跳包<br>怎么处理已经失效的连接<br>http的几种请求方式、GET/POST/PUT的区别<br>开放题：12306为什么不买很多服务器，但是抢票的时候还是不卡？（扯CAP，最后面试官说其实不买很多服务器的原因是一年抢票也就那么几次，考虑投入使用比）<br>高可用性的秒杀系统是怎么样的、使用情景（CAP舍弃C）<br>还投了哪些公司？拿到了哪些offer？怎么看互联网和银行、怎么选择？<br>反问<br>4.24 招行信用卡中心 二面 qq视频 11:00 30min</p>
 <p>自我介绍<br>项目介绍、问项目<br>TCP三次握手四次挥手过程<br>最大堆、创建过程、堆排序<br>文件系统的索引用的什么数据结构<br>讲一下B+树，为什么效率高，为什么不用哈希表<br>java的(…)你知道吗（不知道）<br>日常生活问题<br>当班长怎么组织活动、具体步骤、有问题怎么解决<br>语言选择、城市选择<br>反问</p>
-<h3 id="其他研发"><a href="#其他研发" class="headerlink" title="其他研发"></a>其他研发</h3><p><a href="https://www.nowcoder.com/discuss/183215" target="_blank" rel="noopener">趋势科技广联达后台</a></p>
-<p><a href="https://www.nowcoder.com/discuss/267138" target="_blank" rel="noopener">广联达远程面试</a></p>
-<p><a href="https://www.nowcoder.com/discuss/427484" target="_blank" rel="noopener">广联达C++实习</a><br>十分钟介绍项目<br>unity UI/游戏机制/shader/winapi+d3d/前端经历</p>
+<h3 id="其他研发"><a href="#其他研发" class="headerlink" title="其他研发"></a>其他研发</h3><p><a href="https://www.nowcoder.com/discuss/183215" target="_blank" rel="noopener">趋势科技广联达后台</a>  </p>
+<ol>
+<li><p>笔试题第二题思路</p>
+</li>
+<li><p>c 面向对象说一下<br>封装：数据和逻辑绑定；继承：对象产生父子关系，共用属性和方法；多态，静态多态（相同函数不同的参数）和动态多态（虚函数）</p>
+</li>
+<li><p>虚函数怎么实现的<br>有虚函数的表会在最前边放个虚函数表，每个实例会根据虚函数表调用正确的方法</p>
+</li>
+<li><p>如果不用指针和引用，子类赋值给父类，会不会引发动态绑定，为什么？<br>静态绑定：绑定的是静态类型，所对应的函数或属性依赖于对象的静态类型，发生在编译期；<br>动态绑定：绑定的是动态类型，所对应的函数或属性依赖于对象的动态类型，发生在运行期；<br>不会，因为对象的类型是确定，在<strong>编译期</strong>就确定了，指针或引用是在<strong>运行期</strong>根据他们绑定的具体对象确定  </p>
+</li>
+<li><p>vector底层工作原理<br>数组，每次容量到上线就翻倍增加（开辟新空间再复制）  </p>
+</li>
+<li><p>讲项目</p>
+</li>
+<li><p>讲讲最小二乘<br>它的主要思想就是选择未知参数，使得理论值与观测值之差的平方和达到最小  </p>
+</li>
+<li><p>为什么采用最小二乘法而不用你一开始说的三次样条</p>
+</li>
+<li><p>近处用一次函数拟合，远处用高次函数拟合，你怎么判决这个边界的</p>
+</li>
+<li><p>算法了解哪些</p>
+</li>
+<li><p>动态规划和贪心算法有啥区别，分别举个栗子</p>
+</li>
+<li><p>贪心算法有什么缺点</p>
+</li>
+<li><p>说一下机器学习吧</p>
+</li>
+<li><p>数据结构了解哪些</p>
+</li>
+<li><p>树和图有啥区别<br>能否成环，树有个根节点</p>
+</li>
+<li><p>什么地方会用到树</p>
+</li>
+</ol>
+<p><a href="https://www.nowcoder.com/discuss/267138" target="_blank" rel="noopener">广联达远程面试</a>  </p>
+<ol>
+<li><p>自我介绍，重点介绍下项目</p>
+</li>
+<li><p>详细讲解项目是怎么实现的？（口才不好，描述半天……）</p>
+</li>
+<li><p>了解哪些常用数据结构？（数组、栈、树….）</p>
+</li>
+<li><p>那说一下B+树的原理，有什么优势？<br>单一节点存储更多元素，减少IO<br>所有查询都要找到叶子节点，查询稳定<br>所有叶子节点形成有序链表，方便范围查询</p>
+</li>
+<li><p>介绍一下索引<br>索引是对数据库表中一个或多个列（例如，employee 表的姓名 (name) 列）的值进行排序的结构。  </p>
+</li>
+<li><p>mysql为什么用B+树索引，不用其他索引？（忘了，只说了下hash索引的一个缺点）<br>B+-树特点是每层节点多，层数少，这样可以减少磁盘io次数，B+相比较B-因为数据都在叶子节点所以可以用链表将数据串起来，进行区间访问<br>AVL 数和红黑树基本都是存储在内存中才会使用的数据结构</p>
+</li>
+<li><p>情景题：实现一个栈，具有max方法，并且所有时间复杂度为O(1)</p>
+</li>
+<li>说一个常见的排序算法，除了冒泡排序（说了归并排序）</li>
+<li>那写一下归并排序的实现</li>
+<li>谈谈jvm（数据运行区、GC，这个了解比较多，扯得有点多，后来被打断了…）</li>
+<li>反问环节</li>
+</ol>
+<p><a href="https://www.nowcoder.com/discuss/427484" target="_blank" rel="noopener">广联达C++实习</a><br>十分钟介绍项目<br>unity UI/游戏机制/shader/winapi+d3d/前端经历  </p>
 <p>除了C++还用过什么语言  </p>
 <p>指针与引用的区别<br>指针分配空间，引用只是别名<br>指针可以为空，引用不可以<br>引用只能初始化时定义一次，之后不可变  </p>
 <p>面向对象的几个特点<br>封装，继承，多态  </p>
-<p><a href="https://www.cnblogs.com/evenleee/p/10382335.html" target="_blank" rel="noopener">c++几种类型转化</a><br>const_cast：去const和volatile（所谓的易变性，在汇编层面反映出来，就是两条语句，下一条语句不会直接使用上一条语句对应的volatile变量的寄存器内容，而是重新从内存中读取）<br>static_cast：无条件转换，静态类型转换<br>dynamic_cast：有条件转换，动态类型转换，运行时检查类型安全<br>reinterpret_cast：仅重新解释类型，但没有进行二进制的转换</p>
+<p><a href="https://www.cnblogs.com/evenleee/p/10382335.html" target="_blank" rel="noopener">c++几种类型转化</a><br>const_cast：去const和volatile（所谓的易变性，在汇编层面反映出来，就是两条语句，下一条语句不会直接使用上一条语句对应的volatile变量的寄存器内容，而是重新从内存中读取）<br>volatile关键字的作用：防止编译器优化，也就是上边的操作<br>static_cast：无条件转换，静态类型转换，无运行时类型检查<br>dynamic_cast：有条件转换，动态类型转换，运行时检查类型安全<br>reinterpret_cast：仅重新解释类型，但没有进行二进制的转换</p>
 <p>stl的几个模块<br>vector,map,set,unordered_map,unordered_set</p>
 <p>泛型编程了解么?<br>函数模板、类模板<br>STL就是很好的例子（pair等）</p>
 <p>说下你了解的排序算法  </p>
 <p>说下快排  </p>
-<p><a href="https://blog.csdn.net/liang3720/article/details/81700748" target="_blank" rel="noopener">红黑树和AVL数树区别?  </a><br>红黑树只要大致的平衡，高度平衡树（avl）高度差最大为1；</p>
-<p>说下斐波那契数列<br>最近在看什么书<br><a href="https://www.nowcoder.com/discuss/230890" target="_blank" rel="noopener">广联达开发</a><br><a href="https://www.nowcoder.com/discuss/242943" target="_blank" rel="noopener">广联达人工智能</a><br><a href="https://www.nowcoder.com/discuss/322691" target="_blank" rel="noopener">面经合集</a></p>
+<p><a href="https://blog.csdn.net/liang3720/article/details/81700748" target="_blank" rel="noopener">红黑树和AVL数树区别?  </a><br>平衡二叉搜索树：红黑树只要大致的平衡，高度平衡树（avl）高度差最大为1；<br>红黑树的复杂度O(logn)，是平衡二叉树，是二叉搜索树<br>b树是平衡多路查找树，b+树只在叶子节点存数据，其他都是索引，应用是文件系统  </p>
+<p>说下斐波那契数列<br>最近在看什么书  </p>
+<p><a href="https://www.nowcoder.com/discuss/230890" target="_blank" rel="noopener">广联达开发</a><br>笔试：</p>
+<ol>
+<li>填空题 ，快速排序找到第k小的数，再递归</li>
+<li><p>A，B 2个数组，交换其中一个元素使2个数组和相等</p>
+</li>
+<li><p>回文数<br>先转到数组里，然后前后双指针遍历，比较。</p>
+</li>
+<li><p>给定圆的半径，求圆内包含的小正方形的最大的面积？（这题求解答）</p>
+</li>
+</ol>
+<p>一面下午4点  </p>
+<ol>
+<li>讲一讲一面第二题的思路，<br>答：暴力法O（n*n）<br>给你几分钟 ，能不能优化一下<br>答：2数组元素之和 /2为期待结果，在A里面哪个换掉能得到期望值，而B中正好有该元素 则输出该元素</li>
+<li>讲一讲第三题的思路</li>
+<li>给一个数组，找出3个数的和为N</li>
+<li>求a^b, a很长很大，b为2-9；<br>面试管诱导我到正确的思路上，先算a b，a，b很大，再想a*a；最后想a^b；</li>
+<li>朱元璋有很多后代，在一次会上，2个朱氏后代富商，想知道他们最近的共同祖先是谁？每个朱氏后代只能向上寻找其父亲是谁。答：转换为相交双链表求交点的问题</li>
+<li>讲一讲项目，项目中遇到的困难，怎么解决的<br>二面下午6点<br>自我介绍<br>人生中做的最对的事情是什么？映像深刻的挫折<br>未来几年的职业规划<br>未来几年的生活计划<br>对广联达了解多少</li>
+</ol>
+<p><a href="https://www.nowcoder.com/discuss/242943" target="_blank" rel="noopener">广联达人工智能</a><br><a href="https://www.nowcoder.com/discuss/322691" target="_blank" rel="noopener">面经合集</a></p>
+<p><a href="https://www.nowcoder.com/discuss/431828" target="_blank" rel="noopener">腾讯测开</a><br>C++对象的大小是由哪些确定的<br>成员变量的大小，内存对齐，是否有虚函数，是否有虚继承</p>
+<p>C++虚函数和纯虚函数有什么不同<br>纯虚函数没有实现，不可以实例化</p>
+<p>C++的多态是怎么实现的<br>虚函数</p>
+<p>C++对象的内存布局<br>单继承、多继承、菱形继承（分是否虚继承）</p>
+<p>计算机网络<br>tcp为什么要三次握手和四次挥手<br>数据库<br>redis是什么<br>redis是用来做什么用的<br>redis跟mysql有什么不同<br>编程题<br>用Rand6实现Rand10<br>判断链表是否有环，找出环的头部<br>经典赛马问题<br>二面 2020-05-26<br>编程题<br>后序遍历<br>无递归后序遍历<br>C++<br>宏定义结构体<br>memcpy可能会出的锅<br>C++如何实现多态<br>虚表是如何实现的<br>new/malloc的内存分配在哪<br>编译原理<br>函数调用的过程<br>数据库<br>mysql索引<br>b+tree<br>计算机网络<br>time_close是什么状态</p>
+<p><a href="https://www.nowcoder.com/discuss/388960" target="_blank" rel="noopener">腾讯测开实习</a><br>字母压缩  </p>
+<p>最小公倍数 = m*n/gcd(m,n)<br>最大公约数（gcd）: gcd(m,n) = gcd(n,m%n)</p>
 <h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><ol>
 <li><p>游戏研发：本科有Unity课程，对建模（PBR模型制作）到游戏引擎，甚至是剧本策划都有一定的了解。<br>个人之前的实习经历都是偏前端，有尝试mirror（unet），skynet，这些服务器框架，还在逐步学习。<br>对游戏引擎，准确说是渲染引擎比较感兴趣，本科课程中完成了简单的webgl渲染引擎，现在在学DX12 win32API的渲染引擎开发。<br>因为实验室课题缘故，掌握了一些深度学习相关的技能，linux系统用过，conda，pytorch，AI+GAME是很好的方向。</p>
 </li>
-<li><p>后端研发：本科读的数字媒体技术，偏重于技术，同时也学习了ps，音视频剪辑，建模等一些课程。除了语言，还有oop这种基础课程，我大二下开始学习使用unity为主以C#作为脚本语言，游戏研发课程。游戏引擎开发，是做webgl的网页渲染引擎，白鹭实习。学习nodereactelectron技术栈，做的工作还是比较简单的，然后选择读研，没想搞学术，就是想多三年学点自己想学的东西。三维人体重建。跟本科时学的东西有关联。在做课题的同时也在回过头来看基础知识，查缺补漏，围绕着C/C++，更接近底层。这么做呢一方面是找工作需要，一方面也是为职业生涯考虑，我是希望可以做全栈工程师。</p>
+<li><p>后端研发：本科读的数字媒体技术，偏重于技术，同时也学习了ps，音视频剪辑，建模等一些课程。除了语言，还有oop这种基础课程，我大二下开始学习使用unity为主以C#作为脚本语言，游戏研发课程。游戏引擎开发，是做webgl的网页渲染引擎，白鹭实习。学习node react electron技术栈，做的工作还是比较简单的，然后选择读研，没想搞学术，就是想多三年学点自己想学的东西。三维人体重建。跟本科时学的东西有关联。在做课题的同时也在回过头来看基础知识，查缺补漏，围绕着C/C++，更接近底层。这么做呢一方面是找工作需要，一方面也是为职业生涯考虑，我是希望可以做全栈工程师。</p>
+</li>
+<li><p>图形研发/引擎：遇到的困难<br>1 能用别人的轮子就别自己造； 2 确实是具体问题，但是可以找到解决问题的模板，主要是一些设计模式上的困难，比如如何在更好的使用组合而非继承，观察者模式（比如说一个怪物死掉了，一方面要给任务系统完成任务，一方面人物要加经验，一方面怪物自身的ragdoll要开始生效，C#中的委托） 3 也就是网上找不到答案，比如说写论文做实验用的开源项目，提issue，捋逻辑。<br>最近再跟着utube上的教程做d3d+winapi的渲染引擎</p>
 </li>
 </ol>
-<h1 id="todolist"><a href="#todolist" class="headerlink" title="todolist"></a>todolist</h1><p>格式化输出</p>
+<p>传统软件公司和互联网公司在企业文化，工作内容，工作状态上的差别，需要实际体会；实习是为了投资自己，学习知识；图形开发这个岗位，个人感兴趣，综合之前的学习经历，对画面渲染、几何结构、动画</p>
+<h3 id="提问环节"><a href="#提问环节" class="headerlink" title="提问环节"></a>提问环节</h3><p>团队规模？游戏类型？工作内容？主观上全栈好还是图形ta方向好还是客户端+AI还是做好客户端就行了更新速度已经很快了？其他问题有机会跟hr聊<br>测开能转开发吗？测开设计引擎开发的工作吗比如渲染性能、物理性能、画面表现测试，总的来说能学到引擎相关的知识吗？</p>
+<h1 id="todolist"><a href="#todolist" class="headerlink" title="todolist"></a>todolist</h1><p>profiler使用<br>unity渲染线程 主线程 用户层面多线程以提升效率<br>编译优化<br>linux C++开发<br>哪些是在构造函数里初始化的<br>rmsl<br>渲染管线，矩阵运算的源码</p>
 <h1 id="企业列表"><a href="#企业列表" class="headerlink" title="企业列表"></a>企业列表</h1><p><a href="https://www.nowcoder.com/discuss/364482" target="_blank" rel="noopener">资源链接</a></p>
 <table>
 <thead>
@@ -1105,7 +1272,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">May 15th 2020, 11:18:22 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">May 28th 2020, 8:26:28 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1258,7 +1425,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.3.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.4.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.5.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.6.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.7.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛客刷题"><span class="toc-number">1.8.</span> <span class="toc-text">牛客刷题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面试问题总结"><span class="toc-number">2.1.</span> <span class="toc-text">面试问题总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">3.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动–游戏研发"><span class="toc-number">3.1.</span> <span class="toc-text">字节跳动–游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易雷火–牛客网"><span class="toc-number">3.2.</span> <span class="toc-text">网易雷火–牛客网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面经——牛客"><span class="toc-number">3.3.</span> <span class="toc-text">面经——牛客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏研发"><span class="toc-number">3.3.1.</span> <span class="toc-text">游戏研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-后端"><span class="toc-number">3.3.2.</span> <span class="toc-text">C++后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#银行面经"><span class="toc-number">3.3.3.</span> <span class="toc-text">银行面经</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他研发"><span class="toc-number">3.3.4.</span> <span class="toc-text">其他研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-number">3.3.5.</span> <span class="toc-text">自我介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todolist"><span class="toc-number">4.</span> <span class="toc-text">todolist</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">5.</span> <span class="toc-text">企业列表</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.3.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.4.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.5.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.6.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.7.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛客刷题"><span class="toc-number">1.8.</span> <span class="toc-text">牛客刷题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面试问题总结"><span class="toc-number">2.1.</span> <span class="toc-text">面试问题总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">3.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动–游戏研发"><span class="toc-number">3.1.</span> <span class="toc-text">字节跳动–游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易雷火–牛客网"><span class="toc-number">3.2.</span> <span class="toc-text">网易雷火–牛客网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面经——牛客"><span class="toc-number">3.3.</span> <span class="toc-text">面经——牛客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏研发"><span class="toc-number">3.3.1.</span> <span class="toc-text">游戏研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-后端"><span class="toc-number">3.3.2.</span> <span class="toc-text">C++后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#银行面经"><span class="toc-number">3.3.3.</span> <span class="toc-text">银行面经</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他研发"><span class="toc-number">3.3.4.</span> <span class="toc-text">其他研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-number">3.3.5.</span> <span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提问环节"><span class="toc-number">3.3.6.</span> <span class="toc-text">提问环节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todolist"><span class="toc-number">4.</span> <span class="toc-text">todolist</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">5.</span> <span class="toc-text">企业列表</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1271,8 +1438,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -1751,27 +1916,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -1785,6 +1942,14 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
     
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
         <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
     
         <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
@@ -1794,6 +1959,10 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1809,13 +1978,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
-    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
+        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
+    
+        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
@@ -1823,31 +2000,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="COM"><span class="iconfont-archer">&#xe606;</span>COM</span>
     
-        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
-    
-        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
-    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
         <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
     
         <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
-    
-        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
-    
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -1855,9 +2020,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1898,9 +2063,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
-    
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
