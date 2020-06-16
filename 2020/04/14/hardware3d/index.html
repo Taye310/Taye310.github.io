@@ -289,7 +289,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">703</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -440,11 +440,22 @@ height:50vh;
 <p>复合变换依赖顺序，本质原因是矩阵乘法不满足交换律：$P_{new} = M_{translation} M_{rotation} M_{scale} P_{old}$ 执行顺序为从右到左，绝大多数情况按照缩放，旋转，平移的顺序  </p>
 <p>空间变换流程：模型空间-&gt;世界空间-&gt;观察（相机）空间-&gt;剪裁空间（视锥体剔除）-&gt;屏幕空间（剪裁空间转NDC转屏幕像素）  </p>
 <p>一般来说，模型空间到剪裁空间会合并为MVP矩阵（Model-View-Projection） </p>
-<p>光照模型：</p>
-<ul>
+<h2 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h2><ul>
 <li>BRDF（bidirectional reflection distribution function）又称经验模型</li>
 <li>标准光照模型（Blinn-Phong）：自发光，高光反射，漫反射，环境光</li>
 </ul>
+<p>实现细节：</p>
+<ul>
+<li>漫反射符合兰伯特定律，即反射光线强度与表面法线和光源方向之间夹角的余弦值成正比  </li>
+</ul>
+<h2 id="纹理映射"><a href="#纹理映射" class="headerlink" title="纹理映射"></a>纹理映射</h2><p>纹理放大缩小的问题需要调整Filter Mode（Point,Bilinear,Trilinear）；<br>缩小时最常使用mipmapping（多级渐远纹理技术）：典型的用空间换时间（多33%的空间）  </p>
+<p>bump mapping（凹凸映射）：分为两种，高度纹理（height map）模拟表面位移（displacement），得到一个修改后的法线值，称之为高度映射；另一种是法线纹理（normal map），直接做法线映射  </p>
+<p>1.在切线空间下进行光照计算；2.在世界空间下计算，前者效率往往优于后者  </p>
+<p>albedo是tex2D（CG的函数，对纹理进行采样）的结果；<br>ambient是环境光<br>diffuse是漫反射<br>specular是高光  </p>
+<p>法线纹理（normal map）可以使用DXT5nm的压缩格式，因为相比较普通图，法线纹理只有两个通道必不可少，第三个通道可以通过前两个推导出来，这种压缩方法可以减少内存占用  </p>
+<h2 id="透明效果"><a href="#透明效果" class="headerlink" title="透明效果"></a>透明效果</h2><p>Alpha Test/Alpha Blending：透明度测试只有完全透明和完全不透两种可能；透明度混合可以实现半透明    </p>
+<p>半透物体是开启深度测试但是关闭深度写入的，这导致渲染顺序变得十分重要（因为关闭了深度写入）；应该<strong>渲染不透明物体之后再渲染半透明物体</strong>；如果都是半透明，按相机距离排序，从后往前渲染，开启深度测试，但是关闭深度写入  </p>
+<p>双面渲染：unity的Cull指令默认是Back，也就是背对相机的渲染图元不会被渲染  </p>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>Unity shader中的矩阵是按行优先的，Unity脚本中有个Matrix4x4是按列优先  </p>
 <p>UnityRoot/Data/CGIncludes/ 里边有官方提供的.cginc文件，其中例如UnityCG.cginc十分值得学习  </p>
 <h1 id="Unreal-source-code-review"><a href="#Unreal-source-code-review" class="headerlink" title="Unreal source code review"></a>Unreal source code review</h1>
@@ -455,7 +466,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2020/04/14/hardware3d/">/2020/04/14/hardware3d/</a>
             <p>发表日期：<a href="/2020/04/14/hardware3d/">April 14th 2020, 3:49:36 pm</a>
-            <p>更新日期：<a href="/2020/04/14/hardware3d/">June 16th 2020, 1:00:12 am</a>
+            <p>更新日期：<a href="/2020/04/14/hardware3d/">June 17th 2020, 12:11:43 am</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -608,7 +619,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-3D"><span class="toc-number">1.</span> <span class="toc-text">Hardware 3D</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#imGUI"><span class="toc-number">1.1.</span> <span class="toc-text">imGUI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3D-Fundamental"><span class="toc-number">2.</span> <span class="toc-text">3D Fundamental</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#《Unity-shader-入门精要》"><span class="toc-number">3.</span> <span class="toc-text">《Unity shader 入门精要》</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念合集"><span class="toc-number">3.1.</span> <span class="toc-text">概念合集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学相关"><span class="toc-number">3.2.</span> <span class="toc-text">数学相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.3.</span> <span class="toc-text">API</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unreal-source-code-review"><span class="toc-number">4.</span> <span class="toc-text">Unreal source code review</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-3D"><span class="toc-number">1.</span> <span class="toc-text">Hardware 3D</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#imGUI"><span class="toc-number">1.1.</span> <span class="toc-text">imGUI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3D-Fundamental"><span class="toc-number">2.</span> <span class="toc-text">3D Fundamental</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#《Unity-shader-入门精要》"><span class="toc-number">3.</span> <span class="toc-text">《Unity shader 入门精要》</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念合集"><span class="toc-number">3.1.</span> <span class="toc-text">概念合集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学相关"><span class="toc-number">3.2.</span> <span class="toc-text">数学相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#光照模型"><span class="toc-number">3.3.</span> <span class="toc-text">光照模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纹理映射"><span class="toc-number">3.4.</span> <span class="toc-text">纹理映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明效果"><span class="toc-number">3.5.</span> <span class="toc-text">透明效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.6.</span> <span class="toc-text">API</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unreal-source-code-review"><span class="toc-number">4.</span> <span class="toc-text">Unreal source code review</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -621,6 +632,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -1137,11 +1150,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
-        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
@@ -1149,9 +1160,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
     
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
     
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
@@ -1165,10 +1178,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
     
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
-    
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
@@ -1176,6 +1185,14 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
     
@@ -1187,21 +1204,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
-    
         <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
-    
-        <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
-    
-        <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
-    
-        <span class="sidebar-tag-name" data-tags="COM"><span class="iconfont-archer">&#xe606;</span>COM</span>
-    
-        <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1233,13 +1238,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
+        <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
+    
+        <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
+    
+        <span class="sidebar-tag-name" data-tags="COM"><span class="iconfont-archer">&#xe606;</span>COM</span>
+    
+        <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
+    
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
-    
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
-    
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
@@ -1252,6 +1261,10 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
         <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
