@@ -11,7 +11,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="Ty">
     <meta name="renderer" content="webkit">
@@ -20,8 +20,21 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
+    <meta name="description" content="Hardware 3DCOM：   framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。vsync：防tearing，就是等显示器一">
+<meta name="keywords" content="Dx12,WindowsApp,COM,Shader">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可编程渲染管线">
+<meta property="og:url" content="/2020/04/14/hardware3d/index.html">
+<meta property="og:site_name" content="Providence&#39;s blog">
+<meta property="og:description" content="Hardware 3DCOM：   framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。vsync：防tearing，就是等显示器一">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-28T06:46:10.015Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="可编程渲染管线">
+<meta name="twitter:description" content="Hardware 3DCOM：   framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。vsync：防tearing，就是等显示器一">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
     <title>可编程渲染管线 · Providence&#39;s blog</title>
     <style type="text/css">
     @font-face {
@@ -209,7 +222,7 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA1313915351', 'auto');
         ga('send', 'pageview');
-    </script>
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 </head>
 
@@ -217,7 +230,7 @@
         <body class="post-body">
     
     
-<header class="header">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -289,7 +302,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.4k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.8k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -417,6 +430,34 @@ height:50vh;
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
             <main class="main post-page">
+    
+        
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+            tex2jax: {
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+          });
+      </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+              var all = MathJax.Hub.getAllJax(), i;
+              for(i=0; i < all.length; i += 1) {
+                  all[i].SourceElement().parentNode.className += ' has-jax';
+              }
+          });
+      </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    
     <article class="article-entry">
         <h1 id="Hardware-3D"><a href="#Hardware-3D" class="headerlink" title="Hardware 3D"></a>Hardware 3D</h1><p>COM：</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ut5zYcDKGwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -435,14 +476,27 @@ height:50vh;
 <p>模板测试（stencil test）：可以理解为深度测试中的深度这个概念有开发者人为设定。  </p>
 <p>blend（混合）/output merger</p>
 <p>early-z</p>
-<h2 id="数学相关"><a href="#数学相关" class="headerlink" title="数学相关"></a>数学相关</h2><p>点坐标：$\left[ \begin{matrix}<br>        x \<br>        y \<br>        z \<br>        1 \end{matrix} \right]$<br>方向矢量：$\left[ \begin{matrix}<br>        x \<br>        y \<br>        z \<br>        0 \end{matrix} \right]$<br>基础变换矩阵：<br>$<br> \left[ \begin{matrix}<br>   M_{3<em>3} &amp; t_{3</em>1} \<br>   0_{1*3} &amp; 1<br>  \end{matrix} \right]<br>$<br>之所以这样设置是为了使变换矩阵的计算结果正确；顶点变换中如果存在平移需要四维矩阵，方向矢量变换使用三维即可  </p>
-<p>M：旋转缩放；t：平移  </p>
-<p>复合变换依赖顺序，本质原因是矩阵乘法不满足交换律：$P_{new} = M_{translation} M_{rotation} M_{scale} P_{old}$ 执行顺序为从右到左，绝大多数情况按照缩放，旋转，平移的顺序  </p>
+<h2 id="数学相关"><a href="#数学相关" class="headerlink" title="数学相关"></a>数学相关</h2><p>点坐标：<script type="math/tex">\left[ \begin{matrix}
+        x \\
+        y \\
+        z \\
+        1 \end{matrix} \right]</script> （如果是行向量，下边变换矩阵要转置）<br>方向矢量：<script type="math/tex">\left[ \begin{matrix}
+        x \\
+        y \\
+        z \\
+        0 \end{matrix} \right]</script><br>基础变换矩阵：<script type="math/tex">\left[  \begin{matrix}
+        M_{3*3} & t_{3*1} \\
+        0_{1*3} & 1 
+        \end{matrix}
+\right]</script><br>之所以这样设置是为了使变换矩阵的计算结果正确；顶点变换中如果存在平移需要四维矩阵，方向矢量变换使用三维即可  </p>
+<p>M：旋转缩放；t：平移（如果坐标点或向量是行向量，t的位置要换到左下角）  </p>
+<p>复合变换依赖顺序，本质原因是矩阵乘法不满足交换律：$P<em>{new} = M</em>{translation} M<em>{rotation} M</em>{scale} P_{old}$ 执行顺序为从右到左，绝大多数情况按照缩放，旋转，平移的顺序  </p>
 <p>空间变换流程：模型空间-&gt;世界空间-&gt;观察（相机）空间-&gt;剪裁空间（视锥体剔除）-&gt;屏幕空间（剪裁空间转NDC转屏幕像素）  </p>
 <p>一般来说，模型空间到剪裁空间会合并为MVP矩阵（Model-View-Projection） </p>
 <h2 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h2><ul>
 <li>BRDF（bidirectional reflection distribution function）又称经验模型</li>
-<li>标准光照模型（Blinn-Phong）：自发光，高光反射，漫反射，环境光</li>
+<li>标准光照模型（Phong）：自发光，高光反射，漫反射，环境光（需要入射光，反射光，表面法线，视角方向）</li>
+<li>blinn-phong：与phong相比不需要计算反射方向，取而代之的是视角和入射光线的平均值归一化后的结果</li>
 </ul>
 <p>实现细节：</p>
 <ul>
@@ -463,7 +517,49 @@ height:50vh;
 </ul>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>Unity shader中的矩阵是按行优先的，Unity脚本中有个Matrix4x4是按列优先  </p>
 <p>UnityRoot/Data/CGIncludes/ 里边有官方提供的.cginc文件，其中例如UnityCG.cginc十分值得学习  </p>
-<h1 id="Unreal-source-code-review"><a href="#Unreal-source-code-review" class="headerlink" title="Unreal source code review"></a>Unreal source code review</h1>
+<h1 id="《Direct12-3D游戏开发实战》——龙书"><a href="#《Direct12-3D游戏开发实战》——龙书" class="headerlink" title="《Direct12 3D游戏开发实战》——龙书"></a>《Direct12 3D游戏开发实战》——龙书</h1><h2 id="数学相关-1"><a href="#数学相关-1" class="headerlink" title="数学相关"></a>数学相关</h2><p>view transform矩阵，观察空间到世界空间的坐标变化矩阵为：</p>
+<script type="math/tex; mode=display">
+W = 
+\left[  \begin{matrix}
+        u_{x} & u_{y} & u_{z} & 0 \\
+        v_{x} & v_{y} & v_{z} & 0 \\
+        w_{x} & w_{y} & w_{z} & 0 \\
+        Q_{x} & Q_{y} & Q_{z} & 1
+        \end{matrix}
+\right]</script><p>其中，<script type="math/tex">Q_{w} = (Q_{x},Q_{y},Q_{z},1)</script>，<script type="math/tex">u_{w} = (u_{x},u_{y},u_{z},0)</script>，<script type="math/tex">v_{w}</script>还有<script type="math/tex">w_{w}</script>分别表示了观察空间中原点，x轴，y轴，z轴相对于世界空间的齐次坐标。<br>相对的，世界空间到观察空间的变化矩阵为<script type="math/tex">W^{-1}</script>，世界矩阵可以分解为一个旋转矩阵和一个平移矩阵的乘积，即<script type="math/tex">W=RT</script>。</p>
+<script type="math/tex; mode=display">
+V=W^{-1}=(RT)^{-1}=T^{-1}R^{-1}=T^{-1}R^{T}=</script><script type="math/tex; mode=display">
+\left[  \begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        -Q_{x} & -Q_{y} & -Q_{z} & 1
+        \end{matrix}
+\right]
+\left[  \begin{matrix}
+        u_{x} & u_{y} & u_{z} & 0 \\
+        v_{x} & v_{y} & v_{z} & 0 \\
+        w_{x} & w_{y} & w_{z} & 0 \\
+        0 & 0 & 0 & 1
+        \end{matrix}
+\right]
+=
+\left[  \begin{matrix}
+        u_{x} & u_{y} & u_{z} & 0 \\
+        v_{x} & v_{y} & v_{z} & 0 \\
+        w_{x} & w_{y} & w_{z} & 0 \\
+        -Q_{x} \cdot u & -Q_{y} \cdot v & -Q_{z} \cdot w & 1
+        \end{matrix}
+\right]</script><p>由此得到，</p>
+<script type="math/tex; mode=display">
+V=
+\left[  \begin{matrix}
+        u_{x} & u_{y} & u_{z} & 0 \\
+        v_{x} & v_{y} & v_{z} & 0 \\
+        w_{x} & w_{y} & w_{z} & 0 \\
+        -Q_{x} \cdot u & -Q_{y} \cdot v & -Q_{z} \cdot w & 1
+        \end{matrix}
+\right]</script><h1 id="Unreal-source-code-review"><a href="#Unreal-source-code-review" class="headerlink" title="Unreal source code review"></a>Unreal source code review</h1>
     </article>
     <!-- license  -->
     
@@ -471,7 +567,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2020/04/14/hardware3d/">/2020/04/14/hardware3d/</a>
             <p>发表日期：<a href="/2020/04/14/hardware3d/">April 14th 2020, 3:49:36 pm</a>
-            <p>更新日期：<a href="/2020/04/14/hardware3d/">June 18th 2020, 2:46:10 pm</a>
+            <p>更新日期：<a href="/2020/04/14/hardware3d/">June 28th 2020, 2:46:10 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -515,6 +611,10 @@ height:50vh;
 <!-- City版安装代码已完成 -->
     
     
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
     <!-- partial('_partial/comment/changyan') -->
     <!--PC版-->
 
@@ -551,10 +651,6 @@ height:50vh;
     
         
     
-        
-            
-                <a href="https://weibo.com/p/1005052419344517" class="iconfont-archer weibo" target="_blank" title=weibo></a>
-            
         
     
         
@@ -624,7 +720,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-3D"><span class="toc-number">1.</span> <span class="toc-text">Hardware 3D</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#imGUI"><span class="toc-number">1.1.</span> <span class="toc-text">imGUI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3D-Fundamental"><span class="toc-number">2.</span> <span class="toc-text">3D Fundamental</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#《Unity-shader-入门精要》"><span class="toc-number">3.</span> <span class="toc-text">《Unity shader 入门精要》</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念合集"><span class="toc-number">3.1.</span> <span class="toc-text">概念合集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学相关"><span class="toc-number">3.2.</span> <span class="toc-text">数学相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#光照模型"><span class="toc-number">3.3.</span> <span class="toc-text">光照模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纹理映射"><span class="toc-number">3.4.</span> <span class="toc-text">纹理映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明效果"><span class="toc-number">3.5.</span> <span class="toc-text">透明效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渲染路径"><span class="toc-number">3.6.</span> <span class="toc-text">渲染路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.7.</span> <span class="toc-text">API</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unreal-source-code-review"><span class="toc-number">4.</span> <span class="toc-text">Unreal source code review</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-3D"><span class="toc-number">1.</span> <span class="toc-text">Hardware 3D</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#imGUI"><span class="toc-number">1.1.</span> <span class="toc-text">imGUI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3D-Fundamental"><span class="toc-number">2.</span> <span class="toc-text">3D Fundamental</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#《Unity-shader-入门精要》"><span class="toc-number">3.</span> <span class="toc-text">《Unity shader 入门精要》</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念合集"><span class="toc-number">3.1.</span> <span class="toc-text">概念合集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学相关"><span class="toc-number">3.2.</span> <span class="toc-text">数学相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#光照模型"><span class="toc-number">3.3.</span> <span class="toc-text">光照模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纹理映射"><span class="toc-number">3.4.</span> <span class="toc-text">纹理映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明效果"><span class="toc-number">3.5.</span> <span class="toc-text">透明效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渲染路径"><span class="toc-number">3.6.</span> <span class="toc-text">渲染路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.7.</span> <span class="toc-text">API</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#《Direct12-3D游戏开发实战》——龙书"><span class="toc-number">4.</span> <span class="toc-text">《Direct12 3D游戏开发实战》——龙书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数学相关-1"><span class="toc-number">4.1.</span> <span class="toc-text">数学相关</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unreal-source-code-review"><span class="toc-number">5.</span> <span class="toc-text">Unreal source code review</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -637,6 +733,12 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1149,17 +1251,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
-    
-        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
     
         <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
@@ -1168,20 +1270,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
-    
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
@@ -1199,6 +1287,20 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
         <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
@@ -1206,6 +1308,12 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1215,12 +1323,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
-    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -1229,25 +1331,29 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
@@ -1260,10 +1366,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
@@ -1306,9 +1408,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
-    
         <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -1343,7 +1445,24 @@ jsonContent:
     </div>
     <!-- async load share.js -->
     
-        <script src="/scripts/share.js" async></script>    
+        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->    
      
     </body>
 </html>

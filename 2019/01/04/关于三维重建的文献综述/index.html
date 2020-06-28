@@ -11,7 +11,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="Ty">
     <meta name="renderer" content="webkit">
@@ -20,8 +20,21 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
+    <meta name="description" content="目录arXiv检索  1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎 1812.01742 单一视角的三维重建，使用对抗训练（非人 1812.05583 基于学习的ICP（迭代最近点算法）重构场景（非人 1812.07603 通过视频素材的面部模型学习 1812.05806 自我监督的引导方法，单图片的三维人脸重建 1812.02822 学习生成模型的隐藏区域（非人 190">
+<meta name="keywords" content="3D model reconstruction,文献综述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于三维重建的文献综述">
+<meta property="og:url" content="/2019/01/04/关于三维重建的文献综述/index.html">
+<meta property="og:site_name" content="Providence&#39;s blog">
+<meta property="og:description" content="目录arXiv检索  1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎 1812.01742 单一视角的三维重建，使用对抗训练（非人 1812.05583 基于学习的ICP（迭代最近点算法）重构场景（非人 1812.07603 通过视频素材的面部模型学习 1812.05806 自我监督的引导方法，单图片的三维人脸重建 1812.02822 学习生成模型的隐藏区域（非人 190">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-02T04:02:06.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于三维重建的文献综述">
+<meta name="twitter:description" content="目录arXiv检索  1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎 1812.01742 单一视角的三维重建，使用对抗训练（非人 1812.05583 基于学习的ICP（迭代最近点算法）重构场景（非人 1812.07603 通过视频素材的面部模型学习 1812.05806 自我监督的引导方法，单图片的三维人脸重建 1812.02822 学习生成模型的隐藏区域（非人 190">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
     <title>关于三维重建的文献综述 · Providence&#39;s blog</title>
     <style type="text/css">
     @font-face {
@@ -209,7 +222,7 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA1313915351', 'auto');
         ga('send', 'pageview');
-    </script>
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 </head>
 
@@ -217,7 +230,7 @@
         <body class="post-body">
     
     
-<header class="header">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -413,6 +426,7 @@ height:50vh;
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
             <main class="main post-page">
+    
     <article class="article-entry">
         <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv检索</a></p>
 <ol>
@@ -433,7 +447,7 @@ height:50vh;
 <ul>
 <li>使用affinity field的实时多人二维姿态估计</li>
 </ul>
-<h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><h2 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h2><p><strong>关于三维重建</strong><br>单个图像进行三维重建的数据驱动方法：一是明确使用三维结构，二是使用其他信息推断三维结构<br>2DImage–&gt;encoder–&gt;latent representation–&gt;decoder–&gt;3DObject<br>不同方法区别在于对三维世界采取的<strong>限制</strong>：多视图一致性学习三维表示、利用关键点和轮廓注释、利用2.5D草图（法线，深度和轮廓）改善预测  </p>
+<h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><h2 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h2><p><strong>关于三维重建</strong><br>单个图像进行三维重建的数据驱动方法：一是明确使用三维结构，二是使用其他信息推断三维结构<br>2DImage—&gt;encoder—&gt;latent representation—&gt;decoder—&gt;3DObject<br>不同方法区别在于对三维世界采取的<strong>限制</strong>：多视图一致性学习三维表示、利用关键点和轮廓注释、利用2.5D草图（法线，深度和轮廓）改善预测  </p>
 <p>encoder-decoder的<a href="https://blog.csdn.net/chinabing/article/details/78763454" target="_blank" rel="noopener">含义</a></p>
 <p><strong>关于shape priors</strong><br>许多方法选择更好的捕捉多样的真实形状<br><strong>non-deep方法</strong>关注低维参数模型，使用CNN来学习2D渲染图像和3D形状的<strong>共同嵌入空间</strong><br>其他方法依赖<strong>生成模型</strong>去学习shape priors</p>
 <h2 id="博客链接"><a href="#博客链接" class="headerlink" title="博客链接"></a>博客链接</h2><p><a href="https://blog.csdn.net/yyyllla/article/details/84573393" target="_blank" rel="noopener">3D人脸重建学习笔记CSDN</a><br><a href="https://www.jianshu.com/p/f33b3d440f7d" target="_blank" rel="noopener">3D重建的学习笔记简书</a></p>
@@ -507,7 +521,7 @@ height:50vh;
 <p><strong>笔记本会卡死！！！</strong></p>
 <h2 id="Neural-Body-Fitting-Unifying-Deep-Learning-and-Model-Based-Human-Pose-and-Shape-Estimation（3DV-2018）"><a href="#Neural-Body-Fitting-Unifying-Deep-Learning-and-Model-Based-Human-Pose-and-Shape-Estimation（3DV-2018）" class="headerlink" title="Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation（3DV 2018）"></a>Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation（3DV 2018）</h2><h3 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h3><p>已经有很多成功的工作，生成人体关键点，棒状表示模型（火柴人）（说的就是openpose）<br>这里作者提出的是基于smpl的更具挑战性的任务：estimating the parameters of a detailed statistical human body model from a single image  </p>
 <p>Traditional model-based approaches typically optimize an objective function that measures how well the model fits the image observations<br>传统的需要一个差不多初始化模型，然后把初值优化到最终结果（不需要3d训练数据——带3d动作标注的图片）<br>CNN就是forward prediction models，就不需要initialization，但是需要3d姿态标注，不像2d标注好获得  </p>
-<p>他们近期的工作通过把重建出的模型投影回2d空间更新损失函数，就可以使用2d标注了<br>本文的<strong>目的</strong>：To analyze the importance of such components<br>components: image–(CNN,3d notation trained)–&gt;smpl model(hybird params)–&gt;image–(reproject)–&gt;2d notation for CNN training<br>要形成闭环（loop）<br>NBF = 一个包含统计身体模型的CNN<br>两种监督模式：full 3d sup和weak 2d sup，bottom-up top-down的方法，使得NBF既不需要初始化模型也不需要3d标注的训练数据<br>因为光照、衣服、杂乱的背景都不想要，专注于pose和shape，所以用处理后的image代替原始rgb image<br>结论：</p>
+<p>他们近期的工作通过把重建出的模型投影回2d空间更新损失函数，就可以使用2d标注了<br>本文的<strong>目的</strong>：To analyze the importance of such components<br>components: image—(CNN,3d notation trained)—&gt;smpl model(hybird params)—&gt;image—(reproject)—&gt;2d notation for CNN training<br>要形成闭环（loop）<br>NBF = 一个包含统计身体模型的CNN<br>两种监督模式：full 3d sup和weak 2d sup，bottom-up top-down的方法，使得NBF既不需要初始化模型也不需要3d标注的训练数据<br>因为光照、衣服、杂乱的背景都不想要，专注于pose和shape，所以用处理后的image代替原始rgb image<br>结论：</p>
 <ol>
 <li>12-body-part的分割就包含了足够的shape和pose信息</li>
 <li>这种处理后图像的方法比起用原图，效果有竞争力，更简单，训练数据利用率更高</li>
@@ -605,7 +619,8 @@ height:50vh;
 </ol>
 </li>
 </ol>
-<h2 id="repos"><a href="#repos" class="headerlink" title="repos"></a>repos</h2><table>
+<h2 id="repos"><a href="#repos" class="headerlink" title="repos"></a>repos</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">repo name</th>
@@ -659,28 +674,25 @@ height:50vh;
 </tr>
 </tbody>
 </table>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>vscode想在不同的conda环境下都有类型提示和跳转需要在vscode里切环境<br>ctrl+shift+P –&gt; python:select interpreter –&gt; {your env}<br><a href="https://code.visualstudio.com/docs/python/environments" target="_blank" rel="noopener">官方文档</a>  </p>
+</div>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>vscode想在不同的conda环境下都有类型提示和跳转需要在vscode里切环境<br>ctrl+shift+P —&gt; python:select interpreter —&gt; {your env}<br><a href="https://code.visualstudio.com/docs/python/environments" target="_blank" rel="noopener">官方文档</a>  </p>
 <p>import tensorflow 没有报错也没有反应：tensorflow-gpu跟conda安装的opencv有冲突！！<br>改用<code>pip install opencv-python</code>就解决了  </p>
 <p>同文件夹下module import要加<code>.</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> .batch_smpl <span class="keyword">import</span> SMPL</span><br><span class="line"><span class="keyword">from</span> .joints <span class="keyword">import</span> joints_body25, face_landmarks</span><br><span class="line"><span class="keyword">from</span> keras.engine.topology <span class="keyword">import</span> Layer</span><br></pre></td></tr></table></figure></p>
 <p>git-lfs在fork的repo上使用会有问题 “can not upload new objects to public fork”</p>
 <h2 id="python-module"><a href="#python-module" class="headerlink" title="python module"></a>python module</h2><p>tqdm: process bar tool<br>greenlet/gevent: 协程工具</p>
 <h2 id="octopus"><a href="#octopus" class="headerlink" title="octopus"></a>octopus</h2><blockquote>
 <p>流程：<br>读文件（segmentation/pose） png和json文件<br>K.set_session启动tfsession<br>声明model（octopus），加载weights<br>解析segm：io.py里有解析segmentation的方法<br>解析pose<br>优化pose<br>优化shape<br>生成模型（点和面的list）<br>写入obj（write_mesh）  </p>
-</blockquote>
-<blockquote>
 <p>opt_pose:<br>两组数据: data/supervision<br>opt_pose_model.fit():</p>
 <ul>
 <li></li>
 </ul>
-</blockquote>
-<blockquote>
 <p>opt_shape:<br>data/supervision<br>opt_shape_model.fit()</p>
 </blockquote>
 <p>想尝试把dirt换了，用别的differentiable renderer</p>
 <h2 id="tex2shape"><a href="#tex2shape" class="headerlink" title="tex2shape"></a>tex2shape</h2><p>decectron2（pytorch环境）先做uv图<br>tex2shape出模型，因为显存不够影响了重建效果（用video2mesh的conda环境就可以（tensorflow+keras））<br>目前的代码是否可以训练模型，hdf5文件怎么生成（keras的hdf5文件，就是tf的ckpt，model.save就完事了，现在主要问题是fit train data）</p>
 <h2 id="hmr-End-to-end-Recovery-of-Human-Shape-and-Pose"><a href="#hmr-End-to-end-Recovery-of-Human-Shape-and-Pose" class="headerlink" title="hmr End-to-end Recovery of Human Shape and Pose"></a>hmr End-to-end Recovery of Human Shape and Pose</h2><p>有train code，可他妈太妙了<br>数据预处理步骤：</p>
 <ul>
-<li>数据集lsp –&gt; tfrecord</li>
+<li>数据集lsp —&gt; tfrecord</li>
 <li></li>
 </ul>
 <h2 id="datasets"><a href="#datasets" class="headerlink" title="datasets"></a>datasets</h2><ul>
@@ -696,11 +708,12 @@ height:50vh;
 <p>keras.backend: At this time, Keras has three backend implementations available: the TensorFlow backend, the Theano backend, and the CNTK backend.</p>
 <p>LambdaCallback()  </p>
 <h2 id="要解决的问题"><a href="#要解决的问题" class="headerlink" title="要解决的问题"></a>要解决的问题</h2><ol>
-<li>现有数据集的数据怎么处理到能用在smpl上 ！！（解决 hmr里解决了训练数据–&gt;tfrecord的过程）</li>
+<li>现有数据集的数据怎么处理到能用在smpl上 ！！（解决 hmr里解决了训练数据—&gt;tfrecord的过程）</li>
 <li>确定量化指标 ！！（解决 hmr有evaluation）</li>
 <li>确定遮挡情况下的重建效果！！（hmr，tex2shape，octopus，360texture那个）</li>
 </ol>
-<h2 id="实验室-作者汇总"><a href="#实验室-作者汇总" class="headerlink" title="实验室/作者汇总"></a>实验室/作者汇总</h2><table>
+<h2 id="实验室-作者汇总"><a href="#实验室-作者汇总" class="headerlink" title="实验室/作者汇总"></a>实验室/作者汇总</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">名称</th>
@@ -726,7 +739,9 @@ height:50vh;
 </tr>
 </tbody>
 </table>
-<h2 id="技术要点汇总"><a href="#技术要点汇总" class="headerlink" title="技术要点汇总"></a>技术要点汇总</h2><table>
+</div>
+<h2 id="技术要点汇总"><a href="#技术要点汇总" class="headerlink" title="技术要点汇总"></a>技术要点汇总</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">文章名称</th>
@@ -816,6 +831,7 @@ height:50vh;
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="实验规划"><a href="#实验规划" class="headerlink" title="实验规划"></a>实验规划</h2><blockquote>
 <ol>
 <li>hmr：End-to-end Recovery of Human Shape and Pose</li>
@@ -828,8 +844,8 @@ height:50vh;
 </blockquote>
 <h2 id="周计划"><a href="#周计划" class="headerlink" title="周计划"></a>周计划</h2><p>2019.10.21</p>
 <ol>
-<li>现有数据集的数据怎么处理到能用在smpl上 ！！（hmr有dataset–&gt;tfrecord的code）</li>
-<li>确定量化指标 ！！ （hmr：跟3d groundtruth 点对点算距离，数据集human3.6m – 这东西不知道啥时候能下载）</li>
+<li>现有数据集的数据怎么处理到能用在smpl上 ！！（hmr有dataset—&gt;tfrecord的code）</li>
+<li>确定量化指标 ！！ （hmr：跟3d groundtruth 点对点算距离，数据集human3.6m — 这东西不知道啥时候能下载）</li>
 </ol>
 <p>2019.10.28</p>
 <ol>
@@ -856,11 +872,11 @@ height:50vh;
 <h3 id="2019-11-2-3"><a href="#2019-11-2-3" class="headerlink" title="2019.11.2/3"></a>2019.11.2/3</h3><p>休</p>
 <h3 id="2019-11-4"><a href="#2019-11-4" class="headerlink" title="2019.11.4"></a>2019.11.4</h3><p>dirt 有个undefined symbol 大概率是跟显卡驱动 cuda版本有关系 因为笔记本上就装上了<br>dirt装不上garment也没法跑，得想办法用opendr代替dirt<br>dirt装上后有个segmentfault 明天继续看<br>整理tex2shape/hmr/octopus的结果<br>明天看看贴图怎么搞，octopus用了个方法，还有garment那个的</p>
 <h3 id="2019-11-5"><a href="#2019-11-5" class="headerlink" title="2019.11.5"></a>2019.11.5</h3><p>octopus keras.base_layer会报个参数错误<br>densepose(tex2shape)不知道怎么出IUV<br>garment(上贴图的)用了MPI-IS的mesh组件 需要python3<br>TODO: humaneva, garment, Semantic Human Texture Stitching</p>
-<h3 id="2019-11-6"><a href="#2019-11-6" class="headerlink" title="2019.11.6"></a>2019.11.6</h3><p>量化指标：the mean per-pixel error of 3d displacements maps<br>中文叫位移贴图/与凹凸贴图（法线贴图属于凹凸图），高度图不同<br>贴图挺顺利的，理论上所有smpl的模型都适用。贴图这边接下来要看怎么用自己的数据（从img–&gt;pkl–&gt;texture）<br>octopus还是不行 操他妈的(keras outputs不是layer类型的，不知道为什么)（11.6更新：因为当时smpl()改成了smpl.call()，还是要走基类的<strong>call</strong>()的不然不是Layer类型）<br>Lambda表达式是核心问题 明天看</p>
+<h3 id="2019-11-6"><a href="#2019-11-6" class="headerlink" title="2019.11.6"></a>2019.11.6</h3><p>量化指标：the mean per-pixel error of 3d displacements maps<br>中文叫位移贴图/与凹凸贴图（法线贴图属于凹凸图），高度图不同<br>贴图挺顺利的，理论上所有smpl的模型都适用。贴图这边接下来要看怎么用自己的数据（从img—&gt;pkl—&gt;texture）<br>octopus还是不行 操他妈的(keras outputs不是layer类型的，不知道为什么)（11.6更新：因为当时smpl()改成了smpl.call()，还是要走基类的<strong>call</strong>()的不然不是Layer类型）<br>Lambda表达式是核心问题 明天看</p>
 <h3 id="2019-11-7"><a href="#2019-11-7" class="headerlink" title="2019.11.7"></a>2019.11.7</h3><p>Octopus解决了，Lambda表达式没问题，smpl那个继承了Layer的类在调用<strong>call</strong>()时调用了call()，后者参数数量与基类Layer的call()参数数量不一致，导致了问题<br>hmr的训练需要groundtruth 3d，先放着吧<br>看effective C++(4/5)</p>
 <h3 id="2019-11-8"><a href="#2019-11-8" class="headerlink" title="2019.11.8"></a>2019.11.8</h3><p>数据集MPI_inf_3dhp/MPII/COCO 下载<br>下载数据集coco/mpii/mpi_inf_3dhp<br>学习dx12</p>
 <h3 id="2019-11-9-10"><a href="#2019-11-9-10" class="headerlink" title="2019.11.9/10"></a>2019.11.9/10</h3><p>休</p>
-<h3 id="2019-11-11"><a href="#2019-11-11" class="headerlink" title="2019.11.11"></a>2019.11.11</h3><p>coco/lsp/lsp_ext/mocap_neutrMosh/mpii/mpi_inf_3dhp –&gt; tfrecord<br>hmr train code在tf1.14上有问题 降到1.4试试（conda最低1.4） hmr官方用的1.3//客制的有pytorch0.4的<br>trainer.py的train()有问题 –&gt; sess.run时间太长了 1.4得调cuda版本 还是用1.14</p>
+<h3 id="2019-11-11"><a href="#2019-11-11" class="headerlink" title="2019.11.11"></a>2019.11.11</h3><p>coco/lsp/lsp_ext/mocap_neutrMosh/mpii/mpi_inf_3dhp —&gt; tfrecord<br>hmr train code在tf1.14上有问题 降到1.4试试（conda最低1.4） hmr官方用的1.3//客制的有pytorch0.4的<br>trainer.py的train()有问题 —&gt; sess.run时间太长了 1.4得调cuda版本 还是用1.14</p>
 <h3 id="2019-11-12"><a href="#2019-11-12" class="headerlink" title="2019.11.12"></a>2019.11.12</h3><p>三个新论文 看起来实验会好做一些 train code/dataset都有：</p>
 <ul>
 <li>PyTorch implementation of CloudWalk’s recent work DenseBody <a href="https://arxiv.org/pdf/1903.10153.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1903.10153.pdf</a> <a href="https://github.com/Lotayou/densebody_pytorch" target="_blank" rel="noopener">github</a></li>
@@ -877,12 +893,12 @@ height:50vh;
 <h3 id="2019-11-21"><a href="#2019-11-21" class="headerlink" title="2019.11.21"></a>2019.11.21</h3><p>shell脚本里使用conda命令需要在conda activate前加上<br><code>source ~/anaconda3/etc/profile.d/conda.sh</code><br>遮挡情况下的hmd效果实验<br>eval_wild on self trained model（10hrs）（昨天优点问题 再来一遍） </p>
 <h3 id="2019-11-22"><a href="#2019-11-22" class="headerlink" title="2019.11.22"></a>2019.11.22</h3><p>确定目标 基于hmr和hmd做遮挡部分的重建<br>看hmd论文，研究hmd怎么加纹理细节的 </p>
 <h3 id="2019-11-23-24"><a href="#2019-11-23-24" class="headerlink" title="2019.11.23/24"></a>2019.11.23/24</h3><p>休</p>
-<h3 id="2019-11-25"><a href="#2019-11-25" class="headerlink" title="2019.11.25"></a>2019.11.25</h3><p>shadingnet: hmr 3d mesh –1-&gt; depth map –2-&gt; detailed depth map –3-&gt; detailed 3d mesh<br>hmd里是先shadingnet根据rgb image预测一个depthmap 然后加上mesh(openmesh + hmr smpl) 投影出的depthmap<br>Unet 输入rbg groundtruth depthmap 结果泛化能力差 所以再来个shadingnet loss是前边unet的depthmap loss 还有depth map重建成rbg 跟input的loss<br>需要解决的问题就是设计网络做第二步（doing sfsnet/3dmm/..）<br>先可视化一下depthmap（done）  </p>
+<h3 id="2019-11-25"><a href="#2019-11-25" class="headerlink" title="2019.11.25"></a>2019.11.25</h3><p>shadingnet: hmr 3d mesh —1-&gt; depth map —2-&gt; detailed depth map —3-&gt; detailed 3d mesh<br>hmd里是先shadingnet根据rgb image预测一个depthmap 然后加上mesh(openmesh + hmr smpl) 投影出的depthmap<br>Unet 输入rbg groundtruth depthmap 结果泛化能力差 所以再来个shadingnet loss是前边unet的depthmap loss 还有depth map重建成rbg 跟input的loss<br>需要解决的问题就是设计网络做第二步（doing sfsnet/3dmm/..）<br>先可视化一下depthmap（done）  </p>
 <p>joint和anchor都独立与shading的，在有rgb出了joint/anchor的前提下</p>
 <ol>
 <li>rgb做修复 然后经过shading net(pretrained) 加到project depth map上看结果  </li>
 <li>不处理的rgb 经过shading net(pretrained)生成depth map 然后在dm上做修复 最后加到project depth map上生成最终dm  </li>
-<li>建立端到端网络直接从未处理的rgb–&gt;修复完成的depth map，最后加上project depth map</li>
+<li>建立端到端网络直接从未处理的rgb—&gt;修复完成的depth map，最后加上project depth map</li>
 </ol>
 <p>hmd的数据集刨除h36m应该有18000+ train set，现在只有9000+ 重新用脚本处理一遍</p>
 <p>numpy 高级索引 ndarray[x,y]//ndarray[a==b]</p>
@@ -893,18 +909,18 @@ height:50vh;
 <h3 id="2019-11-28"><a href="#2019-11-28" class="headerlink" title="2019.11.28"></a>2019.11.28</h3><p>固定像素位置加遮罩很容易（已完成），考虑往人体固定位置上加？<br>人体的数据集就18000+ 顶多了 看别人做inpainting的得有4/5w<br>监督数据怎么来？1. 通过hmd shading net出深度图；2. 找别的深度估计方法  </p>
 <h3 id="2019-11-29"><a href="#2019-11-29" class="headerlink" title="2019.11.29"></a>2019.11.29</h3><p>先用shadingnet的结果做gt吧，开始处理数据集</p>
 <h3 id="2019-11-30-1"><a href="#2019-11-30-1" class="headerlink" title="2019.11.30/1"></a>2019.11.30/1</h3><p>effective c++<br>休</p>
-<h3 id="2019-12-2"><a href="#2019-12-2" class="headerlink" title="2019.12.2"></a>2019.12.2</h3><p>生成depth ground truth 流程如下<br>img–&gt;hmr result（predict_hmr_dm 批处理hmd_2 18403张train img）–&gt;depth result（predict_hmd_dm 生成depth 到hmd_masked/train）<br>做depthmap的gt要150hrs。。？</p>
-<p>感觉没人做带遮挡的rgb到depth的映射(也就是inpainting和depth estimation的混合)<br>现有的depth estimation方法 pretrained的model对人体的效果极差 根本比不了hmd的shadingnet结果 见周报图<br>incomplete RGB –&gt; complete depth 做不动<br>incomplete RGB –&gt; incomplete depth –&gt; complete depth<br>想出incomplete depth还得150hrs<br>最后可能只能在深度图上做inpainting</p>
+<h3 id="2019-12-2"><a href="#2019-12-2" class="headerlink" title="2019.12.2"></a>2019.12.2</h3><p>生成depth ground truth 流程如下<br>img—&gt;hmr result（predict_hmr_dm 批处理hmd_2 18403张train img）—&gt;depth result（predict_hmd_dm 生成depth 到hmd_masked/train）<br>做depthmap的gt要150hrs。。？</p>
+<p>感觉没人做带遮挡的rgb到depth的映射(也就是inpainting和depth estimation的混合)<br>现有的depth estimation方法 pretrained的model对人体的效果极差 根本比不了hmd的shadingnet结果 见周报图<br>incomplete RGB —&gt; complete depth 做不动<br>incomplete RGB —&gt; incomplete depth —&gt; complete depth<br>想出incomplete depth还得150hrs<br>最后可能只能在深度图上做inpainting</p>
 <h3 id="2019-12-3"><a href="#2019-12-3" class="headerlink" title="2019.12.3"></a>2019.12.3</h3><p>写周报<br>leetcode</p>
-<h3 id="2019-12-4"><a href="#2019-12-4" class="headerlink" title="2019.12.4"></a>2019.12.4</h3><p>人体的rgb inpainting目前都没有人做的好，主要是会拿背景的信息填充到人体遮挡区域<br>考虑使用sil，把人体抠出来，看看能不能训练一个针对人体的inpainting网络，再出深度图看效果<br>注：rgb重建的效果也不会特别好，举个例子，拿衣服去补人脸的位置，肯定效果不对。但是，转成深度图再到三维模型上，效果不一定会特别差，待试<br>想想怎么给inpainting的输入加入人体轮廓信息这个约束<br>rbg修复好了 –&gt; 深度图效果好 –&gt; 模型效果好  </p>
+<h3 id="2019-12-4"><a href="#2019-12-4" class="headerlink" title="2019.12.4"></a>2019.12.4</h3><p>人体的rgb inpainting目前都没有人做的好，主要是会拿背景的信息填充到人体遮挡区域<br>考虑使用sil，把人体抠出来，看看能不能训练一个针对人体的inpainting网络，再出深度图看效果<br>注：rgb重建的效果也不会特别好，举个例子，拿衣服去补人脸的位置，肯定效果不对。但是，转成深度图再到三维模型上，效果不一定会特别差，待试<br>想想怎么给inpainting的输入加入人体轮廓信息这个约束<br>rbg修复好了 —&gt; 深度图效果好 —&gt; 模型效果好  </p>
 <p>王琛表示深度图做修复能做，接下来准备等深度图数据集处理完成，进inpainting网络，训练修复深度图的网络模型。</p>
 <h3 id="2019-12-5"><a href="#2019-12-5" class="headerlink" title="2019.12.5"></a>2019.12.5</h3><p>玩kbengine，部署linux游戏服务器，打包安卓客户端，双端联机测试<br>深度图要等到周日晚上，给王琛做</p>
 <h3 id="2019-12-6-7-8"><a href="#2019-12-6-7-8" class="headerlink" title="2019.12.6/7/8"></a>2019.12.6/7/8</h3><p>休</p>
 <h3 id="2019-12-9"><a href="#2019-12-9" class="headerlink" title="2019.12.9"></a>2019.12.9</h3><p>train depth inpainting model<br>shift-net_pytorch 深度图做出npy和png了，shift-net的图片都是256256，我这是448448，需要调整下网络</p>
 <h3 id="2019-12-10"><a href="#2019-12-10" class="headerlink" title="2019.12.10"></a>2019.12.10</h3><p>开始训练针对深度图的shift-net，30hrs(30 epoch) 明天放到hmd里看效果<br>这次训练用的center mask(25%左右的遮挡率) 有些把人遮住太多了 下次试试随机的或者范围小一点的<br>玩kbengine</p>
-<h3 id="2019-12-11"><a href="#2019-12-11" class="headerlink" title="2019.12.11"></a>2019.12.11</h3><p>贵州电网的一个UI材质工具<br>train好的modeltest需要测试集的depth map，2000多张得搞一下<br>hmd的shading-net没有train code，也就是说rgb到depth这段没有源码，shift-net做inpainting已经很好了，如果有shading-net的train code，合起来或许能做 incomplete rgb –&gt; complete depth<br>NYU的数据集看了精度肯定不够  </p>
-<h3 id="2019-12-12"><a href="#2019-12-12" class="headerlink" title="2019.12.12"></a>2019.12.12</h3><p>出inpainting好的深度图重建出的三维模型，这个算是完成目标了，但是是分两阶段完成（不完整rgb–&gt;不完整depth–&gt;完整depth）<br>接下来看shadingnet怎么train的，得能跑通</p>
-<p>3d mesh –&gt; 图像空间 初步深度信息 –》 shadingnet 增强深度信息–》<br>mesh到depth的原理 还有 ddrnet的那个loss  </p>
+<h3 id="2019-12-11"><a href="#2019-12-11" class="headerlink" title="2019.12.11"></a>2019.12.11</h3><p>贵州电网的一个UI材质工具<br>train好的modeltest需要测试集的depth map，2000多张得搞一下<br>hmd的shading-net没有train code，也就是说rgb到depth这段没有源码，shift-net做inpainting已经很好了，如果有shading-net的train code，合起来或许能做 incomplete rgb —&gt; complete depth<br>NYU的数据集看了精度肯定不够  </p>
+<h3 id="2019-12-12"><a href="#2019-12-12" class="headerlink" title="2019.12.12"></a>2019.12.12</h3><p>出inpainting好的深度图重建出的三维模型，这个算是完成目标了，但是是分两阶段完成（不完整rgb—&gt;不完整depth—&gt;完整depth）<br>接下来看shadingnet怎么train的，得能跑通</p>
+<p>3d mesh —&gt; 图像空间 初步深度信息 —》 shadingnet 增强深度信息—》<br>mesh到depth的原理 还有 ddrnet的那个loss  </p>
 <p>开题报告</p>
 <h3 id="2019-12-13-14-15"><a href="#2019-12-13-14-15" class="headerlink" title="2019.12.13/14/15"></a>2019.12.13/14/15</h3><p>开题报告</p>
 <h3 id="2019-12-16"><a href="#2019-12-16" class="headerlink" title="2019.12.16"></a>2019.12.16</h3><p>hmd: 训练策略（train scheme）是仿照的sfsnet<br>  先用了一个Unet，train时候输入是RGB + hmr投影出来的depth，监督数据是Kinect扫的depth（这个Unet train的时候只用到了少量数据集，然后用训练好的模型生成大量的depth，此时depth效果不好）<br>  然后是shadingnet，train的输入是hmr投影出来的depth和原始RGB，一个loss是用unet的输出监督，一个loss是photometric reconstruction loss（问题是这个reconstruct 重建了什么 就能知道重建的这个玩意儿跟什么做比较成为损失函数）</p>
@@ -930,8 +946,8 @@ height:50vh;
 <li>shift-net改下输出看结果<ol>
 <li>G &amp; D：G把输出的channel改成1，loss得跟depth比；让D区分gtdepth和preddepth</li>
 <li>backward_G and backward_D real_A real_B为什么有两个real？ dataloader在aligned_dataset.py里</li>
-<li>real_A == real_B//real_A–&gt;fake_B</li>
-<li>fake_B–netD–&gt;pred_fake//real_B–netD–&gt;pred_real</li>
+<li>real_A == real_B//real_A—&gt;fake_B</li>
+<li>fake_B—netD—&gt;pred_fake//real_B—netD—&gt;pred_real</li>
 <li>set_gt_latent干什么用的</li>
 </ol>
 </li>
@@ -987,19 +1003,19 @@ height:50vh;
 <li>Loss：G_GAN,G_L1,D,style(MSE vgg),content</li>
 </ul>
 </li>
-<li>results &amp; comparison<br>介绍evaluation用的数据集，评价方法，评价/对比结果<br>hmr/hmd/tex2shape/octopus<br>原图inpainting/深度图inpainting/遮挡rgb生成完整的深度图<br>测试150加遮罩–&gt;(只能不带遮罩的进？？为什么)进shiftnet出深度图–&gt;hmd_s使用深度图信息而非shadingnet信息–&gt;结果</li>
+<li>results &amp; comparison<br>介绍evaluation用的数据集，评价方法，评价/对比结果<br>hmr/hmd/tex2shape/octopus<br>原图inpainting/深度图inpainting/遮挡rgb生成完整的深度图<br>测试150加遮罩—&gt;(只能不带遮罩的进？？为什么)进shiftnet出深度图—&gt;hmd_s使用深度图信息而非shadingnet信息—&gt;结果</li>
 <li>conclusion</li>
 </ol>
 </blockquote>
 <h3 id="2020-1-13"><a href="#2020-1-13" class="headerlink" title="2020.1.13"></a>2020.1.13</h3><p>dhdnet在跑recon测试集的时候方框处理的非常不好<br>现在猜测是因为训练的用深度图gt当作的sil，在A[B==0]=0这步的时候很可能把纹理信息填回方框区域内了。。现在但是理论上shiftnet自己还会加遮罩<br>目前recon测试集上只能用不加遮挡的img做输入效果还可以<br>矛盾点在于 shiftnet是在线加的遮罩啊 为什么输入图像加不加遮罩还会造成影响？？？？</p>
-<h3 id="2020-1-14"><a href="#2020-1-14" class="headerlink" title="2020.1.14"></a>2020.1.14</h3><p>recon只看joint 还是得看syn<br>输入图像家的遮罩试着比 shiftnet动态加的小一点 84 84 140 140–&gt;87 87 137 137</p>
+<h3 id="2020-1-14"><a href="#2020-1-14" class="headerlink" title="2020.1.14"></a>2020.1.14</h3><p>recon只看joint 还是得看syn<br>输入图像家的遮罩试着比 shiftnet动态加的小一点 84 84 140 140—&gt;87 87 137 137</p>
 <h3 id="2020-1-15"><a href="#2020-1-15" class="headerlink" title="2020.1.15"></a>2020.1.15</h3><p>leetcode<br>blog 加入vuejs静态页面<br>Mirror 多人游戏demo / kbe C++ 服务端  </p>
 <h3 id="2020-3-8"><a href="#2020-3-8" class="headerlink" title="2020.3.8"></a>2020.3.8</h3><p>Attention机制<a href="https://zhuanlan.zhihu.com/p/91839581" target="_blank" rel="noopener">zhihu</a><br>论文搜索：<br>Self-Attention Generative Adversarial Networks (SAGAN)<a href="https://github.com/heykeetae/Self-Attention-GAN" target="_blank" rel="noopener">code</a><br>A PyTorch reimplementation for paper Generative Image Inpainting with Contextual Attention <a href="https://arxiv.org/abs/1801.07892" target="_blank" rel="noopener">paper</a> <a href="https://github.com/daa233/generative-inpainting-pytorch" target="_blank" rel="noopener">code</a></p>
 <h3 id="2020-3-9"><a href="#2020-3-9" class="headerlink" title="2020.3.9"></a>2020.3.9</h3><p><a href="">Learning 3D Human Shape and Pose from Dense Body Parts</a></p>
 <h3 id="2020-5-30"><a href="#2020-5-30" class="headerlink" title="2020.5.30"></a>2020.5.30</h3><p>Losses：下降较明显的有G_L1，content；G_GAN略上升，D下降不明显<br>loss计算公式：<br>$lossD = (lossDfake + lossDreal) <em> 0.5$ (vanilla)<br>fake/real 是BCELoss二分类交叉熵损失函数<br>$loss G = loss G L1 + loss G L1 m + loss G GAN + style loss + content loss + tv loss$<br>loss G L1 是 $L1 loss </em> opt.lambda_A$<br>L1_m 是一个spatical discounting l1 loss（别的论文里提出来的）<br>loss G GAN 是BCELoss<br>style和content都是MSELoss<br>tv是自定义一个损失函数  </p>
 <p>目前已有的：</p>
 <ul>
-<li>rgb特征提取–&gt;分三阶段形变smpl模型</li>
+<li>rgb特征提取—&gt;分三阶段形变smpl模型</li>
 <li>depth map到人体表面细节，形变方法（hmd提供）</li>
 <li>不完整rgb向完整depth map的转换网络模型</li>
 <li>不完整rgb到完整人体模型的端到端系统</li>
@@ -1010,7 +1026,7 @@ height:50vh;
 <li>center mask的大小对重建质量的影响（最大多大就handle不住了）</li>
 <li>不规则mask（shiftnet做了，这个好实现）</li>
 <li>attention机制对于结果的提升有多少（没概念）</li>
-<li>目前来看多loss共同作用，有些loss并没有明显收敛（是否等于没作用、贡献）–灼烧实验</li>
+<li>目前来看多loss共同作用，有些loss并没有明显收敛（是否等于没作用、贡献）—灼烧实验</li>
 <li>depth信息到三维点坐标的形变（deform）关系还能改进（比如深度或者说形变的scale，还有方向，目前是垂直于视平面，可以是垂直于粗模型表面？）</li>
 <li>structure from motion方向研究（全新方向，建筑行业在用）</li>
 <li>加壳，做成用户友好的应用程序</li>
@@ -1075,8 +1091,6 @@ height:50vh;
 <p>shape：更有细节/遮挡、截断(空间维度预测)/<br>pose：根据视频、单图预测pose（时间维度预测）/实时更新pose<br>texture：单视角贴图/多视角贴图</p>
 </blockquote>
 </blockquote>
-</blockquote>
-<blockquote>
 <p><strong>疑问</strong><br>6D pose estimation 和 smpl/smal重建出的pose有何异同？？是一个东西吗<br>In contrast to coordinate or<br>heatmap based representations, learning such a representa-<br>tion enforces the network to focus on local features of ob-<br>jects and spatial relations between object parts. As a result,<br>the location of an invisible part can be inferred from the vis-<br>ible parts. In addition, this vector-field representation is able<br>to represent object keypoints that are even outside the input<br>image. All these advantages make it an ideal representation<br>for occluded or truncated objects.</p>
 </blockquote>
 <h2 id="时间安排"><a href="#时间安排" class="headerlink" title="时间安排"></a>时间安排</h2><blockquote>
@@ -1142,6 +1156,10 @@ height:50vh;
 <!-- City版安装代码已完成 -->
     
     
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
     <!-- partial('_partial/comment/changyan') -->
     <!--PC版-->
 
@@ -1178,10 +1196,6 @@ height:50vh;
     
         
     
-        
-            
-                <a href="https://weibo.com/p/1005052419344517" class="iconfont-archer weibo" target="_blank" title=weibo></a>
-            
         
     
         
@@ -1264,6 +1278,12 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1776,17 +1796,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
-    
-        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
     
         <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
@@ -1795,20 +1815,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
-    
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
@@ -1826,6 +1832,20 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
         <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
@@ -1833,6 +1853,12 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1842,12 +1868,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
-    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -1856,25 +1876,29 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
@@ -1887,10 +1911,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
@@ -1933,9 +1953,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
-    
         <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -1970,7 +1990,24 @@ jsonContent:
     </div>
     <!-- async load share.js -->
     
-        <script src="/scripts/share.js" async></script>    
+        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->    
      
     </body>
 </html>

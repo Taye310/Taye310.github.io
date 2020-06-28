@@ -11,7 +11,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="Ty">
     <meta name="renderer" content="webkit">
@@ -20,8 +20,21 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
+    <meta name="description" content="五种块加密操作模式总结 Electronic Code Book(ECB)  ECB模式是最直接的块加密方法，将明文分成若干n-bit的块，然后分别进行块加密。过程如下所示：加密：yi = e(xi) 其中xi等大小为n解密：xi = e^-1(yi)因此ECB模式的速度很快，此外，该模式下各块可以并行操作无需同步，也就是说解密方可以在得到所有块之前就开始进行解密。同时一个字节的错误（丢失）只会影">
+<meta name="keywords" content="信息安全,研究生课程,加密,随机数,数字签名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络与信息安全总结">
+<meta property="og:url" content="/2018/11/04/网络与信息安全总结/index.html">
+<meta property="og:site_name" content="Providence&#39;s blog">
+<meta property="og:description" content="五种块加密操作模式总结 Electronic Code Book(ECB)  ECB模式是最直接的块加密方法，将明文分成若干n-bit的块，然后分别进行块加密。过程如下所示：加密：yi = e(xi) 其中xi等大小为n解密：xi = e^-1(yi)因此ECB模式的速度很快，此外，该模式下各块可以并行操作无需同步，也就是说解密方可以在得到所有块之前就开始进行解密。同时一个字节的错误（丢失）只会影">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-04T11:31:57.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络与信息安全总结">
+<meta name="twitter:description" content="五种块加密操作模式总结 Electronic Code Book(ECB)  ECB模式是最直接的块加密方法，将明文分成若干n-bit的块，然后分别进行块加密。过程如下所示：加密：yi = e(xi) 其中xi等大小为n解密：xi = e^-1(yi)因此ECB模式的速度很快，此外，该模式下各块可以并行操作无需同步，也就是说解密方可以在得到所有块之前就开始进行解密。同时一个字节的错误（丢失）只会影">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
     <title>网络与信息安全总结 · Providence&#39;s blog</title>
     <style type="text/css">
     @font-face {
@@ -209,7 +222,7 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA1313915351', 'auto');
         ga('send', 'pageview');
-    </script>
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 </head>
 
@@ -217,7 +230,7 @@
         <body class="post-body">
     
     
-<header class="header">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -419,24 +432,25 @@ height:50vh;
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
             <main class="main post-page">
+    
     <article class="article-entry">
         <h1 id="五种块加密操作模式总结"><a href="#五种块加密操作模式总结" class="headerlink" title="五种块加密操作模式总结"></a>五种块加密操作模式总结</h1><ol>
 <li>Electronic Code Book(ECB)</li>
 </ol>
 <p>ECB模式是最直接的块加密方法，将明文分成若干n-bit的块，然后分别进行块加密。过程如下所示：<br>加密：<br>yi = e(xi) 其中xi等大小为n<br>解密：<br>xi = e^-1(yi)<br>因此ECB模式的速度很快，此外，该模式下各块可以并行操作无需同步，也就是说解密方可以在得到所有块之前就开始进行解密。同时一个字节的错误（丢失）只会影响到其所在块。缺点在于，只要其加密密钥不变，相同明文生成的密文也将一致，最直观的例子就是使用ECB模式加密位图，可以很明显的看出原图的样子，这导致该模式易受到攻击。</p>
-<ol start="2">
+<ol>
 <li>Cipher Block Chaining(CBC)</li>
 </ol>
 <p>CBC模式不同于ECB模式，该模式下所有块被看作是一条完整的消息。CBC模式使用初始向量(Initialization Vector)保证加密的不确定性。第一个块的明文与IV进行与或运算，然后通过块加密算法进行加密。生成的密文作为下一个块的IV，以此类推，这个过程被称为反馈机制。过程如下所示：<br>加密：<br>    y1 = e(xi XOR IV)<br>    yi = e(xi XOR yi-1), 以此类推<br>解密：<br>    x1 = (e^-1(yi) XOR IV)<br>    xi = (e^-1(yi) XOR yi-1), 以此类推<br>CBC模式最为常用，合理选择IV的情况下可以很大程度抵御攻击，但缺点是其不支持并行。</p>
-<ol start="3">
+<ol>
 <li>Cipher Feedback(CFB)</li>
 </ol>
 <p>CFB模式对IV进行加密，再与明文进行与或运算，生成的密文作为下一块的IV。CFB与OFB模式都将块加密当作流加密处理。加密过程不能并行，解密过程可以。同时如果一个密文损坏，将有两个明文块受损。过程如下所示：<br>加密：<br>y1=e(IV) XOR x1<br>yi=(e(yi-1) XOR xi)，以此类推<br>解密：<br>x1=(e(IV) XOR y1)<br>xi=(e(yi-1) XOR yi)，以此类推  </p>
-<ol start="4">
+<ol>
 <li>Output Feedback(OFB)</li>
 </ol>
 <p>与CFB模式类似，区别在于作为下一块IV的数据由与明文与或运算后的密文变为运算之前的密文。如果一个明文或者密文损坏，只有一个相应的密文或者明文损坏，并可以使用校正算法恢复损坏部分的先前值。过程如下：<br>加密：<br>s1= e(IV); y1=(s1 XOR x1)<br>si = e(si-1); yi=(si XOR xi)，以此类推<br>解密：<br>s1= e(IV); x1=(s1 XOR y1)<br>si = e(si-1); xi=(si XOR yi)，以此类推  </p>
-<ol start="5">
+<ol>
 <li>Counter(CTR)</li>
 </ol>
 <p>CTR模式使块加密类似于流加密，每块采用一个随机数加计数器作为IV，经过加密运算后与明文进行与或运算后生成密文。优点在于加密解密都可以并行，明文密文一个损坏只影响一个相应输出，并可以使用校正算法恢复。过程如下：<br>加密：<br>yi = (e(IV || CTRi) XOR xi)<br>解密：<br>xi = (e(IV || CTRi) XOR yi)  </p>
@@ -494,6 +508,10 @@ height:50vh;
 <!-- City版安装代码已完成 -->
     
     
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
     <!-- partial('_partial/comment/changyan') -->
     <!--PC版-->
 
@@ -530,10 +548,6 @@ height:50vh;
     
         
     
-        
-            
-                <a href="https://weibo.com/p/1005052419344517" class="iconfont-archer weibo" target="_blank" title=weibo></a>
-            
         
     
         
@@ -616,6 +630,12 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1128,17 +1148,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
-    
-        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
     
         <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
@@ -1147,20 +1167,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
-    
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
@@ -1178,6 +1184,20 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
         <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
@@ -1185,6 +1205,12 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1194,12 +1220,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
-    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -1208,25 +1228,29 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
@@ -1239,10 +1263,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
@@ -1285,9 +1305,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
-    
         <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -1322,7 +1342,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
     
-        <script src="/scripts/share.js" async></script>    
+        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->    
      
     </body>
 </html>

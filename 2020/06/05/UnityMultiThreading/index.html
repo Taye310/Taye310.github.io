@@ -11,7 +11,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="Ty">
     <meta name="renderer" content="webkit">
@@ -20,8 +20,21 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
+    <meta name="description" content="Part 1 Unity中的多线程 FileStream读取本地文件 1234567891011byte[] buffer;void LoadFiletoBuffer()&amp;#123;    // 假如很卡    Thread.Sleep(3000);    // 通过路径加载本地图片    FileStream fs = new FileStream(&amp;quot;C:\\Users\\Admini">
+<meta name="keywords" content="Unity,多线程,线程池">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity中的多线程与线程池应用">
+<meta property="og:url" content="/2020/06/05/UnityMultiThreading/index.html">
+<meta property="og:site_name" content="Providence&#39;s blog">
+<meta property="og:description" content="Part 1 Unity中的多线程 FileStream读取本地文件 1234567891011byte[] buffer;void LoadFiletoBuffer()&amp;#123;    // 假如很卡    Thread.Sleep(3000);    // 通过路径加载本地图片    FileStream fs = new FileStream(&amp;quot;C:\\Users\\Admini">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-28T09:11:21.882Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity中的多线程与线程池应用">
+<meta name="twitter:description" content="Part 1 Unity中的多线程 FileStream读取本地文件 1234567891011byte[] buffer;void LoadFiletoBuffer()&amp;#123;    // 假如很卡    Thread.Sleep(3000);    // 通过路径加载本地图片    FileStream fs = new FileStream(&amp;quot;C:\\Users\\Admini">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
     <title>Unity中的多线程与线程池应用 · Providence&#39;s blog</title>
     <style type="text/css">
     @font-face {
@@ -209,7 +222,7 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA1313915351', 'auto');
         ga('send', 'pageview');
-    </script>
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 </head>
 
@@ -217,7 +230,7 @@
         <body class="post-body">
     
     
-<header class="header">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -287,7 +300,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">672</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">748</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -415,12 +428,13 @@ height:50vh;
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
             <main class="main post-page">
+    
     <article class="article-entry">
         <h1 id="Part-1-Unity中的多线程"><a href="#Part-1-Unity中的多线程" class="headerlink" title="Part 1 Unity中的多线程"></a>Part 1 Unity中的多线程</h1><ul>
 <li><p>FileStream读取本地文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">byte[] buffer;</span><br><span class="line">void LoadFiletoBuffer()</span><br><span class="line">&#123;</span><br><span class="line">    // 假如很卡</span><br><span class="line">    Thread.Sleep(3000);</span><br><span class="line">    // 通过路径加载本地图片</span><br><span class="line">    FileStream fs = new FileStream(&quot;C:\\Users\\Administrator\\Downloads\\pic.jpg&quot;, FileMode.Open);</span><br><span class="line">    buffer = new byte[fs.Length];</span><br><span class="line">    fs.Read(buffer, 0, buffer.Length);</span><br><span class="line">    fs.Close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>buffer–&gt;Unity texture2d–&gt;Unity sprite，使用UnityEngine中组件的动作必须在主线程完成，所以这段逻辑不能放到LoadFiletoBuffer中<br>这里使用协程的目的是异步（在buffer加载进来之后）创建texture以及sprite</p>
+<li><p>buffer—&gt;Unity texture2d—&gt;Unity sprite，使用UnityEngine中组件的动作必须在主线程完成，所以这段逻辑不能放到LoadFiletoBuffer中<br>这里使用协程的目的是异步（在buffer加载进来之后）创建texture以及sprite</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">IEnumerator OnLoad()</span><br><span class="line">&#123;</span><br><span class="line">    while (buffer == null)</span><br><span class="line">    &#123;</span><br><span class="line">        yield return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    Debug.Log(&quot;load tex&quot;);</span><br><span class="line"></span><br><span class="line">    Texture2D tex = new Texture2D(2, 2);</span><br><span class="line">    var iSLoad = tex.LoadImage(buffer);</span><br><span class="line">    tex.Apply();</span><br><span class="line">    if (!iSLoad)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(&quot;Texture存在但生成Texture失败!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    img.sprite = Sprite.Create(tex, new Rect(0, 0, 5939, 3341), Vector2.zero);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>最外层接口，两种方法的区别在于load file这3000ms主线程是否卡死</p>
@@ -430,7 +444,15 @@ height:50vh;
 <h1 id="Part-2-线程池"><a href="#Part-2-线程池" class="headerlink" title="Part 2 线程池"></a>Part 2 线程池</h1><p>C# System.Threading.ThreadPool类提供了线程池的实现，都是静态方法，不需要实例化<br>PS： CLR指公共语言运行时(Common Language Runtime)<br>线程池初始化时是没有线程的，线程池里的线程的初始化与其他线程一样，但是在完成任务以后，该线程不会自行销毁，而是以挂起的状态返回到线程池。直到应用程序再次向线程池发出请求时，线程池里挂起的线程就会再度激活执行任务。  </p>
 <p><a href="https://www.cnblogs.com/scmail81/archive/2018/08/19/9503266.html" target="_blank" rel="noopener">参考资料</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 文件流加载图片</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">void FileStreamLoadTexture()</span><br><span class="line">&#123;</span><br><span class="line">    //// load file by sub thread</span><br><span class="line">    //Thread childThread = new Thread(new ThreadStart(LoadFiletoBuffer));</span><br><span class="line">    //childThread.Start();</span><br><span class="line"></span><br><span class="line">    // use thread pool</span><br><span class="line">    ThreadPool.GetAvailableThreads(out int workerThreads, out int completionProtThreads); // 800 200；out/ref的区别：out不需要初始化</span><br><span class="line">    Debug.Log(&quot;Thread Pool1: &quot; + workerThreads + &quot; &quot; + completionProtThreads);</span><br><span class="line"></span><br><span class="line">    ThreadPool.QueueUserWorkItem(new WaitCallback(LoadFiletoBuffer), null);</span><br><span class="line"></span><br><span class="line">    //// load file by main thread</span><br><span class="line">    //LoadFiletoBuffer();</span><br><span class="line"></span><br><span class="line">    Debug.Log(&quot;start coroutine&quot;);</span><br><span class="line">    StartCoroutine(&quot;OnLoad&quot;);</span><br><span class="line">    Debug.Log(&quot;end coroutine&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="part-3-C-中的async和await"><a href="#part-3-C-中的async和await" class="headerlink" title="part 3 C#中的async和await"></a>part 3 C#中的async和await</h1><p>属于System.Threading.Task，async/await Task是C#中更先进的，也是微软大力推广的特性，我们在开发中可以尝试使用Task来替代Thread/ThreadPool，处理本地IO和网络IO任务是尽量使用async/await来提高任务执行效率。<br>await后边是个异步方法，也就是说async自定义的异步方法中有一个或者多个await，每个await后边还是一个返回值为Task<t>或者Task或者void的异步方法，最底层这个异步方法往往来自BCL（C#的基础类库，例如WebClient.DownloadStringTaskAsync(url)）<br>20.3.5 Wait()/WaitAll()/WaitAny()<br>20.10 BeginInvoke()和EndInvoke()<br>——《C#图解教程》</t></p>
+<h1 id="part-3-C-中的async和await"><a href="#part-3-C-中的async和await" class="headerlink" title="part 3 C#中的async和await"></a>part 3 C#中的async和await</h1><p>属于System.Threading.Task，async/await Task是C#中更先进的，也是微软大力推广的特性，我们在开发中可以尝试使用Task来替代Thread/ThreadPool，处理本地IO和网络IO任务是尽量使用async/await来提高任务执行效率。<br>await后边是个异步方法，也就是说async自定义的异步方法中有一个或者多个await，每个await后边还是一个返回值为</p>
+<ul>
+<li>Task\<t>（返回值为T类型）</t></li>
+<li>Task（没有返回值，但是可以查看异步调用的状态）</li>
+<li>void（调用完就不关心了，没有互动了）的异步方法</li>
+</ul>
+<p>最底层这个异步方法往往来自BCL（C#的基础类库，例如WebClient.DownloadStringTaskAsync(url)）  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">async Task&lt;int&gt; CountCharactersAsync(int id, string site)&#123;</span><br><span class="line">    Console.WriteLine(&quot;starting countingcharacters&quot;);</span><br><span class="line">    WebClient wc = new WebClient();</span><br><span class="line"></span><br><span class="line">    string result = await wc.DownloadStringTaskAsync(new Uri(site));</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(&quot;countingcharacters completed&quot;);</span><br><span class="line">    return result.Length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>20.3.5 Wait()/WaitAll()/WaitAny()<br>20.10 BeginInvoke()和EndInvoke()<br>——《C#图解教程》</p>
 
     </article>
     <!-- license  -->
@@ -439,7 +461,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2020/06/05/UnityMultiThreading/">/2020/06/05/UnityMultiThreading/</a>
             <p>发表日期：<a href="/2020/06/05/UnityMultiThreading/">June 5th 2020, 1:00:19 pm</a>
-            <p>更新日期：<a href="/2020/06/05/UnityMultiThreading/">June 9th 2020, 12:26:39 am</a>
+            <p>更新日期：<a href="/2020/06/05/UnityMultiThreading/">June 28th 2020, 5:11:21 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -483,6 +505,10 @@ height:50vh;
 <!-- City版安装代码已完成 -->
     
     
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
     <!-- partial('_partial/comment/changyan') -->
     <!--PC版-->
 
@@ -519,10 +545,6 @@ height:50vh;
     
         
     
-        
-            
-                <a href="https://weibo.com/p/1005052419344517" class="iconfont-archer weibo" target="_blank" title=weibo></a>
-            
         
     
         
@@ -605,6 +627,12 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1117,17 +1145,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
-    
-        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
     
         <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
@@ -1136,20 +1164,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
-    
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
@@ -1167,6 +1181,20 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
         <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
@@ -1174,6 +1202,12 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -1183,12 +1217,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
-    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -1197,25 +1225,29 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
@@ -1228,10 +1260,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
@@ -1274,9 +1302,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
-    
         <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -1311,7 +1339,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
     
-        <script src="/scripts/share.js" async></script>    
+        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->    
      
     </body>
 </html>
