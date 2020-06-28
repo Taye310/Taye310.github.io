@@ -29,8 +29,9 @@
 <meta property="og:description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/unionfind.png">
+<meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt1.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/几何函数.png">
-<meta property="og:updated_time" content="2020-06-28T08:38:11.527Z">
+<meta property="og:updated_time" content="2020-06-28T15:27:55.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招学习笔记">
 <meta name="twitter:description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
@@ -428,6 +429,33 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     
+        
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+            tex2jax: {
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+          });
+      </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+              var all = MathJax.Hub.getAllJax(), i;
+              for(i=0; i < all.length; i += 1) {
+                  all[i].SourceElement().parentNode.className += ' has-jax';
+              }
+          });
+      </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    
     <article class="article-entry">
         <h1 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h1><h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p><a href="https://github.com/huihut/interview#%EF%B8%8F-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener">资料</a><br>TCP创建连接：三次握手<br>释放连接：四次挥手  </p>
 <p>SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。  </p>
@@ -500,31 +528,95 @@ height:50vh;
 <p><a href="https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/solution/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-by-lee/" target="_blank" rel="noopener">面试题62</a>. 圆圈中最后剩下的数字：约瑟夫环<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> x = f(n - <span class="number">1</span>, m);</span><br><span class="line">    <span class="keyword">return</span> (m + x) % n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastRemaining</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> f(n, m);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastRemaining</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i != n + <span class="number">1</span>; ++i)</span><br><span class="line">            f = (m + f) % i;</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>135 <a href="https://leetcode-cn.com/problems/candy/" target="_blank" rel="noopener">分发糖果（头条笔试题）</a>  </p>
-<p>887 <a href="https://leetcode-cn.com/problems/super-egg-drop/" target="_blank" rel="noopener">鸡蛋掉落</a>，vivo笔试题<br>第一种方法： 问题转换成<figure class="highlight plain"><figcaption><span>表示有i个鸡蛋、j次扔鸡蛋次数时可以测的最多楼层，扔鸡蛋次数最多不会超过N次（线性扫描）；所以当```dp[i][j]```等于N的时候j的值就是我们想要的答案  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$dp[j][m] = dp[j - 1][m - 1] + dp[j][m-1] + 1$</span><br><span class="line"></span><br><span class="line">第二中状态定义和转移公式： 按着题意来```dp[k][n]```表示k个鸡蛋，n层楼的最少测试次数，$dp[K,N] = 1+min_&#123;1&lt;=X&lt;=N&#125;(max(dp(K-1,X-1),dp(K,N-X)))$  </span><br><span class="line"></span><br><span class="line">**剑指offer系列：**  </span><br><span class="line">size_t: 与int固定四个字节不同有所不同,size_t的取值range是目标平台下最大可能的数组尺寸,一些平台下size_t的范围小于int的正数范围,又或者大于unsigned int. 使用Int既有可能浪费，又有可能范围不够大。</span><br></pre></td></tr></table></figure></p>
+<p>887 <a href="https://leetcode-cn.com/problems/super-egg-drop/" target="_blank" rel="noopener">鸡蛋掉落</a>，vivo笔试题<br>第一种方法： 问题转换成<figure class="highlight plain"><figcaption><span>表示有i个鸡蛋、j次扔鸡蛋次数时可以测的最多楼层，扔鸡蛋次数最多不会超过N次（线性扫描）；所以当```dp[i][j]```等于N的时候j的值就是我们想要的答案  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$dp[j][m] = dp[j - 1][m - 1] + dp[j][m-1] + 1$$</span><br><span class="line"></span><br><span class="line">第二中状态定义和转移公式： 按着题意来```dp[k][n]```表示k个鸡蛋，n层楼的最少测试次数，$dp[K,N] = 1+min_&#123;1&lt;=X&lt;=N&#125;(max(dp(K-1,X-1),dp(K,N-X)))$  </span><br><span class="line"></span><br><span class="line">**剑指offer系列：**  </span><br><span class="line">size_t: 与int固定四个字节不同有所不同,size_t的取值range是目标平台下最大可能的数组尺寸,一些平台下size_t的范围小于int的正数范围,又或者大于unsigned int. 使用Int既有可能浪费，又有可能范围不够大。</span><br></pre></td></tr></table></figure></p>
 <p>string replaceSpace(string s) {<br>    size_t pos;<br>    while(true){<br>        pos = s.find(“ “);<br>        if(pos<string::npos){ s.replace(pos,1,"%20");="" }else{="" break;="" }="" return="" s;="" <figure="" class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">面试题16. 数值的整数次方： 可以用位运算，$3^5 = 3^&#123;101_&#123;2&#125;&#125; = 3^&#123;2^2+2^0&#125; = 9^2*3^1$  </span><br><span class="line"></span><br><span class="line">vector的insert方法使用迭代器参数可以用来合并vector</span><br></pre></td></tr></table></string::npos){></p>
 <p>while(!s.empty()&amp;&amp;pos<popped.size()&&popped[pos] =="s.top()){//三个条件的顺序很重要" <figure="" class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">中序遍历用 栈  </span><br><span class="line"></span><br><span class="line">837 新21点和 983 旅行票价 动态规划+从后遍历经典题；看起来很麻烦，代码很简单  </span><br><span class="line"></span><br><span class="line">## 牛客刷题</span><br><span class="line"></span><br><span class="line">union的大小取决于它所有的成员中，占用空间最大的一个成员的大小，并且需要内存对齐  </span><br><span class="line"></span><br><span class="line">c++的类体中，方法以外的区域不允许有初始化，简单类型是可以的，但是有构造函数的复杂对象则不行了，比如string对象！</span><br></pre></td></tr></table></popped.size()&&popped[pos]></p>
-<p>error,expected identifier before numeric constant<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"># 面试</span><br><span class="line"></span><br><span class="line">项目经历的star原则 p6  </span><br><span class="line"></span><br><span class="line">## 面试问题总结</span><br><span class="line"></span><br><span class="line">如何检测内存泄漏，怎么写代码可以尽可能避免内存泄漏：  </span><br><span class="line">判断内存是否泄漏的方法：</span><br><span class="line">* 检查资源的使用情况，特别是纹理、网格等资源的使用</span><br><span class="line">* 通过Profiler来检测WebStream或SerializedFile的使用情况</span><br><span class="line">* 通过Android PSS/iOS Instrument反馈的App线程内存来查看</span><br><span class="line"></span><br><span class="line">C#多线程  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class A</span><br><span class="line">&#123;</span><br><span class="line">virtual int test () = 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B : public A</span><br><span class="line">&#123;</span><br><span class="line">public :</span><br><span class="line">virtual int test () &#123;</span><br><span class="line">return 10;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">C#attribute  </span><br><span class="line"></span><br><span class="line">哈希解决冲突：开放定址法，再哈希法，链地址法  </span><br><span class="line">这个方法的基本思想是：当发生地址冲突时，按照某种方法继续探测哈希表中的其他存储单元，直到找到空位置为止  </span><br><span class="line">链地址法解决冲突的做法是：如果哈希表空间为 0 ～ m - 1 ，设置一个由 m 个指针分量组成的一维数组 ST[ m ], 凡哈希地址为 i 的数据元素都插入到头指针为 ST[ i ] 的链表中。这种方法有点近似于邻接表的基本思想，且这种方法适合于冲突比较严重的情况  </span><br><span class="line"></span><br><span class="line">哈希索引和b+树索引：</span><br><span class="line">* 如果是等值查询，那么哈希索引明显有绝对优势，因为只需要经过一次算法即可找到相应的键值；当然了，这个前提是，键值都是唯一的。如果键值不是唯一的，就需要先找到该键所在位置，然后再根据链表往后扫描，直到找到相应的数据；</span><br><span class="line">* 从示意图中也能看到，如果是范围查询检索，这时候哈希索引就毫无用武之地了，因为原先是有序的键值，经过哈希算法后，有可能变成不连续的了，就没办法再利用索引完成范围查询检索；</span><br><span class="line">同理，哈希索引也没办法利用索引完成排序，以及like ‘xxx%’ 这样的部分模糊查询（这种部分模糊查询，其实本质上也是范围查询）；</span><br><span class="line">* 哈希索引也不支持多列联合索引的最左匹配规则；</span><br><span class="line">* B+树索引的关键字检索效率比较平均，不像B树那样波动幅度大，在有大量重复键值情况下，哈希索引的效率也是极低的，因为存在所谓的哈希碰撞问题。</span><br><span class="line"></span><br><span class="line">C#的虚函数的override和new：前者是重写（覆盖），后者只是隐藏了父类中的虚函数，如果用父类指针指向子类对象，调用new的函数，调用的还是父类的。总结通俗的讲：new：父类看不到子类的new的新方法，子类看不到父类被new的方法， 而override: 父类和子类看到的都是子类override后的方法。</span><br><span class="line"></span><br><span class="line">线程池的概念：避免频繁创建销毁线程，等待队列、线程管理</span><br><span class="line"></span><br><span class="line">Unity的生命周期：awake，update，fixedupdate，lateupdate</span><br><span class="line"></span><br><span class="line">为什么IP在网络层，TCP、UDP在传输层，它们是怎么工作的？  </span><br><span class="line">ip在网络层，负责路由；tcp/udp在传输层负责一有链接或者无连接的方式传送消息</span><br><span class="line"></span><br><span class="line">DrawCall的含义就是CPU调用图像编程接口，以命令GPU进行渲染的操作。</span><br><span class="line"></span><br><span class="line">lua元表：设置了元表的table，如果元表的index是个table，外层表索引的数据为nil就上元表的这个index里找</span><br><span class="line"></span><br><span class="line">fixedupdate\update\lateupdate：fixed物理相关的都放在里边，因为他是固定时间间隔（也是每帧update一次）；update是每帧一次，但是时间间隔不一定，看渲染效率；late在update之后。  </span><br><span class="line"></span><br><span class="line">模板和宏的区别：</span><br><span class="line">1. 宏是在预处理阶段处理，模板是在编译阶段处理</span><br><span class="line">2. 宏不会进行类型检查，只会单纯的进行文本替换，模板会进行类型检查。比如下面代码模板就会出错，而宏不会</span><br><span class="line">3. 宏直接就可以产生代码，而编译器遇到模板定义时，并不产生代码，只有当模板实例化后时才会产生代码。</span><br><span class="line"></span><br><span class="line">协程底层实现：函数返回一个迭代器类型，函数中可以多次yield return就像数组下标一样</span><br><span class="line"></span><br><span class="line">如何做虚拟地址映射：虚拟地址是4g，user3，kernel1，结构是页表</span><br><span class="line"></span><br><span class="line">进程如何分配地址：堆栈、静态、常量、自由</span><br><span class="line"></span><br><span class="line">[C++如何保证类不被继承](https://blog.csdn.net/isunbin/article/details/99568217)：借助友元来实现，因为友元是不可以被继承的。如果一个类的构造函数要借助它的友元类，那么继承了这个类的类就无法构造自己的对象。从而杜绝了被继承</span><br><span class="line"></span><br><span class="line">计算机中的流水线：每条指令分成多步，各指令间轮转顺序执行，实现并行效果（实际还是一条条执行的）；效率瓶颈，就让每一步更细分</span><br><span class="line"></span><br><span class="line">[帧同步与状态同步](https://blog.csdn.net/shaocize/article/details/89702151)：状态tcp，帧udp；同步每个单位的状态，单位数量增加数据量增加，帧同步同步操作，操作通过运算可以达到一致的状态（游戏逻辑执行在本地，所以不好防外挂，防的方法可以算状态hash对比，或者记录战斗数据分析），单位再多同步数据量也不会增加</span><br><span class="line"></span><br><span class="line">udp如何避免丢包：</span><br><span class="line">原因：</span><br><span class="line">1. 接收端处理时间过长导致丢包</span><br><span class="line">2. 发送的包巨大丢包</span><br><span class="line">3. 发送的包较大，超过接受者缓存导致丢包</span><br><span class="line">4. 发送的包频率太快</span><br><span class="line"></span><br><span class="line">new和malloc的区别：  </span><br><span class="line">new/delete（C++运算符）会自动调用构造函数和析构函数，底层是malloc/free（标准库函数，编译器无权控制其调用构造/析构函数），比其更智能  </span><br><span class="line">失败后前者抛异常，后者返回NULL，成功返回的都是指针  </span><br><span class="line"></span><br><span class="line">进程线程的区别：已有  </span><br><span class="line"></span><br><span class="line">vector/set实现机制：  </span><br><span class="line">vector用数组,set用的时红黑树。Vector内存分配使用的是STL的allocator分配器，采用二层分配机制，申请内存大于128K时使用malloc，小于128K时使用内存池，接着讲了一下内存池的机制，维护16个空闲链表之类的  </span><br><span class="line">vector动态增加大小时，并不是在原空间之后持续新空间（因为根本无法保证原空间之后尚有可供配置的空间），而是以原大小的两倍另外配置一块较大的空间，然后将内容拷贝过来，然后才开始在原内容之后构造新元素，并释放原空间，因此，一旦引起空间重新配置，指向原vector的所有迭代器都失效了，这是程序员易犯的一个错误，务必小心  </span><br><span class="line">set 底层红黑树（平衡二叉树）目的是为了高效检索</span><br><span class="line"></span><br><span class="line">数据库索引作用，怎么实现的：  </span><br><span class="line">高效获取数据，BTree索引、哈希索引、全文索引等  </span><br><span class="line">[BST、BTree、B+Tree](https://zhuanlan.zhihu.com/p/27700617)  </span><br><span class="line"></span><br><span class="line">虚函数如何实现动态多态的：  </span><br><span class="line">动态多态与静态多态，静态多态就是在系统编译期间就可以确定程序执行到这里将要执行哪个函数，函数的重载，对象名加点操作符执行成员函数等；</span><br><span class="line">多态的实现：分为两类，编译时的多态与运行时的多态。前者在编译的过程中确定了同名的具体操作对象，而后者是在程序运行过程中才多态地确定操作所指向的对象。这种确定操作具体对象的过程就是绑定。绑定工作在编译连接阶段完成的情况为静态绑定，在程序运行过程中完成的情况是动态绑定。  </span><br><span class="line">重载overload：函数名相同，但是函数参数不同。调用时根据参数的不同决定调用哪一个函数；  </span><br><span class="line">多态：函数名相同，函数形参也相同。调用时根据函数类型是虚函数还是普通成员函数决定调用哪一个。  </span><br><span class="line"></span><br><span class="line">纯虚函数的作用：向子类提供接口，定义纯虚函数的类为抽象类  </span><br><span class="line"></span><br><span class="line">结构体和类的区别：</span><br><span class="line"></span><br><span class="line">结构体为什么要字节对齐：</span><br><span class="line"></span><br><span class="line">LCA算法：</span><br><span class="line"></span><br><span class="line">### 图形学</span><br><span class="line"></span><br><span class="line">碰撞检测：</span><br><span class="line">1. 两个立方体的碰撞检测：</span><br><span class="line">   1. AABB（axis-aligned bounding box，不可旋转，有向包围盒）：</span><br><span class="line">   2. OBB（Oriented Bounding Box，可旋转）：</span><br><span class="line">2. 球体的碰撞检测：简单，圆心距离与半径相比较</span><br><span class="line">3. 三角形是否相交：</span><br><span class="line"></span><br><span class="line"># 面经复盘</span><br><span class="line"></span><br><span class="line">## 字节跳动--游戏研发</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;width:300px&quot;&gt;</span><br><span class="line">    &#123;% asset_img jrtt1.jpg %&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">1.</span><br></pre></td></tr></table></figure></p>
-<p>指针常量：int <em> const p<br>常量指针：const int </em> p<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 判断扇形区域内  </span><br><span class="line">算两点距离（半径） 算两向量夹角  </span><br><span class="line"></span><br><span class="line">3. 一万个球，知道圆心位置和半径，如何预处理/数据结构存储，新加球可以最少次数判断是否相交  </span><br><span class="line">TODO  </span><br><span class="line"></span><br><span class="line">4. 4个人分100金币，第一个人怎么分半数以上人同意（智力题？）  </span><br><span class="line">给第三个人一个金币，不然他一个也拿不到  </span><br><span class="line"></span><br><span class="line">5. 无向图连通最小花费：最小生成树（prime，keruskal）//有向图最短路径（单源dijstra，多源floyd）</span><br></pre></td></tr></table></figure></p>
-<p>prime(加点法):每次迭代选择代价最小的边对应的点，加入到最小生成树中。算法从某一个顶点s开始，逐渐长大覆盖整个连通网的所有顶点。<br>kruskal(加边法):初始最小生成树边数为0，每迭代一次就选择一条满足条件的最小代价边，加入到最小生成树的边集合里。</p>
-<p>dijkstra：类似prime</p>
-<p>floyd多源最短路径：动态规划Dis(i,j) = Dis(i,k) + Dis(k,j)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6. 字符串以词为单位反转  </span><br><span class="line">两个栈  </span><br><span class="line"></span><br><span class="line">7. 顶点着色器/片元着色器作用/什么是片元</span><br></pre></td></tr></table></figure></p>
-<p>顶点着色器：分为输入和输出两部分,负责的功能是把输入的数据进行矩阵变换位置,计算光照公式生成逐顶点颜⾊,⽣成/变换纹理坐标.并且把位置和纹理坐标这样的参数发送到片段着色器.<br>片元着色器：处理由光栅化阶段生成的每个片元，最终计算出每个像素的最终颜色。归根结底，实际上就是数据的集合。这个数据集合包含每一个像素的各个颜色分量和像素透明度的值。</p>
-<p><em>光栅化</em>，就是计算出1920×1080这么长的RGB数组中，每一个RGB的值</p>
-<p>3D场景中将三角形作为基本<em>图元</em></p>
-<p>片元是光栅化过程的产物；光栅化是将一个图元转变为一个二维图象，二维图象上每个点都包含了颜色、深度和纹理数据，将该点和相关信息叫做一个片元<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">设计模式！工厂/观察者/策略模式？  </span><br><span class="line">工厂模式：调用工厂只管给个名字，工厂里根据名字实例化对应的对象（选对应接口）；解决了接口选择的问题，拓展方便。</span><br><span class="line"></span><br><span class="line">观察者模式：mvc，子类继承一个update方法，使用者在notify所有监听的子类时调用基类update</span><br><span class="line"></span><br><span class="line">策略模式：核心是有个context，根据构造函数实例化了strategy的具体一种子类作为context的成员，因此context.excuteStrategy()可以调用context里的特定的strategy实例的doStrategy方法</span><br><span class="line"></span><br><span class="line">stl里的trace？  </span><br><span class="line">trace()函数？调试用的</span><br><span class="line"></span><br><span class="line">工厂模式有几种？？  </span><br><span class="line">3：简单工厂/工厂模式/抽象工厂（工厂的工厂）</span><br><span class="line"></span><br><span class="line">光照模型公式</span><br></pre></td></tr></table></figure></p>
-<p>3D渲染中， 物体表面的光照计算公式为：</p>
-<p>I = 环境光(Iambient) + 漫反射光(Idiffuse) + 镜面高光(Ispecular);</p>
-<p>其中，环境光(ambient)计算公式为：</p>
-<p>Iambient = Aintensity * Acolor ; (Aintensity表示环境光强度，Acolor表示环境光颜色)</p>
-<p>漫反射光(diffuse)计算公式为：</p>
-<p>Idiffuse = Dintensity<em>Dcolor</em>N·L ; (Dintensity表示漫反射强度，Dcolor表示漫反射光颜色，N为该点的法向量，L为光源向量) ps:点乘是投影</p>
-<p>镜面光照(specular)计算公式为：</p>
-<p>Ispecular = Sintensity<em>Scolor</em>(R·V)n ; (Sintensity表示镜面光照强度，Scolor表示镜面光颜色，R为光的反射向量，V为观察者向量)</p>
-<p>综上所得：整个光照公式为：</p>
-<p>I = Aintensity <em> Acolor + Dintensity</em>Dcolor<em>N.L + Sintensity</em>Scolor*(R.V)n ;</p>
-<p>将一些值合并，并使用白色作为光照颜色，则上述公式可简化为：</p>
-<p>I = A + D*N.L + (R.V)n</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">类的内存结构  </span><br><span class="line">[link](https://blog.csdn.net/fenxinzi557/article/details/51995911)  </span><br><span class="line">记得字节对齐  </span><br><span class="line"></span><br><span class="line">cpp文件属性命令行分页栏中加入```/d1 reportAllClassLayout``` 可以查看内存布局  </span><br><span class="line">包含虚函数的类头部有虚表指针，虚表真正的位置在静态存储区</span><br></pre></td></tr></table></figure>
+<p>error,expected identifier before numeric constant<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"># 面试</span><br><span class="line"></span><br><span class="line">项目经历的star原则 p6  </span><br><span class="line"></span><br><span class="line">## 面试问题总结</span><br><span class="line"></span><br><span class="line">如何检测内存泄漏，怎么写代码可以尽可能避免内存泄漏：  </span><br><span class="line">判断内存是否泄漏的方法：</span><br><span class="line">* 检查资源的使用情况，特别是纹理、网格等资源的使用</span><br><span class="line">* 通过Profiler来检测WebStream或SerializedFile的使用情况</span><br><span class="line">* 通过Android PSS/iOS Instrument反馈的App线程内存来查看</span><br><span class="line"></span><br><span class="line">C#多线程  </span><br><span class="line">``` C++</span><br><span class="line">class A</span><br><span class="line">&#123;</span><br><span class="line">    virtual int test () = 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B : public A</span><br><span class="line">&#123;</span><br><span class="line">public :</span><br><span class="line">    virtual int test () &#123;</span><br><span class="line">        return 10;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>C#attribute  </p>
+<p>哈希解决冲突：开放定址法，再哈希法，链地址法<br>这个方法的基本思想是：当发生地址冲突时，按照某种方法继续探测哈希表中的其他存储单元，直到找到空位置为止<br>链地址法解决冲突的做法是：如果哈希表空间为 0 ～ m - 1 ，设置一个由 m 个指针分量组成的一维数组 ST[ m ], 凡哈希地址为 i 的数据元素都插入到头指针为 ST[ i ] 的链表中。这种方法有点近似于邻接表的基本思想，且这种方法适合于冲突比较严重的情况  </p>
+<p>哈希索引和b+树索引：</p>
+<ul>
+<li>如果是等值查询，那么哈希索引明显有绝对优势，因为只需要经过一次算法即可找到相应的键值；当然了，这个前提是，键值都是唯一的。如果键值不是唯一的，就需要先找到该键所在位置，然后再根据链表往后扫描，直到找到相应的数据；</li>
+<li>从示意图中也能看到，如果是范围查询检索，这时候哈希索引就毫无用武之地了，因为原先是有序的键值，经过哈希算法后，有可能变成不连续的了，就没办法再利用索引完成范围查询检索；<br>同理，哈希索引也没办法利用索引完成排序，以及like ‘xxx%’ 这样的部分模糊查询（这种部分模糊查询，其实本质上也是范围查询）；</li>
+<li>哈希索引也不支持多列联合索引的最左匹配规则；</li>
+<li>B+树索引的关键字检索效率比较平均，不像B树那样波动幅度大，在有大量重复键值情况下，哈希索引的效率也是极低的，因为存在所谓的哈希碰撞问题。</li>
+</ul>
+<p>C#的虚函数的override和new：前者是重写（覆盖），后者只是隐藏了父类中的虚函数，如果用父类指针指向子类对象，调用new的函数，调用的还是父类的。总结通俗的讲：new：父类看不到子类的new的新方法，子类看不到父类被new的方法， 而override: 父类和子类看到的都是子类override后的方法。</p>
+<p>线程池的概念：避免频繁创建销毁线程，等待队列、线程管理</p>
+<p>Unity的生命周期：awake，update，fixedupdate，lateupdate</p>
+<p>为什么IP在网络层，TCP、UDP在传输层，它们是怎么工作的？<br>ip在网络层，负责路由；tcp/udp在传输层负责一有链接或者无连接的方式传送消息</p>
+<p>DrawCall的含义就是CPU调用图像编程接口，以命令GPU进行渲染的操作。</p>
+<p>lua元表：设置了元表的table，如果元表的index是个table，外层表索引的数据为nil就上元表的这个index里找</p>
+<p>fixedupdate\update\lateupdate：fixed物理相关的都放在里边，因为他是固定时间间隔（也是每帧update一次）；update是每帧一次，但是时间间隔不一定，看渲染效率；late在update之后。  </p>
+<p>模板和宏的区别：</p>
+<ol>
+<li>宏是在预处理阶段处理，模板是在编译阶段处理</li>
+<li>宏不会进行类型检查，只会单纯的进行文本替换，模板会进行类型检查。比如下面代码模板就会出错，而宏不会</li>
+<li>宏直接就可以产生代码，而编译器遇到模板定义时，并不产生代码，只有当模板实例化后时才会产生代码。</li>
+</ol>
+<p>协程底层实现：函数返回一个迭代器类型，函数中可以多次yield return就像数组下标一样</p>
+<p>如何做虚拟地址映射：虚拟地址是4g，user3，kernel1，结构是页表</p>
+<p>进程如何分配地址：堆栈、静态、常量、自由</p>
+<p><a href="https://blog.csdn.net/isunbin/article/details/99568217" target="_blank" rel="noopener">C++如何保证类不被继承</a>：借助友元来实现，因为友元这个特性是不可以被继承的。如果一个类的构造函数要借助它的友元类，那么继承了这个类的类就无法构造自己的对象。从而杜绝了被继承<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>;</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BASE</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    BASE() &#123;&#125;</span><br><span class="line">    <span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span>;</span>    <span class="comment">//设class C为class BASE的友元</span></span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> :</span> <span class="keyword">public</span> <span class="keyword">virtual</span> BASE</span><br><span class="line">&#123;&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> :</span> <span class="keyword">public</span> C </span><br><span class="line">&#123;&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    C c;</span><br><span class="line">    <span class="comment">//D d;   不可以实例化对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Matcap的原理并不复杂，就是使用一张中间为球面的图片作为不同法线方向的光照颜色，然后将这些颜色根据模型的法线信息渲染到相应位置。用于均一表面反射材质的着色器，在Zbrush/Mudbox等软件中被广泛运用。它借助一幅含有球面的图片作为视线空间的环境映射，计算成本非常低廉，当相机不转动时视觉效果极其出色。</p>
+<p>计算机中的流水线：每条指令分成多步，各指令间轮转顺序执行，实现并行效果（实际还是一条条执行的）；效率瓶颈，就让每一步更细分</p>
+<p><a href="https://blog.csdn.net/shaocize/article/details/89702151" target="_blank" rel="noopener">帧同步与状态同步</a>：状态tcp，帧udp；同步每个单位的状态，单位数量增加数据量增加，帧同步同步操作，操作通过运算可以达到一致的状态（游戏逻辑执行在本地，所以不好防外挂，防的方法可以算状态hash对比，或者记录战斗数据分析），单位再多同步数据量也不会增加</p>
+<p>udp如何避免丢包：<br>原因：</p>
+<ol>
+<li>接收端处理时间过长导致丢包</li>
+<li>发送的包巨大丢包</li>
+<li>发送的包较大，超过接受者缓存导致丢包</li>
+<li>发送的包频率太快</li>
+</ol>
+<p>new和malloc的区别：<br>new/delete（C++运算符）会自动调用构造函数和析构函数，底层是malloc/free（标准库函数，编译器无权控制其调用构造/析构函数），比其更智能<br>失败后前者抛异常，后者返回NULL，成功返回的都是指针  </p>
+<p>进程线程的区别：已有  </p>
+<p>vector/set实现机制：<br>vector用数组,set用的时红黑树。Vector内存分配使用的是STL的allocator分配器，采用二层分配机制，申请内存大于128K时使用malloc，小于128K时使用内存池，接着讲了一下内存池的机制，维护16个空闲链表之类的<br>vector动态增加大小时，并不是在原空间之后持续新空间（因为根本无法保证原空间之后尚有可供配置的空间），而是以原大小的两倍另外配置一块较大的空间，然后将内容拷贝过来，然后才开始在原内容之后构造新元素，并释放原空间，因此，一旦引起空间重新配置，指向原vector的所有迭代器都失效了，这是程序员易犯的一个错误，务必小心<br>set 底层红黑树（平衡二叉树）目的是为了高效检索</p>
+<p>数据库索引作用，怎么实现的：<br>高效获取数据，BTree索引、哈希索引、全文索引等<br><a href="https://zhuanlan.zhihu.com/p/27700617" target="_blank" rel="noopener">BST、BTree、B+Tree</a>  </p>
+<p>虚函数如何实现动态多态的：<br>动态多态与静态多态，静态多态就是在系统编译期间就可以确定程序执行到这里将要执行哪个函数，函数的重载，对象名加点操作符执行成员函数等；<br>多态的实现：分为两类，编译时的多态与运行时的多态。前者在编译的过程中确定了同名的具体操作对象，而后者是在程序运行过程中才多态地确定操作所指向的对象。这种确定操作具体对象的过程就是绑定。绑定工作在编译连接阶段完成的情况为静态绑定，在程序运行过程中完成的情况是动态绑定。<br>重载overload：函数名相同，但是函数参数不同。调用时根据参数的不同决定调用哪一个函数；<br>多态：函数名相同，函数形参也相同。调用时根据函数类型是虚函数还是普通成员函数决定调用哪一个。  </p>
+<p>纯虚函数的作用：向子类提供接口，定义纯虚函数的类为抽象类  </p>
+<p>结构体和类的区别：</p>
+<p>结构体为什么要字节对齐：</p>
+<p>LCA算法：</p>
+<h3 id="图形学"><a href="#图形学" class="headerlink" title="图形学"></a>图形学</h3><p>碰撞检测：</p>
+<ol>
+<li>两个立方体的碰撞检测：<ol>
+<li>AABB（axis-aligned bounding box，不可旋转，有向包围盒）：</li>
+<li>OBB（Oriented Bounding Box，可旋转）：</li>
+</ol>
+</li>
+<li>球体的碰撞检测：简单，圆心距离与半径相比较</li>
+<li>三角形是否相交：</li>
+</ol>
+<h1 id="面经复盘"><a href="#面经复盘" class="headerlink" title="面经复盘"></a>面经复盘</h1><h2 id="字节跳动—游戏研发"><a href="#字节跳动—游戏研发" class="headerlink" title="字节跳动—游戏研发"></a>字节跳动—游戏研发</h2><div style="width:300px">
+    <img src="/2019/09/16/校招学习笔记/jrtt1.jpg">
+</div>
+
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">指针常量：int * const p</span><br><span class="line">常量指针：const int * p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断扇形区域内<br>算两点距离（半径） 算两向量夹角  </p>
+</li>
+<li><p>一万个球，知道圆心位置和半径，如何预处理/数据结构存储，新加球可以最少次数判断是否相交<br>TODO  </p>
+</li>
+<li><p>4个人分100金币，第一个人怎么分半数以上人同意（智力题？）<br>给第三个人一个金币，不然他一个也拿不到  </p>
+</li>
+<li><p>无向图连通最小花费：最小生成树（prime，keruskal）//有向图最短路径（单源dijstra，多源floyd）  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">prime(加点法):每次迭代选择代价最小的边对应的点，加入到最小生成树中。算法从某一个顶点s开始，逐渐长大覆盖整个连通网的所有顶点。  </span><br><span class="line">kruskal(加边法):初始最小生成树边数为0，每迭代一次就选择一条满足条件的最小代价边，加入到最小生成树的边集合里。</span><br><span class="line"></span><br><span class="line">dijkstra：类似prime</span><br><span class="line"></span><br><span class="line">floyd多源最短路径：动态规划Dis(i,j) = Dis(i,k) + Dis(k,j)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串以词为单位反转<br>两个栈  </p>
+</li>
+<li><p>顶点着色器/片元着色器作用/什么是片元  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">顶点着色器：分为输入和输出两部分,负责的功能是把输入的数据进行矩阵变换位置,计算光照公式生成逐顶点颜⾊,⽣成/变换纹理坐标.并且把位置和纹理坐标这样的参数发送到片段着色器.  </span><br><span class="line">片元着色器：处理由光栅化阶段生成的每个片元，最终计算出每个像素的最终颜色。归根结底，实际上就是数据的集合。这个数据集合包含每一个像素的各个颜色分量和像素透明度的值。</span><br><span class="line"></span><br><span class="line">*光栅化*，就是计算出1920×1080这么长的RGB数组中，每一个RGB的值</span><br><span class="line"></span><br><span class="line">3D场景中将三角形作为基本*图元*</span><br><span class="line"></span><br><span class="line">片元是光栅化过程的产物；光栅化是将一个图元转变为一个二维图象，二维图象上每个点都包含了颜色、深度和纹理数据，将该点和相关信息叫做一个片元</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>设计模式！工厂/观察者/策略模式？<br>工厂模式：调用工厂只管给个名字，工厂里根据名字实例化对应的对象（选对应接口）；解决了接口选择的问题，拓展方便。</p>
+<p>观察者模式：mvc，子类继承一个update方法，使用者在notify所有监听的子类时调用基类update</p>
+<p>策略模式：核心是有个context，根据构造函数实例化了strategy的具体一种子类作为context的成员，因此context.excuteStrategy()可以调用context里的特定的strategy实例的doStrategy方法</p>
+<p>stl里的trace？<br>trace()函数？调试用的</p>
+<p>工厂模式有几种？？<br>3：简单工厂/工厂模式/抽象工厂（工厂的工厂）</p>
+<p>光照模型公式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">3D渲染中， 物体表面的光照计算公式为：</span><br><span class="line"></span><br><span class="line">I = 环境光(Iambient) + 漫反射光(Idiffuse) + 镜面高光(Ispecular);</span><br><span class="line"></span><br><span class="line">其中，环境光(ambient)计算公式为：</span><br><span class="line"></span><br><span class="line">Iambient = Aintensity * Acolor ; (Aintensity表示环境光强度，Acolor表示环境光颜色)</span><br><span class="line"></span><br><span class="line">漫反射光(diffuse)计算公式为：</span><br><span class="line"></span><br><span class="line">Idiffuse = Dintensity*Dcolor*N·L ; (Dintensity表示漫反射强度，Dcolor表示漫反射光颜色，N为该点的法向量，L为光源向量) ps:点乘是投影</span><br><span class="line"></span><br><span class="line">镜面光照(specular)计算公式为：</span><br><span class="line"></span><br><span class="line">Ispecular = Sintensity*Scolor*(R·V)n ; (Sintensity表示镜面光照强度，Scolor表示镜面光颜色，R为光的反射向量，V为观察者向量)</span><br><span class="line"></span><br><span class="line">综上所得：整个光照公式为：</span><br><span class="line"></span><br><span class="line">I = Aintensity * Acolor + Dintensity*Dcolor*N.L + Sintensity*Scolor*(R.V)n ;</span><br><span class="line"></span><br><span class="line">将一些值合并，并使用白色作为光照颜色，则上述公式可简化为：</span><br><span class="line"></span><br><span class="line">I = A + D*N.L + (R.V)n</span><br></pre></td></tr></table></figure></p>
+<p>类的内存结构<br><a href="https://blog.csdn.net/fenxinzi557/article/details/51995911" target="_blank" rel="noopener">link</a><br>记得字节对齐  </p>
+<p>cpp文件属性命令行分页栏中加入<figure class="highlight plain"><figcaption><span>reportAllClassLayout``` 可以查看内存布局  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">包含虚函数的类头部有虚表指针，虚表真正的位置在静态存储区</span><br></pre></td></tr></table></figure></p>
 <p>char c;<br>int i; //是8字节 因为int之前的要对齐到int的4字节<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">类中有虚函数 要+4字节 因为有虚函数表  函数本身不占字节</span><br><span class="line">继承的子类要先放父类的数据拷贝  </span><br><span class="line"></span><br><span class="line">1. 对于基类，如果有虚函数，那么先存放虚函数表指针，然后存放自己的数据成员；如果没有虚函数，那么直接存放数据成员。 </span><br><span class="line">2. 对于单一继承的类对象，先存放父类的数据拷贝(包括虚函数表指针)，然后是本类的数据。 </span><br><span class="line">3. 虚函数表中，先存放父类的虚函数，再存放子类的虚函数 </span><br><span class="line">4. 如果重载了父类的某些虚函数，那么新的虚函数将虚函数表中父类的这些虚函数覆盖。 </span><br><span class="line">5. 对于多重继承，先存放第一个父类的数据拷贝，在存放第二个父类的数据拷贝，一次类推，最后存放自己的数据成员。其中每一个父类拷贝都包含一个虚函数表指针。如果子类重载了某个父类的某个虚函数，那么该将该父类虚函数表的函数覆盖。另外，子类自己的虚函数，存储于第一个父类的虚函数表后边部分。 </span><br><span class="line">6. 当对象的虚函数被调用是，编译器去查询对象的虚函数表，找到该函数，然后调用。</span><br><span class="line"></span><br><span class="line">构造函数/析构函数/虚函数  </span><br><span class="line"></span><br><span class="line">**在构造/析构函数中调用虚函数：** effective c++ 条款9：永远不要在构造函数或析构函数中调用虚函数</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;width:300px&quot;&gt;</span><br><span class="line">    &#123;% asset_img jrtt3.jpg %&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&gt;&gt; 信号量  </span><br><span class="line">信号量(Semaphore)，有时被称为信号灯，是在多线程环境下使用的一种设施, 它负责协调各个线程, 以保证它们能够正确、合理的使用公共资源。  </span><br><span class="line"></span><br><span class="line">互斥量和信号量的区别：  </span><br><span class="line">1. 互斥量用于线程的互斥，信号量用于线程的同步。  </span><br><span class="line">这是互斥量和信号量的根本区别，也就是互斥和同步之间的区别。  </span><br><span class="line">互斥：是指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性。但互斥无法限制访问者对资源的访问顺序，即访问是无序的。  </span><br><span class="line">同步：是指在互斥的基础上（大多数情况），通过其它机制实现访问者对资源的有序访问。在大多数情况下，同步已经实现了互斥，特别是所有写入资源的情况必定是互斥的。少数情况是指可以允许多个访问者同时访问资源  </span><br><span class="line"></span><br><span class="line">2. 互斥量值只能为0/1，信号量值可以为非负整数。  </span><br><span class="line">也就是说，一个互斥量只能用于一个资源的互斥访问，它不能实现多个资源的多线程互斥问题。信号量可以实现多个同类资源的多线程互斥和同步。当信号量为单值信号量是，也可以完成一个资源的互斥访问。  </span><br><span class="line"></span><br><span class="line">3. 互斥量的加锁和解锁必须由同一线程分别对应使用，信号量可以由一个线程释放，另一个线程得到。  </span><br><span class="line"></span><br><span class="line">[互斥锁、自旋锁、读写锁](https://blog.csdn.net/judgejames/article/details/87286397)：读写锁，读可以多线程同时占有，写只能有一个线程占有，读写不同时，还有个不加锁状态；互斥锁，一次只能一个线程拥有互斥锁，其他线程只有等待；自旋锁，特殊的互斥锁，不睡眠，循环等待，好处是节省睡眠唤醒的资源  </span><br><span class="line"></span><br><span class="line">&gt;&gt; 死锁  </span><br><span class="line"></span><br><span class="line">&gt;&gt; 进程和线程的区别 PCB TCB</span><br><span class="line">1. 进程是资源分配的最小单位，线程是程序执行的最小单位（资源调度的最小单位）</span><br><span class="line">2. 进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。</span><br><span class="line">而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</span><br><span class="line">3. 线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC)进行。不过如何处理好同步与互斥是编写多线程程序的难点。</span><br><span class="line">4. 但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;width:300px&quot;&gt;</span><br><span class="line">    &#123;% asset_img jrtt2.jpg %&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&gt;&gt; 80个球找轻的  </span><br><span class="line"></span><br><span class="line">&gt;&gt; 64个人，提前准备名单卡片来确认是哪个人  </span><br><span class="line"></span><br><span class="line">&gt;&gt; 九宫格密码解锁的所有可能，大于等于四位数</span><br><span class="line"></span><br><span class="line">## 网易雷火--牛客网</span><br><span class="line"></span><br><span class="line">问简历内容  </span><br><span class="line">游戏内AI如何实现：有限状态机，行为树  </span><br><span class="line">一个UI被点击后发生了什么：  </span><br><span class="line">  </span><br><span class="line">**基础相关：**  </span><br><span class="line">C++虚函数机制，虚表，虚指针：  </span><br><span class="line">虚函数实在派生类可以覆写的函数，虚表存在于类内存中，记录了所有虚函数，每个虚表对应一个虚指针指向它，这个指针在类的每个实例化对象中都有。  </span><br><span class="line"></span><br><span class="line">c++规定，当一个成员函数被声明为虚函数后，其派生类中的同名函数都自动成为虚函数。因此，在子类从新声明该虚函数时，可以加，也可以不加，但习惯上每一层声明函数时都加virtual,使程序更加清晰。</span><br><span class="line"></span><br><span class="line">构造函数可以是虚函数吗？  </span><br><span class="line">不可以，虚函数调用是在部分信息下完成工作的机制，允许我们只知道接口而不知道对象的确切类型。 要创建一个对象，你需要知道对象的完整信息。 特别是，你需要知道你想要创建的确切类型。 因此，构造函数不应该被定义为虚函数。  </span><br><span class="line"></span><br><span class="line">&gt;&gt; C# 内存模型 堆和栈  </span><br><span class="line">[link](https://www.cnblogs.com/omg24/p/4202992.html)  </span><br><span class="line">&lt;div style=&quot;width:400px&quot;&gt;</span><br><span class="line">    &#123;% asset_img valueandref.png %&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">[link2](https://www.cnblogs.com/xiaodongy/p/7989711.html)</span><br><span class="line"></span><br><span class="line">C# gc 值类型与引用类型  </span><br><span class="line">注：Ref和Out的区别在于Ref在传递前需要初始化。  </span><br><span class="line">值类型在栈上，引用类型在堆上；前者不需要gc，后者需要  </span><br><span class="line">close()可以再open，dispose()后资源被标记为无用，等待gc回收  </span><br><span class="line">非托管资源需要在程序中显式释放  </span><br><span class="line">对象间相互引用导致了gc丧失实时性，变为不确定的方式，否则可以用引用计数这种方法判断对象是否无用  </span><br><span class="line">GC清理垃圾实际上就是调用析构函数  </span><br><span class="line">String对象是不可变的（只读），一旦创建不可改变，看似修改其实是返回了一个新对象  </span><br><span class="line"></span><br><span class="line">[随机在圆上生成n个点，这n个点在同一半圆的概率是多少？](https://blog.csdn.net/zmazon/article/details/8547278)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lua闭包  </span><br><span class="line">内部（子）函数可以使用外部（父）函数的局部变量</span><br><span class="line">``` lua</span><br><span class="line">function test()</span><br><span class="line">    local i=0</span><br><span class="line">    return function() --尾调用</span><br><span class="line">        i+=1</span><br><span class="line">        return i</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">c1=test()</span><br><span class="line">c2=test() --c1,c2是建立在同一个函数，同一个局部变量的不同实例上面的两个不同的闭包</span><br><span class="line">          --闭包中的upvalue各自独立，调用一次test（）就会产生一个新的闭包</span><br><span class="line">print(c1()) --&gt;1</span><br><span class="line">print(c1()) --&gt;2//重复调用时每一个调用都会记住上一次调用后的值，就是说i=1了已经</span><br><span class="line">print(c2())    --&gt;1//闭包不同所以upvalue不同    </span><br><span class="line">print(c2()) --&gt;2</span><br></pre></td></tr></table></figure></p>
 <p>lua怎么实现面向对象<br><a href="http://www.lua.org/pil/16.html" target="_blank" rel="noopener">lua作者的方法</a><br>object：用table做<br>    table后边也可以用冒号（是个语法糖，剩了传self/this<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.deposit(a,100) == a:deposit(100)</span><br></pre></td></tr></table></figure></p>
 <pre><code>）  
@@ -889,7 +981,9 @@ height:50vh;
 <p>软件工程：<br>介绍几个设计模式<br>C++里的面向对象</p>
 <p>图形学：<br>介绍渲染管线<br>解释纹理采样的两个模式<br>repeat，clamp</p>
 <p>手撕代码：前序遍历</p>
-<p>二面<br>C++基础：<br>解释C++的多态如何实现<br>解释类模板和模板类的区别<br>右值引用、move语义</p>
+<p>二面<br>C++基础：<br>解释C++的多态如何实现  </p>
+<p>解释类模板和模板类的区别<br>类模板经实例化后生成了3个类型分别为a,b,c的模板类</p>
+<p>右值引用、move语义</p>
 <p>图形学：<br>介绍顶点处理中涉及到的矩阵变换<br>旋转缩放，平移</p>
 <p>介绍一个光照渲染模型(我介绍的是冯氏光照)<br>介绍一个消除隐藏面的算法(我介绍的是Z缓存)<br>如何解决因为顶点过近和浮点数的精度不足带来的穿模问题  </p>
 <p>手撕代码：快排</p>
@@ -1303,7 +1397,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">June 28th 2020, 4:38:11 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">June 28th 2020, 11:27:55 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1456,7 +1550,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.3.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.4.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.5.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.6.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.7.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面经——牛客"><span class="toc-number">1.8.</span> <span class="toc-text">面经——牛客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏研发"><span class="toc-number">1.8.1.</span> <span class="toc-text">游戏研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-后端"><span class="toc-number">1.8.2.</span> <span class="toc-text">C++后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#银行面经"><span class="toc-number">1.8.3.</span> <span class="toc-text">银行面经</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他研发"><span class="toc-number">1.8.4.</span> <span class="toc-text">其他研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-number">1.8.5.</span> <span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提问环节"><span class="toc-number">1.8.6.</span> <span class="toc-text">提问环节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#offers"><span class="toc-number">2.</span> <span class="toc-text">offers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todolist"><span class="toc-number">3.</span> <span class="toc-text">todolist</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">4.</span> <span class="toc-text">企业列表</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.3.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.4.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.5.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.6.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.7.</span> <span class="toc-text">leetcode刷题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形学"><span class="toc-number">1.7.1.</span> <span class="toc-text">图形学</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">2.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动—游戏研发"><span class="toc-number">2.1.</span> <span class="toc-text">字节跳动—游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面经——牛客"><span class="toc-number">2.2.</span> <span class="toc-text">面经——牛客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏研发"><span class="toc-number">2.2.1.</span> <span class="toc-text">游戏研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-后端"><span class="toc-number">2.2.2.</span> <span class="toc-text">C++后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#银行面经"><span class="toc-number">2.2.3.</span> <span class="toc-text">银行面经</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他研发"><span class="toc-number">2.2.4.</span> <span class="toc-text">其他研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-number">2.2.5.</span> <span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提问环节"><span class="toc-number">2.2.6.</span> <span class="toc-text">提问环节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#offers"><span class="toc-number">3.</span> <span class="toc-text">offers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todolist"><span class="toc-number">4.</span> <span class="toc-text">todolist</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">5.</span> <span class="toc-text">企业列表</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1469,10 +1563,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -1993,35 +2083,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
         <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
     
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
         <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
-    
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
-    
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
         <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
-    
-        <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
-    
-        <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
-    
-        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
-    
-        <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
-    
-        <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -2037,6 +2113,10 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+    
         <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
@@ -2044,12 +2124,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
-    
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -2059,6 +2133,12 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -2067,11 +2147,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
-    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
     
@@ -2079,29 +2157,41 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
     
+        <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
+    
+        <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
+    
+        <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
+    
+        <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
+    
         <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
         <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
-    
-        <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
-    
-        <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
         <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
+        <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
+    
+        <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
         <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
         <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
+    
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
@@ -2144,9 +2234,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
-    
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
