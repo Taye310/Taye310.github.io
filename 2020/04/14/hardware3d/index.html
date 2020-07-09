@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Providence&#39;s blog">
 <meta property="og:description" content="Hardware 3DCOM：   framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。vsync：防tearing，就是等显示器一">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-28T06:46:10.015Z">
+<meta property="og:updated_time" content="2020-07-08T13:51:39.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="可编程渲染管线">
 <meta name="twitter:description" content="Hardware 3DCOM：   framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。vsync：防tearing，就是等显示器一">
@@ -302,7 +302,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.8k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.9k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -494,9 +494,18 @@ height:50vh;
 <p>空间变换流程：模型空间-&gt;世界空间-&gt;观察（相机）空间-&gt;剪裁空间（视锥体剔除）-&gt;屏幕空间（剪裁空间转NDC转屏幕像素）  </p>
 <p>一般来说，模型空间到剪裁空间会合并为MVP矩阵（Model-View-Projection） </p>
 <h2 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h2><ul>
-<li>BRDF（bidirectional reflection distribution function）又称经验模型</li>
+<li>BRDF（bidirectional reflection distribution function）</li>
+<li>BRDF经验模型（能量不守恒，简化的数学公式）：<ul>
+<li>Lambert：反射强度不受角度影响，反射角度受平面影响</li>
 <li>标准光照模型（Phong）：自发光，高光反射，漫反射，环境光（需要入射光，反射光，表面法线，视角方向）</li>
 <li>blinn-phong：与phong相比不需要计算反射方向，取而代之的是视角和入射光线的平均值归一化后的结果</li>
+</ul>
+</li>
+<li>基于物理的BRDF模型（判断条件：是否满足交换律，即光路可逆；是否能量守恒）：<ul>
+<li>cook-torrance BRDF：微面元模型用来表示pbs（physical based shading）中的高光，D是法线分布函数，G是阴影遮蔽函数，F是菲涅尔反射函数</li>
+<li>ward BRDF</li>
+</ul>
+</li>
 </ul>
 <p>实现细节：</p>
 <ul>
@@ -567,7 +576,7 @@ V=
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2020/04/14/hardware3d/">/2020/04/14/hardware3d/</a>
             <p>发表日期：<a href="/2020/04/14/hardware3d/">April 14th 2020, 3:49:36 pm</a>
-            <p>更新日期：<a href="/2020/04/14/hardware3d/">June 28th 2020, 2:46:10 pm</a>
+            <p>更新日期：<a href="/2020/04/14/hardware3d/">July 8th 2020, 9:51:39 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1064,9 +1073,28 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 27
+        Total : 28
         </div>
         <!-- search  -->
         
@@ -1079,6 +1107,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2020/07/06/stl-implement/" >stl-implement</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1275,12 +1308,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
     
-        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
-    
-        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
-    
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
@@ -1289,9 +1316,31 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
+    
+        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
+    
+        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
         <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
+    
+        <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
+    
+        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
+    
+        <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
@@ -1301,10 +1350,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
-        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
-    
-        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
-    
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
@@ -1313,25 +1358,25 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+        <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
-    
-        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
@@ -1341,15 +1386,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
-    
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
         <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -1357,13 +1396,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
-        <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
-        <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
-    
-        <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     

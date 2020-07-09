@@ -34,7 +34,7 @@
 <meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt2.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/valueandref.png">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/几何函数.png">
-<meta property="og:updated_time" content="2020-06-28T15:55:13.297Z">
+<meta property="og:updated_time" content="2020-07-08T08:20:27.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招学习笔记">
 <meta name="twitter:description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
@@ -303,7 +303,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">3.4k</span>阅读时长: <span class="post-count reading-time">13 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">3.4k</span>阅读时长: <span class="post-count reading-time">14 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -521,7 +521,7 @@ height:50vh;
 <h2 id="其他知识点"><a href="#其他知识点" class="headerlink" title="其他知识点"></a>其他知识点</h2><p>创建型模式，共五种：工厂方法模式、抽象工厂模式、单例模式、建造者模式、原型模式。<br>结构型模式，共七种：适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。<br>行为型模式，共十一种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。  </p>
 <p>正则表达式：</p>
 <h2 id="leetcode刷题"><a href="#leetcode刷题" class="headerlink" title="leetcode刷题"></a>leetcode刷题</h2><p>109 有序链表转换二叉搜索树<br>    快慢指针加递归 每次递归，都是把链表分成两段；前面的那个链表末尾必须要加上nullptr，才算是分成了两个链表。</p>
-<p>56  合并区间<br>    push_back 和 emplace_back的区别，e更好 因为少一个构造函数</p>
+<p>56  合并区间<br>    push_back 和 emplace_back的区别，e更好 因为少一个构造函数<br>    <a href="https://blog.csdn.net/Kprogram/article/details/82055673" target="_blank" rel="noopener">emplace可以直接传入构造对象需要的元素，然后自己调用其构造函数！</a>  </p>
 <p>712 两个字符串的最小ascii删除和<br>    DP LCS 最长公共子序列（Longest Common Sequence）<br>    最优子结构/重叠子问题（用dp就是查表得到的不用重新计算）</p>
 <p>407 接雨水2</p>
 <p>208 实现前缀树  </p>
@@ -538,12 +538,16 @@ height:50vh;
 <p>vector的insert方法使用迭代器参数可以用来合并vector  </p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(!s.empty()&amp;&amp;pos&lt;popped.size()&amp;&amp;popped[pos] == s.top())&#123;<span class="comment">//三个条件的顺序很重要</span></span><br></pre></td></tr></table></figure>
 <p>中序遍历用 栈  </p>
-<p>837 新21点和 983 旅行票价 动态规划+从后遍历经典题；看起来很麻烦，代码很简单  </p>
+<p>837.新21点和 983 旅行票价 动态规划+从后遍历经典题；看起来很麻烦，代码很简单  </p>
+<p>63.不同路径II；动态规划求解而非递归，用到了滚动数组来优化dp，滚动数组应该多看一下  </p>
 <h2 id="牛客刷题"><a href="#牛客刷题" class="headerlink" title="牛客刷题"></a>牛客刷题</h2><p>union的大小取决于它所有的成员中，占用空间最大的一个成员的大小，并且需要内存对齐  </p>
 <p>c++的类体中，方法以外的区域不允许有初始化，简单类型是可以的，但是有构造函数的复杂对象则不行了，比如string对象！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error,expected identifier before numeric constant</span><br></pre></td></tr></table></figure>
 <h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><p>项目经历的star原则 p6  </p>
-<h2 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h2><p>如何检测内存泄漏，怎么写代码可以尽可能避免内存泄漏：<br>判断内存是否泄漏的方法：</p>
+<h2 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h2><p><a href="https://blog.csdn.net/w450468524/article/details/51649651" target="_blank" rel="noopener">伽马校正（gamma correction）</a>：需要注意的是，像法线贴图，高光贴图等通常是在线性空间中生成的的，无需进行反伽马校正  </p>
+<p><a href="https://zhuanlan.zhihu.com/p/78769570" target="_blank" rel="noopener">z-fighting</a>：模型闪烁的问题  </p>
+<p>setpass call &amp; batches：一次cpu把数据交给gpu处理叫一个drawcall。draw位于setpasscall 和batch中。使用相同材质信息draw call 才能放到一个batch中。一个材质球引用的shader可以有多个pass，因此携带这个材质球的物体会被渲染多次，”激活”一一个pass的过程就是set pass call。因此改变影响 pass的行为都会触发一次set pass call（比如游戏运行中开启阴影进而影响了渲染管线），因此把set pass call 作为影响drawcall的一个标准。  </p>
+<p>如何检测内存泄漏，怎么写代码可以尽可能避免内存泄漏：<br>判断内存是否泄漏的方法：</p>
 <ul>
 <li>检查资源的使用情况，特别是纹理、网格等资源的使用</li>
 <li>通过Profiler来检测WebStream或SerializedFile的使用情况</li>
@@ -605,7 +609,7 @@ height:50vh;
 <li>球体的碰撞检测：简单，圆心距离与半径相比较</li>
 <li>三角形是否相交：遍历A的每条边，看有没有穿过B的</li>
 </ol>
-<p>HDR到LDR：tonemapping</p>
+<p>HDR到LDR：tonemapping（色调映射）</p>
 <h1 id="面经复盘"><a href="#面经复盘" class="headerlink" title="面经复盘"></a>面经复盘</h1><h2 id="字节跳动—游戏研发"><a href="#字节跳动—游戏研发" class="headerlink" title="字节跳动—游戏研发"></a>字节跳动—游戏研发</h2><div style="width:300px">
     <img src="/2019/09/16/校招学习笔记/jrtt1.jpg">
 </div>
@@ -721,7 +725,7 @@ height:50vh;
 <p>C# gc 值类型与引用类型<br>注：Ref和Out的区别在于Ref在传递前需要初始化。<br>值类型在栈上，引用类型在堆上；前者不需要gc，后者需要<br>close()可以再open，dispose()后资源被标记为无用，等待gc回收<br>非托管资源需要在程序中显式释放<br>对象间相互引用导致了gc丧失实时性，变为不确定的方式，否则可以用引用计数这种方法判断对象是否无用<br>GC清理垃圾实际上就是调用析构函数<br>String对象是不可变的（只读），一旦创建不可改变，看似修改其实是返回了一个新对象  </p>
 <p><a href="https://blog.csdn.net/zmazon/article/details/8547278" target="_blank" rel="noopener">随机在圆上生成n个点，这n个点在同一半圆的概率是多少？</a></p>
 <p>lua闭包<br>内部（子）函数可以使用外部（父）函数的局部变量<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">local</span> i=<span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span> <span class="comment">--尾调用</span></span><br><span class="line">        i+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">c1=test()</span><br><span class="line">c2=test() <span class="comment">--c1,c2是建立在同一个函数，同一个局部变量的不同实例上面的两个不同的闭包</span></span><br><span class="line">          <span class="comment">--闭包中的upvalue各自独立，调用一次test（）就会产生一个新的闭包</span></span><br><span class="line"><span class="built_in">print</span>(c1()) <span class="comment">--&gt;1</span></span><br><span class="line"><span class="built_in">print</span>(c1()) <span class="comment">--&gt;2//重复调用时每一个调用都会记住上一次调用后的值，就是说i=1了已经</span></span><br><span class="line"><span class="built_in">print</span>(c2())    <span class="comment">--&gt;1//闭包不同所以upvalue不同    </span></span><br><span class="line"><span class="built_in">print</span>(c2()) <span class="comment">--&gt;2</span></span><br></pre></td></tr></table></figure></p>
-<p>lua怎么实现面向对象<br><a href="http://www.lua.org/pil/16.html" target="_blank" rel="noopener">lua作者的方法</a><br>object：用table做<br>    table后边也可以用冒号（是个语法糖，剩了传self/this<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.deposit(a,100) == a:deposit(100)</span><br></pre></td></tr></table></figure></p>
+<p>lua怎么实现面向对象<br><a href="http://www.lua.org/pil/16.html" target="_blank" rel="noopener">lua作者的方法</a><br>object：用table做<br>    table后边也可以用冒号（是个语法糖，省了传self/this<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.deposit(a,100) == a:deposit(100)</span><br></pre></td></tr></table></figure></p>
 <pre><code>）  
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Account:withdraw</span> <span class="params">(v)</span></span></span><br><span class="line">    self.balance = self.balance - v</span><br><span class="line">    <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 </code></pre><p>class：setmetatable<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setmetatable</span>(a, &#123;<span class="built_in">__index</span> = b&#125;) <span class="comment">--b是object a的class</span></span><br></pre></td></tr></table></figure></p>
@@ -992,9 +996,19 @@ height:50vh;
 <p>操作系统&amp;&amp;计算机网络&amp;&amp;多线程:<br>1.线程和进程的区别<br>2.多发射了解吗  </p>
 <p>3.C++中多线程库实现PV操作用什么？<br>4.TCP/IP三次握手，拥塞处理，滑动窗口<br>5.指令重排发生在编译阶段还是运行阶段？<br>6.智能指针是线程安全的吗？  </p>
 <p>(这部分感觉问的比较少，也没啥印象了，也都是基础了)</p>
-<p>Lua：<br>1.lua的index和newindex是什么？<br>2.lua的垃圾回收机制？是否存在互相引用现象？<br>3.lua的元表怎么重载运算符？<br>4.lua怎么实现面向对象的机制？<br>5.lua的table底层是怎么存储的？<br>6.lua对栈的操作比较麻烦，有优化方法吗？<br>7.lua和C++怎么绑定，有什么库？<br>8.lua的pairs和ipairs有什么区别?</p>
+<p>Lua：<br>1.lua的<strong>index和</strong>newindex是什么？<br><strong>index是table进行索引时如果没有值，就调用</strong>index（可以是function可以是table，是table就在table里索引）；<br><strong>newindex是给table不存在索引进行赋值时，调用</strong>newindex（可以是function可以是table，如果是table就在这个table里赋值而不是原来外层的table）  </p>
+<p>2.lua的垃圾回收机制？是否存在互相引用现象？<br>语言级别的垃圾回收</p>
+<p>3.lua的元表怎么重载运算符？<br>用metatable</p>
+<p>4.lua怎么实现面向对象的机制？<br>table做object，元表实现继承</p>
+<p>5.lua的table底层是怎么存储的？<br>为了提高table的插入查找效率，在table的设计上，采用了array数组和hashtable(哈希表)两种数据的结合。</p>
+<p>6.lua对栈的操作比较麻烦，有优化方法吗？  </p>
+<p>7.lua和C++怎么绑定，有什么库？<br>8.lua的pairs和ipairs有什么区别?  </p>
+<ul>
+<li>pairs遍历表中全部key，value</li>
+<li>ipairs从下标为1开始遍历，然后下标累加1，如果某个下标元素不存在就终止遍历。这就导致如果下标不连续或者不是从1开始的表就会中断或者遍历不到元素。</li>
+</ul>
 <p>图形学&amp;&amp;管线:<br>1.渲染管线说一下，前向渲染&amp;&amp;延迟渲染<br>应用阶段，几何阶段，光栅化阶段<br>顶点数据，顶点着色器，曲面细分着色器，几何着色器，剪裁，屏幕映射，三角形设置，三角形遍历，片元着色器，逐片元操作，屏幕图像<br>前向渲染：检测深度，如果可见就计算光照获取颜色信息，更新帧缓冲（在颜色缓冲中进行混合）<br>延迟渲染（deferred shading）：检测深度，如果可见就将片元信息（法线，位置，材质信息）保存到G-Buffer，最后用g-buffer中的信息进行光照计算（g-buffer中混合）  </p>
-<p>2.延迟渲染的缺点，分块延迟渲染知道吗？<a href="https://www.sohu.com/a/125709754_468740" target="_blank" rel="noopener">为什么延迟渲染带宽会那么大</a>?<br>延迟渲染主要的好处包括：<br>    1） 光照的开销与场景复杂度无关。<br>    2） Shader可以访问深度和其他像素信息。<br>    3） 每个象素对每个光源仅运行一次。也就是说，那些被遮挡的像素是不会被光照计算到的。<br>    4） 材质和光照的Shader完全分开。<br>延迟渲染还需要克服的主要障碍包括：<br>    1） 较高的显存带宽占用<br>    2） G-buffer消耗较多的填充率，这个问题在游戏机上比较严重<br>    3） 无硬件反锯齿的支持<br>    4） 对Alpha Blend支持较差  </p>
+<p>2.延迟渲染的缺点，分块延迟渲染知道吗？<a href="https://www.sohu.com/a/125709754_468740" target="_blank" rel="noopener">为什么延迟渲染带宽会那么大</a>?<br>延迟渲染主要的好处包括：<br>    1） 光照的开销与场景复杂度无关。<br>    2） Shader可以访问深度和其他像素信息。<br>    3） 每个象素对每个光源仅运行一次。也就是说，那些被遮挡的像素是不会被光照计算到的。<br>    4） 材质和光照的Shader完全分开。<br>延迟渲染还需要克服的主要障碍包括：<br>    1） 较高的显存带宽占用，因为gbuffer大<br>    2） G-buffer消耗较多的填充率，这个问题在游戏机上比较严重（像素填充率是指图形处理单元在每秒内所渲染的像素数量）<br>    3） 无硬件反锯齿的支持<br>    4） 对Alpha Blend支持较差  </p>
 <p><a href="https://gameinstitute.qq.com/community/detail/123220" target="_blank" rel="noopener">TBDR分块延迟渲染</a>：带宽直接影响能耗，tile based rendering可以使用on-chip的memory，从而频繁访问从frame buffer到processor转移到了on-chip memory到processor  </p>
 <p>带宽占用高：因为G-Buffer的大小</p>
 <p>3.SSAO原理，除了SSAO还有哪些AO？<br>SSAO：屏幕环境光遮蔽，SSAO通过采样象素周围的信息，并进行简单的深度值对比来计算物体身上环境光照无法到达的范围，从而可以近似地表现出物体身上在环境光照下产生的轮廓阴影。  </p>
@@ -1003,7 +1017,7 @@ height:50vh;
 <p>PCF：软阴影算法，传统PCF的主要原理就是通过对周围像素取值进行高斯模糊，算定阴影像素点的权值，进行加权计算。  </p>
 <p><a href="https://blog.csdn.net/kuangfengwu/article/details/7946036?_t=t" target="_blank" rel="noopener">CSM</a>：fft重新构建shadow map  </p>
 <p>卷积核有什么：</p>
-<p>5.PBR说一下，几何函数的意义,IBL主要是针对高光还是漫反射光？<br>几何函数：描述微平面自阴影和自遮挡的属性<br><img src="/2019/09/16/校招学习笔记/几何函数.png"></p>
+<p>5.PBR说一下，几何函数的意义,IBL主要是针对高光还是漫反射光？<br>几何函数：描述微平面自阴影和自遮挡的属性<br>IBL（image based lighting）<br><img src="/2019/09/16/校招学习笔记/几何函数.png"></p>
 <p>6.Lod是什么？除了通过摄像机和物体距离判断Lod等级，还有什么方法？<br>level of detail；</p>
 <p>7.DrawCall的开销体现哪里，就是你调用DrawCall,具体干了什么？<br>准备工作（最费时）-&gt;cpu发起drawcall-&gt;进入command buffer-&gt;GPU<br>准备工作：硬盘收集网格信息（顶点位置，法线，顶点颜色）和纹理信息，加载到内存，然后加载到显存；然后设置渲染状态（是否透明，lightmode，单双面）<br>小drawcall合并到大drawcall中，不能让cpu准备工作太久，导致gpu空闲</p>
 <p>8.Bloom效果怎么实现？<br>提取较亮的区域，保存到一张渲染纹理中，利用高斯模糊进行处理，模拟光扩散，最后与原图混合  </p>
@@ -1050,7 +1064,8 @@ height:50vh;
 <p>27.透明度测试和深度测试的关系？<br>透明度测试是透明度小于一个阈值就不显示，</p>
 <p>28.法线贴图说一下，切线空间呢？<br>法线纹理和高度纹理都属于bump map</p>
 <p>29.移动设备怎么减少DrawCall Overload?<br>early-z，不透明物体从前往后画</p>
-<p>30.各向异性在光照模型中如何实现？<br>各向异性 (anisotropy ) 与 均向性 相反，是指在不同方向具有不同行为的性质，也就是其行为与方向有关。应用场景例如头发，晶体，这类材质不均匀，原子排列周期疏密不相同的物质<br>Bank BRDF 属于经验模型，由于其计算简单，且效果良好，所以该模型在各向异性光照效果的模拟方面非常有用</p>
+<p>30.各向异性在光照模型中如何实现？<br>各向异性 (anisotropy ) 与 均向性 相反，是指在不同方向具有不同行为的性质，也就是其行为与方向有关。应用场景例如头发，晶体，这类材质不均匀，原子排列周期疏密不相同的物质<br>Bank BRDF 属于经验模型，由于其计算简单，且效果良好，所以该模型在各向异性光照效果的模拟方面非常有用  </p>
+<p>各向异性滤波？：</p>
 <p>31.opengl中顶点数据被送入顶点缓冲区时api做了什么？<br>32.phong和billn-phong区别是什么？<br>blinn不需要计算反射角度，取而代之的是视角与入射角度的均值  </p>
 <p>33.ray marching 知道吗？<br>34.opengl和dx有什么数学上的差别？<br>坐标系零点</p>
 <p>35.Alpha Blend和Alpha Test在性能上有什么不同？<br>透明度测试没通过的就不渲染了，透明度混合的话需要都渲染然后进行叠加</p>
@@ -1090,7 +1105,20 @@ height:50vh;
 <p>图形学：<br>介绍顶点处理中涉及到的矩阵变换<br>旋转缩放，平移</p>
 <p>介绍一个光照渲染模型(我介绍的是冯氏光照)<br>介绍一个消除隐藏面的算法(我介绍的是Z缓存)<br>如何解决因为顶点过近和浮点数的精度不足带来的穿模问题  </p>
 <p>手撕代码：快排</p>
-<p>三面<br>开放性问题：<br>在特定场景如何选择stl容器，以什么为标准？你最近一个应用到这个容器的场景是什么？<br>在N*N棋盘地图上放一个圆形技能，检测影响到的玩家对象，用什么数据结构实现？<br>不关心顺序的数组如何实现O(1)的删除操作</p>
+<p>三面<br>开放性问题：<br>在特定场景如何选择stl容器，以什么为标准？你最近一个应用到这个容器的场景是什么？<br>在N*N棋盘地图上放一个圆形技能，检测影响到的玩家对象，用什么数据结构实现？<br>不关心顺序的数组如何实现O(1)的删除操作 </p>
+<p><strong>字节游戏引擎1/2面（2020.7提前批）</strong><br>AssetBundle是怎么在jit（虚拟机？）中加载prefab的：</p>
+<p>Unity项目中的<a href="https://blog.csdn.net/u012138730/article/details/81143413#2.Library%E6%96%87%E4%BB%B6%E5%A4%B9" target="_blank" rel="noopener">Library文件夹</a>：此放的是程序集和库的缓存文件。 </p>
+<p>Unity的Inspector面板中查看GO属性是怎么实现的：反射，运行时获取属性并进行修改  </p>
+<p>接着inspector，undo和redo怎么实现：记录一个操作队列，怎么设计这个队列<br>我这边说了unity的scene文件在版本控制工具中看就是文本记录的属性，可以记录下修改的值，比如加或减一个数，撤销就是减或加回来<br>正解应该是<a href="https://www.jianshu.com/p/7747f574d53b" target="_blank" rel="noopener">命令模式</a></p>
+<p>各向异性过滤算法：是用来过滤、处理当视角变化导致3D物体表面倾斜时造成的纹理错误；传统的双线性和三线性过滤技术都是指“Isotropy”（各向同性）的，其各方向上矢量值是一致的，就像正方形和正方体  </p>
+<p>图形学中渲染阴影的方法：我说了shadowmap，追问能想象到哪些地方会比较糙吗，有限的分辨率下看起来品质尽可能高，bloom和blur搞混了，bloom是泛光的效果，blur是模糊效果；抗锯齿是通用的方法，跟这个问题没有关系；他的意思是远的地方，或者说斜射的地方会一个光照贴图的像素对应一大片场景区域，怎么处理；  </p>
+<p><a href="https://zhuanlan.zhihu.com/p/116731971" target="_blank" rel="noopener">Cascaded shadow map</a>：级联阴影贴图，将平截头体分成若干份，由近到远使用分辨率有高到低的shadow map  </p>
+<p>pbr理论，cook torrance光照模型的微表面理论：用来模拟不同材质的镜面反射效果；三部份组成——菲涅尔反射，微平面法线分布函数，几何项<br>phong光照的问题在于他不是能量守恒的<br>经验模型：Lambert、phong、blinn-phong</p>
+<p>抗锯齿，四倍或几倍细分的话显卡受得了吗：我说的是延迟渲染不能用aa就是不是因为技术上不行，就是因为显存遭不住  </p>
+<p>体渲染：雾，水体</p>
+<p>对于移动的物体如何计算光照：光照探针？球谐函数模拟全局光照  </p>
+<p><strong>3面负责人面</strong><br>shared_ptr实现：  </p>
+<p>什么情况用vector什么情况用list；使用list的应用场景，怎么找到删除节点的位置（靠遍历吗？需要O(N)时间，），实现erase方法；boost中的signal或者C#中的delegate/event怎么实现的</p>
 <h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><ol>
 <li><p>游戏研发：本科有Unity课程，对建模（PBR模型制作）到游戏引擎，甚至是剧本策划都有一定的了解。<br>个人之前的实习经历都是偏前端，有尝试mirror（unet），skynet，这些服务器框架，还在逐步学习。<br>对游戏引擎，准确说是渲染引擎比较感兴趣，本科课程中完成了简单的webgl渲染引擎，现在在学DX12 win32API的渲染引擎开发。<br>因为实验室课题缘故，掌握了一些深度学习相关的技能，linux系统用过，conda，pytorch，AI+GAME是很好的方向。</p>
 </li>
@@ -1102,10 +1130,11 @@ height:50vh;
 <p>传统软件公司和互联网公司在企业文化，工作内容，工作状态上的差别，需要实际体会；实习是为了投资自己，学习知识；图形开发这个岗位，个人感兴趣，综合之前的学习经历，对画面渲染、几何结构、动画</p>
 <h3 id="提问环节"><a href="#提问环节" class="headerlink" title="提问环节"></a>提问环节</h3><p>团队规模？游戏类型？工作内容？主观上全栈好还是图形ta方向好还是客户端+AI还是做好客户端就行了更新速度已经很快了？其他问题有机会跟hr聊<br>测开能转开发吗？测开设计引擎开发的工作吗比如渲染性能、物理性能、画面表现测试，总的来说能学到引擎相关的知识吗？</p>
 <p>部门<br>加班情况<br>是否开展内部技术分享 频率</p>
+<p>ue项目还是unity项目<br>unity目前统治地位，近年开始会往ue倾斜同意吗</p>
 <h1 id="offers"><a href="#offers" class="headerlink" title="offers"></a>offers</h1><p>秋招：</p>
 <ul>
-<li>vivo软件工程师（后端）-深圳-白菜24  </li>
-<li>广联达图形开发-北京-往年29  </li>
+<li>vivo软件工程师（后端）-深圳-白菜24-已拒  </li>
+<li>广联达图形开发-北京-往年29-等oc  </li>
 </ul>
 <h1 id="todolist"><a href="#todolist" class="headerlink" title="todolist"></a>todolist</h1><p>profiler使用<br>unity渲染线程 主线程 用户层面多线程以提升效率<br>编译优化<br>linux C++开发<br>哪些是在构造函数里初始化的<br>rmsl<br>渲染管线，矩阵运算的源码</p>
 <h1 id="企业列表"><a href="#企业列表" class="headerlink" title="企业列表"></a>企业列表</h1><p><a href="https://www.nowcoder.com/discuss/364482" target="_blank" rel="noopener">资源链接</a></p>
@@ -1500,7 +1529,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">June 28th 2020, 11:55:13 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">July 8th 2020, 4:20:27 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1997,9 +2026,28 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 27
+        Total : 28
         </div>
         <!-- search  -->
         
@@ -2012,6 +2060,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2020/07/06/stl-implement/" >stl-implement</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -2208,12 +2261,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
     
-        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
-    
-        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
-    
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
@@ -2222,9 +2269,31 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
+    
+        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
+    
+        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
         <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
+    
+        <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
+    
+        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
+    
+        <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
@@ -2234,10 +2303,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
-        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
-    
-        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
-    
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
@@ -2246,25 +2311,25 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+        <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
-    
-        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
@@ -2274,15 +2339,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
-    
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
         <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -2290,13 +2349,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
-        <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
-        <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
-    
-        <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
