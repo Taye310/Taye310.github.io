@@ -34,7 +34,7 @@
 <meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt2.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/valueandref.png">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/几何函数.png">
-<meta property="og:updated_time" content="2020-07-08T08:20:27.690Z">
+<meta property="og:updated_time" content="2020-08-10T16:09:47.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招学习笔记">
 <meta name="twitter:description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
@@ -543,6 +543,7 @@ height:50vh;
 <h2 id="牛客刷题"><a href="#牛客刷题" class="headerlink" title="牛客刷题"></a>牛客刷题</h2><p>union的大小取决于它所有的成员中，占用空间最大的一个成员的大小，并且需要内存对齐  </p>
 <p>c++的类体中，方法以外的区域不允许有初始化，简单类型是可以的，但是有构造函数的复杂对象则不行了，比如string对象！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error,expected identifier before numeric constant</span><br></pre></td></tr></table></figure>
+<h3 id="猿辅导真题"><a href="#猿辅导真题" class="headerlink" title="猿辅导真题"></a>猿辅导真题</h3><p><a href="https://www.nowcoder.com/test/question/done?tid=35339605&amp;qid=808488#summary" target="_blank" rel="noopener">击鼓传花</a>，k个人传n次，最后一个人要是第一个人<br>dp可以70%，要用矩阵快速幂没用过  </p>
 <h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><p>项目经历的star原则 p6  </p>
 <h2 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h2><p><a href="https://blog.csdn.net/w450468524/article/details/51649651" target="_blank" rel="noopener">伽马校正（gamma correction）</a>：需要注意的是，像法线贴图，高光贴图等通常是在线性空间中生成的的，无需进行反伽马校正  </p>
 <p><a href="https://zhuanlan.zhihu.com/p/78769570" target="_blank" rel="noopener">z-fighting</a>：模型闪烁的问题  </p>
@@ -953,7 +954,8 @@ height:50vh;
 <p>C++的多态是怎么实现的<br>虚函数</p>
 <p>C++对象的内存布局<br>单继承、多继承、菱形继承（分是否虚继承）</p>
 <p>计算机网络<br>tcp为什么要三次握手和四次挥手<br>数据库<br>redis是什么<br>redis是用来做什么用的<br>redis跟mysql有什么不同<br>编程题<br>用Rand6实现Rand10<br>判断链表是否有环，找出环的头部<br>经典赛马问题<br>二面 2020-05-26<br>编程题<br>后序遍历<br><a href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/submissions/" target="_blank" rel="noopener">无递归后序遍历</a><br>C++<br>宏定义结构体<br>memcpy可能会出的锅<br>C++如何实现多态<br>虚表是如何实现的  </p>
-<p><a href="https://blog.csdn.net/qq_40840459/article/details/81268252" target="_blank" rel="noopener">new/malloc</a>的内存分配在哪<br>malloc从堆上分配内存，new从自由存储区（是更高级更抽象的概念，一般由堆组成，程序可以通过重载new指定其他内存实现自由存储区）分配内存？？<br>“堆是操作系统维护的一块内存，而自由存储是C++中通过new与delete动态分配和释放对象的抽象概念。堆与自由存储区并不等价。”</p>
+<p><a href="https://blog.csdn.net/qq_40840459/article/details/81268252" target="_blank" rel="noopener">new/malloc</a>的内存分配在哪<br>malloc从堆上分配内存，new从自由存储区（是更高级更抽象的概念，一般由堆组成，程序可以通过重载new指定其他内存实现自由存储区）分配内存？？<br>“堆是操作系统维护的一块内存，而自由存储是C++中通过new与delete动态分配和释放对象的抽象概念。堆与自由存储区并不等价。”  </p>
+<p>malloc的原理是通过系统调用实现的（在linux下是通过sbrk()系统调用实现）  </p>
 <p>编译原理<br>函数调用的过程<br>数据库<br>mysql索引<br>b+tree<br>计算机网络<br>time_close是什么状态</p>
 <p><a href="https://www.nowcoder.com/discuss/388960" target="_blank" rel="noopener">腾讯测开实习</a><br>字母压缩  </p>
 <p>最小公倍数 = m*n/gcd(m,n)<br>最大公约数（gcd）: gcd(m,n) = gcd(n,m%n)</p>
@@ -1065,7 +1067,7 @@ height:50vh;
 <p>28.法线贴图说一下，切线空间呢？<br>法线纹理和高度纹理都属于bump map</p>
 <p>29.移动设备怎么减少DrawCall Overload?<br>early-z，不透明物体从前往后画</p>
 <p>30.各向异性在光照模型中如何实现？<br>各向异性 (anisotropy ) 与 均向性 相反，是指在不同方向具有不同行为的性质，也就是其行为与方向有关。应用场景例如头发，晶体，这类材质不均匀，原子排列周期疏密不相同的物质<br>Bank BRDF 属于经验模型，由于其计算简单，且效果良好，所以该模型在各向异性光照效果的模拟方面非常有用  </p>
-<p>各向异性滤波？：</p>
+<p>各向异性滤波？：比如一个走廊，视点消失处的像素采样会变模糊，各向异性滤波可以使其便清楚  </p>
 <p>31.opengl中顶点数据被送入顶点缓冲区时api做了什么？<br>32.phong和billn-phong区别是什么？<br>blinn不需要计算反射角度，取而代之的是视角与入射角度的均值  </p>
 <p>33.ray marching 知道吗？<br>34.opengl和dx有什么数学上的差别？<br>坐标系零点</p>
 <p>35.Alpha Blend和Alpha Test在性能上有什么不同？<br>透明度测试没通过的就不渲染了，透明度混合的话需要都渲染然后进行叠加</p>
@@ -1106,7 +1108,7 @@ height:50vh;
 <p>介绍一个光照渲染模型(我介绍的是冯氏光照)<br>介绍一个消除隐藏面的算法(我介绍的是Z缓存)<br>如何解决因为顶点过近和浮点数的精度不足带来的穿模问题  </p>
 <p>手撕代码：快排</p>
 <p>三面<br>开放性问题：<br>在特定场景如何选择stl容器，以什么为标准？你最近一个应用到这个容器的场景是什么？<br>在N*N棋盘地图上放一个圆形技能，检测影响到的玩家对象，用什么数据结构实现？<br>不关心顺序的数组如何实现O(1)的删除操作 </p>
-<p><strong>字节游戏引擎1/2面（2020.7提前批）</strong><br>AssetBundle是怎么在jit（虚拟机？）中加载prefab的：</p>
+<p><strong>字节游戏引擎1/2面（2020.7提前批）</strong><br>AssetBundle是怎么在jit（虚拟机？）中加载prefab的：Unity的跨平台技术是通过一个Mono虚拟机实现的。而这个虚拟机更新太慢，不能很好地适应众多的平台。unity公司就自行研发了IL2cpp，把本来应该再mono的虚拟机上跑的中间代码转换成cpp代码，这样再把生成的cpp代码，利用c++的跨平台特性，在各个平台上通过对各平台都有良好优化的native c++编译器编译，以获得更高的效率和更好的兼容性。</p>
 <p>Unity项目中的<a href="https://blog.csdn.net/u012138730/article/details/81143413#2.Library%E6%96%87%E4%BB%B6%E5%A4%B9" target="_blank" rel="noopener">Library文件夹</a>：此放的是程序集和库的缓存文件。 </p>
 <p>Unity的Inspector面板中查看GO属性是怎么实现的：反射，运行时获取属性并进行修改  </p>
 <p>接着inspector，undo和redo怎么实现：记录一个操作队列，怎么设计这个队列<br>我这边说了unity的scene文件在版本控制工具中看就是文本记录的属性，可以记录下修改的值，比如加或减一个数，撤销就是减或加回来<br>正解应该是<a href="https://www.jianshu.com/p/7747f574d53b" target="_blank" rel="noopener">命令模式</a></p>
@@ -1117,8 +1119,64 @@ height:50vh;
 <p>抗锯齿，四倍或几倍细分的话显卡受得了吗：我说的是延迟渲染不能用aa就是不是因为技术上不行，就是因为显存遭不住  </p>
 <p>体渲染：雾，水体</p>
 <p>对于移动的物体如何计算光照：光照探针？球谐函数模拟全局光照  </p>
-<p><strong>3面负责人面</strong><br>shared_ptr实现：  </p>
-<p>什么情况用vector什么情况用list；使用list的应用场景，怎么找到删除节点的位置（靠遍历吗？需要O(N)时间，），实现erase方法；boost中的signal或者C#中的delegate/event怎么实现的</p>
+<p><strong>3面负责人面</strong><br>shared_ptr实现：<br>引用计数增加的情况:<br>拷贝一个shared_ptr，其所指对象的引用计数会递增，如：</p>
+<ol>
+<li>用一个shared_ptr初始化另一个shared_ptr</li>
+<li>用一个shared_ptr给另一个shared_ptr赋值</li>
+<li>将shared_ptr作为参数传递给一个函数</li>
+<li>shared_ptr作为函数的返回值</li>
+</ol>
+<p>引用计数减少的情况:</p>
+<ol>
+<li>给shared_ptr赋予一个新值</li>
+<li>shared_ptr被销毁（如离开作用域）</li>
+</ol>
+<p>什么情况用vector什么情况用list；使用list的应用场景，怎么找到删除节点的位置（靠遍历吗？需要O(N)时间，），实现erase方法；boost中的signal或者C#中的delegate/event怎么实现的  </p>
+<p><strong>上海无双一面引擎</strong><br><a href="https://www.zhihu.com/question/36296104/answer/1398427077" target="_blank" rel="noopener">为什么图形学中要用4*4的矩阵</a></p>
+<p><strong>字节TA</strong>  </p>
+<ol>
+<li><p>自我介绍</p>
+</li>
+<li><p>渲染管线的流程</p>
+</li>
+<li><p>用glsl语言写过完整的shader吗</p>
+</li>
+<li><p>三维向量位移、旋转、放缩的矩阵、三个的排序<br>缩放，旋转，位移</p>
+</li>
+<li><p><a href="https://baike.baidu.com/item/%E5%BC%82%E9%9D%A2%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB/2074683?fr=aladdin" target="_blank" rel="noopener">异面向量距离计算</a><br>求ab公共法向量，也就是公垂线的方向向量n，ab上任取AB点，求AB线段在向量n上的射影d</p>
+</li>
+<li><p>万向节死锁的解决方式、具体说一下原理<br>用xyz欧拉角表示才会万向节死锁，用四元数就不会了</p>
+</li>
+<li><p>高斯模糊的shader代码</p>
+</li>
+<li><p>卡通效果的shader代码</p>
+</li>
+<li><p>半兰伯特光照、phong高光、blin-phong高光shader代码</p>
+</li>
+<li><p>Alphablend为什么不能depth write、为什么要depth test<br>但对于半透明的 fragment，每一个都会影响最终的结果，需要从远至近地渲染。由于深度缓冲不能用于排序多个 fragment，所以只能用于保存最接近视点的不透明 fragment 深度，远于该深度的透明 fragment 不用渲染，所以仍需要深度测试（depth test）。</p>
+</li>
+<li><p>Renderqueue的作用<br>background 1000，geometry 2000，alphatest 2450，transparent 3000，overlay 4000</p>
+</li>
+<li><p>透明模型前后面冲突的解决方法<br>分两个pass，第一个开启深度写入，不输出颜色；第二个正常的透明度混合</p>
+</li>
+<li><p>模型放大的方法，方法越多越好</p>
+</li>
+<li><p>Z冲突的解决方法，方法越多越好<br>搜索z-fighting<br>第一点：当然，从这里公式里面，我们也能看到，想要让深度值更加精确，那么适当的见效近平面与远平面的绝对距离，也是可以做到的。当然在不影响渲染质量的前提下。</p>
+<p>第二点：根据物体距离视点的距离，在渲染的时候，进行一个计算，避免距离视点比较远的物体相距太近。</p>
+<p>第三点：可以使用OpenGL ES内部提供的API，多边形偏移，但是会造成性能的浪费，可结合CPU空间划分与LOD算法使用。</p>
+<p>第四点：提高深度缓冲区的精度，这样，其在深度缓冲区测试的时候会更加的准确。</p>
+</li>
+<li><p>锯齿的原因 抗锯齿的方法<br>纹理分辨率低于屏幕分辨率，aa的方法4x8x<br>msaa经典，英伟达txaa</p>
+</li>
+<li><p>Pbr材质需要什么要素、有没有做过</p>
+</li>
+<li><p>有没有用lua写过脚本，写过什么脚本</p>
+</li>
+<li><p>抖音视频;如果让用户写的字显示在屏幕上，说几个有意思的创意，越多越好。</p>
+</li>
+<li><p>抖音视频：如果能对用户的图片进行断裂处理，说几个有意思的创意，越多越好</p>
+</li>
+</ol>
 <h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><ol>
 <li><p>游戏研发：本科有Unity课程，对建模（PBR模型制作）到游戏引擎，甚至是剧本策划都有一定的了解。<br>个人之前的实习经历都是偏前端，有尝试mirror（unet），skynet，这些服务器框架，还在逐步学习。<br>对游戏引擎，准确说是渲染引擎比较感兴趣，本科课程中完成了简单的webgl渲染引擎，现在在学DX12 win32API的渲染引擎开发。<br>因为实验室课题缘故，掌握了一些深度学习相关的技能，linux系统用过，conda，pytorch，AI+GAME是很好的方向。</p>
 </li>
@@ -1131,7 +1189,9 @@ height:50vh;
 <h3 id="提问环节"><a href="#提问环节" class="headerlink" title="提问环节"></a>提问环节</h3><p>团队规模？游戏类型？工作内容？主观上全栈好还是图形ta方向好还是客户端+AI还是做好客户端就行了更新速度已经很快了？其他问题有机会跟hr聊<br>测开能转开发吗？测开设计引擎开发的工作吗比如渲染性能、物理性能、画面表现测试，总的来说能学到引擎相关的知识吗？</p>
 <p>部门<br>加班情况<br>是否开展内部技术分享 频率</p>
 <p>ue项目还是unity项目<br>unity目前统治地位，近年开始会往ue倾斜同意吗</p>
-<h1 id="offers"><a href="#offers" class="headerlink" title="offers"></a>offers</h1><p>秋招：</p>
+<h1 id="秋招记录"><a href="#秋招记录" class="headerlink" title="秋招记录"></a>秋招记录</h1><h2 id="提前批"><a href="#提前批" class="headerlink" title="提前批"></a>提前批</h2><p>vivo—软开后端—offer白菜<br>广联达—图形开发—offer九月谈<br>字节绿洲—引擎—三面负责人挂<br>字节飞书—客户端—一面挂<br>字节无双—引擎—一面挂<br>Unity—TA实习—面试挂<br>猿辅导—客户端—笔试挂  8.22还有一次笔试—未投<br>网易雷火—笔试完<br>完美—已投<br>网易有道—笔试<br>快手—已投</p>
+<h2 id="正式批"><a href="#正式批" class="headerlink" title="正式批"></a>正式批</h2><p>农行—总行软开—已投<br>祖龙—等二面 面试官是程序五部 足球类型 万物觉醒 slg 有引擎中台<br>字节—游戏客户端—8.10已投<br>腾讯魔方—游戏客户端—8.10已投</p>
+<h2 id="offers"><a href="#offers" class="headerlink" title="offers"></a>offers</h2><p>秋招：</p>
 <ul>
 <li>vivo软件工程师（后端）-深圳-白菜24-已拒  </li>
 <li>广联达图形开发-北京-往年29-等oc  </li>
@@ -1529,7 +1589,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">July 8th 2020, 4:20:27 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">August 11th 2020, 12:09:47 am</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1682,7 +1742,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.3.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.4.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.5.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.6.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.7.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛客刷题"><span class="toc-number">1.8.</span> <span class="toc-text">牛客刷题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面试问题总结"><span class="toc-number">2.1.</span> <span class="toc-text">面试问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形学"><span class="toc-number">2.1.1.</span> <span class="toc-text">图形学</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">3.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动—游戏研发"><span class="toc-number">3.1.</span> <span class="toc-text">字节跳动—游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易雷火—牛客网"><span class="toc-number">3.2.</span> <span class="toc-text">网易雷火—牛客网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面经——牛客"><span class="toc-number">3.3.</span> <span class="toc-text">面经——牛客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏研发"><span class="toc-number">3.3.1.</span> <span class="toc-text">游戏研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-后端"><span class="toc-number">3.3.2.</span> <span class="toc-text">C++后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#银行面经"><span class="toc-number">3.3.3.</span> <span class="toc-text">银行面经</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他研发"><span class="toc-number">3.3.4.</span> <span class="toc-text">其他研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-number">3.3.5.</span> <span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提问环节"><span class="toc-number">3.3.6.</span> <span class="toc-text">提问环节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#offers"><span class="toc-number">4.</span> <span class="toc-text">offers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todolist"><span class="toc-number">5.</span> <span class="toc-text">todolist</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">6.</span> <span class="toc-text">企业列表</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.3.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.4.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.5.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.6.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.7.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛客刷题"><span class="toc-number">1.8.</span> <span class="toc-text">牛客刷题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#猿辅导真题"><span class="toc-number">1.8.1.</span> <span class="toc-text">猿辅导真题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面试问题总结"><span class="toc-number">2.1.</span> <span class="toc-text">面试问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形学"><span class="toc-number">2.1.1.</span> <span class="toc-text">图形学</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">3.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动—游戏研发"><span class="toc-number">3.1.</span> <span class="toc-text">字节跳动—游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易雷火—牛客网"><span class="toc-number">3.2.</span> <span class="toc-text">网易雷火—牛客网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面经——牛客"><span class="toc-number">3.3.</span> <span class="toc-text">面经——牛客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏研发"><span class="toc-number">3.3.1.</span> <span class="toc-text">游戏研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-后端"><span class="toc-number">3.3.2.</span> <span class="toc-text">C++后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#银行面经"><span class="toc-number">3.3.3.</span> <span class="toc-text">银行面经</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他研发"><span class="toc-number">3.3.4.</span> <span class="toc-text">其他研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-number">3.3.5.</span> <span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提问环节"><span class="toc-number">3.3.6.</span> <span class="toc-text">提问环节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#秋招记录"><span class="toc-number">4.</span> <span class="toc-text">秋招记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提前批"><span class="toc-number">4.1.</span> <span class="toc-text">提前批</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正式批"><span class="toc-number">4.2.</span> <span class="toc-text">正式批</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offers"><span class="toc-number">4.3.</span> <span class="toc-text">offers</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todolist"><span class="toc-number">5.</span> <span class="toc-text">todolist</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">6.</span> <span class="toc-text">企业列表</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -2045,9 +2105,20 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 28
+        Total : 29
         </div>
         <!-- search  -->
         
@@ -2060,6 +2131,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2020/07/29/C-boost-library/" >C++_boost_library</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -2241,15 +2317,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
-    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
+        <span class="sidebar-tag-name" data-tags="boost"><span class="iconfont-archer">&#xe606;</span>boost</span>
     
         <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
         <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
     
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
@@ -2285,11 +2363,27 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
+    
+        <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
+    
+        <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
+    
+        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
+    
+        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
         <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
     
         <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
-    
-        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
     
         <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
     
@@ -2303,25 +2397,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
-    
-        <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
-    
-        <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
-    
-        <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
-    
         <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
         <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
-    
-        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
-    
-        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
-    
-        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
@@ -2339,21 +2417,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
+    
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
         <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
         <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
-    
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
