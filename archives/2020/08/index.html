@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Providence&#39;s blog">
-<meta property="og:url" content="/tags/Unity/index.html">
+<meta property="og:url" content="/archives/2020/08/index.html">
 <meta property="og:site_name" content="Providence&#39;s blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -365,166 +365,25 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/06/05/UnityMultiThreading/" >
+        <a class="abstract-title" href = "/2020/08/11/Cpp/" >
             
-                <span>Unity中的多线程与线程池应用</span>
+                <span>[Untitled Post]</span>
         </a>
         <div class="abstract-content">
-            Part 1 Unity中的多线程
-FileStream读取本地文件
-1234567891011byte[] buffer;void LoadFiletoBuffer()&#123;    // 假如很卡    Thread.Sleep(3000);    // 通过路径加载本地图片    FileStream fs = new FileStream(&quot;C:\\Users\\Administrator\\Downloads\\pic.jpg&quot;, FileMode.Open);    buffer = new byte[fs.Length];    fs.Read(bu...
+            基础知识RAII全称是 Resource Acquisition Is Initialization ， 即“资源获取即初始化”，其核心是把资源和对象的生命周期绑定：对象创建获取资源，对象销毁释放资源。这就是的资源也有了生命周期，有了自动回收的功能。lock_guard 都利用了 RAII机制来实现。
+防止内存泄露的方式有 RAII、智能指针。
+大端和小端
+大端就是高字节在高地址，低字节在低地址。 
+
+小端就是低字节在高地址，高字节在低地址。
+ 123456789101112131415// 大端小端区分  bool isBigEndian() &#123;       union NU...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/05</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/11</span>
             </div>
             <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Unity">Unity</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "多线程">多线程</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "线程池">线程池</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/03/04/DOTSandECS/" >
-            
-                <span>DOTS &amp; ECS &amp; RP</span>
-        </a>
-        <div class="abstract-content">
-            About ECSOLD:    GameObjects &amp; MonoBehaviours    Object-oriented    create一个叫Player的GameObject，用若干MonoBehaviour作为Player的组件，实现功能（例如renderer,physics,movement）。
-NEW:    Entities &amp; Components &amp; Systems    data-oriented  
-
-group together components
-contain data (只是数据结构，不包含逻辑)
-contain behav...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Unity">Unity</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ECS">ECS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DOTS">DOTS</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/02/18/lang-notebook/" >
-            
-                <span>C++ &amp; C#/Unity notebook</span>
-        </a>
-        <div class="abstract-content">
-            C/C++Why can’t I separate the definition of my templates class from its declaration and put it inside a .cpp file?
-右值引用与move()\forward()函数：std::move执行一个无条件的转化到右值，更像是”rvalue_cast“；std::forward把其参数转换为右值，仅仅在那个参数被绑定到一个右值时；右值引用的目的是减少数据拷贝，提升性能  
-虚继承：解决菱形继承问题  
-在C++中，内存分成5个区，他们分别是堆、栈、自由存储区、全局/静态存储区和常量存储...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C++">C++</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Unity">Unity</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C#">C#</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "notebook">notebook</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/04/11/PUBG-Unity/" >
-            
-                <span>PUBG-Unity</span>
-        </a>
-        <div class="abstract-content">
-            游戏功能（技术实现）
-安全区系统(Electric Field)
- 游戏计时器 根据预设点位(Pos)和尺寸(Scale)按时间触发缩圈 伤害判定
-
-Player
- FP Controller Player物品栏 Player生命状态  
-
-AI
- 巡逻系统 攻击系统 AI生命状态  
-
-武器系统
- 物理子弹/射线子弹 子弹扩散  
-
-UI
- 开始菜单 主游戏界面—小地图 主游戏界面—player信息 主游戏界面—弹出类消息 背包界面 地图 方向指示
-
-
-外部资源Next-Gen FPStodo 结构分析 功能改进
-MapMagictodo emmm
-截图
-
-
-
-
-
-先写论文 写完在更
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Unity">Unity</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "FPS">FPS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Sandbox">Sandbox</a>
-    
-</div>
             
         </div>
     </article>
