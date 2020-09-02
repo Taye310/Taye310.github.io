@@ -33,7 +33,7 @@
 <meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt3.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt2.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/valueandref.png">
-<meta property="og:updated_time" content="2020-08-28T15:12:44.115Z">
+<meta property="og:updated_time" content="2020-09-02T10:06:23.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招学习笔记">
 <meta name="twitter:description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
@@ -302,7 +302,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">3.7k</span>阅读时长: <span class="post-count reading-time">15 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">3.9k</span>阅读时长: <span class="post-count reading-time">16 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -462,7 +462,8 @@ height:50vh;
         <h1 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h1><h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p><a href="https://github.com/huihut/interview#%EF%B8%8F-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener">资料</a><br>TCP创建连接：三次握手<br>释放连接：四次挥手  </p>
 <p>SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。  </p>
 <p>TLS：（Transport Layer Security，传输层安全协议），用于两个应用程序之间提供保密性和数据完整性。该协议由两层组成：TLS记录协议和TLS握手协议。  </p>
-<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p><a href="https://blog.csdn.net/qq_43079376/article/details/93647335" target="_blank" rel="noopener">BCNF（修正的第三范式3NF）</a>  </p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p><a href="https://blog.csdn.net/qq_36982160/article/details/89258056" target="_blank" rel="noopener">笔记</a>  </p>
+<p><a href="https://blog.csdn.net/qq_43079376/article/details/93647335" target="_blank" rel="noopener">BCNF（修正的第三范式3NF）</a>  </p>
 <p><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="noopener">数据库索引</a>：索引是对数据库表中一个或多个列（例如，employee   表的姓氏   (lname)   列）的值进行排序的结构  </p>
 <p>DML操作：是指数据操作语言，英文全称是Data Manipulation Language，用来对数据库中表的记录进行更新。关键字：插入insert，删除delete，更新update等，是对数据进行操作。<br>可以把 <a href="https://www.w3school.com.cn/sql/sql_syntax.asp" target="_blank" rel="noopener">SQL</a> 分为两个部分：数据操作语言 (DML) 和 数据定义语言 (DDL)。  </p>
 <p>视图：是从一个或几个基本表（或视图）中导出的虚拟的表。在系统的数据字典中仅存放了视图的定义，不存放视图对应的数据。  </p>
@@ -470,6 +471,20 @@ height:50vh;
 <p>for update关键字：是一种行级锁，又叫排它锁，一旦用户对某个行施加了行级加锁，则该用户可以查询也可以更新被加锁的数据行，其它用户只能查询但不能更新被加锁的数据行  </p>
 <p>create procedure（存储过程）：有关键字in、out、inout  </p>
 <p>GRANT命令：GRAND privileges ON databasename.tablename TO ‘username’@’host’;  </p>
+<ul>
+<li>DDL（Data Definition Language）数据库定义语言<br>  DDL不需要commit. eg. CREATE ALTER DROP TRUNCATE COMMENT RENAME</li>
+<li>DML（Data Manipulation Language）数据操纵语言<br>  DML需要commit. eg. SELECT INSERT UPDATE DELETE MERGE CALL EXPLAIN PLAN LOCK TABLE</li>
+<li>DCL（Data Control Language）数据库控制语言  授权，角色控制等<br>  GRANT 授权, REVOKE 取消授权</li>
+<li>TCL（Transaction Control Language）事务控制语言<br>  SAVEPOINT 设置保存点, ROLLBACK  回滚, SET TRANSACTION</li>
+</ul>
+<p>通过CHARINDEX如果能够找到对应的字符串，则返回该字符串位置，否则返回0。  </p>
+<h3 id="数据库题目"><a href="#数据库题目" class="headerlink" title="数据库题目"></a>数据库题目</h3><p>表头：姓名 科目 成绩</p>
+<ul>
+<li>统计所有科目平均分</li>
+<li>请查出每个科目超出平均分的学生的信息</li>
+<li>请查出语文成绩超出语文平均分的学生的信息</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Students</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">Name</span> <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="keyword">Class</span> <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    Score <span class="built_in">int</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Students (<span class="keyword">Name</span>, <span class="keyword">Class</span>, Score) <span class="keyword">values</span> (<span class="string">"AAA"</span>, <span class="string">"Math"</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">Class</span>,<span class="keyword">avg</span>(Score) <span class="keyword">from</span> Students <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">Class</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><p><a href="https://taye310.github.io/2019/02/18/lang-notebook/" target="_blank" rel="noopener">C++ &amp; C#/Unity notebook</a></p>
 <h2 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h2><p><a href="https://github.com/huihut/interview" target="_blank" rel="noopener">github</a>  </p>
 <p><a href="https://leetcode-cn.com/problems/jump-game-ii/" target="_blank" rel="noopener">贪心算法实例</a></p>
@@ -520,7 +535,7 @@ height:50vh;
 <p><strong>无向图：</strong><br>遍历：DFS用栈 / BFS用队列<br>邻接矩阵法存图 占用空间与什么有关<br>在无向图中，如果从顶点vi到顶点vj有路径，则称vi和vj连通。如果图中任意两个顶点之间都连通，则称该图为连通图，否则，称该图为非连通图，则其中的极大连通子图称为连通分量，这里所谓的极大是指子图中包含的顶点个数极大。<br>A,边的条数为C（n,2）=n(n-1)/2<br>B,G是完全图，必定是连通图。所以连通分量只有其自身<br>C，G是完全图，必定是连通图<br>D，每个顶点都与其余n-1个顶点相连，则n个顶点度的和为n(n-1)  </p>
 <p><strong>无向带权图的最小生成树算法——Prim及Kruskal算法思路</strong><br> 带权图分为有向和无向，无向图的最短路径又叫做最小生成树，有prime算法和kruskal算法；有向图的最短路径算法有dijkstra算法和floyd算法。<br> <a href="https://www.cnblogs.com/aiyelinglong/archive/2012/03/26/2418707.html" target="_blank" rel="noopener">最小生成树（prime算法、kruskal算法） 和 最短路径算法（floyd、dijkstra）</a>  </p>
 <p><strong>广义表：</strong><br>head() 返回列表的第一个元素；<br>tail() 返回列表的删去第一个元素之后的剩余列表；  </p>
-<p><strong>hash：</strong><br>装填因子：对5个对象进行hash,而内存中，准备了20个位置，那么还有15个空位，最后装填因子就是5/20 = 0.25，所以装填因子越小，产生冲突的可能越小。<br>1、hash索引仅满足“=”、“IN”和“&lt;=&gt;”查询，不能使用范围查询<br>因为hash索引比较的是经常hash运算之后的hash值，因此只能进行等值的过滤，不能基于范围的查找，因为经过hash算法处理后的hash值的大小关系，并不能保证与处理前的hash大小关系对应。<br>2、hash索引无法被用来进行数据的排序操作<br>由于hash索引中存放的都是经过hash计算之后的值，而hash值的大小关系不一定与hash计算之前的值一样，所以数据库无法利用hash索引中的值进行排序操作。<br>3、对于组合索引，Hash 索引在计算 Hash 值的时候是组合索引键合并后再一起计算 Hash 值，而不是单独计算 Hash 值，所以通过组合索引的前面一个或几个索引键进行查询的时候，Hash 索引也无法被利用。<br>4、Hash 索引遇到大量Hash值相等的情况后性能并不一定就会比B-Tree索引高。<br>对于选择性比较低的索引键，如果创建 Hash 索引，那么将会存在大量记录指针信息存于同一个 Hash 值相关联。这样要定位某一条记录时就会非常麻烦，会浪费多次表数据的访问，而造成整体性能低下。  </p>
+<p><strong>哈希：</strong><br>装填因子：对5个对象进行hash,而内存中，准备了20个位置，那么还有15个空位，最后装填因子就是5/20 = 0.25，所以装填因子越小，产生冲突的可能越小。<br>1、hash索引仅满足“=”、“IN”和“&lt;=&gt;”查询，不能使用范围查询<br>因为hash索引比较的是经常hash运算之后的hash值，因此只能进行等值的过滤，不能基于范围的查找，因为经过hash算法处理后的hash值的大小关系，并不能保证与处理前的hash大小关系对应。<br>2、hash索引无法被用来进行数据的排序操作<br>由于hash索引中存放的都是经过hash计算之后的值，而hash值的大小关系不一定与hash计算之前的值一样，所以数据库无法利用hash索引中的值进行排序操作。<br>3、对于组合索引，Hash 索引在计算 Hash 值的时候是组合索引键合并后再一起计算 Hash 值，而不是单独计算 Hash 值，所以通过组合索引的前面一个或几个索引键进行查询的时候，Hash 索引也无法被利用。<br>4、Hash 索引遇到大量Hash值相等的情况后性能并不一定就会比B-Tree索引高。<br>对于选择性比较低的索引键，如果创建 Hash 索引，那么将会存在大量记录指针信息存于同一个 Hash 值相关联。这样要定位某一条记录时就会非常麻烦，会浪费多次表数据的访问，而造成整体性能低下。  </p>
 <p><strong>循环队列：</strong><br>front=rear意味着队空或者队满，再入队或者出队就要上溢或者下溢了  </p>
 <p><strong>杂项：</strong><br>KMP算法：一种不舍弃之前匹配信息的字符串匹配算法，时间复杂度O(m+n) 其中<em>next[j]就是第j个元素前j-1个元素首尾重合部分个数加一</em><br>输出受限的双端队列,即删除限制在一端进行,而插入仍允许在两端进行.  </p>
 </blockquote>
@@ -860,8 +875,21 @@ height:50vh;
 <li><p>抖音视频：如果能对用户的图片进行断裂处理，说几个有意思的创意，越多越好</p>
 </li>
 </ol>
+<p><strong>美团测开</strong></p>
+<p>测试用例设计：  </p>
+<p>如何完备测试用例覆盖：</p>
+<ul>
+<li>所有需求都已设计用例</li>
+<li>所有类型已覆盖，如功能测试，性能测试</li>
+<li>所有平台、不同层次都有设计用例，如业务层、接口层</li>
+</ul>
+<p>postman接口测试工具：  </p>
+<p>http指令<a href="https://www.w3school.com.cn/tags/html_ref_httpmethods.asp" target="_blank" rel="noopener">get和post的区别</a><br>PUT请求：如果两个请求相同，后一个请求会把第一个请求覆盖掉。（所以PUT用来改资源）<br>Post请求：后一个请求不会把第一个请求覆盖掉。（所以Post用来增资源）</p>
 <h3 id="游戏客户端8-16开始"><a href="#游戏客户端8-16开始" class="headerlink" title="游戏客户端8.16开始"></a>游戏客户端8.16开始</h3><p><a href="https://www.nowcoder.com/discuss/476842" target="_blank" rel="noopener">网易雷火</a>：<br>大小端首字节</p>
 <p><a href="https://jingyan.baidu.com/article/1709ad8095e1924634c4f03a.html" target="_blank" rel="noopener">矩阵求逆的方法</a>：待定系数法解方程组；矩阵和单位阵合并初等变换；代数余子式  </p>
+<p>memcmp比较结构体：由于memset可能取消字节对齐，memcmp是逐字节的比较的，所以比较结构体结果可能出错，建议重写结构体或者类的operator=  </p>
+<p><strong><a href="https://www.nowcoder.com/discuss/477076" target="_blank" rel="noopener">完美世界引擎</a></strong></p>
+<p>多继承的实现，</p>
 <h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><ol>
 <li><p>游戏研发：本科有Unity课程，对建模（PBR模型制作）到游戏引擎，甚至是剧本策划都有一定的了解。<br>个人之前的实习经历都是偏前端，有尝试mirror（unet），skynet，这些服务器框架，还在逐步学习。<br>对游戏引擎，准确说是渲染引擎比较感兴趣，本科课程中完成了简单的webgl渲染引擎，现在在学DX12 win32API的渲染引擎开发。<br>因为实验室课题缘故，掌握了一些深度学习相关的技能，linux系统用过，conda，pytorch，AI+GAME是很好的方向。</p>
 </li>
@@ -875,8 +903,8 @@ height:50vh;
 <p>部门<br>加班情况<br>是否开展内部技术分享 频率</p>
 <p>ue项目还是unity项目<br>unity目前统治地位，近年开始会往ue倾斜同意吗</p>
 <h1 id="秋招记录"><a href="#秋招记录" class="headerlink" title="秋招记录"></a>秋招记录</h1><h2 id="提前批"><a href="#提前批" class="headerlink" title="提前批"></a>提前批</h2><p>vivo—软开后端—offer白菜<br>广联达—图形开发—offer九月谈<br>字节绿洲—引擎—三面负责人挂<br>字节飞书—客户端—一面挂<br>字节无双—引擎—一面挂<br>Unity—TA实习—面试挂<br>猿辅导—客户端—笔试挂  8.22还有一次笔试—未投<br>网易雷火—笔试完<br>完美—已投<br>网易有道—二面8.24—k12教育部门差不考虑<br>快手—已投</p>
-<h2 id="正式批"><a href="#正式批" class="headerlink" title="正式批"></a>正式批</h2><p>祖龙—等二面 面试官是程序五部 足球类型 万物觉醒 slg 有引擎中台<br>字节—游戏客户端—8.10已投—笔试挂<br>腾讯魔方—游戏客户端—8.10已投8.23笔试8.24光子一面挂<br>    反馈意见：对开发方面的兴趣浓厚，有一定的动手实践经验，并且具备一定的图形渲染方面的知识，沟通能力很好。不足之处在操作系统计算机网络等底层知识上，实践的项目功能还比较简单，不能展现代码设计能力。推荐加上的方向是，补充计算机专业课程的积累，开发功能很复杂的项目，展现出更优秀的代码设计能力，或者再图形渲染等领域有更深的研究展现出更大的亮点，不只是掌握基础的内容。<br>中国银行—五个志愿—已投<br>快手—游戏客户端—8.5已投<br>爱奇艺—游戏客户端—8.16已投8.22笔试<br>百度—c++—8.16已投<br>贝壳—ue4引擎开发—8.16已投要求dx11api<br>网易互娱—游戏引擎游戏研发—8.17已投<br>美团—测开—8.22笔试—8.31一面<br>小米—Unity—8.20已投<br>完美世界—8.25笔试</p>
-<p>中国电信—未投<br>农业银行—总行软开—已投—8.29笔试<br>建设银行—已投 建行大学&amp;&amp;网络金融部</p>
+<h2 id="正式批"><a href="#正式批" class="headerlink" title="正式批"></a>正式批</h2><p>祖龙—等二面 面试官是程序五部 足球类型 万物觉醒 slg 有引擎中台<br>字节—游戏客户端—8.10已投—笔试挂<br>    —游戏引擎—9.2已投<br>腾讯魔方—游戏客户端—8.10已投8.23笔试8.24光子一面挂<br>    反馈意见：对开发方面的兴趣浓厚，有一定的动手实践经验，并且具备一定的图形渲染方面的知识，沟通能力很好。不足之处在操作系统计算机网络等底层知识上，实践的项目功能还比较简单，不能展现代码设计能力。推荐加上的方向是，补充计算机专业课程的积累，开发功能很复杂的项目，展现出更优秀的代码设计能力，或者再图形渲染等领域有更深的研究展现出更大的亮点，不只是掌握基础的内容。<br>快手—游戏客户端—8.5已投<br>爱奇艺—游戏客户端—8.16已投8.22笔试<br>百度—c++—8.16已投<br>贝壳—ue4引擎开发—8.16已投要求dx11api<br>网易互娱—游戏引擎游戏研发—8.17已投<br>美团—测开—8.22笔试—8.31一面<br>小米—Unity—8.20已投<br>完美世界—8.25笔试</p>
+<p>中国电信—未投<br>中国银行—五个志愿—已投<br>农业银行—总行软开—已投—8.29笔试<br>建设银行—已投 建行大学&amp;&amp;网络金融部</p>
 <ul>
 <li>机构业务部</li>
 <li>同业业务中心</li>
@@ -887,7 +915,9 @@ height:50vh;
 <h2 id="offers"><a href="#offers" class="headerlink" title="offers"></a>offers</h2><p>秋招：</p>
 <ul>
 <li>vivo软件工程师（后端）-深圳-白菜24-已拒  </li>
-<li>广联达图形开发-北京-往年29-等oc  </li>
+<li>广联达图形开发-北京-往年29-等oc</li>
+<li>核钛-四惠-项目好做完就走</li>
+<li></li>
 </ul>
 <h1 id="todolist"><a href="#todolist" class="headerlink" title="todolist"></a>todolist</h1><p>profiler使用<br>unity渲染线程 主线程 用户层面多线程以提升效率<br>编译优化<br>linux C++开发<br>哪些是在构造函数里初始化的<br>rmsl<br>渲染管线，矩阵运算的源码</p>
 <h1 id="企业列表"><a href="#企业列表" class="headerlink" title="企业列表"></a>企业列表</h1><p><a href="https://www.nowcoder.com/discuss/364482" target="_blank" rel="noopener">资源链接</a></p>
@@ -1282,7 +1312,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">August 28th 2020, 11:12:44 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">September 2nd 2020, 6:06:23 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1435,7 +1465,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.3.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.4.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.5.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.6.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.7.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛客刷题"><span class="toc-number">1.8.</span> <span class="toc-text">牛客刷题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#猿辅导真题"><span class="toc-number">1.8.1.</span> <span class="toc-text">猿辅导真题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面试问题总结"><span class="toc-number">2.1.</span> <span class="toc-text">面试问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形学"><span class="toc-number">2.1.1.</span> <span class="toc-text">图形学</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">3.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动—游戏研发"><span class="toc-number">3.1.</span> <span class="toc-text">字节跳动—游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易雷火—牛客网"><span class="toc-number">3.2.</span> <span class="toc-text">网易雷火—牛客网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面经——牛客"><span class="toc-number">3.3.</span> <span class="toc-text">面经——牛客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏研发"><span class="toc-number">3.3.1.</span> <span class="toc-text">游戏研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏客户端8-16开始"><span class="toc-number">3.3.2.</span> <span class="toc-text">游戏客户端8.16开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-number">3.3.3.</span> <span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提问环节"><span class="toc-number">3.3.4.</span> <span class="toc-text">提问环节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#秋招记录"><span class="toc-number">4.</span> <span class="toc-text">秋招记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提前批"><span class="toc-number">4.1.</span> <span class="toc-text">提前批</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正式批"><span class="toc-number">4.2.</span> <span class="toc-text">正式批</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offers"><span class="toc-number">4.3.</span> <span class="toc-text">offers</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todolist"><span class="toc-number">5.</span> <span class="toc-text">todolist</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">6.</span> <span class="toc-text">企业列表</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#笔试"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.3.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库题目"><span class="toc-number">1.3.1.</span> <span class="toc-text">数据库题目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.4.</span> <span class="toc-text">C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">1.5.</span> <span class="toc-text">数据结构与算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他知识点"><span class="toc-number">1.6.</span> <span class="toc-text">其他知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode刷题"><span class="toc-number">1.7.</span> <span class="toc-text">leetcode刷题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛客刷题"><span class="toc-number">1.8.</span> <span class="toc-text">牛客刷题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#猿辅导真题"><span class="toc-number">1.8.1.</span> <span class="toc-text">猿辅导真题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面试问题总结"><span class="toc-number">2.1.</span> <span class="toc-text">面试问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形学"><span class="toc-number">2.1.1.</span> <span class="toc-text">图形学</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面经复盘"><span class="toc-number">3.</span> <span class="toc-text">面经复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节跳动—游戏研发"><span class="toc-number">3.1.</span> <span class="toc-text">字节跳动—游戏研发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易雷火—牛客网"><span class="toc-number">3.2.</span> <span class="toc-text">网易雷火—牛客网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面经——牛客"><span class="toc-number">3.3.</span> <span class="toc-text">面经——牛客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏研发"><span class="toc-number">3.3.1.</span> <span class="toc-text">游戏研发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏客户端8-16开始"><span class="toc-number">3.3.2.</span> <span class="toc-text">游戏客户端8.16开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-number">3.3.3.</span> <span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提问环节"><span class="toc-number">3.3.4.</span> <span class="toc-text">提问环节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#秋招记录"><span class="toc-number">4.</span> <span class="toc-text">秋招记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提前批"><span class="toc-number">4.1.</span> <span class="toc-text">提前批</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正式批"><span class="toc-number">4.2.</span> <span class="toc-text">正式批</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offers"><span class="toc-number">4.3.</span> <span class="toc-text">offers</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todolist"><span class="toc-number">5.</span> <span class="toc-text">todolist</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#企业列表"><span class="toc-number">6.</span> <span class="toc-text">企业列表</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1448,6 +1478,10 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
@@ -2020,23 +2054,23 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
-    
-        <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
-    
         <span class="sidebar-tag-name" data-tags="boost"><span class="iconfont-archer">&#xe606;</span>boost</span>
-    
-        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
     
         <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
     
@@ -2046,17 +2080,57 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
-        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
-    
-        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
-    
-        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
         <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
     
         <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
+    
+        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
+    
+        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
+    
+        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
+    
+        <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
+    
+        <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
+    
+        <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
+    
+        <span class="sidebar-tag-name" data-tags="COM"><span class="iconfont-archer">&#xe606;</span>COM</span>
+    
+        <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
         <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
     
@@ -2068,67 +2142,31 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
-        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
-    
-        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
-    
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
-    
-        <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
-    
-        <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
-    
-        <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
-    
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
-    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
-        <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
     
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
         <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
         <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
-        <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
+        <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
-        <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
-    
-        <span class="sidebar-tag-name" data-tags="COM"><span class="iconfont-archer">&#xe606;</span>COM</span>
-    
-        <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
-    
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
-    
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
     
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
@@ -2141,10 +2179,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
         <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
@@ -2187,9 +2221,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
-        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
-    
         <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
