@@ -20,18 +20,18 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="Games-cn 101图形学课程视频链接官网链接 P4 Transformation旋转矩阵是正交矩阵，正交矩阵的逆=正交矩阵的转置">
+    <meta name="description" content="Games-cn 101图形学课程视频链接官网链接 P4 Transformation旋转矩阵是正交矩阵，正交矩阵的逆=正交矩阵的转置   p6 Rasterization 2走样的本质：Sample（采样）的本质是离散化表示一个时域图像，离散化表示时域图像在频域上看是对频域图像的不断复制。当分辨率低，采样间隔大时，频域空间的间隔反而小，这会导致重复的频域图像间有重叠，结果就是导致走样。 p7 S">
 <meta name="keywords" content="图形学,线上课程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101图形学入门课程">
 <meta property="og:url" content="/2020/09/03/Games101/index.html">
 <meta property="og:site_name" content="Providence&#39;s blog">
-<meta property="og:description" content="Games-cn 101图形学课程视频链接官网链接 P4 Transformation旋转矩阵是正交矩阵，正交矩阵的逆=正交矩阵的转置">
+<meta property="og:description" content="Games-cn 101图形学课程视频链接官网链接 P4 Transformation旋转矩阵是正交矩阵，正交矩阵的逆=正交矩阵的转置   p6 Rasterization 2走样的本质：Sample（采样）的本质是离散化表示一个时域图像，离散化表示时域图像在频域上看是对频域图像的不断复制。当分辨率低，采样间隔大时，频域空间的间隔反而小，这会导致重复的频域图像间有重叠，结果就是导致走样。 p7 S">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-03T09:16:36.285Z">
+<meta property="og:updated_time" content="2020-09-21T14:46:33.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Games101图形学入门课程">
-<meta name="twitter:description" content="Games-cn 101图形学课程视频链接官网链接 P4 Transformation旋转矩阵是正交矩阵，正交矩阵的逆=正交矩阵的转置">
+<meta name="twitter:description" content="Games-cn 101图形学课程视频链接官网链接 P4 Transformation旋转矩阵是正交矩阵，正交矩阵的逆=正交矩阵的转置   p6 Rasterization 2走样的本质：Sample（采样）的本质是离散化表示一个时域图像，离散化表示时域图像在频域上看是对频域图像的不断复制。当分辨率低，采样间隔大时，频域空间的间隔反而小，这会导致重复的频域图像间有重叠，结果就是导致走样。 p7 S">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -298,7 +298,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">40</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">436</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -430,6 +430,20 @@ height:50vh;
     <article class="article-entry">
         <h1 id="Games-cn-101图形学课程"><a href="#Games-cn-101图形学课程" class="headerlink" title="Games-cn 101图形学课程"></a>Games-cn 101图形学课程</h1><p><a href="https://www.bilibili.com/video/BV1X7411F744" target="_blank" rel="noopener">视频链接</a><br><a href="http://games-cn.org/intro-graphics/" target="_blank" rel="noopener">官网链接</a></p>
 <h2 id="P4-Transformation"><a href="#P4-Transformation" class="headerlink" title="P4 Transformation"></a>P4 Transformation</h2><p>旋转矩阵是正交矩阵，正交矩阵的逆=正交矩阵的转置  </p>
+<h2 id="p6-Rasterization-2"><a href="#p6-Rasterization-2" class="headerlink" title="p6 Rasterization 2"></a>p6 Rasterization 2</h2><p>走样的本质：Sample（采样）的本质是离散化表示一个时域图像，离散化表示时域图像在频域上看是对频域图像的不断复制。当分辨率低，采样间隔大时，频域空间的间隔反而小，这会导致重复的频域图像间有重叠，结果就是导致走样。</p>
+<h2 id="p7-Shading-1"><a href="#p7-Shading-1" class="headerlink" title="p7 Shading 1"></a>p7 Shading 1</h2><p>Lambertian(Diffuse) Shading independent of view direction</p>
+<script type="math/tex; mode=display">L_{d} = k_{d}(I/r^{2})max(0,n·l)</script><p><a href="https://www.bilibili.com/video/BV1X7411F744?p=7" target="_blank" rel="noopener">视频连接59:00</a></p>
+<h2 id="p8-Shading-2"><a href="#p8-Shading-2" class="headerlink" title="p8 Shading 2"></a>p8 Shading 2</h2><p>Specular Term(Blinn-Phong)</p>
+<script type="math/tex; mode=display">h = bisector(v,I) \\
+     = {v+l\over \parallel v+l \parallel}</script><script type="math/tex; mode=display">L_{s} = k_{s}(I/r^{2})max(0,cos\alpha) \\
+         = k_{s}(I/r^{2})max(0,n·h)</script><blockquote>
+<p>高光和观察点（相机）位置有关系，越光滑的平面越接近镜面反射，反之会形成围绕反射方向的一个反射区间，Blinn-Phong通过引入半程向量，比较半程向量和法线是否接近（blinn-phong）来代替出射方向和视角方向是否接近（phong），因为出射方向不好算  </p>
+</blockquote>
+<p>高光项会加个指数p，来控制高光区域的大小</p>
+<script type="math/tex; mode=display">L_{s} = k_{s}(I/r^{2})max(0,n·h)^{p}</script><p>Ambient Term在blinn-phong中就是个常数项，以后会接触GI，比较复杂  </p>
+<p>shading频率：Flat、Gouraud、Phong分别对应逐面、逐顶点、逐像素  </p>
+<h2 id="p9-Shading-3"><a href="#p9-Shading-3" class="headerlink" title="p9 Shading 3"></a>p9 Shading 3</h2><p>Barycentric Coordinates（重心坐标）：</p>
+<script type="math/tex; mode=display">\alpha + \beta + \gamma = 1</script><script type="math/tex; mode=display">\alpha A + \beta B + \gamma C = (x,y)</script><p>ABC三点平面内的任意点P(x,y)可以用上式表达，当$\alpha \beta \gamma$ 均 &gt;0 时，点P在三角形内部<br>$\alpha \beta \gamma$ 的值可以<a href="https://www.bilibili.com/video/BV1X7411F744?p=9" target="_blank" rel="noopener">通过三角想面积求得15:00</a>  </p>
 
     </article>
     <!-- license  -->
@@ -438,7 +452,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2020/09/03/Games101/">/2020/09/03/Games101/</a>
             <p>发表日期：<a href="/2020/09/03/Games101/">September 3rd 2020, 2:42:22 pm</a>
-            <p>更新日期：<a href="/2020/09/03/Games101/">September 3rd 2020, 5:16:36 pm</a>
+            <p>更新日期：<a href="/2020/09/03/Games101/">September 21st 2020, 10:46:33 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -586,7 +600,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Games-cn-101图形学课程"><span class="toc-number">1.</span> <span class="toc-text">Games-cn 101图形学课程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#P4-Transformation"><span class="toc-number">1.1.</span> <span class="toc-text">P4 Transformation</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Games-cn-101图形学课程"><span class="toc-number">1.</span> <span class="toc-text">Games-cn 101图形学课程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#P4-Transformation"><span class="toc-number">1.1.</span> <span class="toc-text">P4 Transformation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#p6-Rasterization-2"><span class="toc-number">1.2.</span> <span class="toc-text">p6 Rasterization 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#p7-Shading-1"><span class="toc-number">1.3.</span> <span class="toc-text">p7 Shading 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#p8-Shading-2"><span class="toc-number">1.4.</span> <span class="toc-text">p8 Shading 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#p9-Shading-3"><span class="toc-number">1.5.</span> <span class="toc-text">p9 Shading 3</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -599,6 +613,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -1189,13 +1205,7 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
-    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
-    
-        <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
     
         <span class="sidebar-tag-name" data-tags="boost"><span class="iconfont-archer">&#xe606;</span>boost</span>
     
@@ -1205,15 +1215,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
     
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
     
         <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
         <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
         <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
     
@@ -1225,6 +1239,12 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
     
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
@@ -1233,11 +1253,7 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
     
-        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
-    
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
     
         <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
     
@@ -1253,12 +1269,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
-    
         <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
@@ -1271,6 +1281,16 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -1279,43 +1299,39 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
-        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
-    
-        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
         <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
         <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
     
         <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
         <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
-    
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
-    
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
         <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
-    
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
         <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
+    
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
@@ -1356,11 +1372,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="项目"><span class="iconfont-archer">&#xe60a;</span>项目</span>
     
-        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
-    
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
         <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -1395,7 +1411,24 @@ jsonContent:
     </div>
     <!-- async load share.js -->
     
-        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->    
+        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->    
      
     </body>
 </html>
