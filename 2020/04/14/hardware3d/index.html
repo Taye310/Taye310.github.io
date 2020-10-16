@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Ty">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Ty">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="Hardware 3DCOM：   framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。vsync：防tearing，就是等显示器一">
+<meta name="keywords" content="Dx12,WindowsApp,COM,Shader">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可编程渲染管线">
+<meta property="og:url" content="/2020/04/14/hardware3d/index.html">
+<meta property="og:site_name" content="Providence&#39;s blog">
+<meta property="og:description" content="Hardware 3DCOM：   framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。vsync：防tearing，就是等显示器一">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-07-08T13:51:39.323Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="可编程渲染管线">
+<meta name="twitter:description" content="Hardware 3DCOM：   framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。vsync：防tearing，就是等显示器一">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>可编程渲染管线 · Providence&#39;s blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin="">
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin="">
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA1313915351', 'auto');
+        ga('send', 'pageview');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Providence&#39;s blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">可编程渲染管线</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Providence's blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            可编程渲染管线
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Dx12">Dx12</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "WindowsApp">WindowsApp</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "COM">COM</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Shader">Shader</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.9k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/04/14</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    
+        
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+            tex2jax: {
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+          });
+      </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+              var all = MathJax.Hub.getAllJax(), i;
+              for(i=0; i < all.length; i += 1) {
+                  all[i].SourceElement().parentNode.className += ' has-jax';
+              }
+          });
+      </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    
+    <article class="article-entry">
+        <h1 id="Hardware-3D"><a href="#Hardware-3D" class="headerlink" title="Hardware 3D"></a>Hardware 3D</h1><p>COM：</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ut5zYcDKGwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>framebuffer: 双重缓冲是一个画（用户操作），一个已经画好的传输给显示器做显示，一个称为front，另一个称为back buffer。<br>还可以有多重缓冲，缓冲层数越多，会导致画面延迟加重，但是更加连贯顺滑。原因是有时候front没花完，显示器已经逐像素扫描完一个frame，显示器就得等front buffer。<br>vsync：防tearing，就是等显示器一个frame完成再载入下一个buffer  </p>
+<p>constant buffer: 用来存变换矩阵，目的是用shader控制图形旋转，而不是改变vertices的坐标  </p>
+<p>shader中对于matric的修饰词 row_major会降低速度  </p>
+<p>DirectX Math： SIMD(single instruction multiple data)  </p>
+<p>depth buffer shares memory with stencil buffer(模板缓冲): masking like mirror,portals. depth buffer optimized for depth  </p>
+<p>direct toolkit for loading texture会省掉很多工作，所以这里用了GDI+  </p>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-intrinsic-functions" target="_blank" rel="noopener">hlsl intrinsic functions</a>  </p>
+<p><a href="http://wiki.ogre3d.org/-Point+Light+Attenuation" target="_blank" rel="noopener">attenuation</a></p>
+<h2 id="imGUI"><a href="#imGUI" class="headerlink" title="imGUI"></a>imGUI</h2><p>使用方法：根目录的header和source文件 + examples里的对应平台文件（例如dx11+win32的四个文件）  </p>
+<h1 id="3D-Fundamental"><a href="#3D-Fundamental" class="headerlink" title="3D Fundamental"></a>3D Fundamental</h1><p>rasterization rule: left-top rule;</p>
+<h1 id="《Unity-shader-入门精要》"><a href="#《Unity-shader-入门精要》" class="headerlink" title="《Unity shader 入门精要》"></a>《Unity shader 入门精要》</h1><h2 id="概念合集"><a href="#概念合集" class="headerlink" title="概念合集"></a>概念合集</h2><p><a href="https://www.zhihu.com/question/304277310" target="_blank" rel="noopener">NDC与视锥体剪裁</a>：视锥体剪裁在cpu中进行，gpu流水线中还有一次culling，是按NDC空间进行剪裁（超出-1到1就裁剪，dx的z-axis是0-1）。这两次剪裁功能相似，第一次的目的是减轻gpu负担。  </p>
+<p>模板测试（stencil test）：可以理解为深度测试中的深度这个概念有开发者人为设定。  </p>
+<p>blend（混合）/output merger</p>
+<p>early-z</p>
+<h2 id="数学相关"><a href="#数学相关" class="headerlink" title="数学相关"></a>数学相关</h2><p>点坐标：<script type="math/tex">\left[ \begin{matrix}
+        x \\
+        y \\
+        z \\
+        1 \end{matrix} \right]</script> （如果是行向量，下边变换矩阵要转置）<br>方向矢量：<script type="math/tex">\left[ \begin{matrix}
+        x \\
+        y \\
+        z \\
+        0 \end{matrix} \right]</script><br>基础变换矩阵：<script type="math/tex">\left[  \begin{matrix}
+        M_{3*3} & t_{3*1} \\
+        0_{1*3} & 1 
+        \end{matrix}
+\right]</script><br>之所以这样设置是为了使变换矩阵的计算结果正确；顶点变换中如果存在平移需要四维矩阵，方向矢量变换使用三维即可  </p>
+<p>M：旋转缩放；t：平移（如果坐标点或向量是行向量，t的位置要换到左下角）  </p>
+<p>复合变换依赖顺序，本质原因是矩阵乘法不满足交换律：$P<em>{new} = M</em>{translation} M<em>{rotation} M</em>{scale} P_{old}$ 执行顺序为从右到左，绝大多数情况按照缩放，旋转，平移的顺序  </p>
+<p>空间变换流程：模型空间-&gt;世界空间-&gt;观察（相机）空间-&gt;剪裁空间（视锥体剔除）-&gt;屏幕空间（剪裁空间转NDC转屏幕像素）  </p>
+<p>一般来说，模型空间到剪裁空间会合并为MVP矩阵（Model-View-Projection） </p>
+<h2 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h2><ul>
+<li>BRDF（bidirectional reflection distribution function）</li>
+<li>BRDF经验模型（能量不守恒，简化的数学公式）：<ul>
+<li>Lambert：反射强度不受角度影响，反射角度受平面影响</li>
+<li>标准光照模型（Phong）：自发光，高光反射，漫反射，环境光（需要入射光，反射光，表面法线，视角方向）</li>
+<li>blinn-phong：与phong相比不需要计算反射方向，取而代之的是视角和入射光线的平均值归一化后的结果</li>
+</ul>
+</li>
+<li>基于物理的BRDF模型（判断条件：是否满足交换律，即光路可逆；是否能量守恒）：<ul>
+<li>cook-torrance BRDF：微面元模型用来表示pbs（physical based shading）中的高光，D是法线分布函数，G是阴影遮蔽函数，F是菲涅尔反射函数</li>
+<li>ward BRDF</li>
+</ul>
+</li>
+</ul>
+<p>实现细节：</p>
+<ul>
+<li>漫反射符合兰伯特定律，即反射光线强度与表面法线和光源方向之间夹角的余弦值成正比  </li>
+</ul>
+<h2 id="纹理映射"><a href="#纹理映射" class="headerlink" title="纹理映射"></a>纹理映射</h2><p>纹理放大缩小的问题需要调整Filter Mode（Point,Bilinear,Trilinear）；<br>缩小时最常使用mipmapping（多级渐远纹理技术）：典型的用空间换时间（多33%的空间）  </p>
+<p>bump mapping（凹凸映射）：分为两种，高度纹理（height map）模拟表面位移（displacement），得到一个修改后的法线值，称之为高度映射；另一种是法线纹理（normal map），直接做法线映射  </p>
+<p>1.在切线空间下进行光照计算；2.在世界空间下计算，前者效率往往优于后者  </p>
+<p>albedo是tex2D（CG的函数，对纹理进行采样）的结果；<br>ambient是环境光<br>diffuse是漫反射<br>specular是高光  </p>
+<p>法线纹理（normal map）可以使用DXT5nm的压缩格式，因为相比较普通图，法线纹理只有两个通道必不可少，第三个通道可以通过前两个推导出来，这种压缩方法可以减少内存占用  </p>
+<h2 id="透明效果"><a href="#透明效果" class="headerlink" title="透明效果"></a>透明效果</h2><p>Alpha Test/Alpha Blending：透明度测试只有完全透明和完全不透两种可能；透明度混合可以实现半透明    </p>
+<p>半透物体是开启深度测试但是关闭深度写入的，这导致渲染顺序变得十分重要（因为关闭了深度写入）；应该<strong>渲染不透明物体之后再渲染半透明物体</strong>；如果都是半透明，按相机距离排序，从后往前渲染，开启深度测试，但是关闭深度写入  </p>
+<p>双面渲染：unity的Cull指令默认是Back，也就是背对相机的渲染图元不会被渲染  </p>
+<h2 id="渲染路径"><a href="#渲染路径" class="headerlink" title="渲染路径"></a>渲染路径</h2><p>更复杂的光照：</p>
+<ul>
+<li>前向渲染：颜色缓冲区和深度缓冲区；unity的前向渲染有三种，逐像素处理（最强平行光和重要光源用这种方式），逐顶点处理，球谐函数（spherical harmonics）<br>前向渲染的问题是，场景内有大量光源的情况下性能急剧下降，因为每个光源都要计算一次光照结果（一个光源一个pass）</li>
+<li>延迟渲染：G-buffer（Geometry），包含两个pass，第一个使用深度缓冲计算哪些片元可见；第二个计算片元信息，即光照计算<br>不支持抗锯齿；不能处理半透明；对硬件有要求MRT（multiple render targets）<br>Unity的延迟渲染需要提供两个pass：第一个用于渲染G-buffer；第二个用于计算真正的光照模型</li>
+</ul>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>Unity shader中的矩阵是按行优先的，Unity脚本中有个Matrix4x4是按列优先  </p>
+<p>UnityRoot/Data/CGIncludes/ 里边有官方提供的.cginc文件，其中例如UnityCG.cginc十分值得学习  </p>
+<h1 id="《Direct12-3D游戏开发实战》——龙书"><a href="#《Direct12-3D游戏开发实战》——龙书" class="headerlink" title="《Direct12 3D游戏开发实战》——龙书"></a>《Direct12 3D游戏开发实战》——龙书</h1><h2 id="数学相关-1"><a href="#数学相关-1" class="headerlink" title="数学相关"></a>数学相关</h2><p>view transform矩阵，观察空间到世界空间的坐标变化矩阵为：</p>
+<script type="math/tex; mode=display">
+W = 
+\left[  \begin{matrix}
+        u_{x} & u_{y} & u_{z} & 0 \\
+        v_{x} & v_{y} & v_{z} & 0 \\
+        w_{x} & w_{y} & w_{z} & 0 \\
+        Q_{x} & Q_{y} & Q_{z} & 1
+        \end{matrix}
+\right]</script><p>其中，<script type="math/tex">Q_{w} = (Q_{x},Q_{y},Q_{z},1)</script>，<script type="math/tex">u_{w} = (u_{x},u_{y},u_{z},0)</script>，<script type="math/tex">v_{w}</script>还有<script type="math/tex">w_{w}</script>分别表示了观察空间中原点，x轴，y轴，z轴相对于世界空间的齐次坐标。<br>相对的，世界空间到观察空间的变化矩阵为<script type="math/tex">W^{-1}</script>，世界矩阵可以分解为一个旋转矩阵和一个平移矩阵的乘积，即<script type="math/tex">W=RT</script>。</p>
+<script type="math/tex; mode=display">
+V=W^{-1}=(RT)^{-1}=T^{-1}R^{-1}=T^{-1}R^{T}=</script><script type="math/tex; mode=display">
+\left[  \begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        -Q_{x} & -Q_{y} & -Q_{z} & 1
+        \end{matrix}
+\right]
+\left[  \begin{matrix}
+        u_{x} & u_{y} & u_{z} & 0 \\
+        v_{x} & v_{y} & v_{z} & 0 \\
+        w_{x} & w_{y} & w_{z} & 0 \\
+        0 & 0 & 0 & 1
+        \end{matrix}
+\right]
+=
+\left[  \begin{matrix}
+        u_{x} & u_{y} & u_{z} & 0 \\
+        v_{x} & v_{y} & v_{z} & 0 \\
+        w_{x} & w_{y} & w_{z} & 0 \\
+        -Q_{x} \cdot u & -Q_{y} \cdot v & -Q_{z} \cdot w & 1
+        \end{matrix}
+\right]</script><p>由此得到，</p>
+<script type="math/tex; mode=display">
+V=
+\left[  \begin{matrix}
+        u_{x} & u_{y} & u_{z} & 0 \\
+        v_{x} & v_{y} & v_{z} & 0 \\
+        w_{x} & w_{y} & w_{z} & 0 \\
+        -Q_{x} \cdot u & -Q_{y} \cdot v & -Q_{z} \cdot w & 1
+        \end{matrix}
+\right]</script><h1 id="Unreal-source-code-review"><a href="#Unreal-source-code-review" class="headerlink" title="Unreal source code review"></a>Unreal source code review</h1>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="">Ty</a>
+            <p>原文链接：<a href="/2020/04/14/hardware3d/">/2020/04/14/hardware3d/</a>
+            <p>发表日期：<a href="/2020/04/14/hardware3d/">April 14th 2020, 3:49:36 pm</a>
+            <p>更新日期：<a href="/2020/04/14/hardware3d/">July 8th 2020, 9:51:39 pm</a>
+            <p>版权声明：转载请注明原作者</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/06/05/UnityMultiThreading/" title= "Unity中的多线程与线程池应用">
+                    <div class="nextTitle">Unity中的多线程与线程池应用</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/03/31/ICIP/" title= "SEE THROUGH OCCLUSIONS:DETAILED HUMAN SHAPE ESTIMATION FROM A SINGLE IMAGE WITH OCCLUSIONS">
+                    <div class="prevTitle">SEE THROUGH OCCLUSIONS:DETAILED HUMAN SHAPE ESTIMATION FROM A SINGLE IMAGE WITH OCCLUSIONS</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80MTg2MS8xODQwNw==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:hi838792022@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/taye310" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://steamcommunity.com/id/providencezhang/" class="iconfont-archer steam" target="_blank" title=steam></a>
+            
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-3D"><span class="toc-number">1.</span> <span class="toc-text">Hardware 3D</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#imGUI"><span class="toc-number">1.1.</span> <span class="toc-text">imGUI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3D-Fundamental"><span class="toc-number">2.</span> <span class="toc-text">3D Fundamental</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#《Unity-shader-入门精要》"><span class="toc-number">3.</span> <span class="toc-text">《Unity shader 入门精要》</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念合集"><span class="toc-number">3.1.</span> <span class="toc-text">概念合集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学相关"><span class="toc-number">3.2.</span> <span class="toc-text">数学相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#光照模型"><span class="toc-number">3.3.</span> <span class="toc-text">光照模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纹理映射"><span class="toc-number">3.4.</span> <span class="toc-text">纹理映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明效果"><span class="toc-number">3.5.</span> <span class="toc-text">透明效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渲染路径"><span class="toc-number">3.6.</span> <span class="toc-text">渲染路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.7.</span> <span class="toc-text">API</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#《Direct12-3D游戏开发实战》——龙书"><span class="toc-number">4.</span> <span class="toc-text">《Direct12 3D游戏开发实战》——龙书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数学相关-1"><span class="toc-number">4.1.</span> <span class="toc-text">数学相关</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unreal-source-code-review"><span class="toc-number">5.</span> <span class="toc-text">Unreal source code review</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 31
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/03</span><a class="archive-post-title" href= "/2020/09/03/Games101/" >Games101图形学入门课程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/2020/08/28/Cpp/" >来自网络的C++笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2020/07/29/C-boost-library/" >C++_boost_library</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2020/07/06/stl-implement/" >stl-implements && code practices</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/14</span><a class="archive-post-title" href= "/2020/06/14/C-Singleton/" >C++中的设计模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2020/06/05/UnityMultiThreading/" >Unity中的多线程与线程池应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2020/04/14/hardware3d/" >可编程渲染管线</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2020/03/31/ICIP/" >SEE THROUGH OCCLUSIONS:DETAILED HUMAN SHAPE ESTIMATION FROM A SINGLE IMAGE WITH OCCLUSIONS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2020/03/04/DOTSandECS/" >DOTS & ECS & RP</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2020/02/12/CloudServer/" >云服务器相关</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/16</span><a class="archive-post-title" href= "/2019/09/16/校招学习笔记/" >校招学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2019/07/08/CYOU工作笔记/" >CYOU学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2019/05/09/互联网体系结构总结/" >互联网体系结构总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2019/03/25/深度学习概念总结/" >深度学习概念总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2019/02/18/lang-notebook/" >C++ & C#/Unity notebook</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Kaggle笔记/" >python数据分析、可视化相关笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/关于三维重建的文献综述/" >关于三维重建的文献综述</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/CS294-112_Fa18/" >CS294-112 Fa18</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2018/12/20/git-sourcetree-腾讯云项目管理教程/" >git+sourcetree+腾讯云项目管理教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span><a class="archive-post-title" href= "/2018/12/18/deeplearning-ai/" >deeplearning.ai</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2018/11/19/pytorch入门教程/" >pytorch入门教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/04</span><a class="archive-post-title" href= "/2018/11/04/网络与信息安全总结/" >网络与信息安全总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/LostMyIPhone/" >IPhoneX的叉</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/06</span><a class="archive-post-title" href= "/2018/05/06/核聚变/" >核聚变</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2018/04/18/中国什么时候能有3A游戏/" >中国什么时候能有3A游戏</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2018/04/12/完整游戏开发流程/" >完整游戏开发流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2018/04/11/PUBG-Unity/" >PUBG-Unity</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2017/01/04/AdrenoProfiler/" >手机游戏美术资源提取</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2017/01/03/EgretGame/" >RPG Game</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2017/01/02/AStarPathfinding/" >A* Pathfinding</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2017/01/01/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="boost"><span class="iconfont-archer">&#xe606;</span>boost</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+    
+        <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
+    
+        <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
+        <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
+    
+        <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
+    
+        <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
+    
+        <span class="sidebar-tag-name" data-tags="三维人体重建"><span class="iconfont-archer">&#xe606;</span>三维人体重建</span>
+    
+        <span class="sidebar-tag-name" data-tags="深度学习"><span class="iconfont-archer">&#xe606;</span>深度学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="shift_net"><span class="iconfont-archer">&#xe606;</span>shift_net</span>
+    
+        <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
+        <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
+    
+        <span class="sidebar-tag-name" data-tags="线上课程"><span class="iconfont-archer">&#xe606;</span>线上课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
+    
+        <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
+    
+        <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
+    
+        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
+    
+        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
+    
+        <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
+    
+        <span class="sidebar-tag-name" data-tags="COM"><span class="iconfont-archer">&#xe606;</span>COM</span>
+    
+        <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
+    
+        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
+    
+        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="智能指针"><span class="iconfont-archer">&#xe606;</span>智能指针</span>
+    
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
+    
+        <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
+    
+        <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
+    
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+    
+        <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
+    
+        <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
+    
+        <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
+    
+        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
+    
+        <span class="sidebar-category-name" data-categories="项目"><span class="iconfont-archer">&#xe60a;</span>项目</span>
+    
+        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+    
+        <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Ty"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->    
+     
+    </body>
+</html>
+
+
