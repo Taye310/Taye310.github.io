@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-cn">
     <!-- title -->
 
 
@@ -19,18 +19,22 @@
     
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
-    <meta name="description" content="">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Providence&#39;s blog">
-<meta property="og:url" content="/page/2/index.html">
+    <meta name="description" content="记录我的生活">
+    <meta name="description" content="网络相关windows命令行设置代理设置代理netsh winhttp set proxy 127.0.0.1:10808取消代理netsh winhttp reset proxy查看代理netsh winhttp show proxy pip下载速度慢python -m pip install —upgrade pip太慢 输入：python -m pip install —upgrade pi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="杂记：工具以及日常命令合集">
+<meta property="og:url" content="/2020/11/16/tools/index.html">
 <meta property="og:site_name" content="Providence&#39;s blog">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="网络相关windows命令行设置代理设置代理netsh winhttp set proxy 127.0.0.1:10808取消代理netsh winhttp reset proxy查看代理netsh winhttp show proxy pip下载速度慢python -m pip install —upgrade pip太慢 输入：python -m pip install —upgrade pi">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2020-12-16T11:03:05.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Providence&#39;s blog">
+<meta name="twitter:title" content="杂记：工具以及日常命令合集">
+<meta name="twitter:description" content="网络相关windows命令行设置代理设置代理netsh winhttp set proxy 127.0.0.1:10808取消代理netsh winhttp reset proxy查看代理netsh winhttp show proxy pip下载速度慢python -m pip install —upgrade pip太慢 输入：python -m pip install —upgrade pi">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Providence&#39;s blog</title>
+    <title>杂记：工具以及日常命令合集 · Providence&#39;s blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -85,6 +89,8 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -220,14 +226,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header index-header">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Providence&#39;s blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">杂记：工具以及日常命令合集</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Providence's blog</a>
 </header>
@@ -246,17 +261,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Providence's blog
-            <!-- 文章页  -->
+            杂记：工具以及日常命令合集
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -264,12 +279,43 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                Everything about me.
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">162</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/11/16</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -370,465 +416,76 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/16/校招学习笔记/" >
-            
-                <span>校招学习笔记</span>
-        </a>
-        <div class="abstract-content">
-            笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手  
-SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。  
-TLS：（Transport Layer Security，传输层安全协议），用于两个应用程序之间提供保密性和数据完整性。该协议由两层组成：TLS记录协议和TLS握手协议。  
-TCP如何保证可靠性：
+    <article class="article-entry">
+        <h1 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h1><h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><h3 id="命令行设置代理"><a href="#命令行设置代理" class="headerlink" title="命令行设置代理"></a>命令行设置代理</h3><p>设置代理<br>netsh winhttp set proxy 127.0.0.1:10808<br>取消代理<br>netsh winhttp reset proxy<br>查看代理<br>netsh winhttp show proxy</p>
+<h3 id="pip下载速度慢"><a href="#pip下载速度慢" class="headerlink" title="pip下载速度慢"></a>pip下载速度慢</h3><p>python -m pip install —upgrade pip太慢</p>
+<p>输入：<br>python -m pip install —upgrade pip  -i <a href="http://pypi.douban.com/simple" target="_blank" rel="noopener">http://pypi.douban.com/simple</a> —trusted-host pypi.douban.com</p>
+<p>其他下载链接：<br>豆瓣(douban) <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a><br>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a><br>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a><br>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a><br>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a><br>anaconda 环境中pip install 第三方库下载较慢；</p>
+<p>pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a> pandas</p>
+<h3 id="windows上使用linux"><a href="#windows上使用linux" class="headerlink" title="windows上使用linux"></a>windows上使用linux</h3><p>wsl和vm</p>
 
-校验和
-确认应答与序列号
-超时重传
-连接管...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "刷题">刷题</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/08/CYOU工作笔记/" >
-            
-                <span>CYOU学习笔记</span>
-        </a>
-        <div class="abstract-content">
-            本文章需要输入密码才可以查看.
+        <div class="license-wrapper">
+            <p>原文作者：<a href="">Ty</a>
+            <p>原文链接：<a href="/2020/11/16/tools/">/2020/11/16/tools/</a>
+            <p>发表日期：<a href="/2020/11/16/tools/">November 16th 2020, 11:59:11 am</a>
+            <p>更新日期：<a href="/2020/11/16/tools/">December 16th 2020, 7:03:05 pm</a>
+            <p>版权声明：转载请注明原作者</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "工作笔记">工作笔记</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "游戏开发">游戏开发</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/05/09/互联网体系结构总结/" >
-            
-                <span>互联网体系结构总结</span>
-        </a>
-        <div class="abstract-content">
-            The Design Philosophy of the DARPA Internet Protocols（1988） 读书笔记TCP/IP协议在（1988-15）年提出，本文目的是解释出于何种原因互联网协议采用了TCP/IP设计。事实上，互联网的设计哲学是从最初的协议逐步进化而来，直至现如今的标准。例如IP和TCP的层级结构，
-看起来是如今互联网协议设计的基础，但在最初的协议中并不存在。    DARPA互联网架构的最高目标是研究出一个可以高效多路复用现有内联网络的技术。最初的目标是通过ARPA分组无线电网络将ARPANET连接到一起，另一种选择是设计一个统一的系统（多媒体网络），用以...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "研究生课程">研究生课程</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "互联网体系结构">互联网体系结构</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/03/25/深度学习概念总结/" >
-            
-                <span>深度学习概念总结</span>
-        </a>
-        <div class="abstract-content">
-            encoder-decoder类型网络autoencoder &amp; PCA (Principal component analysis)所引发的对监督/非监督学习更深入的思考：  
-batch normalization:当然我们是可以用之前提到的对数据做 normalization 预处理, 使得输入的 x 变化范围不会太大, 让输入值经过激励函数的敏感部分. 但刚刚这个不敏感问题不仅仅发生在神经网络的输入层, 而且在隐藏层中也经常会发生。神经网络的输入参数维度越低越好
-图卷积神经网络资料非欧空间数据如何处理
-vgg16:Conv5_3指的是第五个卷积block里面的第三个卷积层...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "深度学习">深度学习</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "基础知识">基础知识</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/02/18/lang-notebook/" >
-            
-                <span>C++ &amp; C#/Unity notebook</span>
-        </a>
-        <div class="abstract-content">
-            C/C++可变参数：1234567891011121314151617181920212223242526272829#include &lt;stdio.h&gt;#include &lt;stdarg.h&gt; double average(int num,...)&#123;     va_list valist;    double sum = 0.0;    int i;     /* 为 num 个参数初始化 valist */    va_start(valist, num);     /* 访问所有赋给 valist 的参数 */    for (i = 0; i &l...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C++">C++</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "notebook">notebook</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Unity">Unity</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C#">C#</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/21/Kaggle笔记/" >
-            
-                <span>python数据分析、可视化相关笔记</span>
-        </a>
-        <div class="abstract-content">
-            python数据分析、可视化相关笔记我的主页
-sklearn-tsne提供了数据可视化的工具：TSNE提供了一种有效的降维方式，让我们对高于2维数据的聚类结果以二维的方式展示出来pytorch的dataloader出来有三个部分（编号，tensor（图片内容信息（100张，1个通道，长，宽）），tensor（标注））
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据分析">数据分析</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据可视化">数据可视化</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Kaggle">Kaggle</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/04/关于三维重建的文献综述/" >
-            
-                <span>关于三维重建的文献综述</span>
-        </a>
-        <div class="abstract-content">
-            目录arXiv检索
-
-1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎
-1812.01742 单一视角的三维重建，使用对抗训练（非人
-1812.05583 基于学习的ICP（迭代最近点算法）重构场景（非人
-1812.07603 通过视频素材的面部模型学习
-1812.05806 自我监督的引导方法，单图片的三维人脸重建
-1812.02822 学习生成模型的隐藏区域（非人
-1901.00049 基于轮廓的衣着人物（全身
-
-A类
-
-通过直接体积cnn回归从单图重建大范围三维人脸（源码lua+py
-使用图到图转换的无限制面部重建（源码lua
-
-老师推荐
-
-使用affinit...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "3D model reconstruction">3D model reconstruction</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "文献综述">文献综述</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/21/CS294-112_Fa18/" >
-            
-                <span>CS294-112 Fa18</span>
-        </a>
-        <div class="abstract-content">
-            Deep reinforcement learningWeek One2018.12.6  
-Introduction and Course Overview Slide  
-
-why now?  reinforcement learning can be naturally integrated with artificial neural networks to obtain high-quality generalization  experience replay : material  instructive training instances provided by hum...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "reinforcement learning">reinforcement learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "berkeley course">berkeley course</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Sergey Levine">Sergey Levine</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/20/git-sourcetree-腾讯云项目管理教程/" >
-            
-                <span>git+sourcetree+腾讯云项目管理教程</span>
-        </a>
-        <div class="abstract-content">
-            
-注册腾讯云开发者平台 就是以前的coding.net 中文界面对国内开发者很友好，个人感觉可以代替github，新功能很有趣 进入项目-&gt;设置-&gt;成员管理可以添加项目成员，相当于github的organization 项目、仓库设置中可以转移项目所有权，免费将项目仓库设为私有，github私有仓库有月租  
-下载、安装git 注意配置环境变量  
-git GUI 推荐sourcetree，注册登录账号可能需要翻墙 2，3网上教程都很多这里就不写了  
-git lfs(large file storage) 当项目中有大小超过2m的文件时，建议使用lfs lfs使用教程(un...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "腾讯云">腾讯云</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "sourcetree">sourcetree</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "版本控制">版本控制</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "项目管理">项目管理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/18/deeplearning-ai/" >
-            
-                <span>deeplearning.ai</span>
-        </a>
-        <div class="abstract-content">
-            Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimizationtrain/dev/test data set 在过去通常 60/20/20% 的比例，总样本数在10,000大数据时代通常在 98/1/1 或者后两个更小的比例，总样本在1,000,000  
-high bias&amp;high variance判断网络模型高偏差还是高方差还是两者都有的方法：    训练集上的错误率过高就是高偏差（例：人错误率，也称base error 1%，模型训练集上错误率15%，模型在开发集...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Andrew Ng">Andrew Ng</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Deeplearning">Deeplearning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "AI">AI</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/">< PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">NEXT ></a>
-    </nav>
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/avatar.png >
-    <div class="profile-name">Ty</div>
-    
-    <div class="profile-signature">
-        KEEP WRITING.
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/09/03/Games101/" title= "Games101图形学入门课程">
+                    <div class="prevTitle">Games101图形学入门课程</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80MTg2MS8xODQwNw==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     </div>
+
+<!-- City版安装代码已完成 -->
     
     
-    <div class="profile-social">
-        
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-            
-                <a href="mailto:hi838792022@163.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/taye310" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="https://steamcommunity.com/id/providencezhang/" class="iconfont-archer steam" target="_blank" title=steam></a>
-            
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= https://weibo.com/u/5988048345 target="_black">小可爱</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -908,6 +565,24 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网络相关"><span class="toc-number">1.</span> <span class="toc-text">网络相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows"><span class="toc-number">1.1.</span> <span class="toc-text">windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行设置代理"><span class="toc-number">1.1.1.</span> <span class="toc-text">命令行设置代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pip下载速度慢"><span class="toc-number">1.1.2.</span> <span class="toc-text">pip下载速度慢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows上使用linux"><span class="toc-number">1.1.3.</span> <span class="toc-text">windows上使用linux</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1308,9 +983,28 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 31
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1323,6 +1017,11 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2020/11/16/tools/" >杂记：工具以及日常命令合集</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1523,10 +1222,6 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
         <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
     
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
-    
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
@@ -1537,13 +1232,21 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
         <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
-    
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
         <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+    
+        <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
+    
+        <span class="sidebar-tag-name" data-tags="线上课程"><span class="iconfont-archer">&#xe606;</span>线上课程</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -1561,6 +1264,10 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
@@ -1568,14 +1275,6 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
         <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
-    
-        <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
-    
-        <span class="sidebar-tag-name" data-tags="线上课程"><span class="iconfont-archer">&#xe606;</span>线上课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
     
@@ -1595,10 +1294,6 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
     
-        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
-    
-        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -1607,15 +1302,15 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
@@ -1623,17 +1318,13 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
         <span class="sidebar-tag-name" data-tags="智能指针"><span class="iconfont-archer">&#xe606;</span>智能指针</span>
     
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
-    
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
@@ -1643,7 +1334,15 @@ high bias&amp;high variance判断网络模型高偏差还是高方差还是两�
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+    
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1719,7 +1418,9 @@ jsonContent:
     <!-- CNZZ  -->
     
     </div>
-    <!-- async load share.js --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->    
      
     </body>
 </html>

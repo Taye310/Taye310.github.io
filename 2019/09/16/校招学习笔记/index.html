@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-cn">
     <!-- title -->
 
 
@@ -19,7 +19,7 @@
     
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
-    <meta name="description" content="">
+    <meta name="description" content="记录我的生活">
     <meta name="description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
@@ -27,14 +27,14 @@
 <meta property="og:url" content="/2019/09/16/校招学习笔记/index.html">
 <meta property="og:site_name" content="Providence&#39;s blog">
 <meta property="og:description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/unionfind.png">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt1.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt3.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt2.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/valueandref.png">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/几何函数.png">
-<meta property="og:updated_time" content="2020-10-12T08:48:03.342Z">
+<meta property="og:updated_time" content="2020-11-13T13:38:57.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招学习笔记">
 <meta name="twitter:description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
@@ -303,7 +303,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">4.2k</span>阅读时长: <span class="post-count reading-time">17 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">4.4k</span>阅读时长: <span class="post-count reading-time">17 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -472,6 +472,9 @@ height:50vh;
 <li>流量控制</li>
 <li>拥塞控制</li>
 </ul>
+<p>拥塞控制：防止过多的数据注入到网络中，这样可以使网络中的路由器或链路不致过载。拥塞控制所要做的都有一个前提：网络能够承受现有的网络负荷。拥塞控制是一个全局性的过程，涉及到所有的主机、路由器，以及与降低网络传输性能有关的所有因素。</p>
+<p>流量控制：指点对点通信量的控制，是端到端中的问题。流量控制所要做的就是抑制发送端发送数据的速率，以便使接收端来得及接收</p>
+<p>发送窗口的大小等于Min[拥塞窗口，接收窗口]，因此是两种控制共同作用。</p>
 <h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>操作系统中虚拟内存的作用：提供了三个重要的能力： 缓存，内存管理，内存保护  </p>
 <ol>
 <li>将主存视为一个存储在磁盘上的地址空间的高速缓存，在主存中只保存活动区域，并根据需要在磁盘和主存之间来回传送数据</li>
@@ -680,7 +683,7 @@ height:50vh;
 <li><p>顶点着色器/片元着色器作用/什么是片元<br>顶点着色器：分为输入和输出两部分,负责的功能是把输入的数据进行矩阵变换位置,计算光照公式生成逐顶点颜⾊,⽣成/变换纹理坐标.并且把位置和纹理坐标这样的参数发送到片段着色器.<br>片元着色器：处理由光栅化阶段生成的每个片元，最终计算出每个像素的最终颜色。归根结底，实际上就是数据的集合。这个数据集合包含每一个像素的各个颜色分量和像素透明度的值。</p>
 </li>
 </ol>
-<p><em>光栅化</em>，就是计算出1920×1080这么长的RGB数组中，每一个RGB的值</p>
+<p><em>光栅化</em>，就是计算出1920×1080这么长的RGB数组中，每一个RGB的值<br><em>光追raytracing</em>，与光栅化并列的概念，上边是三角形投影到二维空间，根据d-buffer填充像素，后者是从每个像素出发射出光线，看射到哪儿计算像素颜色</p>
 <p>3D场景中将三角形作为基本<em>图元</em></p>
 <p>片元是光栅化过程的产物；光栅化是将一个图元转变为一个二维图象，二维图象上每个点都包含了颜色、深度和纹理数据，将该点和相关信息叫做一个片元  </p>
 <p>设计模式！工厂/观察者/策略模式？<br>工厂模式：调用工厂只管给个名字，工厂里根据名字实例化对应的对象（选对应接口）；解决了接口选择的问题，拓展方便。</p>
@@ -1270,7 +1273,12 @@ height:50vh;
 <p>写sql时用什么函数查看我会涉及多少行：聚合函数count(); select count(A), A from C where B&lt;&gt;0  </p>
 <p><a href="https://www.cnblogs.com/alvin2010/p/9121535.html" target="_blank" rel="noopener">C++异常处理机制的原理和应用</a>：try catch throw处理异常，C++提供了一系列标准的异常，例如outofrange，badalloc，badcast<br>也可以自己定义exception  </p>
 <p>mysql索引为什么用B+树不用B树：磁盘读写代价更低，查询效率更加稳定，更便于遍历，更适合基于范围的查询  </p>
-<p>什么情况下产生死锁、解决死锁的方法：<br>（1） 互斥条件：一bai个资源每次只能被一个进du程使用。<br>（2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。<br>（3） 不剥夺条件:进程已获得的资源，在末使用完之前，不能强行剥夺。<br>（4） 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。</p>
+<ol>
+<li>B+树的数据都集中在叶子节点。分支节点只负责索引。B树的分支节点也有数据。B+树的层高会小于B树，平均的Io次数会远小于B树</li>
+<li>B+树更擅长范围查询。存储在叶子节点中的数据是按顺序放置的双向链表。而B树范围查询只能中序遍历。</li>
+<li>索引节点没有数据。比较小。b树可以把索引完全加载至内存中。</li>
+</ol>
+<p>什么情况下产生死锁、解决死锁的方法：<br>（1） 互斥条件：一个资源每次只能被一个进程使用。<br>（2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。<br>（3） 不剥夺条件:进程已获得的资源，在末使用完之前，不能强行剥夺。<br>（4） 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。</p>
 <p>1、撤消陷于死锁的全部进程；<br>2、逐个撤消陷于死锁的进程，直到死锁不存在；<br>3、从陷于死锁的进程中逐个强迫放弃所占用的资源，直至死锁消失。<br>4、从另外一些进程那里强行剥夺足够数量的资源分配给死锁进程，以解除死锁状态</p>
 <p>kafka是哪层的协议，ftp是哪层的协议：kafka自行设计的基于TCP层的协议；应用层协议</p>
 <p>网络分层：7 应用层 6 表示层 5 会话层 4 传输层 3 网络层 2 数据链路层 1 物理层</p>
@@ -1296,6 +1304,7 @@ height:50vh;
 <p>线程池用过没，需要注意哪些事项  </p>
 <p>说一下操作系统分页  </p>
 <p>线程绑核了解不  </p>
+<p><strong>交行</strong>：<br>面试官1：<br>指针和引用<br>多态<br>多继承的优缺点<br>进程间通信方式<br>内存分配<br>Linux 下makefile怎么写<br>面试官2：<br>说一下 socket 初始化方式<br>地址栏输入百度之后，发生了什么，用到了那些协议</p>
 <p><strong>hr：</strong></p>
 <p>对农行的理解：农行是我国四大国有银行之一，为农业的发展提供了有力的支持，农行的优势在于金融服务全面，全国网点最多，遍布城乡；相比较其他三家来说信息化程度较低，金融科技和人工智能的利用率略低，可以说这方面是有很大的需求以及发展前景的。<br><a href="https://zhidao.baidu.com/question/138763351.html" target="_blank" rel="noopener">核心理念</a><br>农村农业农民  </p>
 <p>与互联网企业的区别：互联网企业的产品比较多样话，银行的产品较为专一；互联网企业的开发模式一般来说都是敏捷开发，快速迭代，而银行项目则更为严谨，对事故容忍度更低，所以需要更多项目管理，软件工程管理相关的知识。具体到互联网金融与传统金融来说，受众不同，互联网金融的目标受众是个人，而银行服务于企业，大客户。</p>
@@ -1337,9 +1346,9 @@ height:50vh;
 <li>vivo软件工程师（后端）-深圳-白菜24-已拒  </li>
 <li>广联达图形开发-北京-25.5</li>
 <li>核钛-四惠-项目好做完就走</li>
-<li>完美-</li>
-<li>小米-</li>
-<li></li>
+<li>完美-19*14</li>
+<li>快手-40w</li>
+<li>农行-25w到32w-3到5年升p7</li>
 </ul>
 <h1 id="todolist"><a href="#todolist" class="headerlink" title="todolist"></a>todolist</h1><p>profiler使用<br>unity渲染线程 主线程 用户层面多线程以提升效率<br>编译优化<br>linux C++开发<br>哪些是在构造函数里初始化的<br>rmsl  </p>
 <h1 id="企业列表"><a href="#企业列表" class="headerlink" title="企业列表"></a>企业列表</h1><p><a href="https://www.nowcoder.com/discuss/364482" target="_blank" rel="noopener">资源链接</a></p>
@@ -1734,7 +1743,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">October 12th 2020, 4:48:03 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">November 13th 2020, 9:38:57 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -2289,9 +2298,28 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 31
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -2304,6 +2332,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2020/11/16/tools/" >杂记：工具以及日常命令合集</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -2504,10 +2537,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
     
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
-    
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
         <span class="sidebar-tag-name" data-tags="berkeley course"><span class="iconfont-archer">&#xe606;</span>berkeley course</span>
@@ -2518,13 +2547,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
-    
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
         <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+    
+        <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
+    
+        <span class="sidebar-tag-name" data-tags="线上课程"><span class="iconfont-archer">&#xe606;</span>线上课程</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -2542,6 +2579,10 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
@@ -2549,14 +2590,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
-    
-        <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
-    
-        <span class="sidebar-tag-name" data-tags="线上课程"><span class="iconfont-archer">&#xe606;</span>线上课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
     
         <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
     
@@ -2576,10 +2609,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
     
-        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
-    
-        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -2588,15 +2617,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
         <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
     
         <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
@@ -2604,17 +2633,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="智能指针"><span class="iconfont-archer">&#xe606;</span>智能指针</span>
     
-        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
-    
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
-        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+        <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
-        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+        <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
     
         <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
@@ -2624,7 +2649,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
+        <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
+    
+        <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
+    
         <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+    
+        <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
