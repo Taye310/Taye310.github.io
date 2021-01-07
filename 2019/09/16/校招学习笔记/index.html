@@ -34,7 +34,7 @@
 <meta property="og:image" content="/2019/09/16/校招学习笔记/jrtt2.jpg">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/valueandref.png">
 <meta property="og:image" content="/2019/09/16/校招学习笔记/几何函数.png">
-<meta property="og:updated_time" content="2020-11-13T13:38:57.163Z">
+<meta property="og:updated_time" content="2021-01-06T04:42:54.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招学习笔记">
 <meta name="twitter:description" content="笔试计算机网络资料TCP创建连接：三次握手释放连接：四次挥手   SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   TLS：（Transport Layer Secur">
@@ -589,7 +589,10 @@ height:50vh;
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error,expected identifier before numeric constant</span><br></pre></td></tr></table></figure>
 <h3 id="猿辅导真题"><a href="#猿辅导真题" class="headerlink" title="猿辅导真题"></a>猿辅导真题</h3><p><a href="https://www.nowcoder.com/test/question/done?tid=35339605&amp;qid=808488#summary" target="_blank" rel="noopener">击鼓传花</a>，k个人传n次，最后一个人要是第一个人<br>dp可以70%，要用矩阵快速幂没用过  </p>
 <h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><p>项目经历的star原则 p6  </p>
-<h2 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h2><p>MD5（Message-Digest Algorithm 5），即消息摘要算法第五版，是一种被广泛使用的密码散列函数。散列算法的基础原理是：将数据（如一段文字）运算，变为另一段固定长度的值。MD5 可以产生出一个128位（16字节）的散列值（hash value），用于确保传输的信息完整一致。</p>
+<h2 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h2><p>asset bundle中多个prefab依赖了相同的资源，打包的时候是怎么避免冗余的：</p>
+<p>interface和abstract的应用场景：is-a &amp;&amp; has-a</p>
+<p><a href="https://gameinstitute.qq.com/community/detail/105650" target="_blank" rel="noopener">语言间相互调用：</a></p>
+<p>MD5（Message-Digest Algorithm 5），即消息摘要算法第五版，是一种被广泛使用的密码散列函数。散列算法的基础原理是：将数据（如一段文字）运算，变为另一段固定长度的值。MD5 可以产生出一个128位（16字节）的散列值（hash value），用于确保传输的信息完整一致。</p>
 <p><a href="https://www.cnblogs.com/anningwang/p/7581545.html" target="_blank" rel="noopener">判断某点是否在图形内部</a>：从随机点引射线，看穿过图形边的次数，偶为外，奇为内<br>填充算法，dfs就是  </p>
 <p>分别在什么时候使用引用和指针：指向的对象不为空的时候使用</p>
 <p>为什么要分栈和对，不能合并？：栈的好处是：方便、快、有效避免内存碎片化。栈的问题是：不利于管理大内存、数据的生命周期难于控制，所以栈不利于动态地管理并且有效地利用宝贵的内存资源。于是我们有了堆  </p>
@@ -1121,7 +1124,7 @@ height:50vh;
 <p>介绍一个光照渲染模型(我介绍的是冯氏光照)<br>介绍一个消除隐藏面的算法(我介绍的是Z缓存)<br>如何解决因为顶点过近和浮点数的精度不足带来的穿模问题  </p>
 <p>手撕代码：快排</p>
 <p>三面<br>开放性问题：<br>在特定场景如何选择stl容器，以什么为标准？你最近一个应用到这个容器的场景是什么？<br>在N*N棋盘地图上放一个圆形技能，检测影响到的玩家对象，用什么数据结构实现？<br>不关心顺序的数组如何实现O(1)的删除操作 </p>
-<p><strong>字节游戏引擎1/2面（2020.7提前批）</strong><br>AssetBundle是怎么在jit（虚拟机？）中加载prefab的：Unity的跨平台技术是通过一个Mono虚拟机实现的。而这个虚拟机更新太慢，不能很好地适应众多的平台。unity公司就自行研发了IL2cpp，把本来应该再mono的虚拟机上跑的中间代码转换成cpp代码，这样再把生成的cpp代码，利用c++的跨平台特性，在各个平台上通过对各平台都有良好优化的native c++编译器编译，以获得更高的效率和更好的兼容性。</p>
+<p><strong>字节游戏引擎1/2面（2020.7提前批）</strong><br>Asset Bundle是怎么在jit（虚拟机？）中加载prefab的：Unity的跨平台技术是通过一个Mono虚拟机实现的。而这个虚拟机更新太慢，不能很好地适应众多的平台。unity公司就自行研发了IL2cpp，把本来应该再mono的虚拟机上跑的中间代码转换成cpp代码，这样再把生成的cpp代码，利用c++的跨平台特性，在各个平台上通过对各平台都有良好优化的native c++编译器编译，以获得更高的效率和更好的兼容性。</p>
 <p>Unity项目中的<a href="https://blog.csdn.net/u012138730/article/details/81143413#2.Library%E6%96%87%E4%BB%B6%E5%A4%B9" target="_blank" rel="noopener">Library文件夹</a>：此放的是程序集和库的缓存文件。 </p>
 <p>Unity的Inspector面板中查看GO属性是怎么实现的：反射，运行时获取属性并进行修改  </p>
 <p>接着inspector，undo和redo怎么实现：记录一个操作队列，怎么设计这个队列<br>我这边说了unity的scene文件在版本控制工具中看就是文本记录的属性，可以记录下修改的值，比如加或减一个数，撤销就是减或加回来<br>正解应该是<a href="https://www.jianshu.com/p/7747f574d53b" target="_blank" rel="noopener">命令模式</a></p>
@@ -1491,6 +1494,11 @@ height:50vh;
 </tr>
 <tr>
 <td></td>
+<td>中金 中信 中信建投 华泰</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
 <td>广发证券</td>
 <td></td>
 </tr>
@@ -1743,7 +1751,7 @@ height:50vh;
             <p>原文作者：<a href="">Ty</a>
             <p>原文链接：<a href="/2019/09/16/校招学习笔记/">/2019/09/16/校招学习笔记/</a>
             <p>发表日期：<a href="/2019/09/16/校招学习笔记/">September 16th 2019, 4:41:40 pm</a>
-            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">November 13th 2020, 9:38:57 pm</a>
+            <p>更新日期：<a href="/2019/09/16/校招学习笔记/">January 6th 2021, 12:42:54 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1909,12 +1917,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -2527,9 +2529,21 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
-    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="boost"><span class="iconfont-archer">&#xe606;</span>boost</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
+    
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
     
         <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
     
@@ -2541,29 +2555,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Sergey Levine"><span class="iconfont-archer">&#xe606;</span>Sergey Levine</span>
     
-        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
-    
-        <span class="sidebar-tag-name" data-tags="boost"><span class="iconfont-archer">&#xe606;</span>boost</span>
-    
-        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
-    
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
-    
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
         <span class="sidebar-tag-name" data-tags="ECS"><span class="iconfont-archer">&#xe606;</span>ECS</span>
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
-    
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
-    
-        <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
-    
-        <span class="sidebar-tag-name" data-tags="线上课程"><span class="iconfont-archer">&#xe606;</span>线上课程</span>
     
         <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
     
@@ -2581,6 +2577,22 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
+        <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
+    
+        <span class="sidebar-tag-name" data-tags="线上课程"><span class="iconfont-archer">&#xe606;</span>线上课程</span>
+    
+        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
+    
+        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
+    
+        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
+    
+        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
+    
+        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
+    
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
@@ -2588,20 +2600,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
     
         <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
-    
-        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
-    
-        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
-    
-        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
-    
-        <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
-    
-        <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
@@ -2611,6 +2609,14 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
+        <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
+    
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
         <span class="sidebar-tag-name" data-tags="WindowsApp"><span class="iconfont-archer">&#xe606;</span>WindowsApp</span>
@@ -2619,21 +2625,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
+        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
+    
+        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
         <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
-    
-        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
-    
-        <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
     
         <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
         <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="智能指针"><span class="iconfont-archer">&#xe606;</span>智能指针</span>
-    
-        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
-    
-        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
     
         <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
@@ -2647,19 +2649,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
     
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
-    
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
         <span class="sidebar-tag-name" data-tags="随机数"><span class="iconfont-archer">&#xe606;</span>随机数</span>
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+    
+        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
+    
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
         <span class="sidebar-tag-name" data-tags="文献综述"><span class="iconfont-archer">&#xe606;</span>文献综述</span>
-    
-        <span class="sidebar-tag-name" data-tags="刷题"><span class="iconfont-archer">&#xe606;</span>刷题</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
