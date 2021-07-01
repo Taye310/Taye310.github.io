@@ -10,9 +10,9 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
     <meta name="author" content="Ty">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="Ty">
@@ -20,21 +20,8 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="记录我的生活">
-    <meta name="description" content="目录arXiv检索  1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎 1812.01742 单一视角的三维重建，使用对抗训练（非人 1812.05583 基于学习的ICP（迭代最近点算法）重构场景（非人 1812.07603 通过视频素材的面部模型学习 1812.05806 自我监督的引导方法，单图片的三维人脸重建 1812.02822 学习生成模型的隐藏区域（非人 190">
-<meta name="keywords" content="3D model reconstruction,文献综述">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于三维重建的文献综述">
-<meta property="og:url" content="/2019/01/04/关于三维重建的文献综述/index.html">
-<meta property="og:site_name" content="Providence&#39;s blog">
-<meta property="og:description" content="目录arXiv检索  1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎 1812.01742 单一视角的三维重建，使用对抗训练（非人 1812.05583 基于学习的ICP（迭代最近点算法）重构场景（非人 1812.07603 通过视频素材的面部模型学习 1812.05806 自我监督的引导方法，单图片的三维人脸重建 1812.02822 学习生成模型的隐藏区域（非人 190">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2021-01-06T04:42:54.842Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于三维重建的文献综述">
-<meta name="twitter:description" content="目录arXiv检索  1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎 1812.01742 单一视角的三维重建，使用对抗训练（非人 1812.05583 基于学习的ICP（迭代最近点算法）重构场景（非人 1812.07603 通过视频素材的面部模型学习 1812.05806 自我监督的引导方法，单图片的三维人脸重建 1812.02822 学习生成模型的隐藏区域（非人 190">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>关于三维重建的文献综述 · Providence&#39;s blog</title>
     <style type="text/css">
     @font-face {
@@ -88,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -200,12 +187,12 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href="/assets/favicon.ico">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js" as="script">
-    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin="">
-    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin="">
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
     <!-- fancybox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
@@ -222,9 +209,13 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA1313915351', 'auto');
         ga('send', 'pageview');
-    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </script>
     
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
     
         <body class="post-body">
@@ -298,7 +289,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">13.5k</span>阅读时长: <span class="post-count reading-time">55 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">13.7k</span>阅读时长: <span class="post-count reading-time">56 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -426,9 +417,8 @@ height:50vh;
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
             <main class="main post-page">
-    
     <article class="article-entry">
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv检索</a></p>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/">arXiv检索</a></p>
 <ol>
 <li>1812.10558 通过视频素材实现从2d到3d的面部重建来完成测谎</li>
 <li>1812.01742 单一视角的三维重建，使用对抗训练（非人</li>
@@ -448,36 +438,36 @@ height:50vh;
 <li>使用affinity field的实时多人二维姿态估计</li>
 </ul>
 <h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><h2 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h2><p><strong>关于三维重建</strong><br>单个图像进行三维重建的数据驱动方法：一是明确使用三维结构，二是使用其他信息推断三维结构<br>2DImage—&gt;encoder—&gt;latent representation—&gt;decoder—&gt;3DObject<br>不同方法区别在于对三维世界采取的<strong>限制</strong>：多视图一致性学习三维表示、利用关键点和轮廓注释、利用2.5D草图（法线，深度和轮廓）改善预测  </p>
-<p>encoder-decoder的<a href="https://blog.csdn.net/chinabing/article/details/78763454" target="_blank" rel="noopener">含义</a></p>
+<p>encoder-decoder的<a target="_blank" rel="noopener" href="https://blog.csdn.net/chinabing/article/details/78763454">含义</a></p>
 <p><strong>关于shape priors</strong><br>许多方法选择更好的捕捉多样的真实形状<br><strong>non-deep方法</strong>关注低维参数模型，使用CNN来学习2D渲染图像和3D形状的<strong>共同嵌入空间</strong><br>其他方法依赖<strong>生成模型</strong>去学习shape priors</p>
-<h2 id="博客链接"><a href="#博客链接" class="headerlink" title="博客链接"></a>博客链接</h2><p><a href="https://blog.csdn.net/yyyllla/article/details/84573393" target="_blank" rel="noopener">3D人脸重建学习笔记CSDN</a><br><a href="https://www.jianshu.com/p/f33b3d440f7d" target="_blank" rel="noopener">3D重建的学习笔记简书</a></p>
+<h2 id="博客链接"><a href="#博客链接" class="headerlink" title="博客链接"></a>博客链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yyyllla/article/details/84573393">3D人脸重建学习笔记CSDN</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f33b3d440f7d">3D重建的学习笔记简书</a></p>
 <h2 id="Learning-Single-View-3D-Reconstruction-with-Adversarial-Training-1812-01742"><a href="#Learning-Single-View-3D-Reconstruction-with-Adversarial-Training-1812-01742" class="headerlink" title="Learning Single-View 3D Reconstruction with Adversarial Training 1812.01742"></a>Learning Single-View 3D Reconstruction with Adversarial Training 1812.01742</h2><p>传统方法用多个角度的多张照片实现三维建模<br>问题两个：一是需要大量的观察点；二是物体表面是<em>Lambertian</em>（非反射）albedos是非均匀的<br>另一种三维重建的方式是利用物体外观和形状的知识从单视图二维图像生成（假设shape priors足够丰富）<br>CAD库（computer-aided design）：<u>shapenet，pascal3d+，objectnet3d，pix3d</u>  </p>
 <p>这些方法都从渲染的图像中回归三维形状：将二位图像转化成潜在表示的<strong>编码器</strong> 以及 重建三维表示的<strong>解码器</strong><br>为了学习shape priors深度学习算法需要大量的三维对象注释，自然图像中获取三维注释很有挑战，因此使用合成图像（三维模型渲染出的图像）<br>CNN的<u>domain shift</u>问题，导致基于cnn的三维重建性能恶化  </p>
 <p>这篇文章的方法：提高重建模型性能，为了实现获取三维物体标签，他们shape priors训练出的网络有个<strong>重建损失值</strong>，给这个值引入了两个限制<br>一是受domain shift文献启示，强制让编码的二维特征不变，对应于他们所来自的domain。这样合成图像训练出的编码器在真实图像上表现更好<br>二是将编码的二维特征限制在现实物体的多种形状之中，通过对抗训练定义这两个损失值<br>总结：一个<strong>模型</strong>和<strong>损失函数</strong>，利用shape priors提高自然图像三维重建性能（两种方式使用对抗训练）<br>reconstruction adversarial network(RAN)<br><strong>只使用rgb图像信息</strong>，和易于获取的自然图像。独立于编码器和解码器，并且可以使用到其中<br>借鉴了domain confusion（作用是classification），为了让从合成图像里训练出来的模型在真实图像这边有更好的表现  </p>
 <p>具体方法：todo</p>
 <h2 id="通过直接体积cnn回归从单图重建大范围三维人脸"><a href="#通过直接体积cnn回归从单图重建大范围三维人脸" class="headerlink" title="通过直接体积cnn回归从单图重建大范围三维人脸"></a>通过直接体积cnn回归从单图重建大范围三维人脸</h2><p>目前三维人脸重建的方法多假定有多张面部图片可以使用，这使得重建面临方法上的挑战：在夸张的表情、不均匀光照上建立稠密对应关系<br>这些方法需要复杂低效的管道构建模型，拟合模型。本文建议通过在由2D图像和3D面部模型或扫描组成的适当数据集上训练卷积神经网络<br>（CNN）来解决这些限制</p>
 <h2 id="Extreme-3D-Face-Reconstruction-Seeing-Through-Occlusions-极端3D面部重建：遮挡透视（讲）"><a href="#Extreme-3D-Face-Reconstruction-Seeing-Through-Occlusions-极端3D面部重建：遮挡透视（讲）" class="headerlink" title="Extreme 3D Face Reconstruction: Seeing Through Occlusions 极端3D面部重建：遮挡透视（讲）"></a>Extreme 3D Face Reconstruction: Seeing Through Occlusions 极端3D面部重建：遮挡透视（讲）</h2><p>bumpingmapping概念的推动下，该文提出了一种分层方法。将全局形状与其中细节进行解耦。估计粗糙的3d面部形状为基础，然后将此基础与凹凸贴图表示的细节分开。<br>与本文相关的工作：<br>    reconstruction by example 这类方法用三维脸部形状去调整根据输入图片估计出的模型，降低了观看条件却损失了真实度与准确性<br>    face shape from facial landmarks 这类方法稳定但是模型都差不多，没有细节，而且不清楚遮挡landmark的情况下表现会如何<br>    SfS <em>Shape-From-shading</em> 根据光反射生成细节丰富的模型，但是受环境影响严重，需要满足其对环境的特殊要求。任何遮挡物都会生成到模型中<br>    statistical representations 最著名的方法是3DMM，这篇文改进了这个方法直接根据图片强度信息用cnn回归3DMM的参数和面部细节<br>    deep face shape estimation 深度网络一是直接用深度图重建，二是estimate 3D shapes with anemphasis on unconstrained photo 观察条件高度不变但是细节模糊  </p>
-<p><strong>准备工作</strong><br>矛盾：整体形状的高度正则化vs细节的弱正则化。解决方法：bump map representations which separate global shape from local details<br>    理解的正则化：使模型更有普适性，低正则化是让模型有更多细节、更有特点，反之是让模型更接近普适的规则（每个模型都有一只鼻子一张嘴两只眼睛）<br>给一张图片建立以下几个部分：基础形状——S，面部表情——E，6维度的自由视点——V。接下来是bump map捕捉中级特征（皱纹等非参数的），最后完成因遮挡丢失的细节。<br><strong>添加细节</strong><br>基础形状使用3DMM，3DMM用了resnet的101层网络架构。表情部分由3DDFA提供，更新的有expnet。确定视点用了deep，facepostnet。<br>中等程度细节：image to bump map，修复遮挡细节，基于软对称的模型完善。<br><a href="http://vis-www.cs.umass.edu/lfw/" target="_blank" rel="noopener">LFW验证</a></p>
+<p><strong>准备工作</strong><br>矛盾：整体形状的高度正则化vs细节的弱正则化。解决方法：bump map representations which separate global shape from local details<br>    理解的正则化：使模型更有普适性，低正则化是让模型有更多细节、更有特点，反之是让模型更接近普适的规则（每个模型都有一只鼻子一张嘴两只眼睛）<br>给一张图片建立以下几个部分：基础形状——S，面部表情——E，6维度的自由视点——V。接下来是bump map捕捉中级特征（皱纹等非参数的），最后完成因遮挡丢失的细节。<br><strong>添加细节</strong><br>基础形状使用3DMM，3DMM用了resnet的101层网络架构。表情部分由3DDFA提供，更新的有expnet。确定视点用了deep，facepostnet。<br>中等程度细节：image to bump map，修复遮挡细节，基于软对称的模型完善。<br><a target="_blank" rel="noopener" href="http://vis-www.cs.umass.edu/lfw/">LFW验证</a></p>
 <p>PPT用：<br>目的：现有单图三维重建局限性很高，必须在正前方、距离近、无阻挡的视点，该文设计了一种用于在极端条件下提供细节丰富的面部三维重建模型的系统。极端条件包括，头部旋转以及遮挡<br>方法：简单讲步骤，关键的创新点，值得学习的点后边会细说。<br>总的来说：先创建面部整体的基础形状，与局部细节分开，在基础形状之上建立中等程度的面部特征。这样做可以保证极端条件下整体面部形状的稳定性。其他较新的方法往往用局部细节构建整体形状。<br> 构建基础形状s，构建面部表情e，构建视点v：<em>凹凸图可以分离整体形状和局部细节</em><br>这仨东西分别是干什么用的：<em>基础形状使用3DMM，3DMM用了resnet的101层网络架构。表情部分由3DDFA提供，更新的有expnet。确定视点用了deep，facepostnet。</em><br>image to bump map转换<br>凹凸图训练集：用深度编码-解码框架生成凹凸图<br>学习建立凹凸图：定义了自己的网络损失函数，可以在不牺牲高频细节的情况下抑制噪声<br>还原遮挡细节<br>给予范例的空洞填充方法<br>搜索参考集<br>混合细节<br>更复杂的修补<br>基于软对称的模型补全  </p>
 <p>贡献：解决<strong>对foundation的高度正则化</strong> VS <strong>对detail的低正则化</strong> 两者的矛盾  </p>
-<p>注：<br>    bump map使用灰度值来提供高度信息，normal map使用xyz轴所对应的rgb信息<br>    <a href="https://github.com/vdumoulin/conv_arithmetic" target="_blank" rel="noopener">卷积与反卷积</a></p>
-<p>跑demo流程：<br>    NVIDIA-docker启动container，如果跑代码没有driver重新run一个，用readme里的run命令。<br>    之后会出现860m只支持cuda5.0的报错，需要<a href="https://github.com/pytorch/pytorch#from-source" target="_blank" rel="noopener">从源码编译pytorch</a>。首先docker里装anaconda<br>        wget <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2018.12-Linux-x86_64.sh" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2018.12-Linux-x86_64.sh</a><br>        应该不用在docker里装cuda和cudnn，直接安装pytorch的依赖然后安装pytorch应该就可以<br>        在1080上不会出现上边的报错，完全按照README走就行。</p>
+<p>注：<br>    bump map使用灰度值来提供高度信息，normal map使用xyz轴所对应的rgb信息<br>    <a target="_blank" rel="noopener" href="https://github.com/vdumoulin/conv_arithmetic">卷积与反卷积</a></p>
+<p>跑demo流程：<br>    NVIDIA-docker启动container，如果跑代码没有driver重新run一个，用readme里的run命令。<br>    之后会出现860m只支持cuda5.0的报错，需要<a target="_blank" rel="noopener" href="https://github.com/pytorch/pytorch#from-source">从源码编译pytorch</a>。首先docker里装anaconda<br>        wget <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2018.12-Linux-x86_64.sh">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2018.12-Linux-x86_64.sh</a><br>        应该不用在docker里装cuda和cudnn，直接安装pytorch的依赖然后安装pytorch应该就可以<br>        在1080上不会出现上边的报错，完全按照README走就行。</p>
 <p><a href="extreme_3d_face.pptx">PPT</a></p>
-<iframe src="https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/extreme_3d_face.pptx" width="800" height="600" frameborder="1"></iframe>
+<iframe src='https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/extreme_3d_face.pptx' width=800 height=600 frameborder='1'></iframe>
 
 <h2 id="Learning-to-Estimate-3D-Human-Pose-and-Shape-from-a-Single-Color-Image-讲-DOI-10-1109-CVPR-2018-00055"><a href="#Learning-to-Estimate-3D-Human-Pose-and-Shape-from-a-Single-Color-Image-讲-DOI-10-1109-CVPR-2018-00055" class="headerlink" title="Learning to Estimate 3D Human Pose and Shape from a Single Color Image(讲) DOI:10.1109/CVPR.2018.00055"></a>Learning to Estimate 3D Human Pose and Shape from a Single Color Image(讲) DOI:10.1109/CVPR.2018.00055</h2><p>SCAPE:  shape  completion  and  animationof people<br>SMPL: A skinned multi-person linear model<br>SMPL是一种参数化人体模型，与非参数化模型的区别在于，参数化的可以用函数映射的方式表达出来，或者说是可以解析的？非参数化则认为是通过实验记录到的模型，不存在解析表达式。  </p>
-<p>Stacked Hourglass Networks<br><a href="https://blog.csdn.net/wangzi371312/article/details/81174452" target="_blank" rel="noopener">资料一</a><br><a href="https://blog.csdn.net/shenxiaolu1984/article/details/51428392" target="_blank" rel="noopener">资料二</a></p>
-<p><a href="https://blog.csdn.net/dengheCSDN/article/details/77848246" target="_blank" rel="noopener">feature map</a><br>channel:<br>卷积核个数、特征图个数、通道个数关系</p>
+<p>Stacked Hourglass Networks<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangzi371312/article/details/81174452">资料一</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/shenxiaolu1984/article/details/51428392">资料二</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dengheCSDN/article/details/77848246">feature map</a><br>channel:<br>卷积核个数、特征图个数、通道个数关系</p>
 <p><a href="Learning to Estimate 3D Human Pose and Shape from a Single Color Image.pptx">PPT</a></p>
-<iframe src="https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/Learning to Estimate 3D Human Pose and Shape from a Single Color Image.pptx" width="800" height="600" frameborder="1"></iframe>
+<iframe src='https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/Learning to Estimate 3D Human Pose and Shape from a Single Color Image.pptx' width=800 height=600 frameborder='1'></iframe>
 
 <h2 id="O-CNN-Octree-based-Convolutional-Neural-Networks-for-3D-Shape-Analysis"><a href="#O-CNN-Octree-based-Convolutional-Neural-Networks-for-3D-Shape-Analysis" class="headerlink" title="O-CNN: Octree-based Convolutional Neural Networks for 3D Shape Analysis"></a>O-CNN: Octree-based Convolutional Neural Networks for 3D Shape Analysis</h2><p>还有adaptive o-cnn<br>The main technical challenge of the O-CNN is to parallelize the O-CNN computations defined on the sparse octants so that they can be efficiently executed on the GPU<br>We train this O-CNN model with 3D shape datasets and refine the O-CNN models with different back-ends for three shape analysis tasks, including object classification, shape retrieval, and shape segmentation.</p>
 <h2 id="Pixel2Mesh（讲）"><a href="#Pixel2Mesh（讲）" class="headerlink" title="Pixel2Mesh（讲）"></a>Pixel2Mesh（讲）</h2><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>编译tensorflow math_functions.hpp找不到。需要软链接这个玩意<br>ln -s /usr/local/cuda/include/crt/math_functions.hpp /usr/local/cuda/include/math_functions.hpp  </p>
-<p>关于eigen和cuda<a href="https://blog.csdn.net/O1_1O/article/details/80066236" target="_blank" rel="noopener">资料</a><br>makefile怎么写。<br>hdf5 HDF（Hierarchical Data Format）是一种设计用于存储和组织大量数据的文件格式</p>
-<p><strong>CUDACC_VER</strong> is no longer supported.的报错看来要更新<a href="https://blog.csdn.net/luojie140/article/details/80159227" target="_blank" rel="noopener">eigen3</a>才能解决<br>github上新版eigen考到anaconda的eigen和support里就可以成功编译cuda了</p>
-<p>图卷积神经网络<a href="http://tkipf.github.io/graph-convolutional-networks/" target="_blank" rel="noopener">资料</a><br>图卷积神经网络<a href="https://cloud.tencent.com/developer/news/330322" target="_blank" rel="noopener">材料</a><br><strong>所有的卷积都是在探讨如何对局部数据按照某一个操作聚合，不同的操作方式就对应于不同的卷积。</strong>学习卷积核的过程其实是学习局部聚合参数的过程</p>
+<p>关于eigen和cuda<a target="_blank" rel="noopener" href="https://blog.csdn.net/O1_1O/article/details/80066236">资料</a><br>makefile怎么写。<br>hdf5 HDF（Hierarchical Data Format）是一种设计用于存储和组织大量数据的文件格式</p>
+<p><strong>CUDACC_VER</strong> is no longer supported.的报错看来要更新<a target="_blank" rel="noopener" href="https://blog.csdn.net/luojie140/article/details/80159227">eigen3</a>才能解决<br>github上新版eigen考到anaconda的eigen和support里就可以成功编译cuda了</p>
+<p>图卷积神经网络<a target="_blank" rel="noopener" href="http://tkipf.github.io/graph-convolutional-networks/">资料</a><br>图卷积神经网络<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/news/330322">材料</a><br><strong>所有的卷积都是在探讨如何对局部数据按照某一个操作聚合，不同的操作方式就对应于不同的卷积。</strong>学习卷积核的过程其实是学习局部聚合参数的过程</p>
 <p><a href="pixel2mesh.pptx">PPT</a></p>
-<iframe src="https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/pixel2mesh.pptx" width="800" height="600" frameborder="1"></iframe>
+<iframe src='https://view.officeapps.live.com/op/view.aspx?src=https://taye310.github.io/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/pixel2mesh.pptx' width=800 height=600 frameborder='1'></iframe>
 
 <h2 id="SMPL-A-Skinned-Multi-Person-Linear-Model-多篇基础，15年"><a href="#SMPL-A-Skinned-Multi-Person-Linear-Model-多篇基础，15年" class="headerlink" title="SMPL: A Skinned Multi-Person Linear Model(多篇基础，15年)"></a>SMPL: A Skinned Multi-Person Linear Model(多篇基础，15年)</h2><h2 id="Video-Based-Reconstruction-of-3D-People-Models-讲，没用网络-DOI-10-1109-CVPR-2018-00875-video2mesh"><a href="#Video-Based-Reconstruction-of-3D-People-Models-讲，没用网络-DOI-10-1109-CVPR-2018-00875-video2mesh" class="headerlink" title="Video Based Reconstruction of 3D People Models(讲，没用网络) DOI:10.1109/CVPR.2018.00875 (video2mesh)"></a>Video Based Reconstruction of 3D People Models(讲，没用网络) DOI:10.1109/CVPR.2018.00875 (video2mesh)</h2><p>第五页第一张图解决了人体非刚性的问题<br>但是问题在于人必须转身后摆出相同的姿势 不允许姿势变化<br>第二张图 可以随意动 不同时刻的深度图非张性的注册并融合到一个template上<br>存在 phantom surface的问题 运动的快会四肢胳膊 两个头<br>第三个 加了一个static的人体模型作为约束 运动速度可以更快  </p>
 <p>第一个使用rgb相机 并且支持用户运动的重建方法<br>主要思想 和visual hull相似 不同角度拍摄剪影进行重建<br>visual hull的基本原理 几个角度拍摄 分割出前景得到silhouette<br>然后从相机坐标到silhouette的每一个点可以做一条射线 形成的曲面成为silhouette cone<br>用这些cone作为约束就可以重建出三维模型 可以类比为雕刻的过程<br>去掉cone之外的部分 最终剩下的部分就是人体的形状  </p>
@@ -485,7 +475,7 @@ height:50vh;
 <p>使用的人体的三维表达：smpl 参数化模型 T是template的mean shape，Bs是体型变化造成的模型变化<br>Bp是pose的变化带来的变化<br>问题在于没有办法model衣服头发面部特征 基础上加了D offset用于表达smpl表达不了的信息  </p>
 <p>四个步骤<br>1 前景分割 获取silhouette cone， tracking获取人体模型的姿态<br>2 利用pose信息做unpose操作 转到Tpose姿态下<br>3 人体重建 包含衣服 头发 人脸的人体模型<br>4 多视角图像生成人体贴图  </p>
 <p>1 基于cnn的方法 2d drawn detection 图像分割的方法 前景分割生成silhouette<br>优化第12页的能量函数 进行pose tracking //简单来说就是求最优的pose和shape的参数 和模型匹配到检测到的<br>2d drawn detection和silhouette上//<br>2 第一步得到的cone进行unpose 每一条射线进行unpose转到canonical pose下<br>//两个数学表达式 射线的转换//<br>任何一点vi 和 任何一条射线ri<br>3 利用unpose后的cone做三维重建 称为consensus shape，相比较SMPL/视频表现出的是可以对衣服进行重建<br>过程可以通过优化一个能量公式实现<br>Edata：模型上的点到unpose ray的距离<br>三个正则项：lap保证局部光滑，body保证重建出的与smpl差距不大，symm保证左右对称<br>4 有了几何信息后 生成appearance信息 生成texture map 第一步有每一帧的pose，精确的将模型覆盖到图像上<br>通过//重投影获得贴图//  </p>
-<p>用sfs（之前的文章有提到）可以提供更多细节，本文方法可以提高的地方<br>对<strong>能量函数</strong>的理解：构建能量函数就是我们用方程的最小值来描述我们想要达到的实际效果。<a href="https://blog.csdn.net/a6333230/article/details/80070586" target="_blank" rel="noopener">资料</a></p>
+<p>用sfs（之前的文章有提到）可以提供更多细节，本文方法可以提高的地方<br>对<strong>能量函数</strong>的理解：构建能量函数就是我们用方程的最小值来描述我们想要达到的实际效果。<a target="_blank" rel="noopener" href="https://blog.csdn.net/a6333230/article/details/80070586">资料</a></p>
 <p>第一步最费时间 一帧一分钟 model和silhouette的匹配费时间<br>穿裙子解决不了 改变不了smplmodel的拓扑结构 拉不过去<br>基于cnn的分割已经接近于完美了 用的别人的方法 不是重点<br>给纹理图上色：consensus shape 结合第一步的pose 精确匹配到每一帧的图像上 back projection  </p>
 
 
@@ -496,22 +486,22 @@ height:50vh;
 
 
 <p><a href="videobasedreconstructionof3dpeoplemodelsGAMES201850徐维鹏.pdf">ppt</a></p>
-<h2 id="Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera（2019-4video2mesh延伸论文，同一实验室）octopus"><a href="#Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera（2019-4video2mesh延伸论文，同一实验室）octopus" class="headerlink" title="Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）octopus"></a>Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）octopus</h2><p>安装dirt遇到的问题：<a href="https://github.com/pmh47/dirt/issues/23" target="_blank" rel="noopener">https://github.com/pmh47/dirt/issues/23</a><br>已经尝试过cuda10.1/10.0/9.2 cudnn都是对应版本，tensorflow单独测试成功<br>更改gcc/g++版本：<a href="https://blog.csdn.net/u012925946/article/details/84584830" target="_blank" rel="noopener">https://blog.csdn.net/u012925946/article/details/84584830</a></p>
+<h2 id="Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera（2019-4video2mesh延伸论文，同一实验室）octopus"><a href="#Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera（2019-4video2mesh延伸论文，同一实验室）octopus" class="headerlink" title="Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）octopus"></a>Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）octopus</h2><p>安装dirt遇到的问题：<a target="_blank" rel="noopener" href="https://github.com/pmh47/dirt/issues/23">https://github.com/pmh47/dirt/issues/23</a><br>已经尝试过cuda10.1/10.0/9.2 cudnn都是对应版本，tensorflow单独测试成功<br>更改gcc/g++版本：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012925946/article/details/84584830">https://blog.csdn.net/u012925946/article/details/84584830</a></p>
 <p>最终安装dirt解决方法是：<br>ubuntu 18.04，cuda 8.0，cudnn 6.0，tf 1.4.0，driver 396.54<br>注意conda install 的 cudatoolkit和cudnn不能取代本机安装的cuda和cudnn，也就是说本机要安cuda，cudnn，conda装tf时要装cudatoolkit，cudnn  </p>
 <p>先装tensorflow再装-gpu 才能启用gpu 前者版本不能比后者高，libcudnn.so.x报错需要在conda里安装tf，tf-gpu。注意版本匹配</p>
-<p>跑Octopus的实验时需要<br>scipy&gt;=1.0.0<br>numpy&gt;=1.16<br>Keras&gt;=2.2.0<br>tensorflow_gpu&gt;=1.11.0<br>dirt<br>否则会报：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">(video2mesh) ty@ty-GE60-2PF:~/repos/octopus$ bash run_batch_demo.sh </span><br><span class="line">Using TensorFlow backend.</span><br><span class="line">2019-05-29 15:18:24.784883: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA</span><br><span class="line">2019-05-29 15:18:24.835566: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node <span class="built_in">read</span> from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero</span><br><span class="line">2019-05-29 15:18:24.835835: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: </span><br><span class="line">name: GeForce GTX 860M major: 5 minor: 0 memoryClockRate(GHz): 1.0195</span><br><span class="line">pciBusID: 0000:01:00.0</span><br><span class="line">totalMemory: 1.96GiB freeMemory: 1.08GiB</span><br><span class="line">2019-05-29 15:18:24.835855: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -&gt; (device: 0, name: GeForce GTX 860M, pci bus id: 0000:01:00.0, compute capability: 5.0)</span><br><span class="line">Processing sample...</span><br><span class="line">&gt; Optimizing <span class="keyword">for</span> pose...</span><br><span class="line">  0%|          | 0/10 [00:00&lt;?, ?it/s]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"infer_batch.py"</span>, line 87, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    main(args.weights, args.num, args.batch_file, args.opt_steps_pose, args.opt_steps_shape)</span><br><span class="line">  File <span class="string">"infer_batch.py"</span>, line 46, <span class="keyword">in</span> main</span><br><span class="line">    model.opt_pose(segmentations, joints_2d, opt_steps=opt_pose_steps)</span><br><span class="line">  File <span class="string">"/home/ty/repos/octopus/model/octopus.py"</span>, line 290, <span class="keyword">in</span> opt_pose</span><br><span class="line">    callbacks=[LambdaCallback(on_batch_end=lambda e, l: pbar.update(1))]</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/engine/training.py"</span>, line 1010, <span class="keyword">in</span> fit</span><br><span class="line">    self._make_train_function()</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/engine/training.py"</span>, line 509, <span class="keyword">in</span> _make_train_function</span><br><span class="line">    loss=self.total_loss)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/legacy/interfaces.py"</span>, line 91, <span class="keyword">in</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> func(*args, **kwargs)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/optimizers.py"</span>, line 475, <span class="keyword">in</span> get_updates</span><br><span class="line">    grads = self.get_gradients(loss, params)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/optimizers.py"</span>, line 89, <span class="keyword">in</span> get_gradients</span><br><span class="line">    grads = K.gradients(loss, params)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py"</span>, line 2757, <span class="keyword">in</span> gradients</span><br><span class="line">    <span class="built_in">return</span> tf.gradients(loss, variables, colocate_gradients_with_ops=True)</span><br><span class="line">  File <span class="string">"/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/tensorflow/python/ops/gradients_impl.py"</span>, line 555, <span class="keyword">in</span> gradients</span><br><span class="line">    (op.name, op.type))</span><br><span class="line">LookupError: No gradient defined <span class="keyword">for</span> operation <span class="string">'smpl_body25face_layer_1_7/smpl_main/Svd'</span> (op <span class="built_in">type</span>: Svd)</span><br></pre></td></tr></table></figure></p>
-<p>显卡驱动还崩了 用ubuntu自带的怎么切驱动nvidia-smi都会报一行错<br>NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed<br>and running.<br>然后切不懂了卡在390 有这个问题<a href="https://askubuntu.com/questions/1035409/installing-nvidia-drivers-on-18-04" target="_blank" rel="noopener">https://askubuntu.com/questions/1035409/installing-nvidia-drivers-on-18-04</a>  </p>
-<p>2019.6.4 <a href="https://github.com/pmh47/dirt/issues/6" target="_blank" rel="noopener">https://github.com/pmh47/dirt/issues/6</a> dirt inside cmakecache.txt add -DNDEBUG to CMAKE_CUDA_FLAGS:STRING</p>
-<p><a href="https://github.com/pmh47/dirt/issues/23" target="_blank" rel="noopener">https://github.com/pmh47/dirt/issues/23</a><br>tensorflow.python.framework.errors_impl.NotFoundError: /home/ty/repos/dirt/dirt/librasterise.so: undefined symbol: _ZN10tensorflow12OpDefBuilder4AttrESs</p>
+<p>跑Octopus的实验时需要<br>scipy&gt;=1.0.0<br>numpy&gt;=1.16<br>Keras&gt;=2.2.0<br>tensorflow_gpu&gt;=1.11.0<br>dirt<br>否则会报：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">(video2mesh) ty@ty-GE60-2PF:~/repos/octopus$ bash run_batch_demo.sh </span><br><span class="line">Using TensorFlow backend.</span><br><span class="line">2019-05-29 15:18:24.784883: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA</span><br><span class="line">2019-05-29 15:18:24.835566: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node <span class="built_in">read</span> from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero</span><br><span class="line">2019-05-29 15:18:24.835835: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: </span><br><span class="line">name: GeForce GTX 860M major: 5 minor: 0 memoryClockRate(GHz): 1.0195</span><br><span class="line">pciBusID: 0000:01:00.0</span><br><span class="line">totalMemory: 1.96GiB freeMemory: 1.08GiB</span><br><span class="line">2019-05-29 15:18:24.835855: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -&gt; (device: 0, name: GeForce GTX 860M, pci bus id: 0000:01:00.0, compute capability: 5.0)</span><br><span class="line">Processing sample...</span><br><span class="line">&gt; Optimizing <span class="keyword">for</span> pose...</span><br><span class="line">  0%|          | 0/10 [00:00&lt;?, ?it/s]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;infer_batch.py&quot;</span>, line 87, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    main(args.weights, args.num, args.batch_file, args.opt_steps_pose, args.opt_steps_shape)</span><br><span class="line">  File <span class="string">&quot;infer_batch.py&quot;</span>, line 46, <span class="keyword">in</span> main</span><br><span class="line">    model.opt_pose(segmentations, joints_2d, opt_steps=opt_pose_steps)</span><br><span class="line">  File <span class="string">&quot;/home/ty/repos/octopus/model/octopus.py&quot;</span>, line 290, <span class="keyword">in</span> opt_pose</span><br><span class="line">    callbacks=[LambdaCallback(on_batch_end=lambda e, l: pbar.update(1))]</span><br><span class="line">  File <span class="string">&quot;/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/engine/training.py&quot;</span>, line 1010, <span class="keyword">in</span> fit</span><br><span class="line">    self._make_train_function()</span><br><span class="line">  File <span class="string">&quot;/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/engine/training.py&quot;</span>, line 509, <span class="keyword">in</span> _make_train_function</span><br><span class="line">    loss=self.total_loss)</span><br><span class="line">  File <span class="string">&quot;/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/legacy/interfaces.py&quot;</span>, line 91, <span class="keyword">in</span> wrapper</span><br><span class="line">    <span class="built_in">return</span> func(*args, **kwargs)</span><br><span class="line">  File <span class="string">&quot;/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/optimizers.py&quot;</span>, line 475, <span class="keyword">in</span> get_updates</span><br><span class="line">    grads = self.get_gradients(loss, params)</span><br><span class="line">  File <span class="string">&quot;/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/optimizers.py&quot;</span>, line 89, <span class="keyword">in</span> get_gradients</span><br><span class="line">    grads = K.gradients(loss, params)</span><br><span class="line">  File <span class="string">&quot;/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py&quot;</span>, line 2757, <span class="keyword">in</span> gradients</span><br><span class="line">    <span class="built_in">return</span> tf.gradients(loss, variables, colocate_gradients_with_ops=True)</span><br><span class="line">  File <span class="string">&quot;/home/ty/anaconda3/envs/video2mesh/lib/python2.7/site-packages/tensorflow/python/ops/gradients_impl.py&quot;</span>, line 555, <span class="keyword">in</span> gradients</span><br><span class="line">    (op.name, op.type))</span><br><span class="line">LookupError: No gradient defined <span class="keyword">for</span> operation <span class="string">&#x27;smpl_body25face_layer_1_7/smpl_main/Svd&#x27;</span> (op <span class="built_in">type</span>: Svd)</span><br></pre></td></tr></table></figure></p>
+<p>显卡驱动还崩了 用ubuntu自带的怎么切驱动nvidia-smi都会报一行错<br>NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed<br>and running.<br>然后切不懂了卡在390 有这个问题<a target="_blank" rel="noopener" href="https://askubuntu.com/questions/1035409/installing-nvidia-drivers-on-18-04">https://askubuntu.com/questions/1035409/installing-nvidia-drivers-on-18-04</a>  </p>
+<p>2019.6.4 <a target="_blank" rel="noopener" href="https://github.com/pmh47/dirt/issues/6">https://github.com/pmh47/dirt/issues/6</a> dirt inside cmakecache.txt add -DNDEBUG to CMAKE_CUDA_FLAGS:STRING</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pmh47/dirt/issues/23">https://github.com/pmh47/dirt/issues/23</a><br>tensorflow.python.framework.errors_impl.NotFoundError: /home/ty/repos/dirt/dirt/librasterise.so: undefined symbol: _ZN10tensorflow12OpDefBuilder4AttrESs</p>
 <p>should not use conda install tensorflow &amp; tensorflow-gpu, use pip install instead</p>
 <p>nvidia driver keeps the newest one.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(dirt) zhangtianyi@likun-ThinkStation:~/github/dirt$ python tests/square_test.py </span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"tests/square_test.py"</span>, line 4, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    import dirt</span><br><span class="line">  File <span class="string">"/home/zhangtianyi/github/dirt/dirt/__init__.py"</span>, line 2, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    from .rasterise_ops import rasterise, rasterise_batch, rasterise_deferred, rasterise_batch_deferred</span><br><span class="line">  File <span class="string">"/home/zhangtianyi/github/dirt/dirt/rasterise_ops.py"</span>, line 6, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    _rasterise_module = tf.load_op_library(_lib_path + <span class="string">'/librasterise.so'</span>)</span><br><span class="line">  File <span class="string">"/home/zhangtianyi/anaconda3/envs/dirt/lib/python2.7/site-packages/tensorflow/python/framework/load_library.py"</span>, line 61, <span class="keyword">in</span> load_op_library</span><br><span class="line">    lib_handle = py_tf.TF_LoadLibrary(library_filename)</span><br><span class="line">tensorflow.python.framework.errors_impl.NotFoundError: /home/zhangtianyi/github/dirt/dirt/librasterise.so: undefined symbol: _ZN10tensorflow12OpDefBuilder4AttrESs</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(dirt) zhangtianyi@likun-ThinkStation:~/github/dirt$ python tests/square_test.py </span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;tests/square_test.py&quot;</span>, line 4, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    import dirt</span><br><span class="line">  File <span class="string">&quot;/home/zhangtianyi/github/dirt/dirt/__init__.py&quot;</span>, line 2, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    from .rasterise_ops import rasterise, rasterise_batch, rasterise_deferred, rasterise_batch_deferred</span><br><span class="line">  File <span class="string">&quot;/home/zhangtianyi/github/dirt/dirt/rasterise_ops.py&quot;</span>, line 6, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    _rasterise_module = tf.load_op_library(_lib_path + <span class="string">&#x27;/librasterise.so&#x27;</span>)</span><br><span class="line">  File <span class="string">&quot;/home/zhangtianyi/anaconda3/envs/dirt/lib/python2.7/site-packages/tensorflow/python/framework/load_library.py&quot;</span>, line 61, <span class="keyword">in</span> load_op_library</span><br><span class="line">    lib_handle = py_tf.TF_LoadLibrary(library_filename)</span><br><span class="line">tensorflow.python.framework.errors_impl.NotFoundError: /home/zhangtianyi/github/dirt/dirt/librasterise.so: undefined symbol: _ZN10tensorflow12OpDefBuilder4AttrESs</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>成功安装后test时出现上边的问题 -d_glibcxx_use_cxx11_abi=0改成1 gcc/g++版本从4.9换到5重装dirt就好了</p>
 <p>总结：py2.7 tf1.13.2 cuda 显卡驱动装新的</p>
 <ol>
 <li>setup.py里的dependence去掉用conda装</li>
 <li>cmakelists.txt cmake_flag 加-d_glibcxx_use_cxx11_abi=1</li>
-<li>change CMakeLists.txt line5 into<br><code>find_package(OpenGL REQUIRED COMPONENTS OpenGL EGL)</code><br>comment line9<br>line53 into<br><code>target_link_libraries(rasterise OpenGL::OpenGL OpenGL::EGL ${Tensorflow_LINK_FLAGS})</code><br>As a hack, you can try directly linking the correct library: remove EGL from line 5 of CMakeLists (so FindOpenGL no longer searches for it), and at line 52, replace OpenGL::EGL by /usr/lib/nvidia-384/libEGL.so.1.1.0 </li>
+<li>change CMakeLists.txt line5 into<br><code>find_package(OpenGL REQUIRED COMPONENTS OpenGL EGL)</code><br>comment line9<br>line53 into<br><code>target_link_libraries(rasterise OpenGL::OpenGL OpenGL::EGL $&#123;Tensorflow_LINK_FLAGS&#125;)</code><br>As a hack, you can try directly linking the correct library: remove EGL from line 5 of CMakeLists (so FindOpenGL no longer searches for it), and at line 52, replace OpenGL::EGL by /usr/lib/nvidia-384/libEGL.so.1.1.0 </li>
 <li>cmake ../csrc -D_OPENGL_LIB_PATH=/usr/lib/nvidia-390. 对应驱动版本</li>
 <li>cmakecache.txt 加-dndebug</li>
 <li>make</li>
@@ -546,20 +536,20 @@ height:50vh;
 	</div>
 
 
-<br>三个数据集<a href="http://files.is.tuebingen.mpg.de/classner/up/" target="_blank" rel="noopener">UP-3D</a>,<br><a href="http://humaneva.is.tue.mpg.de/datasets_human_1" target="_blank" rel="noopener">HumanEva-I</a>,<br><a href="http://vision.imar.ro/human3.6m/description.php" target="_blank" rel="noopener">Human3.6M</a>  </p>
+<br>三个数据集<a target="_blank" rel="noopener" href="http://files.is.tuebingen.mpg.de/classner/up/">UP-3D</a>,<br><a target="_blank" rel="noopener" href="http://humaneva.is.tue.mpg.de/datasets_human_1">HumanEva-I</a>,<br><a target="_blank" rel="noopener" href="http://vision.imar.ro/human3.6m/description.php">Human3.6M</a>  </p>
 <p>up-3d有大量smpl形式的3d标注</p>
 <p>其他数据集：</p>
 <p><strong>HumanEva-I使用方法</strong>：<br>To be able to use HumanEva-I dataset you must do the following:<br>  Sing up and agree with the license or Login if you already have an account.<br>  Download the entire HumanEva-I dataset as either zip or tar archive depending on your system.<br>  Download critical HumanEva-I update and update the OFS files.<br>  Download the latest source code.<br>  (optional) Download background statistics<br>  (optional) Download the surface model for subject S4.   </p>
 <p>装matlab, XVID codec, DXAVI toolbox, Camera Calibration Toolbox for Matlab<br>给matlab指定了mingw作为c++编译器  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Undefined <span class="keyword">function</span> or variable <span class="string">'dxAviOpenMex'</span>.</span><br><span class="line"></span><br><span class="line">Error <span class="keyword">in</span> dxAviOpen (line 3)</span><br><span class="line">	[hdl, t] = dxAviOpenMex(fname);</span><br><span class="line"></span><br><span class="line">Error <span class="keyword">in</span> testDxAvi (line 4)</span><br><span class="line">[avi_hdl, avi_inf] = dxAviOpen([pathname, filename]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Undefined <span class="keyword">function</span> or variable <span class="string">&#x27;dxAviOpenMex&#x27;</span>.</span><br><span class="line"></span><br><span class="line">Error <span class="keyword">in</span> dxAviOpen (line 3)</span><br><span class="line">	[hdl, t] = dxAviOpenMex(fname);</span><br><span class="line"></span><br><span class="line">Error <span class="keyword">in</span> testDxAvi (line 4)</span><br><span class="line">[avi_hdl, avi_inf] = dxAviOpen([pathname, filename]);</span><br></pre></td></tr></table></figure>
 <p>运行mex_cmd出现</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F:\datasets\HumanEva-I\Release_Code_v1_1_beta\TOOLBOX_dxAvi\dxAviHelper.h:9:21: fatal error: atlbase.h: No such file or directory</span><br><span class="line"> <span class="comment">#include &lt;atlbase.h&gt;</span></span><br></pre></td></tr></table></figure>
-<p>应该是没有这个库的原因，有说是visual studio的库，打算装个vs2019 ATL库试试<br>matlab不支持2019 mex -setup -v可以看到指搜索到vs2017<br>所以装了vs2015，atlbase就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Building with <span class="string">'Microsoft Visual C++ 2015'</span>.</span><br><span class="line">Error using mex</span><br><span class="line">dxAviOpenMex.cpp</span><br><span class="line">BaseClasses\ctlutil.h(278): error C4430: missing <span class="built_in">type</span> specifier - int assumed. Note: C++ does not support default-int</span><br><span class="line">g:\grads\3dreconstruction\humaneva-i\release_code_v1_1_beta\toolbox_dxavi\dxAviHelper.h(15): fatal error C1083: Cannot open</span><br><span class="line">include file: <span class="string">'qedit.h'</span>: No such file or directory</span><br></pre></td></tr></table></figure></p>
-<p>原因在这里<a href="https://github.com/facebookresearch/VideoPose3D/blob/master/DATASETS.md" target="_blank" rel="noopener">link</a></p>
+<p>应该是没有这个库的原因，有说是visual studio的库，打算装个vs2019 ATL库试试<br>matlab不支持2019 mex -setup -v可以看到指搜索到vs2017<br>所以装了vs2015，atlbase就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Building with <span class="string">&#x27;Microsoft Visual C++ 2015&#x27;</span>.</span><br><span class="line">Error using mex</span><br><span class="line">dxAviOpenMex.cpp</span><br><span class="line">BaseClasses\ctlutil.h(278): error C4430: missing <span class="built_in">type</span> specifier - int assumed. Note: C++ does not support default-int</span><br><span class="line">g:\grads\3dreconstruction\humaneva-i\release_code_v1_1_beta\toolbox_dxavi\dxAviHelper.h(15): fatal error C1083: Cannot open</span><br><span class="line">include file: <span class="string">&#x27;qedit.h&#x27;</span>: No such file or directory</span><br></pre></td></tr></table></figure></p>
+<p>原因在这里<a target="_blank" rel="noopener" href="https://github.com/facebookresearch/VideoPose3D/blob/master/DATASETS.md">link</a></p>
 <p>github上找了win64编译好的.m脚本，解决。 </p>
 <p><strong>todo</strong> 怎么做validation  </p>
 <h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="复原实验"><a href="#复原实验" class="headerlink" title="复原实验"></a>复原实验</h2><ol>
-<li>Extreme 3D Face Reconstruction: Seeing Through Occlusions <a href="https://github.com/anhttran/extreme_3d_faces" target="_blank" rel="noopener">Github</a><ol>
+<li>Extreme 3D Face Reconstruction: Seeing Through Occlusions <a target="_blank" rel="noopener" href="https://github.com/anhttran/extreme_3d_faces">Github</a><ol>
 <li>环境：linux docker镜像</li>
 <li>依赖：<ul>
 <li>our Bump-CNN</li>
@@ -572,27 +562,27 @@ height:50vh;
 </li>
 </ol>
 </li>
-<li>Learning to Reconstruct People in Clothing from a Single RGB Camera <a href="https://github.com/thmoa/octopus" target="_blank" rel="noopener">Github</a><ol>
+<li>Learning to Reconstruct People in Clothing from a Single RGB Camera <a target="_blank" rel="noopener" href="https://github.com/thmoa/octopus">Github</a><ol>
 <li>环境：linux tf</li>
 <li>依赖：<ul>
-<li><a href="https://github.com/pmh47/dirt" target="_blank" rel="noopener">DIRT</a></li>
-<li><a href="http://smplify.is.tue.mpg.de/" target="_blank" rel="noopener">SMPL model</a></li>
-<li><em><a href="https://drive.google.com/open?id=1_CwZo4i48t1TxIlIuUX3JDo6K7QdYI5r" target="_blank" rel="noopener">pre-trained model weights</a></em></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pmh47/dirt">DIRT</a></li>
+<li><a target="_blank" rel="noopener" href="http://smplify.is.tue.mpg.de/">SMPL model</a></li>
+<li><em><a target="_blank" rel="noopener" href="https://drive.google.com/open?id=1_CwZo4i48t1TxIlIuUX3JDo6K7QdYI5r">pre-trained model weights</a></em></li>
 </ul>
 </li>
 <li>备注：图片预处理需要<ul>
-<li>PGN semantic segmentation：Linux/tensorflow <a href="https://github.com/Engineering-Course/CIHP_PGN" target="_blank" rel="noopener">Code</a></li>
-<li>OpenPose body_25 and face keypoint detection：Win <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose" target="_blank" rel="noopener">.exe</a></li>
+<li>PGN semantic segmentation：Linux/tensorflow <a target="_blank" rel="noopener" href="https://github.com/Engineering-Course/CIHP_PGN">Code</a></li>
+<li>OpenPose body_25 and face keypoint detection：Win <a target="_blank" rel="noopener" href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">.exe</a></li>
 </ul>
 </li>
 </ol>
 </li>
-<li>Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation <a href="https://github.com/mohomran/neural_body_fitting" target="_blank" rel="noopener">Github</a><ol>
+<li>Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation <a target="_blank" rel="noopener" href="https://github.com/mohomran/neural_body_fitting">Github</a><ol>
 <li>环境：win/linux tensorflow-gpu==1.6.0</li>
 <li>依赖：<ul>
-<li><a href="http://smpl.is.tue.mpg.de/downloads" target="_blank" rel="noopener">SMPL model(跟上边的还有区别)</a></li>
-<li><a href="http://transfer.d2.mpi-inf.mpg.de/mohomran/nbf/refinenet_up.tgz" target="_blank" rel="noopener">segmentation model</a></li>
-<li><a href="http://transfer.d2.mpi-inf.mpg.de/mohomran/nbf/demo_up.tgz" target="_blank" rel="noopener">fitting model</a></li>
+<li><a target="_blank" rel="noopener" href="http://smpl.is.tue.mpg.de/downloads">SMPL model(跟上边的还有区别)</a></li>
+<li><a target="_blank" rel="noopener" href="http://transfer.d2.mpi-inf.mpg.de/mohomran/nbf/refinenet_up.tgz">segmentation model</a></li>
+<li><a target="_blank" rel="noopener" href="http://transfer.d2.mpi-inf.mpg.de/mohomran/nbf/demo_up.tgz">fitting model</a></li>
 </ul>
 </li>
 <li>备注：没training code</li>
@@ -675,7 +665,7 @@ height:50vh;
 </tbody>
 </table>
 </div>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>vscode想在不同的conda环境下都有类型提示和跳转需要在vscode里切环境<br>ctrl+shift+P —&gt; python:select interpreter —&gt; {your env}<br><a href="https://code.visualstudio.com/docs/python/environments" target="_blank" rel="noopener">官方文档</a>  </p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>vscode想在不同的conda环境下都有类型提示和跳转需要在vscode里切环境<br>ctrl+shift+P —&gt; python:select interpreter —&gt; {your env}<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/python/environments">官方文档</a>  </p>
 <p>import tensorflow 没有报错也没有反应：tensorflow-gpu跟conda安装的opencv有冲突！！<br>改用<code>pip install opencv-python</code>就解决了  </p>
 <p>同文件夹下module import要加<code>.</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> .batch_smpl <span class="keyword">import</span> SMPL</span><br><span class="line"><span class="keyword">from</span> .joints <span class="keyword">import</span> joints_body25, face_landmarks</span><br><span class="line"><span class="keyword">from</span> keras.engine.topology <span class="keyword">import</span> Layer</span><br></pre></td></tr></table></figure></p>
 <p>git-lfs在fork的repo上使用会有问题 “can not upload new objects to public fork”</p>
@@ -696,12 +686,12 @@ height:50vh;
 <li></li>
 </ul>
 <h2 id="datasets"><a href="#datasets" class="headerlink" title="datasets"></a>datasets</h2><ul>
-<li><a href="http://sam.johnson.io/research/lsp_dataset.zip" target="_blank" rel="noopener">LSP</a> and <a href="http://sam.johnson.io/research/lspet_dataset.zip" target="_blank" rel="noopener">LSP extended</a></li>
-<li><a href="http://cocodataset.org/#download" target="_blank" rel="noopener">COCO</a> we used 2014 Train. You also need to<br>install the <a href="https://github.com/cocodataset/cocoapi" target="_blank" rel="noopener">COCO API</a> for python.</li>
-<li><a href="http://human-pose.mpi-inf.mpg.de/#download" target="_blank" rel="noopener">MPII</a></li>
-<li><a href="http://gvv.mpi-inf.mpg.de/3dhp-dataset/" target="_blank" rel="noopener">MPI-INF-3DHP</a></li>
-<li><a href="http://vision.imar.ro/human3.6m/description.php" target="_blank" rel="noopener">Human3.6M</a></li>
-<li><a href="https://drive.google.com/file/d/1b51RMzi_5DIHeYh2KNpgEs8LVaplZSRP/view?usp=sharing" target="_blank" rel="noopener">Download link to MoSh</a></li>
+<li><a target="_blank" rel="noopener" href="http://sam.johnson.io/research/lsp_dataset.zip">LSP</a> and <a target="_blank" rel="noopener" href="http://sam.johnson.io/research/lspet_dataset.zip">LSP extended</a></li>
+<li><a target="_blank" rel="noopener" href="http://cocodataset.org/#download">COCO</a> we used 2014 Train. You also need to<br>install the <a target="_blank" rel="noopener" href="https://github.com/cocodataset/cocoapi">COCO API</a> for python.</li>
+<li><a target="_blank" rel="noopener" href="http://human-pose.mpi-inf.mpg.de/#download">MPII</a></li>
+<li><a target="_blank" rel="noopener" href="http://gvv.mpi-inf.mpg.de/3dhp-dataset/">MPI-INF-3DHP</a></li>
+<li><a target="_blank" rel="noopener" href="http://vision.imar.ro/human3.6m/description.php">Human3.6M</a></li>
+<li><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1b51RMzi_5DIHeYh2KNpgEs8LVaplZSRP/view?usp=sharing">Download link to MoSh</a></li>
 </ul>
 <h3 id="训练数据预处理"><a href="#训练数据预处理" class="headerlink" title="训练数据预处理"></a>训练数据预处理</h3><p>TFRecord:数据序列化成二进制的工具</p>
 <h2 id="keras"><a href="#keras" class="headerlink" title="keras"></a>keras</h2><p><code>keras.layers.Lambda(function, output_shape=None, mask=None, arguments=None)</code><br>Wraps arbitrary expression as a <em>Layer</em> object.</p>
@@ -725,17 +715,17 @@ height:50vh;
 <tr>
 <td style="text-align:left">MPI</td>
 <td style="text-align:left">SMPL/Octopus/..</td>
-<td style="text-align:left"><a href="https://virtualhumans.mpi-inf.mpg.de/" target="_blank" rel="noopener">https://virtualhumans.mpi-inf.mpg.de/</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://virtualhumans.mpi-inf.mpg.de/">https://virtualhumans.mpi-inf.mpg.de/</a></td>
 </tr>
 <tr>
 <td style="text-align:left">UCB(Angjoo Kanazawa)</td>
 <td style="text-align:left">预测人体动作/动物形体重建</td>
-<td style="text-align:left"><a href="https://people.eecs.berkeley.edu/~kanazawa/" target="_blank" rel="noopener">https://people.eecs.berkeley.edu/~kanazawa/</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://people.eecs.berkeley.edu/~kanazawa/">https://people.eecs.berkeley.edu/~kanazawa/</a></td>
 </tr>
 <tr>
 <td style="text-align:left">周晓巍(浙大)</td>
 <td style="text-align:left">..</td>
-<td style="text-align:left"><a href="http://www.cad.zju.edu.cn/home/xzhou/" target="_blank" rel="noopener">http://www.cad.zju.edu.cn/home/xzhou/</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://www.cad.zju.edu.cn/home/xzhou/">http://www.cad.zju.edu.cn/home/xzhou/</a></td>
 </tr>
 </tbody>
 </table>
@@ -879,9 +869,9 @@ height:50vh;
 <h3 id="2019-11-11"><a href="#2019-11-11" class="headerlink" title="2019.11.11"></a>2019.11.11</h3><p>coco/lsp/lsp_ext/mocap_neutrMosh/mpii/mpi_inf_3dhp —&gt; tfrecord<br>hmr train code在tf1.14上有问题 降到1.4试试（conda最低1.4） hmr官方用的1.3//客制的有pytorch0.4的<br>trainer.py的train()有问题 —&gt; sess.run时间太长了 1.4得调cuda版本 还是用1.14</p>
 <h3 id="2019-11-12"><a href="#2019-11-12" class="headerlink" title="2019.11.12"></a>2019.11.12</h3><p>三个新论文 看起来实验会好做一些 train code/dataset都有：</p>
 <ul>
-<li>PyTorch implementation of CloudWalk’s recent work DenseBody <a href="https://arxiv.org/pdf/1903.10153.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1903.10153.pdf</a> <a href="https://github.com/Lotayou/densebody_pytorch" target="_blank" rel="noopener">github</a></li>
-<li>Repository for the paper “Convolutional Mesh Regression for Single-Image Human Shape Reconstruction” <a href="https://github.com/nkolot/GraphCMR" target="_blank" rel="noopener">github</a></li>
-<li>Detailed Human Shape Estimation from a Single Image by Hierarchical Mesh Deformation (CVPR2019 Oral) <a href="https://github.com/zhuhao-nju/hmd" target="_blank" rel="noopener">github</a></li>
+<li>PyTorch implementation of CloudWalk’s recent work DenseBody <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1903.10153.pdf">https://arxiv.org/pdf/1903.10153.pdf</a> <a target="_blank" rel="noopener" href="https://github.com/Lotayou/densebody_pytorch">github</a></li>
+<li>Repository for the paper “Convolutional Mesh Regression for Single-Image Human Shape Reconstruction” <a target="_blank" rel="noopener" href="https://github.com/nkolot/GraphCMR">github</a></li>
+<li>Detailed Human Shape Estimation from a Single Image by Hierarchical Mesh Deformation (CVPR2019 Oral) <a target="_blank" rel="noopener" href="https://github.com/zhuhao-nju/hmd">github</a></li>
 </ul>
 <h3 id="2019-11-13"><a href="#2019-11-13" class="headerlink" title="2019.11.13"></a>2019.11.13</h3><p>看看十大排序七大查找算法（3-0）<br>hmd demo没啥问题 看看train 需要upi的数据集44g 这周五再下<br>evl的用了wild dataset 1.9g//RECON and SYN test</p>
 <h3 id="2019-11-14"><a href="#2019-11-14" class="headerlink" title="2019.11.14"></a>2019.11.14</h3><p>排序/查找算法</p>
@@ -902,7 +892,7 @@ height:50vh;
 </ol>
 <p>hmd的数据集刨除h36m应该有18000+ train set，现在只有9000+ 重新用脚本处理一遍</p>
 <p>numpy 高级索引 ndarray[x,y]//ndarray[a==b]</p>
-<h3 id="2019-11-26"><a href="#2019-11-26" class="headerlink" title="2019.11.26"></a>2019.11.26</h3><p>机器在处理数据（就是做hmd 里的 wild set）（coco做了7000+然后断开socket链接了，回头继续转）<br>问题转化为：有遮挡的rgb图生成完整的深度图的问题<br>DDRNet做的深度图重建。<br>试试<a href="https://github.com/iro-cp/FCRN-DepthPrediction.git" target="_blank" rel="noopener">Deeper Depth Prediction with Fully Convolutional Residual Networks (FCRN)</a><br>还有<a href="https://github.com/neycyanshi/DDRNet" target="_blank" rel="noopener">ddrnet</a>  </p>
+<h3 id="2019-11-26"><a href="#2019-11-26" class="headerlink" title="2019.11.26"></a>2019.11.26</h3><p>机器在处理数据（就是做hmd 里的 wild set）（coco做了7000+然后断开socket链接了，回头继续转）<br>问题转化为：有遮挡的rgb图生成完整的深度图的问题<br>DDRNet做的深度图重建。<br>试试<a target="_blank" rel="noopener" href="https://github.com/iro-cp/FCRN-DepthPrediction.git">Deeper Depth Prediction with Fully Convolutional Residual Networks (FCRN)</a><br>还有<a target="_blank" rel="noopener" href="https://github.com/neycyanshi/DDRNet">ddrnet</a>  </p>
 <p>王琛的方法，需要提供人体/遮挡的数据集（考虑下怎么做这个数据集），网络是现成的<br>三维人体重建转化到深度图的inpainting这样可以吗？？  </p>
 <p>更新ubuntu grub的引导会没 需要到win7下重设</p>
 <h3 id="2019-11-27"><a href="#2019-11-27" class="headerlink" title="2019.11.27"></a>2019.11.27</h3><p>coco数据集的hmd预处理还是有socket error，今晚挂上代理再试一次<br>问题：有遮挡的情况下恢复深度图的detail，还是考虑深度图质量差不多的情况下，深度图生成三维模型的精度<br>见今日周报 基本确定12月的工作内容  </p>
@@ -1010,7 +1000,7 @@ height:50vh;
 <h3 id="2020-1-13"><a href="#2020-1-13" class="headerlink" title="2020.1.13"></a>2020.1.13</h3><p>dhdnet在跑recon测试集的时候方框处理的非常不好<br>现在猜测是因为训练的用深度图gt当作的sil，在A[B==0]=0这步的时候很可能把纹理信息填回方框区域内了。。现在但是理论上shiftnet自己还会加遮罩<br>目前recon测试集上只能用不加遮挡的img做输入效果还可以<br>矛盾点在于 shiftnet是在线加的遮罩啊 为什么输入图像加不加遮罩还会造成影响？？？？</p>
 <h3 id="2020-1-14"><a href="#2020-1-14" class="headerlink" title="2020.1.14"></a>2020.1.14</h3><p>recon只看joint 还是得看syn<br>输入图像家的遮罩试着比 shiftnet动态加的小一点 84 84 140 140—&gt;87 87 137 137</p>
 <h3 id="2020-1-15"><a href="#2020-1-15" class="headerlink" title="2020.1.15"></a>2020.1.15</h3><p>leetcode<br>blog 加入vuejs静态页面<br>Mirror 多人游戏demo / kbe C++ 服务端  </p>
-<h3 id="2020-3-8"><a href="#2020-3-8" class="headerlink" title="2020.3.8"></a>2020.3.8</h3><p>Attention机制<a href="https://zhuanlan.zhihu.com/p/91839581" target="_blank" rel="noopener">zhihu</a><br>论文搜索：<br>Self-Attention Generative Adversarial Networks (SAGAN)<a href="https://github.com/heykeetae/Self-Attention-GAN" target="_blank" rel="noopener">code</a><br>A PyTorch reimplementation for paper Generative Image Inpainting with Contextual Attention <a href="https://arxiv.org/abs/1801.07892" target="_blank" rel="noopener">paper</a> <a href="https://github.com/daa233/generative-inpainting-pytorch" target="_blank" rel="noopener">code</a></p>
+<h3 id="2020-3-8"><a href="#2020-3-8" class="headerlink" title="2020.3.8"></a>2020.3.8</h3><p>Attention机制<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/91839581">zhihu</a><br>论文搜索：<br>Self-Attention Generative Adversarial Networks (SAGAN)<a target="_blank" rel="noopener" href="https://github.com/heykeetae/Self-Attention-GAN">code</a><br>A PyTorch reimplementation for paper Generative Image Inpainting with Contextual Attention <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1801.07892">paper</a> <a target="_blank" rel="noopener" href="https://github.com/daa233/generative-inpainting-pytorch">code</a></p>
 <h3 id="2020-3-9"><a href="#2020-3-9" class="headerlink" title="2020.3.9"></a>2020.3.9</h3><p><a href="">Learning 3D Human Shape and Pose from Dense Body Parts</a></p>
 <h3 id="2020-5-30"><a href="#2020-5-30" class="headerlink" title="2020.5.30"></a>2020.5.30</h3><p>Losses：下降较明显的有G_L1，content；G_GAN略上升，D下降不明显<br>loss计算公式：<br>$lossD = (lossDfake + lossDreal) <em> 0.5$ (vanilla)<br>fake/real 是BCELoss二分类交叉熵损失函数<br>$loss G = loss G L1 + loss G L1 m + loss G GAN + style loss + content loss + tv loss$<br>loss G L1 是 $L1 loss </em> opt.lambda_A$<br>L1_m 是一个spatical discounting l1 loss（别的论文里提出来的）<br>loss G GAN 是BCELoss<br>style和content都是MSELoss<br>tv是自定义一个损失函数  </p>
 <p>目前已有的：</p>
@@ -1042,10 +1032,10 @@ height:50vh;
 </li>
 <li>发明内容</li>
 </ul>
-<h3 id="2020-7-13"><a href="#2020-7-13" class="headerlink" title="2020.7.13"></a>2020.7.13</h3><p>ICIP ppt<br><a href="https://zhuanlan.zhihu.com/p/25804146" target="_blank" rel="noopener">mesh deformation with Laplacian coordinates</a>：一种智能化的方法，能够让用户只需设置个别离散点的新位置来表达他所想要的形变，就能自动根据所需保持的形体信息来计算出剩余离散点应有的位置</p>
+<h3 id="2020-7-13"><a href="#2020-7-13" class="headerlink" title="2020.7.13"></a>2020.7.13</h3><p>ICIP ppt<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25804146">mesh deformation with Laplacian coordinates</a>：一种智能化的方法，能够让用户只需设置个别离散点的新位置来表达他所想要的形变，就能自动根据所需保持的形体信息来计算出剩余离散点应有的位置</p>
 <h3 id="2020-10-27"><a href="#2020-10-27" class="headerlink" title="2020.10.27"></a>2020.10.27</h3><script type="math/tex; mode=display">L_{joint/anchor} = \parallel p - \hat{p} \parallel_{2}</script><h3 id="2020-11-19"><a href="#2020-11-19" class="headerlink" title="2020.11.19"></a>2020.11.19</h3><p>PIFuHD的重建效果比hmd好多了，处理遮挡不好</p>
 <h3 id="2020-11-20"><a href="#2020-11-20" class="headerlink" title="2020.11.20"></a>2020.11.20</h3><p>开始研究star的用法，先看smpl-x是怎么使用smpl模型的  </p>
-<p>hmd中的laplacian形变code来自duke university, <a href="https://github.com/bmershon/laplacian-meshes" target="_blank" rel="noopener">course link</a><br>球谐函数是自己写的tql<br>renderer是hmr的</p>
+<p>hmd中的laplacian形变code来自duke university, <a target="_blank" rel="noopener" href="https://github.com/bmershon/laplacian-meshes">course link</a><br>球谐函数是自己写的tql<br>renderer是hmr的</p>
 <p>得搞清楚smpl verts faces的维度和个数</p>
 <h3 id="2020-11-27"><a href="#2020-11-27" class="headerlink" title="2020.11.27"></a>2020.11.27</h3><p>texture：</p>
 <ul>
@@ -1060,9 +1050,19 @@ height:50vh;
 <li>多帧：stitching原本，遮挡物随机放置，用stitching的理论</li>
 </ul>
 <h3 id="2020-12-4"><a href="#2020-12-4" class="headerlink" title="2020.12.4"></a>2020.12.4</h3><p>大论文参考论文，hmr，hmd，shift-net，ddrnet，tex2shape，stitching<br>理论知识点，smpl模型，GAN，Unet，Shift layer，拉普拉斯形变Laplacian mesh deformation，球谐函数gi</p>
-<h3 id="2020-11-3"><a href="#2020-11-3" class="headerlink" title="2020.11.3"></a>2020.11.3</h3><p><a href="https://blog.csdn.net/zddblog/article/details/7521424" target="_blank" rel="noopener">SIFT</a>：尺度不变特征变换，采用高斯核函数进行滤波，寻找不同的尺度空间<br>  可以解决occlusion和clutter？<br>  LoG(Laplacion of Gaussian)算子：<br>  高斯差分函数（Difference of Gaussian ，简称DOG算子）：<br>KNN：K最近邻，k-nearest neighbor<br>aggregator：<br>updater：<br><a href="https://blog.csdn.net/xholes/article/details/78461164" target="_blank" rel="noopener">multi-layer perceptron</a>（MLP） in updater：也就是Full-connection Neural Network </p>
-<p>self- attention mechanism：<br>  <a href="https://zhuanlan.zhihu.com/p/37601161" target="_blank" rel="noopener">attention机制</a>：soft-attention、attention、self-attention，就是source=target，寻找输入语句中单词间的联系<br>node-based clustering：聚类算法 有K-means，和knn有区别但是很像，前者是每次迭代调整聚类中心<br>PointCN：<br>epipolar distance:<br>Structure-from-Motion system:<br>shape-from- silhouette technique：搞出来的初始几何体都不完全并且有噪点<br>human parsing method：</p>
-<h3 id="2020-11-10"><a href="#2020-11-10" class="headerlink" title="2020.11.10"></a>2020.11.10</h3><p>LBS：smpl基于全身的linear blend skinning (LBS)</p>
+<h3 id="2020-11-3"><a href="#2020-11-3" class="headerlink" title="2020.11.3"></a>2020.11.3</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zddblog/article/details/7521424">SIFT</a>：尺度不变特征变换，采用高斯核函数进行滤波，寻找不同的尺度空间<br>  可以解决occlusion和clutter？<br>  LoG(Laplacion of Gaussian)算子：<br>  高斯差分函数（Difference of Gaussian ，简称DOG算子）：<br>KNN：K最近邻，k-nearest neighbor<br>aggregator：<br>updater：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/xholes/article/details/78461164">multi-layer perceptron</a>（MLP） in updater：也就是Full-connection Neural Network </p>
+<p>self- attention mechanism：<br>  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37601161">attention机制</a>：soft-attention、attention、self-attention，就是source=target，寻找输入语句中单词间的联系<br>node-based clustering：聚类算法 有K-means，和knn有区别但是很像，前者是每次迭代调整聚类中心<br>PointCN：<br>epipolar distance:<br>Structure-from-Motion system:<br>shape-from- silhouette technique：搞出来的初始几何体都不完全并且有噪点<br>human parsing method：</p>
+<h3 id="2020-11-10"><a href="#2020-11-10" class="headerlink" title="2020.11.10"></a>2020.11.10</h3><p>LBS：smpl基于全身的linear blend skinning (LBS)<br>cocoapi报no module pycocotools._mask需要install pycocotools，在git repo pythonapi目录下执行makefile（注意看makefile的内容）</p>
+<h3 id="2021-4-7"><a href="#2021-4-7" class="headerlink" title="2021.4.7"></a>2021.4.7</h3><p>tf.variable_scope() reuse: <a target="_blank" rel="noopener" href="https://blog.csdn.net/xpy870663266/article/details/98950853">Link</a></p>
+<h3 id="2021-4-12"><a href="#2021-4-12" class="headerlink" title="2021.4.12"></a>2021.4.12</h3><ol>
+<li>数据集规模上要强调自监督在同等数据规模下没有dhd好，然后转到增加数据集规模</li>
+<li>4.3节强调采用dhd+自监督的原因是：自监督提供高频细节，dhd提供低频褶皱</li>
+<li>强调是框架结果的提升，而不是自监督方法与dhd方法间的比较</li>
+<li>dhd的输入是rgb+mask，hmd里shadingnet是rgb+depth，盲审版本第三章的流程图写的是rgb+sil..</li>
+<li>自监督训练数据自己拍的48000帧，网络视频3000组，大概等于12000帧</li>
+</ol>
+<h3 id="2021-5-24"><a href="#2021-5-24" class="headerlink" title="2021.5.24"></a>2021.5.24</h3><p>盲审三个良好，申优答辩很简单，明天交终版论文  </p>
+<p>终。  </p>
 <h2 id="conda-env"><a href="#conda-env" class="headerlink" title="conda env"></a>conda env</h2><ul>
 <li>pytorch：Python 3.7 + pytorch 1.3  detectron2/densepose/shift-net_pytorch</li>
 <li>tf2: python2 + tf1.14  hmr, tex2shape, Semantic Human Texture Stitching</li>
@@ -1083,7 +1083,7 @@ height:50vh;
 <li>rgb2depth_npy_3: G去tanh()版本，网格纹理问题解决</li>
 <li>rgb2depth_npy_4: 修改D输入图像范围，仅输入被遮挡区域</li>
 </ul>
-<h2 id="数学理论相关"><a href="#数学理论相关" class="headerlink" title="数学理论相关"></a>数学理论相关</h2><p><a href="https://www.zhihu.com/question/28552876/answer/1268629178" target="_blank" rel="noopener">压缩感知</a>中的欠定方程（undetermined equations）：</p>
+<h2 id="数学理论相关"><a href="#数学理论相关" class="headerlink" title="数学理论相关"></a>数学理论相关</h2><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/28552876/answer/1268629178">压缩感知</a>中的欠定方程（undetermined equations）：</p>
 <h2 id="目标（朱邮件内容）"><a href="#目标（朱邮件内容）" class="headerlink" title="目标（朱邮件内容）"></a>目标（朱邮件内容）</h2><p>研究方向：<strong>非理想条件下的单目RGB相机三维人体重建</strong>  </p>
 <p>领域现状：目前基于相机阵列以及单目RGBD相机的三维人体重建技术已经较为成熟，仅依靠单目RGB相机的三维人体重建工作具有广阔的发展前景并且具有挑战性。以MPI、UCB、浙大为首的一些实验室已经在该研究方向上已经取得了一些成果，但是输入图像质量都比较理想，非理想条件下的重建效果并不明确。  </p>
 <p>我的工作：目前确定做非理想条件下的单目相机三维人体重建，提高重建精度包括模型细节、姿态、纹理贴图。非理想条件具体来说有以下情况：</p>
@@ -1189,10 +1189,10 @@ height:50vh;
     <!-- license  -->
     
         <div class="license-wrapper">
-            <p>原文作者：<a href="">Ty</a>
-            <p>原文链接：<a href="/2019/01/04/关于三维重建的文献综述/">/2019/01/04/关于三维重建的文献综述/</a>
-            <p>发表日期：<a href="/2019/01/04/关于三维重建的文献综述/">January 4th 2019, 7:58:17 am</a>
-            <p>更新日期：<a href="/2019/01/04/关于三维重建的文献综述/">January 6th 2021, 12:42:54 pm</a>
+            <p>原文作者：<a href="https://blog.providencezhang.cn">Ty</a>
+            <p>原文链接：<a href="https://blog.providencezhang.cn/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/">https://blog.providencezhang.cn/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/</a>
+            <p>发表日期：<a href="https://blog.providencezhang.cn/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/">January 4th 2019, 7:58:17 am</a>
+            <p>更新日期：<a href="https://blog.providencezhang.cn/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/">May 26th 2021, 12:43:35 pm</a>
             <p>版权声明：转载请注明原作者</p>
         </div>
     
@@ -1201,7 +1201,7 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/01/21/Kaggle笔记/" title= "python数据分析、可视化相关笔记">
+                <a href= "/2019/01/21/Kaggle%E7%AC%94%E8%AE%B0/" title= "python数据分析、可视化相关笔记">
                     <div class="nextTitle">python数据分析、可视化相关笔记</div>
                 </a>
             
@@ -1236,10 +1236,6 @@ height:50vh;
 <!-- City版安装代码已完成 -->
     
     
-    <!-- gitalk评论 -->
-
-    <!-- utteranc评论 -->
-
     <!-- partial('_partial/comment/changyan') -->
     <!--PC版-->
 
@@ -1345,7 +1341,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#综述"><span class="toc-number">2.</span> <span class="toc-text">综述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用"><span class="toc-number">2.1.</span> <span class="toc-text">通用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客链接"><span class="toc-number">2.2.</span> <span class="toc-text">博客链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-Single-View-3D-Reconstruction-with-Adversarial-Training-1812-01742"><span class="toc-number">2.3.</span> <span class="toc-text">Learning Single-View 3D Reconstruction with Adversarial Training 1812.01742</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过直接体积cnn回归从单图重建大范围三维人脸"><span class="toc-number">2.4.</span> <span class="toc-text">通过直接体积cnn回归从单图重建大范围三维人脸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extreme-3D-Face-Reconstruction-Seeing-Through-Occlusions-极端3D面部重建：遮挡透视（讲）"><span class="toc-number">2.5.</span> <span class="toc-text">Extreme 3D Face Reconstruction: Seeing Through Occlusions 极端3D面部重建：遮挡透视（讲）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-to-Estimate-3D-Human-Pose-and-Shape-from-a-Single-Color-Image-讲-DOI-10-1109-CVPR-2018-00055"><span class="toc-number">2.6.</span> <span class="toc-text">Learning to Estimate 3D Human Pose and Shape from a Single Color Image(讲) DOI:10.1109/CVPR.2018.00055</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O-CNN-Octree-based-Convolutional-Neural-Networks-for-3D-Shape-Analysis"><span class="toc-number">2.7.</span> <span class="toc-text">O-CNN: Octree-based Convolutional Neural Networks for 3D Shape Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pixel2Mesh（讲）"><span class="toc-number">2.8.</span> <span class="toc-text">Pixel2Mesh（讲）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-number">2.8.1.</span> <span class="toc-text">code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMPL-A-Skinned-Multi-Person-Linear-Model-多篇基础，15年"><span class="toc-number">2.9.</span> <span class="toc-text">SMPL: A Skinned Multi-Person Linear Model(多篇基础，15年)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Video-Based-Reconstruction-of-3D-People-Models-讲，没用网络-DOI-10-1109-CVPR-2018-00875-video2mesh"><span class="toc-number">2.10.</span> <span class="toc-text">Video Based Reconstruction of 3D People Models(讲，没用网络) DOI:10.1109/CVPR.2018.00875 (video2mesh)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera（2019-4video2mesh延伸论文，同一实验室）octopus"><span class="toc-number">2.11.</span> <span class="toc-text">Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）octopus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Neural-Body-Fitting-Unifying-Deep-Learning-and-Model-Based-Human-Pose-and-Shape-Estimation（3DV-2018）"><span class="toc-number">2.12.</span> <span class="toc-text">Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation（3DV 2018）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#intro"><span class="toc-number">2.12.1.</span> <span class="toc-text">intro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#related-work"><span class="toc-number">2.12.2.</span> <span class="toc-text">related work</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验"><span class="toc-number">3.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复原实验"><span class="toc-number">3.1.</span> <span class="toc-text">复原实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-number">3.2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#repos"><span class="toc-number">3.3.</span> <span class="toc-text">repos</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">4.</span> <span class="toc-text">Code</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#python-module"><span class="toc-number">4.1.</span> <span class="toc-text">python module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#octopus"><span class="toc-number">4.2.</span> <span class="toc-text">octopus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tex2shape"><span class="toc-number">4.3.</span> <span class="toc-text">tex2shape</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hmr-End-to-end-Recovery-of-Human-Shape-and-Pose"><span class="toc-number">4.4.</span> <span class="toc-text">hmr End-to-end Recovery of Human Shape and Pose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#datasets"><span class="toc-number">4.5.</span> <span class="toc-text">datasets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#训练数据预处理"><span class="toc-number">4.5.1.</span> <span class="toc-text">训练数据预处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keras"><span class="toc-number">4.6.</span> <span class="toc-text">keras</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#要解决的问题"><span class="toc-number">4.7.</span> <span class="toc-text">要解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验室-作者汇总"><span class="toc-number">4.8.</span> <span class="toc-text">实验室/作者汇总</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术要点汇总"><span class="toc-number">4.9.</span> <span class="toc-text">技术要点汇总</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验规划"><span class="toc-number">4.10.</span> <span class="toc-text">实验规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#周计划"><span class="toc-number">4.11.</span> <span class="toc-text">周计划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日报"><span class="toc-number">4.12.</span> <span class="toc-text">日报</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-10-28"><span class="toc-number">4.12.1.</span> <span class="toc-text">2019.10.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-10-29"><span class="toc-number">4.12.2.</span> <span class="toc-text">2019.10.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-10-30"><span class="toc-number">4.12.3.</span> <span class="toc-text">2019.10.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-10-31"><span class="toc-number">4.12.4.</span> <span class="toc-text">2019.10.31</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-1"><span class="toc-number">4.12.5.</span> <span class="toc-text">2019.11.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-2-3"><span class="toc-number">4.12.6.</span> <span class="toc-text">2019.11.2/3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-4"><span class="toc-number">4.12.7.</span> <span class="toc-text">2019.11.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-5"><span class="toc-number">4.12.8.</span> <span class="toc-text">2019.11.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-6"><span class="toc-number">4.12.9.</span> <span class="toc-text">2019.11.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-7"><span class="toc-number">4.12.10.</span> <span class="toc-text">2019.11.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-8"><span class="toc-number">4.12.11.</span> <span class="toc-text">2019.11.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-9-10"><span class="toc-number">4.12.12.</span> <span class="toc-text">2019.11.9/10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-11"><span class="toc-number">4.12.13.</span> <span class="toc-text">2019.11.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-12"><span class="toc-number">4.12.14.</span> <span class="toc-text">2019.11.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-13"><span class="toc-number">4.12.15.</span> <span class="toc-text">2019.11.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-14"><span class="toc-number">4.12.16.</span> <span class="toc-text">2019.11.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-15"><span class="toc-number">4.12.17.</span> <span class="toc-text">2019.11.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-16-17"><span class="toc-number">4.12.18.</span> <span class="toc-text">2019.11.16/17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-18"><span class="toc-number">4.12.19.</span> <span class="toc-text">2019.11.18</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-19"><span class="toc-number">4.12.20.</span> <span class="toc-text">2019.11.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-20"><span class="toc-number">4.12.21.</span> <span class="toc-text">2019.11.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-21"><span class="toc-number">4.12.22.</span> <span class="toc-text">2019.11.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-22"><span class="toc-number">4.12.23.</span> <span class="toc-text">2019.11.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-23-24"><span class="toc-number">4.12.24.</span> <span class="toc-text">2019.11.23/24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-25"><span class="toc-number">4.12.25.</span> <span class="toc-text">2019.11.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-26"><span class="toc-number">4.12.26.</span> <span class="toc-text">2019.11.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-27"><span class="toc-number">4.12.27.</span> <span class="toc-text">2019.11.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-28"><span class="toc-number">4.12.28.</span> <span class="toc-text">2019.11.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-29"><span class="toc-number">4.12.29.</span> <span class="toc-text">2019.11.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-30-1"><span class="toc-number">4.12.30.</span> <span class="toc-text">2019.11.30/1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-2"><span class="toc-number">4.12.31.</span> <span class="toc-text">2019.12.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-3"><span class="toc-number">4.12.32.</span> <span class="toc-text">2019.12.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-4"><span class="toc-number">4.12.33.</span> <span class="toc-text">2019.12.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-5"><span class="toc-number">4.12.34.</span> <span class="toc-text">2019.12.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-6-7-8"><span class="toc-number">4.12.35.</span> <span class="toc-text">2019.12.6/7/8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-9"><span class="toc-number">4.12.36.</span> <span class="toc-text">2019.12.9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-10"><span class="toc-number">4.12.37.</span> <span class="toc-text">2019.12.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-11"><span class="toc-number">4.12.38.</span> <span class="toc-text">2019.12.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-12"><span class="toc-number">4.12.39.</span> <span class="toc-text">2019.12.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-13-14-15"><span class="toc-number">4.12.40.</span> <span class="toc-text">2019.12.13/14/15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-16"><span class="toc-number">4.12.41.</span> <span class="toc-text">2019.12.16</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-17"><span class="toc-number">4.12.42.</span> <span class="toc-text">2019.12.17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-18"><span class="toc-number">4.12.43.</span> <span class="toc-text">2019.12.18</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-19"><span class="toc-number">4.12.44.</span> <span class="toc-text">2019.12.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-20"><span class="toc-number">4.12.45.</span> <span class="toc-text">2019.12.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-21"><span class="toc-number">4.12.46.</span> <span class="toc-text">2019.12.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-22"><span class="toc-number">4.12.47.</span> <span class="toc-text">2019.12.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-23"><span class="toc-number">4.12.48.</span> <span class="toc-text">2019.12.23</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-24"><span class="toc-number">4.12.49.</span> <span class="toc-text">2019.12.24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-25"><span class="toc-number">4.12.50.</span> <span class="toc-text">2019.12.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-26"><span class="toc-number">4.12.51.</span> <span class="toc-text">2019.12.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-27"><span class="toc-number">4.12.52.</span> <span class="toc-text">2019.12.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-28-29"><span class="toc-number">4.12.53.</span> <span class="toc-text">2019.12.28/29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-30"><span class="toc-number">4.12.54.</span> <span class="toc-text">2019.12.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-31"><span class="toc-number">4.12.55.</span> <span class="toc-text">2019.12.31</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-1"><span class="toc-number">4.12.56.</span> <span class="toc-text">2019.1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-2"><span class="toc-number">4.12.57.</span> <span class="toc-text">2019.1.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-3"><span class="toc-number">4.12.58.</span> <span class="toc-text">2019.1.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-4-5"><span class="toc-number">4.12.59.</span> <span class="toc-text">2019.1.4/5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-6"><span class="toc-number">4.12.60.</span> <span class="toc-text">2019.1.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-7"><span class="toc-number">4.12.61.</span> <span class="toc-text">2019.1.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-1-13"><span class="toc-number">4.12.62.</span> <span class="toc-text">2020.1.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-1-14"><span class="toc-number">4.12.63.</span> <span class="toc-text">2020.1.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-1-15"><span class="toc-number">4.12.64.</span> <span class="toc-text">2020.1.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-3-8"><span class="toc-number">4.12.65.</span> <span class="toc-text">2020.3.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-3-9"><span class="toc-number">4.12.66.</span> <span class="toc-text">2020.3.9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-5-30"><span class="toc-number">4.12.67.</span> <span class="toc-text">2020.5.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-6-2"><span class="toc-number">4.12.68.</span> <span class="toc-text">2020.6.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-7-8"><span class="toc-number">4.12.69.</span> <span class="toc-text">2020.7.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-7-13"><span class="toc-number">4.12.70.</span> <span class="toc-text">2020.7.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-10-27"><span class="toc-number">4.12.71.</span> <span class="toc-text">2020.10.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-19"><span class="toc-number">4.12.72.</span> <span class="toc-text">2020.11.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-20"><span class="toc-number">4.12.73.</span> <span class="toc-text">2020.11.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-27"><span class="toc-number">4.12.74.</span> <span class="toc-text">2020.11.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-12-3"><span class="toc-number">4.12.75.</span> <span class="toc-text">2020.12.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-12-4"><span class="toc-number">4.12.76.</span> <span class="toc-text">2020.12.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-3"><span class="toc-number">4.12.77.</span> <span class="toc-text">2020.11.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-10"><span class="toc-number">4.12.78.</span> <span class="toc-text">2020.11.10</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda-env"><span class="toc-number">4.13.</span> <span class="toc-text">conda env</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果"><span class="toc-number">4.14.</span> <span class="toc-text">实验结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学理论相关"><span class="toc-number">4.15.</span> <span class="toc-text">数学理论相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标（朱邮件内容）"><span class="toc-number">4.16.</span> <span class="toc-text">目标（朱邮件内容）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">5.</span> <span class="toc-text">思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#大论文"><span class="toc-number">5.1.</span> <span class="toc-text">大论文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大论文结构"><span class="toc-number">5.1.1.</span> <span class="toc-text">大论文结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">5.1.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时间安排"><span class="toc-number">5.2.</span> <span class="toc-text">时间安排</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息总结"><span class="toc-number">6.</span> <span class="toc-text">信息总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todo-list"><span class="toc-number">7.</span> <span class="toc-text">todo list</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">综述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">通用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E9%93%BE%E6%8E%A5"><span class="toc-number">2.2.</span> <span class="toc-text">博客链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-Single-View-3D-Reconstruction-with-Adversarial-Training-1812-01742"><span class="toc-number">2.3.</span> <span class="toc-text">Learning Single-View 3D Reconstruction with Adversarial Training 1812.01742</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%9B%B4%E6%8E%A5%E4%BD%93%E7%A7%AFcnn%E5%9B%9E%E5%BD%92%E4%BB%8E%E5%8D%95%E5%9B%BE%E9%87%8D%E5%BB%BA%E5%A4%A7%E8%8C%83%E5%9B%B4%E4%B8%89%E7%BB%B4%E4%BA%BA%E8%84%B8"><span class="toc-number">2.4.</span> <span class="toc-text">通过直接体积cnn回归从单图重建大范围三维人脸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extreme-3D-Face-Reconstruction-Seeing-Through-Occlusions-%E6%9E%81%E7%AB%AF3D%E9%9D%A2%E9%83%A8%E9%87%8D%E5%BB%BA%EF%BC%9A%E9%81%AE%E6%8C%A1%E9%80%8F%E8%A7%86%EF%BC%88%E8%AE%B2%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">Extreme 3D Face Reconstruction: Seeing Through Occlusions 极端3D面部重建：遮挡透视（讲）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-to-Estimate-3D-Human-Pose-and-Shape-from-a-Single-Color-Image-%E8%AE%B2-DOI-10-1109-CVPR-2018-00055"><span class="toc-number">2.6.</span> <span class="toc-text">Learning to Estimate 3D Human Pose and Shape from a Single Color Image(讲) DOI:10.1109&#x2F;CVPR.2018.00055</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O-CNN-Octree-based-Convolutional-Neural-Networks-for-3D-Shape-Analysis"><span class="toc-number">2.7.</span> <span class="toc-text">O-CNN: Octree-based Convolutional Neural Networks for 3D Shape Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pixel2Mesh%EF%BC%88%E8%AE%B2%EF%BC%89"><span class="toc-number">2.8.</span> <span class="toc-text">Pixel2Mesh（讲）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-number">2.8.1.</span> <span class="toc-text">code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMPL-A-Skinned-Multi-Person-Linear-Model-%E5%A4%9A%E7%AF%87%E5%9F%BA%E7%A1%80%EF%BC%8C15%E5%B9%B4"><span class="toc-number">2.9.</span> <span class="toc-text">SMPL: A Skinned Multi-Person Linear Model(多篇基础，15年)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Video-Based-Reconstruction-of-3D-People-Models-%E8%AE%B2%EF%BC%8C%E6%B2%A1%E7%94%A8%E7%BD%91%E7%BB%9C-DOI-10-1109-CVPR-2018-00875-video2mesh"><span class="toc-number">2.10.</span> <span class="toc-text">Video Based Reconstruction of 3D People Models(讲，没用网络) DOI:10.1109&#x2F;CVPR.2018.00875 (video2mesh)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-to-Reconstruct-People-in-Clothing-from-a-Single-RGB-Camera%EF%BC%882019-4video2mesh%E5%BB%B6%E4%BC%B8%E8%AE%BA%E6%96%87%EF%BC%8C%E5%90%8C%E4%B8%80%E5%AE%9E%E9%AA%8C%E5%AE%A4%EF%BC%89octopus"><span class="toc-number">2.11.</span> <span class="toc-text">Learning to Reconstruct People in Clothing from a Single RGB Camera（2019.4video2mesh延伸论文，同一实验室）octopus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Neural-Body-Fitting-Unifying-Deep-Learning-and-Model-Based-Human-Pose-and-Shape-Estimation%EF%BC%883DV-2018%EF%BC%89"><span class="toc-number">2.12.</span> <span class="toc-text">Neural Body Fitting: Unifying Deep Learning and Model Based Human Pose and Shape Estimation（3DV 2018）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#intro"><span class="toc-number">2.12.1.</span> <span class="toc-text">intro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#related-work"><span class="toc-number">2.12.2.</span> <span class="toc-text">related work</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">3.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%8E%9F%E5%AE%9E%E9%AA%8C"><span class="toc-number">3.1.</span> <span class="toc-text">复原实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">3.2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#repos"><span class="toc-number">3.3.</span> <span class="toc-text">repos</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">4.</span> <span class="toc-text">Code</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#python-module"><span class="toc-number">4.1.</span> <span class="toc-text">python module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#octopus"><span class="toc-number">4.2.</span> <span class="toc-text">octopus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tex2shape"><span class="toc-number">4.3.</span> <span class="toc-text">tex2shape</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hmr-End-to-end-Recovery-of-Human-Shape-and-Pose"><span class="toc-number">4.4.</span> <span class="toc-text">hmr End-to-end Recovery of Human Shape and Pose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#datasets"><span class="toc-number">4.5.</span> <span class="toc-text">datasets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">4.5.1.</span> <span class="toc-text">训练数据预处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keras"><span class="toc-number">4.6.</span> <span class="toc-text">keras</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">4.7.</span> <span class="toc-text">要解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%AE%A4-%E4%BD%9C%E8%80%85%E6%B1%87%E6%80%BB"><span class="toc-number">4.8.</span> <span class="toc-text">实验室&#x2F;作者汇总</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9%E6%B1%87%E6%80%BB"><span class="toc-number">4.9.</span> <span class="toc-text">技术要点汇总</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%A7%84%E5%88%92"><span class="toc-number">4.10.</span> <span class="toc-text">实验规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%A8%E8%AE%A1%E5%88%92"><span class="toc-number">4.11.</span> <span class="toc-text">周计划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E6%8A%A5"><span class="toc-number">4.12.</span> <span class="toc-text">日报</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-10-28"><span class="toc-number">4.12.1.</span> <span class="toc-text">2019.10.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-10-29"><span class="toc-number">4.12.2.</span> <span class="toc-text">2019.10.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-10-30"><span class="toc-number">4.12.3.</span> <span class="toc-text">2019.10.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-10-31"><span class="toc-number">4.12.4.</span> <span class="toc-text">2019.10.31</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-1"><span class="toc-number">4.12.5.</span> <span class="toc-text">2019.11.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-2-3"><span class="toc-number">4.12.6.</span> <span class="toc-text">2019.11.2&#x2F;3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-4"><span class="toc-number">4.12.7.</span> <span class="toc-text">2019.11.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-5"><span class="toc-number">4.12.8.</span> <span class="toc-text">2019.11.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-6"><span class="toc-number">4.12.9.</span> <span class="toc-text">2019.11.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-7"><span class="toc-number">4.12.10.</span> <span class="toc-text">2019.11.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-8"><span class="toc-number">4.12.11.</span> <span class="toc-text">2019.11.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-9-10"><span class="toc-number">4.12.12.</span> <span class="toc-text">2019.11.9&#x2F;10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-11"><span class="toc-number">4.12.13.</span> <span class="toc-text">2019.11.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-12"><span class="toc-number">4.12.14.</span> <span class="toc-text">2019.11.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-13"><span class="toc-number">4.12.15.</span> <span class="toc-text">2019.11.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-14"><span class="toc-number">4.12.16.</span> <span class="toc-text">2019.11.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-15"><span class="toc-number">4.12.17.</span> <span class="toc-text">2019.11.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-16-17"><span class="toc-number">4.12.18.</span> <span class="toc-text">2019.11.16&#x2F;17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-18"><span class="toc-number">4.12.19.</span> <span class="toc-text">2019.11.18</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-19"><span class="toc-number">4.12.20.</span> <span class="toc-text">2019.11.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-20"><span class="toc-number">4.12.21.</span> <span class="toc-text">2019.11.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-21"><span class="toc-number">4.12.22.</span> <span class="toc-text">2019.11.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-22"><span class="toc-number">4.12.23.</span> <span class="toc-text">2019.11.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-23-24"><span class="toc-number">4.12.24.</span> <span class="toc-text">2019.11.23&#x2F;24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-25"><span class="toc-number">4.12.25.</span> <span class="toc-text">2019.11.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-26"><span class="toc-number">4.12.26.</span> <span class="toc-text">2019.11.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-27"><span class="toc-number">4.12.27.</span> <span class="toc-text">2019.11.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-28"><span class="toc-number">4.12.28.</span> <span class="toc-text">2019.11.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-29"><span class="toc-number">4.12.29.</span> <span class="toc-text">2019.11.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-11-30-1"><span class="toc-number">4.12.30.</span> <span class="toc-text">2019.11.30&#x2F;1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-2"><span class="toc-number">4.12.31.</span> <span class="toc-text">2019.12.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-3"><span class="toc-number">4.12.32.</span> <span class="toc-text">2019.12.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-4"><span class="toc-number">4.12.33.</span> <span class="toc-text">2019.12.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-5"><span class="toc-number">4.12.34.</span> <span class="toc-text">2019.12.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-6-7-8"><span class="toc-number">4.12.35.</span> <span class="toc-text">2019.12.6&#x2F;7&#x2F;8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-9"><span class="toc-number">4.12.36.</span> <span class="toc-text">2019.12.9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-10"><span class="toc-number">4.12.37.</span> <span class="toc-text">2019.12.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-11"><span class="toc-number">4.12.38.</span> <span class="toc-text">2019.12.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-12"><span class="toc-number">4.12.39.</span> <span class="toc-text">2019.12.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-13-14-15"><span class="toc-number">4.12.40.</span> <span class="toc-text">2019.12.13&#x2F;14&#x2F;15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-16"><span class="toc-number">4.12.41.</span> <span class="toc-text">2019.12.16</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-17"><span class="toc-number">4.12.42.</span> <span class="toc-text">2019.12.17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-18"><span class="toc-number">4.12.43.</span> <span class="toc-text">2019.12.18</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-19"><span class="toc-number">4.12.44.</span> <span class="toc-text">2019.12.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-20"><span class="toc-number">4.12.45.</span> <span class="toc-text">2019.12.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-21"><span class="toc-number">4.12.46.</span> <span class="toc-text">2019.12.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-22"><span class="toc-number">4.12.47.</span> <span class="toc-text">2019.12.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-23"><span class="toc-number">4.12.48.</span> <span class="toc-text">2019.12.23</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-24"><span class="toc-number">4.12.49.</span> <span class="toc-text">2019.12.24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-25"><span class="toc-number">4.12.50.</span> <span class="toc-text">2019.12.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-26"><span class="toc-number">4.12.51.</span> <span class="toc-text">2019.12.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-27"><span class="toc-number">4.12.52.</span> <span class="toc-text">2019.12.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-28-29"><span class="toc-number">4.12.53.</span> <span class="toc-text">2019.12.28&#x2F;29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-30"><span class="toc-number">4.12.54.</span> <span class="toc-text">2019.12.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-12-31"><span class="toc-number">4.12.55.</span> <span class="toc-text">2019.12.31</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-1"><span class="toc-number">4.12.56.</span> <span class="toc-text">2019.1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-2"><span class="toc-number">4.12.57.</span> <span class="toc-text">2019.1.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-3"><span class="toc-number">4.12.58.</span> <span class="toc-text">2019.1.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-4-5"><span class="toc-number">4.12.59.</span> <span class="toc-text">2019.1.4&#x2F;5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-6"><span class="toc-number">4.12.60.</span> <span class="toc-text">2019.1.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019-1-7"><span class="toc-number">4.12.61.</span> <span class="toc-text">2019.1.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-1-13"><span class="toc-number">4.12.62.</span> <span class="toc-text">2020.1.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-1-14"><span class="toc-number">4.12.63.</span> <span class="toc-text">2020.1.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-1-15"><span class="toc-number">4.12.64.</span> <span class="toc-text">2020.1.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-3-8"><span class="toc-number">4.12.65.</span> <span class="toc-text">2020.3.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-3-9"><span class="toc-number">4.12.66.</span> <span class="toc-text">2020.3.9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-5-30"><span class="toc-number">4.12.67.</span> <span class="toc-text">2020.5.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-6-2"><span class="toc-number">4.12.68.</span> <span class="toc-text">2020.6.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-7-8"><span class="toc-number">4.12.69.</span> <span class="toc-text">2020.7.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-7-13"><span class="toc-number">4.12.70.</span> <span class="toc-text">2020.7.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-10-27"><span class="toc-number">4.12.71.</span> <span class="toc-text">2020.10.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-19"><span class="toc-number">4.12.72.</span> <span class="toc-text">2020.11.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-20"><span class="toc-number">4.12.73.</span> <span class="toc-text">2020.11.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-27"><span class="toc-number">4.12.74.</span> <span class="toc-text">2020.11.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-12-3"><span class="toc-number">4.12.75.</span> <span class="toc-text">2020.12.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-12-4"><span class="toc-number">4.12.76.</span> <span class="toc-text">2020.12.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-3"><span class="toc-number">4.12.77.</span> <span class="toc-text">2020.11.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-10"><span class="toc-number">4.12.78.</span> <span class="toc-text">2020.11.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2021-4-7"><span class="toc-number">4.12.79.</span> <span class="toc-text">2021.4.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2021-4-12"><span class="toc-number">4.12.80.</span> <span class="toc-text">2021.4.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2021-5-24"><span class="toc-number">4.12.81.</span> <span class="toc-text">2021.5.24</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda-env"><span class="toc-number">4.13.</span> <span class="toc-text">conda env</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">4.14.</span> <span class="toc-text">实验结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA%E7%9B%B8%E5%85%B3"><span class="toc-number">4.15.</span> <span class="toc-text">数学理论相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%EF%BC%88%E6%9C%B1%E9%82%AE%E4%BB%B6%E5%86%85%E5%AE%B9%EF%BC%89"><span class="toc-number">4.16.</span> <span class="toc-text">目标（朱邮件内容）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">5.</span> <span class="toc-text">思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E8%AE%BA%E6%96%87"><span class="toc-number">5.1.</span> <span class="toc-text">大论文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E8%AE%BA%E6%96%87%E7%BB%93%E6%9E%84"><span class="toc-number">5.1.1.</span> <span class="toc-text">大论文结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="toc-number">5.1.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%AE%89%E6%8E%92"><span class="toc-number">5.2.</span> <span class="toc-text">时间安排</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">信息总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todo-list"><span class="toc-number">7.</span> <span class="toc-text">todo list</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1740,9 +1736,18 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 31
         </div>
         <!-- search  -->
         
@@ -1752,6 +1757,25 @@ top:50vh;
     
     
     
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" >学习资源</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span><a class="archive-post-title" href= "/2021/02/19/%E8%A3%85%E4%BF%AE%E8%AE%B0%E5%BD%95/" >装修记录</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
@@ -1822,22 +1846,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/16</span><a class="archive-post-title" href= "/2019/09/16/校招学习笔记/" >校招学习笔记</a>
+            <span class="archive-post-date">09/16</span><a class="archive-post-title" href= "/2019/09/16/%E6%A0%A1%E6%8B%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" >校招学习笔记</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2019/07/08/CYOU工作笔记/" >CYOU学习笔记</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2019/07/08/CYOU%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/" >CYOU学习笔记</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2019/05/09/互联网体系结构总结/" >互联网体系结构总结</a>
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2019/05/09/%E4%BA%92%E8%81%94%E7%BD%91%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/" >互联网体系结构总结</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2019/03/25/深度学习概念总结/" >深度学习概念总结</a>
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2019/03/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/" >深度学习概念总结</a>
         </li>
     
     
@@ -1847,12 +1871,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Kaggle笔记/" >python数据分析、可视化相关笔记</a>
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Kaggle%E7%AC%94%E8%AE%B0/" >python数据分析、可视化相关笔记</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/关于三维重建的文献综述/" >关于三维重建的文献综述</a>
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/%E5%85%B3%E4%BA%8E%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9A%84%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0/" >关于三维重建的文献综述</a>
         </li>
     
     
@@ -1871,7 +1895,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2018/12/20/git-sourcetree-腾讯云项目管理教程/" >git+sourcetree+腾讯云项目管理教程</a>
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2018/12/20/git-sourcetree-%E8%85%BE%E8%AE%AF%E4%BA%91%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E6%95%99%E7%A8%8B/" >git+sourcetree+腾讯云项目管理教程</a>
         </li>
     
     
@@ -1881,12 +1905,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2018/11/19/pytorch入门教程/" >pytorch入门教程</a>
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2018/11/19/pytorch%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" >pytorch入门教程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/04</span><a class="archive-post-title" href= "/2018/11/04/网络与信息安全总结/" >网络与信息安全总结</a>
+            <span class="archive-post-date">11/04</span><a class="archive-post-title" href= "/2018/11/04/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%80%BB%E7%BB%93/" >网络与信息安全总结</a>
         </li>
     
     
@@ -1896,17 +1920,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/06</span><a class="archive-post-title" href= "/2018/05/06/核聚变/" >核聚变</a>
+            <span class="archive-post-date">05/06</span><a class="archive-post-title" href= "/2018/05/06/%E6%A0%B8%E8%81%9A%E5%8F%98/" >核聚变</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2018/04/18/中国什么时候能有3A游戏/" >中国什么时候能有3A游戏</a>
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2018/04/18/%E4%B8%AD%E5%9B%BD%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%83%BD%E6%9C%893A%E6%B8%B8%E6%88%8F/" >中国什么时候能有3A游戏</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2018/04/12/完整游戏开发流程/" >完整游戏开发流程</a>
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2018/04/12/%E5%AE%8C%E6%95%B4%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" >完整游戏开发流程</a>
         </li>
     
     
@@ -1928,21 +1952,22 @@ top:50vh;
             <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2017/01/02/AStarPathfinding/" >A* Pathfinding</a>
         </li>
     
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2017/01/01/hello-world/" >Hello World</a>
-        </li>
-    
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
-    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
     
         <span class="sidebar-tag-name" data-tags="boost"><span class="iconfont-archer">&#xe606;</span>boost</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
     
         <span class="sidebar-tag-name" data-tags="reinforcement learning"><span class="iconfont-archer">&#xe606;</span>reinforcement learning</span>
     
@@ -1954,13 +1979,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="游戏开发"><span class="iconfont-archer">&#xe606;</span>游戏开发</span>
     
-        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
-    
-        <span class="sidebar-tag-name" data-tags="单例模式"><span class="iconfont-archer">&#xe606;</span>单例模式</span>
-    
-        <span class="sidebar-tag-name" data-tags="命令模式"><span class="iconfont-archer">&#xe606;</span>命令模式</span>
+        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
     
         <span class="sidebar-tag-name" data-tags="Unity"><span class="iconfont-archer">&#xe606;</span>Unity</span>
     
@@ -1968,27 +1989,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="DOTS"><span class="iconfont-archer">&#xe606;</span>DOTS</span>
     
-        <span class="sidebar-tag-name" data-tags="云服务"><span class="iconfont-archer">&#xe606;</span>云服务</span>
-    
-        <span class="sidebar-tag-name" data-tags="腾讯云"><span class="iconfont-archer">&#xe606;</span>腾讯云</span>
-    
         <span class="sidebar-tag-name" data-tags="图形学"><span class="iconfont-archer">&#xe606;</span>图形学</span>
     
         <span class="sidebar-tag-name" data-tags="线上课程"><span class="iconfont-archer">&#xe606;</span>线上课程</span>
-    
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
-    
-        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
-    
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
     
         <span class="sidebar-tag-name" data-tags="ICIP"><span class="iconfont-archer">&#xe606;</span>ICIP</span>
     
@@ -2000,27 +2003,33 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="hmd"><span class="iconfont-archer">&#xe606;</span>hmd</span>
     
+        <span class="sidebar-tag-name" data-tags="数据分析"><span class="iconfont-archer">&#xe606;</span>数据分析</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据可视化"><span class="iconfont-archer">&#xe606;</span>数据可视化</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="钓鱼网站"><span class="iconfont-archer">&#xe606;</span>钓鱼网站</span>
+    
+        <span class="sidebar-tag-name" data-tags="burpsuite"><span class="iconfont-archer">&#xe606;</span>burpsuite</span>
+    
         <span class="sidebar-tag-name" data-tags="FPS"><span class="iconfont-archer">&#xe606;</span>FPS</span>
     
         <span class="sidebar-tag-name" data-tags="Sandbox"><span class="iconfont-archer">&#xe606;</span>Sandbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
+    
+        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
     
         <span class="sidebar-tag-name" data-tags="Andrew Ng"><span class="iconfont-archer">&#xe606;</span>Andrew Ng</span>
     
         <span class="sidebar-tag-name" data-tags="Deeplearning"><span class="iconfont-archer">&#xe606;</span>Deeplearning</span>
     
         <span class="sidebar-tag-name" data-tags="AI"><span class="iconfont-archer">&#xe606;</span>AI</span>
-    
-        <span class="sidebar-tag-name" data-tags="多线程"><span class="iconfont-archer">&#xe606;</span>多线程</span>
-    
-        <span class="sidebar-tag-name" data-tags="线程池"><span class="iconfont-archer">&#xe606;</span>线程池</span>
-    
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
-    
-        <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
-    
-        <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
-    
-        <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
     
         <span class="sidebar-tag-name" data-tags="Dx12"><span class="iconfont-archer">&#xe606;</span>Dx12</span>
     
@@ -2030,11 +2039,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Shader"><span class="iconfont-archer">&#xe606;</span>Shader</span>
     
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="sourcetree"><span class="iconfont-archer">&#xe606;</span>sourcetree</span>
+    
+        <span class="sidebar-tag-name" data-tags="版本控制"><span class="iconfont-archer">&#xe606;</span>版本控制</span>
+    
+        <span class="sidebar-tag-name" data-tags="项目管理"><span class="iconfont-archer">&#xe606;</span>项目管理</span>
+    
+        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
+    
+        <span class="sidebar-tag-name" data-tags="notebook"><span class="iconfont-archer">&#xe606;</span>notebook</span>
+    
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="cifar-10"><span class="iconfont-archer">&#xe606;</span>cifar-10</span>
-    
-        <span class="sidebar-tag-name" data-tags="C#"><span class="iconfont-archer">&#xe606;</span>C#</span>
     
         <span class="sidebar-tag-name" data-tags="stl"><span class="iconfont-archer">&#xe606;</span>stl</span>
     
@@ -2042,21 +2061,27 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="智能指针"><span class="iconfont-archer">&#xe606;</span>智能指针</span>
     
+        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
+    
+        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
+    
         <span class="sidebar-tag-name" data-tags="研究生课程"><span class="iconfont-archer">&#xe606;</span>研究生课程</span>
     
         <span class="sidebar-tag-name" data-tags="互联网体系结构"><span class="iconfont-archer">&#xe606;</span>互联网体系结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="学习笔记"><span class="iconfont-archer">&#xe606;</span>学习笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="资源链接"><span class="iconfont-archer">&#xe606;</span>资源链接</span>
     
         <span class="sidebar-tag-name" data-tags="GAD"><span class="iconfont-archer">&#xe606;</span>GAD</span>
     
         <span class="sidebar-tag-name" data-tags="开发流程"><span class="iconfont-archer">&#xe606;</span>开发流程</span>
     
-        <span class="sidebar-tag-name" data-tags="3A"><span class="iconfont-archer">&#xe606;</span>3A</span>
-    
-        <span class="sidebar-tag-name" data-tags="王妙一"><span class="iconfont-archer">&#xe606;</span>王妙一</span>
-    
         <span class="sidebar-tag-name" data-tags="机核"><span class="iconfont-archer">&#xe606;</span>机核</span>
     
         <span class="sidebar-tag-name" data-tags="游戏展"><span class="iconfont-archer">&#xe606;</span>游戏展</span>
+    
+        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
     
         <span class="sidebar-tag-name" data-tags="加密"><span class="iconfont-archer">&#xe606;</span>加密</span>
     
@@ -2064,7 +2089,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="数字签名"><span class="iconfont-archer">&#xe606;</span>数字签名</span>
     
-        <span class="sidebar-tag-name" data-tags="基础知识"><span class="iconfont-archer">&#xe606;</span>基础知识</span>
+        <span class="sidebar-tag-name" data-tags="装修"><span class="iconfont-archer">&#xe606;</span>装修</span>
+    
+        <span class="sidebar-tag-name" data-tags="建材"><span class="iconfont-archer">&#xe606;</span>建材</span>
+    
+        <span class="sidebar-tag-name" data-tags="室内设计"><span class="iconfont-archer">&#xe606;</span>室内设计</span>
     
         <span class="sidebar-tag-name" data-tags="3D model reconstruction"><span class="iconfont-archer">&#xe606;</span>3D model reconstruction</span>
     
@@ -2107,11 +2136,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
-        <span class="sidebar-category-name" data-categories="项目"><span class="iconfont-archer">&#xe60a;</span>项目</span>
-    
-        <span class="sidebar-category-name" data-categories="摘录"><span class="iconfont-archer">&#xe60a;</span>摘录</span>
+        <span class="sidebar-category-name" data-categories="个人项目"><span class="iconfont-archer">&#xe60a;</span>个人项目</span>
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="游戏开发"><span class="iconfont-archer">&#xe60a;</span>游戏开发</span>
     
         <span class="sidebar-category-name" data-categories="论文综述"><span class="iconfont-archer">&#xe60a;</span>论文综述</span>
     
@@ -2148,24 +2177,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
     
-        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->    
+        <script src="/scripts/share.js" async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->    
      
     </body>
 </html>
